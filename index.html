@@ -1,32 +1,62 @@
+<!DOCTYPE html>
 <HTML>
+
+	<head>
+		<style>
+			body {background-color: powderblue;}
+
+		</style>
+	</head>
 
 	<HEADER>
 		<TITLE>FakeDesmos.com</TITLE>
 	</HEADER>
 
 	<BODY>
-		 <label>Function:</label>
+		<label>Function:</label>
 		<input type="text" placeholder="Input function" required>
 		<p> </p>
 		<p> </p>
+
 		<label>x-min:</label>
 		<input type="text" placeholder="x-min" required>
 		<p> </p>
+
 		<label>x-min:</label>
 		<input type="text" placeholder="x-max" required>
 		<p> </p>
 		<p> </p>
+
 		<p>Which unit would you like to use?</p>
-		<label for="width"><input id="width" type="radio" name="width-rectangles"> Width</label>
-		<label for="rectangles"><input id="rectangles" type="radio" name="width-rectangles"> Rectangles</label><br>
-		<p> </p>
-		<p> </p>
-		<label>Width or Number of rectangles</label>
 
-		<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+		<label for="width">
+		<input style="cursor:pointer" id="width" type="radio" name="width-rectangles"> Width</label>
+
+		<label for="rectangles">
+		<input style="cursor:pointer" id="rectangles" type="radio" name="width-rectangles"> Rectangles</label><br>
 
 		<p> </p>
-		<button type="button">Graph it</button>
+		<p> </p>
+		<p> </p>
+		<p> </p>
+
+		<label>Width or Number of rectangles:</label>
+		<p> </p>
+
+		<label style="font-size:10px"> min</label>
+		<input style="cursor:pointer" type="range" min="1" max="100" value="50" class="slider" id="myRange">
+		<label style="font-size:10px">max</label>
+
+		<p> </p>
+		<style type="text/css">
+			.btn {
+				background-color:red;
+				cursor:pointer;
+				font-size:16px;
+			}
+		</style>
+
+		<button class="btn">Graph it!</button>
 
 	</BODY>
 </HTML>
