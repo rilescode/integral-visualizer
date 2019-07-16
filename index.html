@@ -3,7 +3,80 @@
 
 	<head>
 		<style>
-			body {background-color:rgb(222, 238, 233);}
+			body {
+				background-color:rgb(254, 252, 243);
+				font:Verdana;
+				width: 420px;
+			}
+
+			labels {
+				font:Verdana;
+
+			}
+
+			.btn {
+				background-color:rgb(180, 195, 216);
+				cursor:pointer;
+				font-size:20px;
+				font:Verdana;
+			}
+
+			.left-side,
+			.btn {
+
+			}
+			.left-side {
+			  background: rgb(222, 238, 233);
+
+			}<!--
+			.square {
+			  background: green;
+			  height: 70px;
+			  line-height: 40px;
+			  position: relative;
+			  text-align: center;
+			  width: 80px;
+			}
+			.square-1 {
+				top: 15px;
+			  }
+			.square-2 {
+			  left: 50px;
+			}
+			.square-3 {
+			  bottom: -23px;
+			  right: 30px;
+			} -->
+
+
+
+
+<!--.square-set,
+.square {
+  border-radius: 15px;
+}
+.square-set {
+  background: darkgrey;
+}
+.square {
+  background: green;
+  height: 70px;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  width: 80px;
+}
+.square-1 {
+    top: 15px;
+  }
+.square-2 {
+  left: 50px;
+}
+.square-3 {
+  bottom: -23px;
+  right: 30px;
+}-->
+
 
 		</style>
 	</head>
@@ -13,41 +86,47 @@
 	</HEADER>
 
 	<BODY>
+
+		<div class="left-side">
 		<p>Select a skeleton function:</p>
 
-    <label for="Linear">
+		<!-- maybe include value = later when we need results back-->
+
+		<label for="Linear">
 		<input style="cursor:pointer" id="Linear" type="radio" name="function-type"> Linear: f(x) = Ax + B</label>
     	<p> </p>
 		<label for="Quadratic">
 		<input style="cursor:pointer" id="Quadratic" type="radio" name="function-type"> Quadratic: f(x) = Ax<sup>2</sup> + Bx + C</label><br>
-	<p> </p>
-    <label for="Sine">
-		<input style="cursor:pointer" id="Sine" type="radio" name="function-type">Sine: f(x) = sin(x)</label><br>
-	<p> </p>
-    <label for="Cosine">
-		<input style="cursor:pointer" id="Cosine" type="radio" name="function-type">Cosine: f(x) = cos(x)</label><br>
-	<p> </p>
-    <label for="e^x">
-		<input style="cursor:pointer" id="e^x" type="radio" name="function-type">e<sup>x</sup>: f(x) = e<sup>x</sup></label><br>
-	<p> </p>
-    <label for="Natural log">
-		<input style="cursor:pointer" id="Natural log" type="radio" name="function-type">Natural log: f(x) = ln(x)</label><br>
-	<p> </p>
+		<p> </p>
+		<label for="Sine">
+			<input style="cursor:pointer" id="Sine" type="radio" name="function-type">Sine: f(x) = sin(x)</label><br>
+		<p> </p>
+		<label for="Cosine">
+			<input style="cursor:pointer" id="Cosine" type="radio" name="function-type">Cosine: f(x) = cos(x)</label><br>
+		<p> </p>
+		<label for="e^x">
+			<input style="cursor:pointer" id="e^x" type="radio" name="function-type">e<sup>x</sup>: f(x) = e<sup>x</sup></label><br>
+		<p> </p>
+		<label for="Natural log">
+			<input style="cursor:pointer" id="Natural log" type="radio" name="function-type">Natural log: f(x) = ln(x)</label><br>
+		<p> </p>
 
-	<!–– Select a skeleton function (1 - 6).
+	<!-- Select a skeleton function (1 - 6).
     You will be able to modify some functions:
     1.  Linear: f(x) = Ax + B
     2.  Quadratic: f(x) = Ax^2 + Bx + C
     3.  Sine: f(x) = sin(x)
     4.  Cosine: f(x) = cos(x)
     5.  e^x: f(x) = e^x
-    6.  Natural log: f(x) = ln(x)––>
+    6.  Natural log: f(x) = ln(x)-->
 
 	<p>Variables:</p>
     <label>A:</label>
 		<input type="text" placeholder="eg " required>
+		<p> </p>
     <label>B:</label>
     <input type="text" placeholder="eg " required>
+	<p> </p>
     <label>C:</label>
     <input type="text" placeholder="eg " required>
 		<p> </p>
@@ -83,15 +162,25 @@
 		<label style="font-size:10px">max</label>
 
 		<p> </p>
-		<style type="text/css">
-			.btn {
-				background-color:rgb(180, 195, 216);
-				cursor:pointer;
-				font-size:20px;
-			}
-		</style>
 
-		<button class="btn">Graph it!</button>
+
+
+
+
+
+
+<!--<div class="square-set">
+  <figure class="square square-1">SQUARE 1</figure>
+  <figure class="square square-2">SQUARE 2</figure>
+  <figure class="square square-3">SQUARE 3</figure>
+  <figure class="square square-4">SQUARE 4</figure> -->
+
+
+		<button class="btn">GRAPH IT!</button>
+		<p> </p>
+		<p> </p>
+		<p> </p>
+		</div>
 
 	</BODY>
 </HTML>
