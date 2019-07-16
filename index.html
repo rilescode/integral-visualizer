@@ -85,10 +85,10 @@
 			.container{
   display: block;
   position: relative;
-  margin: 30px auto;
+  margin: 15px auto;
   height: auto;
-  width: 400px;
-  padding: 10px;
+  width: 300px;
+  padding: 5px;
 }
 
 .container ul{
@@ -104,8 +104,8 @@ ul li{
   position: relative;
   float: left;
   width: 100%;
-  height: 100px;
-	border-bottom: 1px solid #333;
+  height: 50px;
+  border-bottom: 1px solid #333;
 }
 
 ul li input[type=radio]{
@@ -116,11 +116,11 @@ ul li input[type=radio]{
 ul li label{
   display: block;
   position: relative;
-  font-weight: 300;
-  font-size: 1.35em;
-  padding: 25px 25px 25px 80px;
-  margin: 10px auto;
-  height: 30px;
+  font-weight: 1500;
+  <!--font-size: 1.35em;-->
+  padding: 12px 12px 12px 40px;
+  margin: 5px auto;
+  height: 10px;
   z-index: 9;
   cursor: pointer;
   -webkit-transition: all 0.25s linear;
@@ -135,10 +135,10 @@ ul li .check{
   position: absolute;
   border: 5px solid rgb(84, 90, 112);
   border-radius: 100%;
-  height: 25px;
-  width: 25px;
-  top: 30px;
-  left: 20px;
+  height: 12px;
+  width: 12px;
+  top: 15px;
+  left: 10px;
 	z-index: 5;
 	transition: border .25s linear;
 	-webkit-transition: border .25s linear;
@@ -153,25 +153,25 @@ ul li .check::before {
   position: absolute;
 	content: '';
   border-radius: 100%;
-  height: 15px;
-  width: 15px;
-  top: 5px;
-	left: 5px;
+  height: 7px;
+  width: 7px;
+  top: 7px;
+	left: 2.5px;
   margin: auto;
 	transition: background 0.25s linear;
 	-webkit-transition: background 0.25s linear;
 }
 
 input[type=radio]:checked ~ .check {
-  border: 5px solid #0DFF92;
+  border: 5px solid rgb(140, 61, 18);
 }
 
 input[type=radio]:checked ~ .check::before{
-  background: #0DFF92;
+  background: rgb(140, 61, 18);
 }
 
 input[type=radio]:checked ~ label{
-  color: #0DFF92;
+  color: rgb(140, 61, 18);
 }
 
 
