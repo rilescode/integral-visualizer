@@ -10,8 +10,6 @@ A = 0
 B = 0
 C = 0
 
-# HELOOOOOO!O!OO!O@O!@O!O@O!@!O@
-
 def main():
    xMin= float(input("Enter a value for the first x-coordinate: "))
    xMax= float(input("Enter a value for the second x-coordinate: "))
