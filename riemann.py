@@ -4,13 +4,149 @@ import math
 
 INCREASE = 0.0001
 
-xMin = 0
-xMax = 0
+FUNCTION = 0
+
 A = 0 
 B = 0
 C = 0
+D = 0
 
-def main():
+xMin = 0
+xMax = 0
+
+WIDTH = True 
+
+DELTA_X = 0.5
+
+NUM_RECT = 2
+
+SUM_TYPE = 0
+
+def main(): 
+        xList= np.arange(xMin, xMax, INCREASE) 
+        yList = createYArray(xList, FUNCTION) 
+        
+        
+        
+def createYArray(xList, type):
+   A = float(input("\nA? "))
+   B = float(input("B? "))
+   if type != "LINEAR" and type != "E" and type != "":
+      C = float(input("C? "))
+      if type == "CUBIC" or type == "SINE" or type == "COSINE":
+         D = float(input("D? "))  
+   if type == "LINEAR": 
+        yList = A * xList + B 
+   elif type == "QUAD":
+        yList = A * xList * xList + B * xList + C
+   elif type == "CUBIC": 
+        yList = A * xList * xList * xList + B * xList * xList + C * xList + D
+   elif type == "SINE":
+      yList = A * np.sin(B * xList + C) + D 
+   elif type == "COSINE": 
+      yList = A * np.cos(B * xList + C) + D
+   elif type == "E":
+      yList = A * math.e ** xList + B
+   else: # natural log
+      yList = A * np.log(xList) + B
+   
+   return yList
+   
+def riemann(yList, deltaX, xMin, width, type):
+   delta =  int(deltaX / INCREASE)  
+    
+   sum = 0
+   
+   leftSum = 0 
+   rightSum = 0 
+   
+   riemannX = []
+   riemannY = [] 
+ 
+   for i in range(0, len(yList) / delta):      
+      sum += yList[i * delta] * deltaX # sum calculation
+       
+      # rectangle graphing
+      riemannX.append(i * deltaX + xMin)
+      riemannY.append(0)
+      
+      if type == "Left":
+         val = yList[delta * i]
+      elif type == "Right":
+         if i == len(yList) / delta - 1:
+            val = yList[delta * (i + 1) - 1] # last rectangle
+         else: 
+            val = yList[delta * (i + 1)]
+      else: # Mid
+         val = yList[delta * i + delta / 2]  
+      
+      riemannX.append(i * deltaX + xMin)
+      riemannY.append(val)
+      riemannX.append((i + 1) * deltaX + xMin)
+      riemannY.append(val)
+   
+   # adds last point
+   riemannX.append((i + 1) * deltaX + xMin)
+   riemannY.append(0) 
+   
+   leftSum = sum
+
+   if type == "Right" or type == "Mid": 
+      sum -= yList[0] * deltaX
+      sum += yList[len(yList) - 1] * deltaX
+      rightSum = sum
+   if type == "Left":
+      print("\nThe left endpoint sum is: " + str(round(leftSum, 3)))
+   elif type == "Right": 
+      print("\nThe right endpoint sum is: " + str(round(rightSum, 3)))
+   else: # Mid
+        #midpoint is average of left and right sums
+      print("\nThe midpoint sum is: " + str(round((rightSum + leftSum) / 2 , 3)))   
+   
+   plt.plot(riemannX, riemannY)
+   
+
+def riemannTrap(yList, deltaX, xMin, width):
+   delta =  int(deltaX / INCREASE)  
+   
+   #print("deltaX: " + str(deltaX))
+   sum = 0
+      
+   riemannX = []
+   riemannY = []   
+
+   for i in range(0, len(yList) / delta - 1):
+      # area trapezoid = 0.5 * (base1 + base2) * height
+      sum += 0.5 * (yList[i * delta] + yList[(i + 1) * delta]) * deltaX # sum calcs
+      #print("sum" + str(sum))   
+      riemannX.append(i * deltaX + xMin) # rectangle graphing
+      riemannY.append(0)
+      riemannX.append(i * deltaX + xMin)
+      riemannY.append(yList[i * delta])
+      val = yList[(i + 1) * delta] 
+      riemannX.append((i + 1) * deltaX + xMin)
+      riemannY.append(val)
+         
+   # adds on values that are left out of main loop to sum 
+   sum += 0.5 * (yList[len(yList) - delta] + yList[len(yList) - 1]) * deltaX 
+                    
+   # adds on values that are left out of main loop to riemann series
+   i += 1
+   riemannX.append(i * deltaX + xMin)
+   riemannY.append(0) 
+   riemannX.append(i * deltaX + xMin) 
+   riemannY.append(yList[i * delta]) 
+   val = yList[(i + 1) * delta - 1]
+   riemannX.append((i + 1) * deltaX + xMin)
+   riemannY.append(val)
+   riemannX.append((i + 1) * deltaX + xMin)
+   riemannY.append(0) 
+   
+   plt.plot(riemannX, riemannY)
+
+   print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
+         
+def test():
    print("\n1. Linear \n2. Quadratic \n3. Cubic \n4. Sine \n5. Cosine \n6. e^x \n7. Natural log")
    func = int(input("\nWhich function do you want to graph? "))
    while True:
@@ -106,122 +242,4 @@ def main():
    plt.grid(True)
    plt.show()
 
-def createYArray(xList, type):
-   A = float(input("\nA? "))
-   B = float(input("B? "))
-   if type != "LINEAR" and type != "E" and type != "":
-      C = float(input("C? "))
-      if type == "CUBIC" or type == "SINE" or type == "COSINE":
-         D = float(input("D? "))  
-   if type == "LINEAR": 
-        yList = A * xList + B 
-   elif type == "QUAD":
-        yList = A * xList * xList + B * xList + C
-   elif type == "CUBIC": 
-        yList = A * xList * xList * xList + B * xList * xList + C * xList + D
-   elif type == "SINE":
-      yList = A * np.sin(B * xList + C) + D 
-   elif type == "COSINE": 
-      yList = A * np.cos(B * xList + C) + D
-   elif type == "E":
-      yList = A * math.e ** xList + B
-   else: # natural log
-      yList = A * np.log(xList) + B
-   
-   return yList
-   
-def riemann(yList, deltaX, xMin, width, type):
-   delta =  int(deltaX / INCREASE)  
-    
-   sum = 0
-   
-   leftSum = 0 
-   rightSum = 0 
-   
-   riemannX = []
-   riemannY = [] 
- 
-   for i in range(0, len(yList) / delta):      
-      sum += yList[i * delta] * deltaX # sum calculation
-       
-      # rectangle graphing
-      riemannX.append(i * deltaX + xMin)
-      riemannY.append(0)
-      
-      if type == "Left":
-         val = yList[delta * i]
-      elif type == "Right":
-         if i == len(yList) / delta - 1:
-            val = yList[delta * (i + 1) - 1] # last rectangle
-         else: 
-            val = yList[delta * (i + 1)]
-      else: # Mid
-         val = yList[delta * i + delta / 2]  
-      
-      riemannX.append(i * deltaX + xMin)
-      riemannY.append(val)
-      riemannX.append((i + 1) * deltaX + xMin)
-      riemannY.append(val)
-   
-   # adds last point
-   riemannX.append((i + 1) * deltaX + xMin)
-   riemannY.append(0) 
-   
-   leftSum = sum
-
-   if type == "Right" or type == "Mid": 
-      sum -= yList[0] * deltaX
-      sum += yList[len(yList) - 1] * deltaX
-      rightSum = sum
-   if type == "Left":
-      print("\nThe left endpoint sum is: " + str(round(leftSum, 2)))
-   elif type == "Right": 
-      print("\nThe right endpoint sum is: " + str(round(rightSum, 2)))
-   else: # Mid
-        #midpoint is average of left and right sums
-      print("\nThe midpoint sum is: " + str(round((rightSum + leftSum) / 2 , 2)))   
-   
-   plt.plot(riemannX, riemannY)
-   
-
-def riemannTrap(yList, deltaX, xMin, width):
-   delta =  int(deltaX / INCREASE)  
-   
-   #print("deltaX: " + str(deltaX))
-   sum = 0
-      
-   riemannX = []
-   riemannY = []   
-
-   for i in range(0, len(yList) / delta - 1):
-      # area trapezoid = 0.5 * (base1 + base2) * height
-      sum += 0.5 * (yList[i * delta] + yList[(i + 1) * delta]) * deltaX # sum calcs
-      #print("sum" + str(sum))   
-      riemannX.append(i * deltaX + xMin) # rectangle graphing
-      riemannY.append(0)
-      riemannX.append(i * deltaX + xMin)
-      riemannY.append(yList[i * delta])
-      val = yList[(i + 1) * delta] 
-      riemannX.append((i + 1) * deltaX + xMin)
-      riemannY.append(val)
-         
-   # adds on values that are left out of main loop to sum 
-   sum += 0.5 * (yList[len(yList) - delta] + yList[len(yList) - 1]) * deltaX 
-                    
-   # adds on values that are left out of main loop to riemann series
-   i += 1
-   riemannX.append(i * deltaX + xMin)
-   riemannY.append(0) 
-   riemannX.append(i * deltaX + xMin) 
-   riemannY.append(yList[i * delta]) 
-   val = yList[(i + 1) * delta - 1]
-   riemannX.append((i + 1) * deltaX + xMin)
-   riemannY.append(val)
-   riemannX.append((i + 1) * deltaX + xMin)
-   riemannY.append(0) 
-   
-   plt.plot(riemannX, riemannY)
-
-   print("\nThe trapezoidal sum is: " + str(round(sum, 2)))
-         
-main()
+test()
