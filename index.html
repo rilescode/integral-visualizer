@@ -79,7 +79,7 @@
 			}
 			ul li .check{
 			  display: block;
-			  position: relative;
+			  position: absolute;
 			  border: 3px solid rgb(84, 90, 112);
 			  border-radius: 100%;
 			  height: 12px;
@@ -95,7 +95,7 @@
 			}
 			ul li .check::before {
 			  display: block;
-			  position: relative;
+			  position: absolute;
 			  content: '';
 			  border-radius: 100%;
 			  height: 7px;
@@ -112,7 +112,7 @@
 			input[type=radio]:checked ~ .check::before{
 			  background: rgb(140, 61, 18);
 			}
-			input[type=radio]:checked ~ li{
+			input[type=radio]:checked ~ label{
 			  color: rgb(140, 61, 18);
 			}
 			#var {
@@ -158,28 +158,28 @@
   <ul>
   <li>
 	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear" type="radio" name="function-type">
-	<label for="Linear"> Linear: f(x) = Ax + B</label>
+	<label for="Linear"> Linear: f(x) = Ax+B</label>
 
     <div class="check"></div>
   </li>
 
   <li>
 	<input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic" type="radio" name="function-type">
-	<label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup> + Bx + C</label>
+	<label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup>+Bx+C</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
 	<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic" type="radio" name="function-type">
-	<label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+ Bx<sup>2</sup> + Cx + D</label>
+	<label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
   <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine" type="radio" name="function-type">
-  <label for="Sine"> Sine: f(x) = Asin(Bx + C) + D</label>
+  <label for="Sine"> Sine: f(x) = A sin(Bx+C)+D</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
@@ -187,21 +187,21 @@
   <li>
 
 	<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine" type="radio" name="function-type">
-    <label for="Cosine"> Cosine: f(x) = Acos(Bx+C)+D</label>
+    <label for="Cosine"> Cosine: f(x) = A cos(Bx+C)+D</label>
 
     <div class="check"></div><div class="inside"></div>
   </li>
 
   <li>
 	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x" type="radio" name="function-type">
-    <label for="e^x"> e<sup>x</sup>: f(x) = Ae<sup>x</sup>+ B</label>
+    <label for="e^x"> e<sup>x</sup>: f(x) = A e<sup>x</sup>+B</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
 	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log" type="radio" name="function-type">
-    <label for="Natural log"> Natural log: f(x) = Aln(x) + B</label>
+    <label for="Natural log"> Natural log: f(x) = A ln(x)+B</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
