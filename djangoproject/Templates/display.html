@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<HTML>
+
+	<head>
+		<style>
+			body {
+				background-color:rgb(254, 252, 243);
+				font-family: verdana;
+				width: 420px;
+			}
+
+			label {
+				font:Verdana;
+				color: rgb(84, 90, 112);
+
+			}
+
+			.btn {
+				background-color:rgb(180, 195, 216);
+				cursor:pointer;
+				font-size:20px;
+				font-family: verdana;
+				border-radius: 10px;
+			}
+
+			.left-side {
+				background: rgb(222, 238, 233);
+				position: relative;
+				width: 400px;
+				border: 3px solid rgb(84, 90, 112);
+			}
+
+			div.a {
+				position: relative;
+				left: 25px;
+			}
+
+			div.b {
+				position: relative;
+				left: 50px;
+			}
+
+			h3 {
+				font-size: 18px;
+			}
+
+			#var {
+				display: none;
+			}
+
+			#varABC {
+				display: none;
+			}
+
+			ul.functul{
+				list-style: none;
+				width: 300px;
+				height: auto;
+			}
+
+			li{
+				color: rgb(84, 90, 112);
+				display: block;
+				width: 100%;
+				position: relative
+				height: 40px;
+				border-bottom: 1px solid #333;
+				cursor: pointer;
+				border: 1px dashed blue;
+			}
+
+			li.WdthRect {
+
+				border-right: 1px solid #333;
+
+			}
+
+
+		</style>
+	</head>
+
+	<HEADER>
+		<TITLE>FakeDesmos.com</TITLE>
+	</HEADER>
+
+	<body>
+
+		<div class="left-side">
+		<div class="a">
+		<h3>Select a skeleton function:</h3>
+		</div>
+
+
+
+		<div>
+
+  <ul class="functul">
+  <li>
+	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear" type="radio" name="function-type">
+	<label for="Linear"> Linear: f(x) = Ax + B</label>
+
+    <div class="check"></div>
+  </li>
+
+  <li>
+	<input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic" type="radio" name="function-type">
+	<label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup> + Bx + C</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+  <input onchange="disappearVar()" style="cursor:pointer" id="Sine" type="radio" name="function-type">
+  <label for="Sine"> Sine: f(x) = sin(x)</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+
+	<input onchange="disappearVar()" style="cursor:pointer" id="Cosine" type="radio" name="function-type">
+    <label for="Cosine"> Cosine: f(x) = cos(x)</label>
+
+    <div class="check"></div><div class="inside"></div>
+  </li>
+
+  <li>
+	<input onchange="disappearVar()" style="cursor:pointer" id="e^x" type="radio" name="function-type">
+    <label for="e^x"> e<sup>x</sup>: f(x) = e<sup>x</sup></label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+	<input onchange="disappearVar()" style="cursor:pointer" id="Natural log" type="radio" name="function-type">
+    <label for="Natural log"> Natural log: f(x) = ln(x)</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+</ul>
+</div>
+
+	<div class="a" id="var">
+
+	<h3>Variables</h3>
+
+	</div>
+
+	<div id="varABC" class="b">
+
+    <label id="ALbl">A:</label>
+		<input id="Abox" type="text" placeholder="eg " >
+		<p> </p>
+    <label id="BLbl">B:</label>
+    <input id="Bbox" type="text" placeholder="eg " >
+	<p> </p>
+    <label id="CLbl" >C:</label>
+    <input id="Cbox" type="text" placeholder="eg " >
+	</div>
+		<p> </p>
+		<p> </p>
+		<p> </p>
+
+
+	<script>
+	function aprVarTtlAB() {
+	  document.getElementById("var").style.display = "block";
+	  document.getElementById("varABC").style.display = "block";
+	  document.getElementById("CLbl").style.display = "none";
+	  document.getElementById("Cbox").style.display = "none";
+
+	}
+	</script>
+
+	<script>
+	function aprVarTtlABC() {
+	  document.getElementById("var").style.display = "block";
+	  document.getElementById("varABC").style.display = "block";
+	  document.getElementById("CLbl").style.display = "inline";
+	  document.getElementById("Cbox").style.display = "inline";
+	}
+	</script>
+
+	<script>
+	function disappearVar() {
+	  document.getElementById("var").style.display = "none";
+	  document.getElementById("varABC").style.display = "none";
+	}
+	</script>
+
+
+<div class="a">
+
+	<h3>Domain</h3>
+
+	</div>
+
+	<div class="b">
+
+		<label>x-min:</label>
+		<input type="text" placeholder="x-min" required>
+		<p> </p>
+
+		<label>x-max:</label>
+		<input type="text" placeholder="x-max" required>
+		<p> </p>
+		<p> </p>
+
+		</div>
+
+		<div class="a">
+
+		<h3>Which unit would you like to use?</h3>
+
+		</div>
+
+		<div class="b">
+
+
+		<ul>
+		  <li class="WdthRect">
+
+			<label for="width">Width</label>
+			<input style="cursor:pointer" id="width" type="radio" name="width-rectangles" style="cursor:pointer">
+		  </li>
+
+		  <li class="WdthRect>
+			<label for="rectangles">Rectangles</label>
+			<input style="cursor:pointer" id="rectangles" type="radio" name="width-rectangles">
+		  </li>
+
+		</ul>
+
+
+
+
+		<label for="width">
+		<input style="cursor:pointer" id="width" type="radio" name="width-rectangles" style="cursor:pointer"> Width</label>
+
+		<label for="rectangles">
+		 Rectangles</label><br>
+
+		</div>
+
+		<p> </p>
+		<p> </p>
+		<p> </p>
+		<p> </p>
+
+		<div class="a">
+
+		<h3>Width or Number of rectangles:</h3>
+		</div>
+		<p> </p>
+
+
+		<p> slider will go here </p>
+
+		<div class="a">
+		<button class="btn">GRAPH IT!</button>
+		<p> </p>
+		<p> </p>
+		<p> </p>
+		</div>
+		</div>
+
+	</body>
+</HTML>

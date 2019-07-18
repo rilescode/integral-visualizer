@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 #own
-from pages.views import home_view, epic_view
+from pages.views import home_view, test_view
 
 urlpatterns = [
     #own urls
     path('', home_view, name='home'),
-    path('epic/', epic_view),
+    path('test/', test_view),
     #
     path('admin/', admin.site.urls),
 ]
