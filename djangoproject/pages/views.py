@@ -2,1502 +2,276 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
-def home_view(*args, **kwargs):
-    return HttpResponse("<h1>Hello Mark</h1>")
+def home_view(request, *args, **kwargs):
+    return render(request, "home.html", {})
 
 def epic_view(*args, **kwargs):
     return HttpResponse("""<!DOCTYPE html>
-
 <HTML>
 
-
-
 	<head>
-
 		<style>
-
 			body {
-
 				background-color:rgb(254, 252, 243);
-
 				font-family: verdana;
-
 				width: 420px;
-
 			}
-
-
 
 			label {
-
 				font:Verdana;
-
 				color: rgb(84, 90, 112);
 
-
-
 			}
-
-
 
 			.btn {
-
 				background-color:rgb(180, 195, 216);
-
 				cursor:pointer;
-
 				font-size:20px;
-
 				font-family: verdana;
-
 				border-radius: 10px;
-
 			}
-
-
 
 			.left-side {
-
 				background: rgb(222, 238, 233);
-
 				position: relative;
-
 				width: 400px;
-
 				border: 3px solid rgb(84, 90, 112);
-
 			}
-
-
 
 			div.a {
-
 				position: relative;
-
 				left: 25px;
-
 			}
-
-
 
 			div.b {
-
 				position: relative;
-
 				left: 50px;
-
 			}
-
-
 
 			h3 {
-
 				font-size: 18px;
-
 			}
-
-
-
-			.slidecontainer {
-
-				width: 300px;
-
-				height: 25px;
-
-				position: relative;
-
-				left: 50%;
-
-				transform: translateX(-50%);
-
-			}
-
-
-
-			.slider {
-
-			  -webkit-appearance: none;
-
-			  width: 100%;
-
-			  height: 5px;
-
-			  background: rgb(84, 90, 112);
-
-			  outline: none;
-
-			  opacity: 0.7;
-
-			  -webkit-transition: .2s;
-
-			  transition: opacity .2s;
-
-			}
-
-
-
-			.slider:hover {
-
-			  opacity: 1;
-
-			}
-
-
-
-			.slider::-webkit-slider-thumb {
-
-			  -webkit-appearance: none;
-
-			  appearance: none;
-
-			  width: 5px;
-
-			  height: 15px;
-
-			  background: rgb(140, 61, 18);
-
-			  cursor: pointer;
-
-			}
-
-
-
-			.slider::-moz-range-thumb {
-
-			  width: 5px;
-
-			  height: 15px;
-
-			  background: rgb(140, 61, 18);
-
-			  cursor: pointer;
-
-			}
-
-
-
-
-
-
-
-			.container{
-
-			  display: block;
-
-			  position: relative;
-
-			  margin: 1px auto;
-
-			  height: auto;
-
-			  width: 325px;
-
-			  padding: 1px;
-
-			}
-
-
-
-			.container ul{
-
-			  list-style: none;
-
-			  margin: 0px;
-
-			  padding: 0px;
-
-			  overflow: auto;
-
-			}
-
-
-
-			ul li{
-
-			  color: rgb(84, 90, 112);
-
-			  display: block;
-
-			  position: relative;
-
-			  float: left;
-
-			  width: 100%;
-
-			  height: 50px;
-
-			  margin: 0px;
-
-			  border-bottom: 1px solid #333;
-
-			}
-
-
-
-			ul li input[type=radio]{
-
-			  position: relative;
-
-			  visibility: hidden;
-
-			}
-
-
-
-			ul li label{
-
-			  display: block;
-
-			  position: relative;
-
-			  font-weight: 150;
-
-			  padding: 0px 10px 0px 40px;
-
-			  height: 30px;
-
-			  z-index: 9;
-
-			  cursor: pointer;
-
-
-
-			  -webkit-transition: all 0.25s linear;
-
-			}
-
-
-
-			ul li:hover label{
-
-				color: rgb(207, 170, 70);
-
-			}
-
-
-
-
-
-			ul li .check{
-
-			  display: block;
-
-			  position: absolute;
-
-			  border: 3px solid rgb(84, 90, 112);
-
-			  border-radius: 100%;
-
-			  height: 12px;
-
-			  width: 12px;
-
-			  top: 15px;
-
-			  left: 10px;
-
-				z-index: 5;
-
-				transition: border .25s linear;
-
-				-webkit-transition: border .25s linear;
-
-			}
-
-
-
-
-
-
-
-			ul li:hover .check {
-
-			  border: 3px solid rgb(207, 170, 70);
-
-			}
-
-
-
-
-
-			ul li .check::before {
-
-			  display: block;
-
-			  position: absolute;
-
-			  content: '';
-
-			  border-radius: 100%;
-
-			  height: 7px;
-
-			  width: 7px;
-
-			  top: 3px;
-
-			  left: 2.5px;
-
-			  margin: 0px;
-
-				transition: background 0.2s linear;
-
-				-webkit-transition: background 0.2s linear;
-
-			}
-
-
-
-
-
-			input[type=radio]:checked ~ .check {
-
-			  border: 3px solid rgb(140, 61, 18);
-
-			}
-
-
-
-			input[type=radio]:checked ~ .check::before{
-
-			  background: rgb(140, 61, 18);
-
-			}
-
-
-
-			input[type=radio]:checked ~ label{
-
-			  color: rgb(140, 61, 18);
-
-			}
-
-
 
 			#var {
-
 				display: none;
-
 			}
-
-
 
 			#varABC {
-
 				display: none;
-
 			}
 
+			ul.functul{
+				list-style: none;
+				width: 300px;
+				height: auto;
+			}
 
+			li{
+				color: rgb(84, 90, 112);
+				display: block;
+				width: 100%;
+				position: relative
+				height: 40px;
+				border-bottom: 1px solid #333;
+				cursor: pointer;
+				border: 1px dashed blue;
+			}
 
+			li.WdthRect {
 
+				border-right: 1px solid #333;
 
+			}
 
 
 		</style>
-
 	</head>
 
-
-
 	<HEADER>
-
 		<TITLE>FakeDesmos.com</TITLE>
-
 	</HEADER>
-
-
 
 	<body>
 
-
-
 		<div class="left-side">
-
 		<div class="a">
-
 		<h3>Select a skeleton function:</h3>
-
 		</div>
-
-
-
-
-
-
-
-		<div class="container">
-
-
-
-  <ul>
-
-  <li>
-
-	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear" type="radio" name="function-type">
-
-	<label for="Linear"> Linear: f(x) = Ax + B</label>
-
-
-
-    <div class="check"></div>
-
-  </li>
-
-
-
-  <li>
-
-	<input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic" type="radio" name="function-type">
-
-	<label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup> + Bx + C</label>
-
-
-
-    <div class="check"><div class="inside"></div></div>
-
-  </li>
-
-
-
-  <li>
-
-  <input onchange="disappearVar()" style="cursor:pointer" id="Sine" type="radio" name="function-type">
-
-  <label for="Sine"> Sine: f(x) = sin(x)</label>
-
-
-
-    <div class="check"><div class="inside"></div></div>
-
-  </li>
-
-
-
-  <li>
-
-
-
-	<input onchange="disappearVar()" style="cursor:pointer" id="Cosine" type="radio" name="function-type">
-
-    <label for="Cosine"> Cosine: f(x) = cos(x)</label>
-
-
-
-    <div class="check"></div><div class="inside"></div>
-
-  </li>
-
-
-
-  <li>
-
-	<input onchange="disappearVar()" style="cursor:pointer" id="e^x" type="radio" name="function-type">
-
-    <label for="e^x"> e<sup>x</sup>: f(x) = e<sup>x</sup></label>
-
-
-
-    <div class="check"><div class="inside"></div></div>
-
-  </li>
-
-
-
-  <li>
-
-	<input onchange="disappearVar()" style="cursor:pointer" id="Natural log" type="radio" name="function-type">
-
-    <label for="Natural log"> Natural log: f(x) = ln(x)</label>
-
-
-
-    <div class="check"><div class="inside"></div></div>
-
-  </li>
-
-</ul>
-
-</div>
-
-
-
-	<div class="a" id="var">
-
-
-
-	<h3>Variables</h3>
-
-
-
-	</div>
-
-
-
-	<div id="varABC" class="b">
-
-
-
-    <label id="ALbl">A:</label>
-
-		<input id="Abox" type="text" placeholder="eg " >
-
-		<p> </p>
-
-    <label id="BLbl">B:</label>
-
-    <input id="Bbox" type="text" placeholder="eg " >
-
-	<p> </p>
-
-    <label id="CLbl" >C:</label>
-
-    <input id="Cbox" type="text" placeholder="eg " >
-
-	</div>
-
-		<p> </p>
-
-		<p> </p>
-
-		<p> </p>
-
-
-
-
-
-	<script>
-
-	function aprVarTtlAB() {
-
-	  document.getElementById("var").style.display = "block";
-
-	  document.getElementById("varABC").style.display = "block";
-
-	  document.getElementById("CLbl").style.display = "none";
-
-	  document.getElementById("Cbox").style.display = "none";
-
-
-
-	}
-
-	</script>
-
-
-
-	<script>
-
-	function aprVarTtlABC() {
-
-	  document.getElementById("var").style.display = "block";
-
-	  document.getElementById("varABC").style.display = "block";
-
-	  document.getElementById("CLbl").style.display = "inline";
-
-	  document.getElementById("Cbox").style.display = "inline";
-
-	}
-
-	</script>
-
-
-
-	<script>
-
-	function disappearVar() {
-
-	  document.getElementById("var").style.display = "none";
-
-	  document.getElementById("varABC").style.display = "none";
-
-	}
-
-	</script>
-
-
-
-
-
-<div class="a">
-
-
-
-	<h3>Range</h3>
-
-
-
-	</div>
-
-
-
-	<div class="b">
-
-
-
-		<label>x-min:</label>
-
-		<input type="text" placeholder="x-min" required>
-
-		<p> </p>
-
-
-
-		<label>x-max:</label>
-
-		<input type="text" placeholder="x-max" required>
-
-		<p> </p>
-
-		<p> </p>
-
-
-
-		</div>
-
-
-
-		<div class="a">
-
-
-
-		<h3>Which unit would you like to use?</h3>
-
-
-
-		</div>
-
-
-
-		<div class="b">
-
-
-
-		<label for="width">
-
-		<input style="cursor:pointer" id="width" type="radio" name="width-rectangles"> Width</label>
-
-
-
-		<label for="rectangles">
-
-		<input style="cursor:pointer" id="rectangles" type="radio" name="width-rectangles"> Rectangles</label><br>
-
-
-
-		</div>
-
-
-
-		<p> </p>
-
-		<p> </p>
-
-		<p> </p>
-
-		<p> </p>
-
-
-
-		<div class="a">
-
-
-
-		<h3>Width or Number of rectangles:</h3>
-
-		</div>
-
-		<p> </p>
 
 
 
 		<div>
 
-		<label style="font-size:10px"> min</label>
+  <ul class="functul">
+  <li>
+	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear" type="radio" name="function-type">
+	<label for="Linear"> Linear: f(x) = Ax + B</label>
 
-		<div class="slidecontainer">
+    <div class="check"></div>
+  </li>
 
-		<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <li>
+	<input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic" type="radio" name="function-type">
+	<label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup> + Bx + C</label>
 
-		</div>
+    <div class="check"><div class="inside"></div></div>
+  </li>
 
-		<label style="font-size:10px">max</label>
+  <li>
+  <input onchange="disappearVar()" style="cursor:pointer" id="Sine" type="radio" name="function-type">
+  <label for="Sine"> Sine: f(x) = sin(x)</label>
 
+    <div class="check"><div class="inside"></div></div>
+  </li>
 
+  <li>
 
-		</div>
+	<input onchange="disappearVar()" style="cursor:pointer" id="Cosine" type="radio" name="function-type">
+    <label for="Cosine"> Cosine: f(x) = cos(x)</label>
 
+    <div class="check"></div><div class="inside"></div>
+  </li>
 
+  <li>
+	<input onchange="disappearVar()" style="cursor:pointer" id="e^x" type="radio" name="function-type">
+    <label for="e^x"> e<sup>x</sup>: f(x) = e<sup>x</sup></label>
 
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+	<input onchange="disappearVar()" style="cursor:pointer" id="Natural log" type="radio" name="function-type">
+    <label for="Natural log"> Natural log: f(x) = ln(x)</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+</ul>
+</div>
+
+	<div class="a" id="var">
+
+	<h3>Variables</h3>
+
+	</div>
+
+	<div id="varABC" class="b">
+
+    <label id="ALbl">A:</label>
+		<input id="Abox" type="text" placeholder="eg " >
+		<p> </p>
+    <label id="BLbl">B:</label>
+    <input id="Bbox" type="text" placeholder="eg " >
+	<p> </p>
+    <label id="CLbl" >C:</label>
+    <input id="Cbox" type="text" placeholder="eg " >
+	</div>
+		<p> </p>
+		<p> </p>
 		<p> </p>
 
 
+	<script>
+	function aprVarTtlAB() {
+	  document.getElementById("var").style.display = "block";
+	  document.getElementById("varABC").style.display = "block";
+	  document.getElementById("CLbl").style.display = "none";
+	  document.getElementById("Cbox").style.display = "none";
+
+	}
+	</script>
+
+	<script>
+	function aprVarTtlABC() {
+	  document.getElementById("var").style.display = "block";
+	  document.getElementById("varABC").style.display = "block";
+	  document.getElementById("CLbl").style.display = "inline";
+	  document.getElementById("Cbox").style.display = "inline";
+	}
+	</script>
+
+	<script>
+	function disappearVar() {
+	  document.getElementById("var").style.display = "none";
+	  document.getElementById("varABC").style.display = "none";
+	}
+	</script>
+
+
+<div class="a">
+
+	<h3>Domain</h3>
+
+	</div>
+
+	<div class="b">
+
+		<label>x-min:</label>
+		<input type="text" placeholder="x-min" required>
+		<p> </p>
+
+		<label>x-max:</label>
+		<input type="text" placeholder="x-max" required>
+		<p> </p>
+		<p> </p>
+
+		</div>
 
 		<div class="a">
 
+		<h3>Which unit would you like to use?</h3>
+
+		</div>
+
+		<div class="b">
+
+
+		<ul>
+		  <li class="WdthRect">
+
+			<label for="width">Width</label>
+			<input style="cursor:pointer" id="width" type="radio" name="width-rectangles" style="cursor:pointer">
+		  </li>
+
+		  <li class="WdthRect>
+			<label for="rectangles">Rectangles</label>
+			<input style="cursor:pointer" id="rectangles" type="radio" name="width-rectangles">
+		  </li>
+
+		</ul>
+
+
+
+
+		<label for="width">
+		<input style="cursor:pointer" id="width" type="radio" name="width-rectangles" style="cursor:pointer"> Width</label>
+
+		<label for="rectangles">
+		 Rectangles</label><br>
+
+		</div>
+
+		<p> </p>
+		<p> </p>
+		<p> </p>
+		<p> </p>
+
+		<div class="a">
+
+		<h3>Width or Number of rectangles:</h3>
+		</div>
+		<p> </p>
+
+
+		<p> slider will go here </p>
+
+		<div class="a">
 		<button class="btn">GRAPH IT!</button>
-
 		<p> </p>
-
 		<p> </p>
-
 		<p> </p>
-
 		</div>
-
 		</div>
-
-
 
 	</body>
-
 </HTML>
-
-<!DOCTYPE html>
-
-<HTML>
-
-
-
-	<head>
-
-		<style>
-
-			body {
-
-				background-color:rgb(254, 252, 243);
-
-				font-family: verdana;
-
-				width: 420px;
-
-			}
-
-
-
-			label {
-
-				font:Verdana;
-
-				color: rgb(84, 90, 112);
-
-
-
-			}
-
-
-
-			.btn {
-
-				background-color:rgb(180, 195, 216);
-
-				cursor:pointer;
-
-				font-size:20px;
-
-				font-family: verdana;
-
-				border-radius: 10px;
-
-			}
-
-
-
-			.left-side {
-
-				background: rgb(222, 238, 233);
-
-				position: relative;
-
-				width: 400px;
-
-				border: 3px solid rgb(84, 90, 112);
-
-			}
-
-
-
-			div.a {
-
-				position: relative;
-
-				left: 25px;
-
-			}
-
-
-
-			div.b {
-
-				position: relative;
-
-				left: 50px;
-
-			}
-
-
-
-			h3 {
-
-				font-size: 18px;
-
-			}
-
-
-
-			.slidecontainer {
-
-				width: 300px;
-
-				height: 25px;
-
-				position: relative;
-
-				left: 50%;
-
-				transform: translateX(-50%);
-
-			}
-
-
-
-			.slider {
-
-			  -webkit-appearance: none;
-
-			  width: 100%;
-
-			  height: 5px;
-
-			  background: rgb(84, 90, 112);
-
-			  outline: none;
-
-			  opacity: 0.7;
-
-			  -webkit-transition: .2s;
-
-			  transition: opacity .2s;
-
-			}
-
-
-
-			.slider:hover {
-
-			  opacity: 1;
-
-			}
-
-
-
-			.slider::-webkit-slider-thumb {
-
-			  -webkit-appearance: none;
-
-			  appearance: none;
-
-			  width: 5px;
-
-			  height: 15px;
-
-			  background: rgb(140, 61, 18);
-
-			  cursor: pointer;
-
-			}
-
-
-
-			.slider::-moz-range-thumb {
-
-			  width: 5px;
-
-			  height: 15px;
-
-			  background: rgb(140, 61, 18);
-
-			  cursor: pointer;
-
-			}
-
-
-
-
-
-
-
-			.container{
-
-			  display: block;
-
-			  position: relative;
-
-			  margin: 1px auto;
-
-			  height: auto;
-
-			  width: 325px;
-
-			  padding: 1px;
-
-			}
-
-
-
-			.container ul{
-
-			  list-style: none;
-
-			  margin: 0px;
-
-			  padding: 0px;
-
-			  overflow: auto;
-
-			}
-
-
-
-			ul li{
-
-			  color: rgb(84, 90, 112);
-
-			  display: block;
-
-			  position: relative;
-
-			  float: left;
-
-			  width: 100%;
-
-			  height: 50px;
-
-			  margin: 0px;
-
-			  border-bottom: 1px solid #333;
-
-			}
-
-
-
-			ul li input[type=radio]{
-
-			  position: relative;
-
-			  visibility: hidden;
-
-			}
-
-
-
-			ul li label{
-
-			  display: block;
-
-			  position: relative;
-
-			  font-weight: 150;
-
-			  padding: 0px 10px 0px 40px;
-
-			  height: 30px;
-
-			  z-index: 9;
-
-			  cursor: pointer;
-
-
-
-			  -webkit-transition: all 0.25s linear;
-
-			}
-
-
-
-			ul li:hover label{
-
-				color: rgb(207, 170, 70);
-
-			}
-
-
-
-
-
-			ul li .check{
-
-			  display: block;
-
-			  position: absolute;
-
-			  border: 3px solid rgb(84, 90, 112);
-
-			  border-radius: 100%;
-
-			  height: 12px;
-
-			  width: 12px;
-
-			  top: 15px;
-
-			  left: 10px;
-
-				z-index: 5;
-
-				transition: border .25s linear;
-
-				-webkit-transition: border .25s linear;
-
-			}
-
-
-
-
-
-
-
-			ul li:hover .check {
-
-			  border: 3px solid rgb(207, 170, 70);
-
-			}
-
-
-
-
-
-			ul li .check::before {
-
-			  display: block;
-
-			  position: absolute;
-
-			  content: '';
-
-			  border-radius: 100%;
-
-			  height: 7px;
-
-			  width: 7px;
-
-			  top: 3px;
-
-			  left: 2.5px;
-
-			  margin: 0px;
-
-				transition: background 0.2s linear;
-
-				-webkit-transition: background 0.2s linear;
-
-			}
-
-
-
-
-
-			input[type=radio]:checked ~ .check {
-
-			  border: 3px solid rgb(140, 61, 18);
-
-			}
-
-
-
-			input[type=radio]:checked ~ .check::before{
-
-			  background: rgb(140, 61, 18);
-
-			}
-
-
-
-			input[type=radio]:checked ~ label{
-
-			  color: rgb(140, 61, 18);
-
-			}
-
-
-
-			#var {
-
-				display: none;
-
-			}
-
-
-
-			#varABC {
-
-				display: none;
-
-			}
-
-
-
-
-
-
-
-		</style>
-
-	</head>
-
-
-
-	<HEADER>
-
-		<TITLE>FakeDesmos.com</TITLE>
-
-	</HEADER>
-
-
-
-	<body>
-
-
-
-		<div class="left-side">
-
-		<div class="a">
-
-		<h3>Select a skeleton function:</h3>
-
-		</div>
-
-
-
-
-
-
-
-		<div class="container">
-
-
-
-  <ul>
-
-  <li>
-
-	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear" type="radio" name="function-type">
-
-	<label for="Linear"> Linear: f(x) = Ax + B</label>
-
-
-
-    <div class="check"></div>
-
-  </li>
-
-
-
-  <li>
-
-	<input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic" type="radio" name="function-type">
-
-	<label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup> + Bx + C</label>
-
-
-
-    <div class="check"><div class="inside"></div></div>
-
-  </li>
-
-
-
-  <li>
-
-  <input onchange="disappearVar()" style="cursor:pointer" id="Sine" type="radio" name="function-type">
-
-  <label for="Sine"> Sine: f(x) = sin(x)</label>
-
-
-
-    <div class="check"><div class="inside"></div></div>
-
-  </li>
-
-
-
-  <li>
-
-
-
-	<input onchange="disappearVar()" style="cursor:pointer" id="Cosine" type="radio" name="function-type">
-
-    <label for="Cosine"> Cosine: f(x) = cos(x)</label>
-
-
-
-    <div class="check"></div><div class="inside"></div>
-
-  </li>
-
-
-
-  <li>
-
-	<input onchange="disappearVar()" style="cursor:pointer" id="e^x" type="radio" name="function-type">
-
-    <label for="e^x"> e<sup>x</sup>: f(x) = e<sup>x</sup></label>
-
-
-
-    <div class="check"><div class="inside"></div></div>
-
-  </li>
-
-
-
-  <li>
-
-	<input onchange="disappearVar()" style="cursor:pointer" id="Natural log" type="radio" name="function-type">
-
-    <label for="Natural log"> Natural log: f(x) = ln(x)</label>
-
-
-
-    <div class="check"><div class="inside"></div></div>
-
-  </li>
-
-</ul>
-
-</div>
-
-
-
-	<div class="a" id="var">
-
-
-
-	<h3>Variables</h3>
-
-
-
-	</div>
-
-
-
-	<div id="varABC" class="b">
-
-
-
-    <label id="ALbl">A:</label>
-
-		<input id="Abox" type="text" placeholder="eg " >
-
-		<p> </p>
-
-    <label id="BLbl">B:</label>
-
-    <input id="Bbox" type="text" placeholder="eg " >
-
-	<p> </p>
-
-    <label id="CLbl" >C:</label>
-
-    <input id="Cbox" type="text" placeholder="eg " >
-
-	</div>
-
-		<p> </p>
-
-		<p> </p>
-
-		<p> </p>
-
-
-
-
-
-	<script>
-
-	function aprVarTtlAB() {
-
-	  document.getElementById("var").style.display = "block";
-
-	  document.getElementById("varABC").style.display = "block";
-
-	  document.getElementById("CLbl").style.display = "none";
-
-	  document.getElementById("Cbox").style.display = "none";
-
-
-
-	}
-
-	</script>
-
-
-
-	<script>
-
-	function aprVarTtlABC() {
-
-	  document.getElementById("var").style.display = "block";
-
-	  document.getElementById("varABC").style.display = "block";
-
-	  document.getElementById("CLbl").style.display = "inline";
-
-	  document.getElementById("Cbox").style.display = "inline";
-
-	}
-
-	</script>
-
-
-
-	<script>
-
-	function disappearVar() {
-
-	  document.getElementById("var").style.display = "none";
-
-	  document.getElementById("varABC").style.display = "none";
-
-	}
-
-	</script>
-
-
-
-
-
-<div class="a">
-
-
-
-	<h3>Range</h3>
-
-
-
-	</div>
-
-
-
-	<div class="b">
-
-
-
-		<label>x-min:</label>
-
-		<input type="text" placeholder="x-min" required>
-
-		<p> </p>
-
-
-
-		<label>x-max:</label>
-
-		<input type="text" placeholder="x-max" required>
-
-		<p> </p>
-
-		<p> </p>
-
-
-
-		</div>
-
-
-
-		<div class="a">
-
-
-
-		<h3>Which unit would you like to use?</h3>
-
-
-
-		</div>
-
-
-
-		<div class="b">
-
-
-
-		<label for="width">
-
-		<input style="cursor:pointer" id="width" type="radio" name="width-rectangles"> Width</label>
-
-
-
-		<label for="rectangles">
-
-		<input style="cursor:pointer" id="rectangles" type="radio" name="width-rectangles"> Rectangles</label><br>
-
-
-
-		</div>
-
-
-
-		<p> </p>
-
-		<p> </p>
-
-		<p> </p>
-
-		<p> </p>
-
-
-
-		<div class="a">
-
-
-
-		<h3>Width or Number of rectangles:</h3>
-
-		</div>
-
-		<p> </p>
-
-
-
-		<div>
-
-		<label style="font-size:10px"> min</label>
-
-		<div class="slidecontainer">
-
-		<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-
-		</div>
-
-		<label style="font-size:10px">max</label>
-
-
-
-		</div>
-
-
-
-		<p> </p>
-
-
-
-		<div class="a">
-
-		<button class="btn">GRAPH IT!</button>
-
-		<p> </p>
-
-		<p> </p>
-
-		<p> </p>
-
-		</div>
-
-		</div>
-
-
-
-	</body>
-
-</HTML>""")
+""")
