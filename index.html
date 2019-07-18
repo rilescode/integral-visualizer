@@ -6,7 +6,7 @@
 			body {
 				background-color:rgb(254, 252, 243);
 				font-family: verdana;
-				width: 420px;
+				display:block;
 			}
 			label {
 				font:Verdana;
@@ -19,11 +19,26 @@
 				font-family: verdana;
 				border-radius: 10px;
 			}
-			.left-side {
+			.btn:hover{
+				background-color: rgb(207, 170, 70);
+				transition: background 0.2s linear;
+				-webkit-transition: background 0.2s linear;
+			}
+
+			.btn:active {
+				background-color: rgb(140, 61, 18);
+				transition: background 0.2s linear;
+				-webkit-transition: background 0.2s linear;
+			}
+
+			div.leftside {
 				background: rgb(222, 238, 233);
+				display: block;
 				position: relative;
 				width: 400px;
 				border: 3px solid rgb(84, 90, 112);
+				max-height: 800px;
+				overflow: scroll;
 			}
 			div.a {
 				position: relative;
@@ -41,7 +56,7 @@
 			  position: relative;
 			  margin: 1px auto;
 			  height: auto;
-			  width: 325px;
+			  width: 300px;
 			  padding: 1px;
 			}
 			.functContainer ul{
@@ -68,7 +83,7 @@
 			  display: block;
 			  position: relative;
 			  font-weight: 150;
-			  padding: 15px 10px 0px 40px;
+			  padding: 14px 10px 0px 40px;
 			  height: 35px;
 			  z-index: 9;
 			  cursor: pointer;
@@ -138,6 +153,10 @@
 			}
 
 
+
+
+
+
 		</style>
 	</head>
 
@@ -147,9 +166,9 @@
 
 	<body>
 
-		<div class="left-side">
+		<div class="leftside">
 		<div class="a">
-		<h3>Select a skeleton function:</h3>
+			<h3>Select a skeleton function:</h3>
 		</div>
 
 
@@ -329,7 +348,7 @@
 			<input type="text" placeholder="" required>
 			<p class = "smallgrey" >Width must be an integer of 2 or greater</p>
 			<p> </p>
-			<p> </p>
+
 
 		</div>
 
@@ -340,7 +359,7 @@
 			<input type="text" placeholder="" required>
 			<p class = "smallgrey" id = "widthMessage"></p>
 			<p> </p>
-			<p> </p>
+
 
 		</div>
 
@@ -363,6 +382,44 @@
 
 		}
 		</script>
+		<div class="a">
+
+		<h3>Sum type:</h3>
+
+		</div>
+		<div class="functContainer">
+
+  <ul>
+  <li>
+	<input  style="cursor:pointer" id="Left" type="radio" name="sum-type">
+	<label for="Left">Left endpoint</label>
+
+    <div class="check"></div>
+  </li>
+
+  <li>
+	<input  style="cursor:pointer" id="Right" type="radio" name="sum-type">
+	<label for="Right">Right endpoint</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+	<input  style="cursor:pointer" id="Mid" type="radio" name="sum-type">
+	<label for="Mid">Midpoint</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+  <input  style="cursor:pointer" id="Trap" type="radio" name="sum-type">
+  <label for="Trap">Trapezoidal</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+</ul>
+</div>
 
 		<p> </p>
 		<p> </p>
