@@ -11,7 +11,7 @@ B = 0
 C = 0
 
 def main():
-   print("\n1. Linear \n2. Quadratic \n3. Sine \n4. Cosine \n5. e^x \n6. Natural log")
+   print("\n1. Linear \n2. Quadratic \n3. Cubic \n4. Sine \n5. Cosine \n6. e^x \n7. Natural log")
    func = int(input("\nWhich function do you want to graph? "))
    while True:
       if func == 1: 
@@ -21,29 +21,31 @@ def main():
          function = "QUAD"
          break
       elif func == 3: 
+        function = "CUBIC"
+        break
+      elif func == 4: 
          function = "SINE"
          break
-      elif func == 4: 
+      elif func == 5: 
          function = "COSINE"
          break
-      elif func == 5: 
+      elif func == 6: 
          function = "E"
          break
-      elif func == 6:
+      elif func == 7:
          function = "" # Natural log 
          xMin = float(input("\nEnter a value for the first x-coordinate: "))
          while xMin <= 0: 
             print("\nThe minimum x value must be greater than 0!")
             xMin = float(input("\nEnter a value for the first x-coordinate: "))
-      
          break
       else:
-         print("\nMust enter an integer between 1 and 6!")
-         print("\n1. Linear \n2. Quadratic \n3. Sine \n4. Cosine \n5. e^x \n6. Natural log")
+         print("\nMust enter an integer between 1 and 7!")
+         print("\n1. Linear \n2. Quadratic \n3. Cubic \n4. Sine \n5. Cosine \n6. e^x \n7. Natural log")
          func = int(input("\nWhich function do you want to graph? "))
-   if func != 6:             
-      xMin= float(input("Enter a value for the first x-coordinate: "))
    
+   if func != 7:             
+      xMin= float(input("Enter a value for the first x-coordinate: "))
    xMax= float(input("Enter a value for the second x-coordinate: "))
    while xMax <= xMin: 
         print("\nError: maximum x value greater than or equal to minimum x value. Please enter a bigger value.")
@@ -105,22 +107,26 @@ def main():
    plt.show()
 
 def createYArray(xList, type):
-   if type == "LINEAR" or type == "QUAD":
-      A = float(input("\nA? "))
-      B = float(input("B? "))
-      if type == "QUAD":
-         C = float(input("C? "))  
-         yList = A * xList * xList + B * xList + C
-      else:
-         yList = A * xList + B 
+   A = float(input("\nA? "))
+   B = float(input("B? "))
+   if type != "LINEAR" and type != "E" and type != "":
+      C = float(input("C? "))
+      if type == "CUBIC" or type == "SINE" or type == "COSINE":
+         D = float(input("D? "))  
+   if type == "LINEAR": 
+        yList = A * xList + B 
+   elif type == "QUAD":
+        yList = A * xList * xList + B * xList + C
+   elif type == "CUBIC": 
+        yList = A * xList * xList * xList + B * xList * xList + C * xList + D
    elif type == "SINE":
-      yList = np.sin(xList)
+      yList = A * np.sin(B * xList + C) + D 
    elif type == "COSINE": 
-      yList = np.cos(xList)
+      yList = A * np.cos(B * xList + C) + D
    elif type == "E":
-      yList = math.e ** xList
+      yList = A * math.e ** xList + B
    else: # natural log
-      yList = np.log(xList)
+      yList = A * np.log(xList) + B
    
    return yList
    
