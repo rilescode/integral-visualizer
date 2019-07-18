@@ -171,30 +171,37 @@
   </li>
 
   <li>
-  <input onchange="disappearVar()" style="cursor:pointer" id="Sine" type="radio" name="function-type">
-  <label for="Sine"> Sine: f(x) = sin(x)</label>
+	<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic" type="radio" name="function-type">
+	<label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+ Bx<sup>2</sup> + Cx + D</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+  <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine" type="radio" name="function-type">
+  <label for="Sine"> Sine: f(x) = Asin(Bx + C) + D</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
 
-	<input onchange="disappearVar()" style="cursor:pointer" id="Cosine" type="radio" name="function-type">
-    <label for="Cosine"> Cosine: f(x) = cos(x)</label>
+	<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine" type="radio" name="function-type">
+    <label for="Cosine"> Cosine: f(x) = Acos(Bx+C)+D</label>
 
     <div class="check"></div><div class="inside"></div>
   </li>
 
   <li>
-	<input onchange="disappearVar()" style="cursor:pointer" id="e^x" type="radio" name="function-type">
-    <label for="e^x"> e<sup>x</sup>: f(x) = e<sup>x</sup></label>
+	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x" type="radio" name="function-type">
+    <label for="e^x"> e<sup>x</sup>: f(x) = Ae<sup>x</sup>+ B</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-	<input onchange="disappearVar()" style="cursor:pointer" id="Natural log" type="radio" name="function-type">
-    <label for="Natural log"> Natural log: f(x) = ln(x)</label>
+	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log" type="radio" name="function-type">
+    <label for="Natural log"> Natural log: f(x) = Aln(x) + B</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
@@ -217,6 +224,9 @@
 	<p> </p>
     <label id="CLbl" >C:</label>
     <input id="Cbox" type="text" placeholder="eg " >
+	<p> </p>
+	<label id="DLbl" >D:</label>
+    <input id="Dbox" type="text" placeholder="eg " >
 	</div>
 		<p> </p>
 		<p> </p>
@@ -229,6 +239,8 @@
 	  document.getElementById("varABC").style.display = "block";
 	  document.getElementById("CLbl").style.display = "none";
 	  document.getElementById("Cbox").style.display = "none";
+	  document.getElementById("DLbl").style.display = "none";
+	  document.getElementById("Dbox").style.display = "none";
 	}
 
 	function aprVarTtlABC() {
@@ -236,11 +248,17 @@
 	  document.getElementById("varABC").style.display = "block";
 	  document.getElementById("CLbl").style.display = "inline";
 	  document.getElementById("Cbox").style.display = "inline";
+	  document.getElementById("DLbl").style.display = "none";
+	  document.getElementById("Dbox").style.display = "none";
 	}
 
-	function disappearVar() {
-	  document.getElementById("var").style.display = "none";
-	  document.getElementById("varABC").style.display = "none";
+	function aprVarTtlABCD() {
+	  document.getElementById("var").style.display = "block";
+	  document.getElementById("varABC").style.display = "block";
+	  document.getElementById("CLbl").style.display = "inline";
+	  document.getElementById("Cbox").style.display = "inline";
+	  document.getElementById("DLbl").style.display = "inline";
+	  document.getElementById("Dbox").style.display = "inline";
 	}
 	</script>
 
