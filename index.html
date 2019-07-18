@@ -264,24 +264,22 @@
 
 		</div>
 
-		<p id = "testingmin"></p>
-		<p id = "testingmax"></p>
-
 	<script>
-	var domain;
+	var domain = 0;
+	var xmax = 0;
+	var xmin = 0;
 	function getmin() {
-		var xmin = parseFloat(document.getElementById("xmin").value);
-		domain = xmax + xmin;
+		xmax = Number(parseFloat(document.getElementById("xmax").value));
+		xmin = Number(parseFloat(document.getElementById("xmin").value));
 
-	document.getElementById("testingmin").innerHTML = "min " + xmin+", domain " + domain;
+		domain = xmax - xmin;
 
 	}
 
 	function getmax() {
-		var xmax = parseFloat(document.getElementById("xmax").value);
-		domain = xmax + xmin;
-
-	document.getElementById("testingmax").innerHTML = "max " + xmax+", domain " + domain;
+		 xmax = Number(parseFloat(document.getElementById("xmax").value));
+		 xmin = Number(parseFloat(document.getElementById("xmin").value));
+		domain = xmax - xmin;
 	}
 
 
@@ -342,6 +340,7 @@
 		  document.getElementById("widthNum").style.display = "block";
 		  document.getElementById("numRect").style.display = "none";
 		  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+
 
 		}
 		</script>
