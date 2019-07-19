@@ -1,58 +1,96 @@
+# Vidisha Gupta 
+# 7/19/19
+
 import numpy as np
 import matplotlib.pyplot as plt
 import math
 
-INCREASE = 0.0001
+INCREASE = 0.0001 # do not change! 
 
-FUNCTION = 0
+theInput = []
 
-A = 0 
-B = 0
-C = 0
-D = 0
+try: 
+   f = open("input.txt", mode = 'r') # opens input file
+   theInput = [line.rstrip('\n') for line in f] # cleans up line and puts into input list
+finally: 
+   f.close() 
 
-xMin = 0
-xMax = 0
+FUNCTION = int(theInput[0])
 
-WIDTH = True 
+A = float(theInput[1]) 
+B = float(theInput[2]) 
+C = float(theInput[3]) 
+D = float(theInput[4])
 
-DELTA_X = 0.5
+xMin = float(theInput[5]) 
+xMax = float(theInput[6]) 
 
-NUM_RECT = 2
+NUM_RECT = int(theInput[8]) 
 
-SUM_TYPE = 0
+if theInput[7] == "0": 
+   DELTA_X = float(theInput[10]) 
+else: 
+   DELTA_X = (xMax - xMin) / NUM_RECT 
+
+SUM_TYPE = int(theInput[9])
 
 def main(): 
-        xList= np.arange(xMin, xMax, INCREASE) 
-        yList = createYArray(xList, FUNCTION) 
+   xList= np.arange(xMin, xMax, INCREASE) 
+   yList = createYArray(xList, FUNCTION, A, B, C, D) 
+                 
+   if SUM_TYPE == 3: 
+      sum = riemannTrap(yList, DELTA_X, xMin)
+   else:
+      sum = riemann(yList, DELTA_X, xMin, SUM_TYPE) 
+          
+   plt.axhline(y = 0, color='k') # x axis
+   plt.axvline(x = 0, color='k') # y axis 
+   
+   plt.plot(xList, yList, linewidth = 3)
+   
+   # zooming out 
+   plt.plot(xMin - INCREASE, 0)
+   plt.plot(xMax + INCREASE, 0)
+   plt.plot(0, max(yList) + INCREASE)
+   plt.plot(0, min(yList) - INCREASE)
+   
+   plt.grid(True)
+   # plt.savefig("graph.jpg")
+   plt.show()
+   
+   try: 
+        file = open("output.txt", mode = 'w') # opens output file
+        file.write(str(sum))
+   finally: 
+        file.close() 
+   
         
-        
-        
-def createYArray(xList, type):
-   A = float(input("\nA? "))
-   B = float(input("B? "))
-   if type != "LINEAR" and type != "E" and type != "":
-      C = float(input("C? "))
-      if type == "CUBIC" or type == "SINE" or type == "COSINE":
-         D = float(input("D? "))  
-   if type == "LINEAR": 
-        yList = A * xList + B 
-   elif type == "QUAD":
-        yList = A * xList * xList + B * xList + C
-   elif type == "CUBIC": 
-        yList = A * xList * xList * xList + B * xList * xList + C * xList + D
-   elif type == "SINE":
+def createYArray(xList, type, A, B, C, D):
+   # A = float(input("\nA? "))
+   # B = float(input("B? "))
+   #if type != "LINEAR" and type != "E" and type != "":
+      #C = float(input("C? "))
+      #if type == "CUBIC" or type == "SINE" or type == "COSINE":
+         #D = float(input("D? "))  
+         
+   if type == 0: # LINEAR 
+      yList = A * xList + B 
+   elif type == 1: # QUAD
+      yList = A * xList * xList + B * xList + C
+   elif type == 2: # CUBIC 
+      yList = A * xList * xList * xList + B * xList * xList + C * xList + D
+   elif type == 3: # SINE
       yList = A * np.sin(B * xList + C) + D 
-   elif type == "COSINE": 
+   elif type == 4: # COSINE 
       yList = A * np.cos(B * xList + C) + D
-   elif type == "E":
+   elif type == 5: # E
       yList = A * math.e ** xList + B
    else: # natural log
       yList = A * np.log(xList) + B
    
    return yList
    
-def riemann(yList, deltaX, xMin, width, type):
+def riemann(yList, deltaX, xMin, type):
    delta =  int(deltaX / INCREASE)  
     
    sum = 0
@@ -70,9 +108,9 @@ def riemann(yList, deltaX, xMin, width, type):
       riemannX.append(i * deltaX + xMin)
       riemannY.append(0)
       
-      if type == "Left":
+      if type == 0: # Left
          val = yList[delta * i]
-      elif type == "Right":
+      elif type == 1: # Right
          if i == len(yList) / delta - 1:
             val = yList[delta * (i + 1) - 1] # last rectangle
          else: 
@@ -91,22 +129,25 @@ def riemann(yList, deltaX, xMin, width, type):
    
    leftSum = sum
 
-   if type == "Right" or type == "Mid": 
+   if type == 1 or type == 2: # right or midpoint
       sum -= yList[0] * deltaX
       sum += yList[len(yList) - 1] * deltaX
       rightSum = sum
-   if type == "Left":
-      print("\nThe left endpoint sum is: " + str(round(leftSum, 3)))
-   elif type == "Right": 
-      print("\nThe right endpoint sum is: " + str(round(rightSum, 3)))
-   else: # Mid
-        #midpoint is average of left and right sums
-      print("\nThe midpoint sum is: " + str(round((rightSum + leftSum) / 2 , 3)))   
    
    plt.plot(riemannX, riemannY)
    
+   if type == 0: # left
+      return round(leftSum, 3)
+      # print("\nThe left endpoint sum is: " + str(round(leftSum, 3)))
+   elif type == 1: # right
+      return round(rightSum, 3)
+      # print("\nThe right endpoint sum is: " + str(round(rightSum, 3)))
+   else: # Mid
+      #midpoint is average of left and right sums
+      return round(((rightSum + leftSum) / 2), 3)
+      # print("\nThe midpoint sum is: " + str(round((rightSum + leftSum) / 2 , 3)))      
 
-def riemannTrap(yList, deltaX, xMin, width):
+def riemannTrap(yList, deltaX, xMin):
    delta =  int(deltaX / INCREASE)  
    
    #print("deltaX: " + str(deltaX))
@@ -144,29 +185,14 @@ def riemannTrap(yList, deltaX, xMin, width):
    
    plt.plot(riemannX, riemannY)
 
-   print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
+   # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
+   return round(sum, 3)
          
 def test():
    print("\n1. Linear \n2. Quadratic \n3. Cubic \n4. Sine \n5. Cosine \n6. e^x \n7. Natural log")
    func = int(input("\nWhich function do you want to graph? "))
    while True:
-      if func == 1: 
-         function = "LINEAR"
-         break
-      elif func == 2: 
-         function = "QUAD"
-         break
-      elif func == 3: 
-        function = "CUBIC"
-        break
-      elif func == 4: 
-         function = "SINE"
-         break
-      elif func == 5: 
-         function = "COSINE"
-         break
-      elif func == 6: 
-         function = "E"
+      if isInstance(func, int) and func != 7: 
          break
       elif func == 7:
          function = "" # Natural log 
@@ -174,7 +200,6 @@ def test():
          while xMin <= 0: 
             print("\nThe minimum x value must be greater than 0!")
             xMin = float(input("\nEnter a value for the first x-coordinate: "))
-         break
       else:
          print("\nMust enter an integer between 1 and 7!")
          print("\n1. Linear \n2. Quadratic \n3. Cubic \n4. Sine \n5. Cosine \n6. e^x \n7. Natural log")
@@ -184,11 +209,11 @@ def test():
       xMin= float(input("Enter a value for the first x-coordinate: "))
    xMax= float(input("Enter a value for the second x-coordinate: "))
    while xMax <= xMin: 
-        print("\nError: maximum x value greater than or equal to minimum x value. Please enter a bigger value.")
-        xMax= float(input("\nEnter a value for the second x-coordinate: "))
+      print("\nError: maximum x value greater than or equal to minimum x value. Please enter a bigger value.")
+      xMax= float(input("\nEnter a value for the second x-coordinate: "))
         
    xList= np.arange(xMin, xMax, INCREASE) 
-   yList = createYArray(xList, function)  # graphs function
+   yList = createYArray(xList, func, A, B, C, D)  # graphs function
    
    userInput = input("\nWidth enter 0, Rectangles enter 1: ")
    while(True):
@@ -206,29 +231,29 @@ def test():
    if width == True:
       deltaX = float(input("Enter a value for the change in X: ")) 
       while deltaX > maxWidth: 
-        print("\nChange in x is larger than the domain! Please enter a smaller value.")
-        deltaX = float(input("\nEnter a value for the change in X: ")) 
+         print("\nChange in x is larger than the domain! Please enter a smaller value.")
+         deltaX = float(input("\nEnter a value for the change in X: ")) 
    else:      
       numRect = int(input("Enter the number of rectangles: ")) 
       while numRect <= 1:
-            print("Number of rectangles must be greater than 1")
-            numRect = int(input("Enter the number of rectangles: "))      
+         print("Number of rectangles must be greater than 1")
+         numRect = int(input("Enter the number of rectangles: "))      
       deltaX = (xMax - xMin) / numRect
       # print("\nDelta X: " + str(deltaX))
    
    type = int(input("\nWhich type of sum? \n1. Left \n2. Right \n3. Midpoint \n4. Trapezodial\n"))
    while True:
       if type == 1: 
-         riemann(yList, deltaX, xMin, width, "Left")
+         riemann(yList, deltaX, xMin, "Left")
          break
       elif type == 2: 
-         riemann(yList, deltaX, xMin, width, "Right")
+         riemann(yList, deltaX, xMin, "Right")
          break
       elif type == 3: 
-         riemann(yList, deltaX, xMin, width, "Mid")
+         riemann(yList, deltaX, xMin, "Mid")
          break
       elif type == 4:
-         riemannTrap(yList, deltaX, xMin, width)
+         riemannTrap(yList, deltaX, xMin)
          break
       else: 
          print("\nEnter an integer between 1 and 4!")
@@ -242,4 +267,7 @@ def test():
    plt.grid(True)
    plt.show()
 
-test()
+# test()
+# to run test, adjustments are needed 
+
+main()
