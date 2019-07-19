@@ -27,7 +27,10 @@ D = float(theInput[4])
 xMin = float(theInput[5]) 
 xMax = float(theInput[6]) 
 
-WIDTH = theInput[7]
+if theInput[7] == "True": # temporary solution!!!!
+   WIDTH = True
+else:
+   WIDTH = False
 
 NUM_RECT = int(theInput[8]) 
    
