@@ -7,29 +7,40 @@ import math
 
 INCREASE = 0.0001 # do not change! 
 
-theInput = [1, 1, 0, 0, 0, -5, 5, False, 10, 0, 0.5]
+theInput = []
 
-FUNCTION = theInput[0]
+try:
+   f = open("input.txt", mode = 'r')
+   theInput = [line.rstrip('\n') for line in f]
+finally: 
+   f.close() 
 
-A = theInput[1] 
-B = theInput[2] 
-C = theInput[3] 
-D = theInput[4] 
+#theInput = [1, 1, 0, 0, 0, -5, 5, False, 10, 0, 0.5]
 
-xMin = theInput[5] 
-xMax = theInput[6] 
+FUNCTION = int(theInput[0])
 
-WIDTH = theInput[7]  
+A = float(theInput[1]) 
+B = float(theInput[2]) 
+C = float(theInput[3]) 
+D = float(theInput[4])
 
-NUM_RECT = theInput[8] 
+xMin = float(theInput[5]) 
+xMax = float(theInput[6]) 
+
+WIDTH = theInput[7]
+
+NUM_RECT = int(theInput[8]) 
    
-SUM_TYPE = theInput[9] 
+SUM_TYPE = int(theInput[9])
 
-if WIDTH == False:
-      DELTA_X = (xMax - xMin) / NUM_RECT 
+#for i in range(0, len(theInput)):
+ #       print(theInput[i])
+
+if WIDTH:
+   DELTA_X = theInput[10] 
 else:
-      DELTA_X = theInput[10] 
-      
+   DELTA_X = (xMax - xMin) / NUM_RECT 
+
 def main(): 
    xList= np.arange(xMin, xMax, INCREASE) 
    yList = createYArray(xList, FUNCTION, A, B, C, D) 
