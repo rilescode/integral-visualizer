@@ -13,31 +13,39 @@
 				color: rgb(84, 90, 112);
 			}
 			.btn {
-				background-color:rgb(180, 195, 216);
+				background-color:rgb(207, 170, 70);
 				cursor:pointer;
 				font-size:20px;
+
 				font-family: verdana;
-				border-radius: 10px;
+				border: 2px solid rgb(140, 80, 50)
+				border-radius: 3px;
+				transition: background 0.2s linear;
+				-webkit-transition: background 0.2s linear;
 			}
 			.btn:hover{
-				background-color: rgb(207, 170, 70);
+				background-color: rgb(140, 61, 18);
+
 				transition: background 0.2s linear;
 				-webkit-transition: background 0.2s linear;
 			}
 
+
+
 			.btn:active {
-				background-color: rgb(140, 61, 18);
-				transition: background 0.2s linear;
-				-webkit-transition: background 0.2s linear;
+				position:relative;
+				top:.5px;
 			}
+
+
 
 			div.leftside {
 				background: rgb(222, 238, 233);
 				display: block;
 				position: relative;
 				width: 400px;
-				border: 3px solid rgb(84, 90, 112);
-				max-height: 800px;
+				border: 3px solid rgb(20,5,57);
+				max-height: 700px;
 				overflow: scroll;
 			}
 			div.a {
@@ -47,9 +55,11 @@
 			div.b {
 				position: relative;
 				left: 50px;
+
 			}
 			h3 {
 				font-size: 18px;
+				color: rgb(140, 61, 18);
 			}
 			.functContainer{
 			  display: block;
@@ -114,10 +124,10 @@
 			  position: absolute;
 			  content: '';
 			  border-radius: 100%;
-			  height: 7px;
-			  width: 7px;
-			  top: 3px;
-			  left: 2.5px;
+			  height: 8px;
+			  width: 8px;
+			  top: 2px;
+			  left: 1.7px;
 			  margin: 0px;
 				transition: background 0.2s linear;
 				-webkit-transition: background 0.2s linear;
@@ -344,7 +354,7 @@
 		<div id= "numRect" class="b">
 
 			<p> </p>
-			<label>Number of rectangles:</label>
+			<label># of rectangles:</label>
 			<input type="text" placeholder="" required>
 			<p class = "smallgrey" >Width must be an integer of 2 or greater</p>
 			<p> </p>
@@ -425,7 +435,7 @@
 		<p> </p>
 
 		<div class="a">
-		<button class="btn">GRAPH IT!</button>
+		<button class="btn" style="color: rgb(20,5,57);">GRAPH IT!</button>
 		<p> </p>
 		<p> </p>
 		<p> </p>
