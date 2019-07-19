@@ -254,10 +254,10 @@
 	<div id="varABC" class="b">
 	<p> </p>
     <label id="ALbl">A:</label>
-		<input id="Abox" type="number" placeholder="eg "onkeypress="isInNum(event)" >
+		<input id="Abox" type="number" placeholder="eg "onkeypress="isInNum(event)" required>
 		<p> </p>
     <label id="BLbl">B:</label>
-    <input id="Bbox" type="number" placeholder="eg " onkeypress="isInNum(event)">
+    <input id="Bbox" type="number" placeholder="eg " onkeypress="isInNum(event)"required>
 	<p> </p>
     <label id="CLbl" >C:</label>
     <input id="Cbox" type="number" placeholder="eg " onkeypress="isInNum(event)">
@@ -273,22 +273,16 @@
 	<script>
 
 	function ABRequired() {
-		document.getElementById("Abox").required = true;
-		document.getElementById("Bbox").required = true;
 		document.getElementById("Cbox").required = false;
 		document.getElementById("Dbox").required = false;
 	}
 
 	function ABCRequired() {
-		document.getElementById("Abox").required = true;
-		document.getElementById("Bbox").required = true;
 		document.getElementById("Cbox").required = true;
 		document.getElementById("Dbox").required = false;
 	}
 
 	function ABCDRequired() {
-		document.getElementById("Abox").required = true;
-		document.getElementById("Bbox").required = true;
 		document.getElementById("Cbox").required = true;
 		document.getElementById("Dbox").required = true;
 	}
