@@ -180,7 +180,7 @@
 		<TITLE>FakeDesmos.com</TITLE>
 	</HEADER>
 
-	<body>'<!-- MESS THINGS UP-->
+	<body><!-- MESS THINGS UP-->
 
 		<div class="leftside">
 		<div class="a">
@@ -272,25 +272,27 @@
 
 	<script>
 
-	function widthRequired() {
-		document.getElementById("widthbox").required = true;
-		document.getElementById("numrectbox").required = false;
+	function ABRequired() {
+		document.getElementById("Abox").required = true;
+		document.getElementById("Bbox").required = true;
+		document.getElementById("Cbox").required = false;
+		document.getElementById("Dbox").required = false;
 	}
 
-	function rectRequired() {
-		document.getElementById("numrectbox").required = true;
-		document.getElementById("widthbox").required = false;
+	function ABCRequired() {
+		document.getElementById("Abox").required = true;
+		document.getElementById("Bbox").required = true;
+		document.getElementById("Cbox").required = true;
+		document.getElementById("Dbox").required = false;
 	}
 
-	function widthRequired() {
-		document.getElementById("widthbox").required = true;
-		document.getElementById("numrectbox").required = false;
+	function ABCDRequired() {
+		document.getElementById("Abox").required = true;
+		document.getElementById("Bbox").required = true;
+		document.getElementById("Cbox").required = true;
+		document.getElementById("Dbox").required = true;
 	}
 
-	function rectRequired() {
-		document.getElementById("numrectbox").required = true;
-		document.getElementById("widthbox").required = false;
-	}
 	function aprVarTtlAB() {
 	  document.getElementById("var").style.display = "block";
 	  document.getElementById("varABC").style.display = "block";
@@ -298,6 +300,7 @@
 	  document.getElementById("Cbox").style.display = "none";
 	  document.getElementById("DLbl").style.display = "none";
 	  document.getElementById("Dbox").style.display = "none";
+	  ABRequired();
 	}
 	function aprVarTtlABC() {
 	  document.getElementById("var").style.display = "block";
@@ -306,6 +309,7 @@
 	  document.getElementById("Cbox").style.display = "inline";
 	  document.getElementById("DLbl").style.display = "none";
 	  document.getElementById("Dbox").style.display = "none";
+	  ABCRequired();
 	}
 	function aprVarTtlABCD() {
 	  document.getElementById("var").style.display = "block";
@@ -314,6 +318,7 @@
 	  document.getElementById("Cbox").style.display = "inline";
 	  document.getElementById("DLbl").style.display = "inline";
 	  document.getElementById("Dbox").style.display = "inline";
+	  ABCDRequired();
 	}
 	</script>
 
