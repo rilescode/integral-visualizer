@@ -16,7 +16,6 @@
 				background-color:rgb(207, 170, 70);
 				cursor:pointer;
 				font-size:20px;
-
 				font-family: verdana;
 				border: 2px solid rgb(140, 80, 50)
 				border-radius: 3px;
@@ -25,51 +24,48 @@
 			}
 			.btn:hover{
 				background-color: rgb(140, 61, 18);
-
 				transition: background 0.2s linear;
 				-webkit-transition: background 0.2s linear;
 			}
-
-
-
 			.btn:active {
 				position:relative;
 				top:.5px;
 			}
-
-
-
 			div.leftside {
-				background: rgb(154,183,202);
+				background: rgb(222, 238, 233);
 				display: block;
 				position: relative;
 				width: 400px;
-				border: 3px solid rgb(200,200,200);
-				max-height: 740px;
+				border: 3px solid rgb(20,5,57);
+				max-height: 700px;
 				overflow: scroll;
 			}
 			div.a {
+				padding:5px 0px 5px 25px;
+				margin: 5px 0px 4px 0px;
 				position: relative;
-				left: 25px;
+				border-bottom: 1px solid  rgb(207,170,70);
+				-webkit-box-shadow: 0 8px 6px -6px grey;
+				-moz-box-shadow: 0 8px 6px -6px grey;
+				box-shadow: 0 8px 6px -6px grey;
 			}
+
+			div.divbtn {
+			position: relative;
+				left: 25px;
+
+			}
+
+
 			div.b {
 				position: relative;
 				left: 50px;
-
-			}
-			div.header {
-				background-color:rgb(58, 101, 127);
-				background-image: linear-gradient(rgb(70, 115, 141), rgb(58, 101, 127));
-				padding:5px 0px 5px 25px;
-				margin: 15px 0px 2px 0px;
-				position: relative;
-
-
 			}
 			h3 {
 				font-size: 18px;
-				color: rgb(180, 165, 149);
+				color: rgb(140, 61, 18);
 				margin: 0px;
+
 
 			}
 			.functContainer{
@@ -87,14 +83,14 @@
 			  overflow: auto;
 			}
 			ul li{
-			  color: rgb(110,108,114);
+			  color: rgb(84, 90, 112);
 			  display: block;
 			  position: relative;
 			  float: left;
 			  width: 100%;
 			  height: 50px;
 			  margin: 0px auto;
-			  border-bottom: 1px solid rgb(110,108,114);
+			  border-bottom: 1px solid #333;
 			}
 			ul li input[type=radio]{
 			  position: relative;
@@ -112,12 +108,12 @@
 			  -webkit-transition: all 0.25s linear;
 			}
 			ul li:hover label{
-				color: rgb(175, 166, 175);
+				color: rgb(207, 170, 70);
 			}
 			ul li .check{
 			  display: block;
 			  position: absolute;
-			  border: 3px solid rgb(110,108,114);
+			  border: 3px solid rgb(84, 90, 112);
 			  border-radius: 100%;
 			  height: 12px;
 			  width: 12px;
@@ -128,7 +124,7 @@
 				-webkit-transition: border .25s linear;
 			}
 			ul li:hover .check {
-			  border: 3px solid rgb(175, 166, 175);
+			  border: 3px solid rgb(207, 170, 70);
 			}
 			ul li .check::before {
 			  display: block;
@@ -144,13 +140,13 @@
 				-webkit-transition: background 0.2s linear;
 			}
 			input[type=radio]:checked ~ .check {
-			  border: 3px solid rgb(97, 135, 158);
+			  border: 3px solid rgb(140, 61, 18);
 			}
 			input[type=radio]:checked ~ .check::before{
-			  background: rgb(97, 135, 158);
+			  background: rgb(140, 61, 18);
 			}
 			input[type=radio]:checked ~ label{
-			  color: rgb(97, 135, 158);
+			  color: rgb(140, 61, 18);
 			}
 			#var {
 				display: none;
@@ -158,26 +154,21 @@
 			#varABC {
 				display: none;
 			}
-
 			#numRect {
 				display: none;
 			}
 			#widthNum {
 				display: none;
 			}
-
 			p.smallgrey {
 				font-family: verdana;
-				color: rgb(110,108,114);
+				color: rgb(84, 90, 112);
 				font-size: 10px;
-
 			}
 
-
-
-
-
-
+			#widthrectrad {
+				overflow: hidden;
+			}
 		</style>
 	</head>
 
@@ -188,7 +179,7 @@
 	<body>
 
 		<div class="leftside">
-		<div class="header">
+		<div class="a">
 			<h3>Select a skeleton function:</h3>
 		</div>
 
@@ -249,29 +240,29 @@
 </ul>
 </div>
 
-	<div class="header" id="var">
+	<div class="a" id="var">
 
 	<h3>Variables</h3>
 
 	</div>
 
 	<div id="varABC" class="b">
-
+	<p> </p>
     <label id="ALbl">A:</label>
-		<input id="Abox" type="text" placeholder="eg " >
-
+		<input id="Abox" type="text" placeholder="eg "onkeypress="isInNum(event)" >
+		<p> </p>
     <label id="BLbl">B:</label>
-    <input id="Bbox" type="text" placeholder="eg " >
-
+    <input id="Bbox" type="text" placeholder="eg " onkeypress="isInNum(event)">
+	<p> </p>
     <label id="CLbl" >C:</label>
-    <input id="Cbox" type="text" placeholder="eg " >
-
+    <input id="Cbox" type="text" placeholder="eg " onkeypress="isInNum(event)">
+	<p> </p>
 	<label id="DLbl" >D:</label>
-    <input id="Dbox" type="text" placeholder="eg " >
+    <input id="Dbox" type="text" placeholder="eg " onkeypress="isInNum(event)">
 	</div>
-
-
-
+		<p> </p>
+		<p> </p>
+		<p> </p>
 
 
 	<script>
@@ -283,7 +274,6 @@
 	  document.getElementById("DLbl").style.display = "none";
 	  document.getElementById("Dbox").style.display = "none";
 	}
-
 	function aprVarTtlABC() {
 	  document.getElementById("var").style.display = "block";
 	  document.getElementById("varABC").style.display = "block";
@@ -292,7 +282,6 @@
 	  document.getElementById("DLbl").style.display = "none";
 	  document.getElementById("Dbox").style.display = "none";
 	}
-
 	function aprVarTtlABCD() {
 	  document.getElementById("var").style.display = "block";
 	  document.getElementById("varABC").style.display = "block";
@@ -304,22 +293,22 @@
 	</script>
 
 
-<div class="header">
+<div class="a">
 
 	<h3>Domain</h3>
 
 	</div>
 
 	<div class="b">
-
+<p> </p>
 		<label>x-min:</label>
-		<input id = "xmin" type="text" placeholder="x-min" oninput="getmin()">
+		<input id = "xmin" type="text" placeholder="x-min" oninput="getmin()"onkeypress="isInNum(event)">
 		<p> </p>
-		<p> </p>
+
 		<label>x-max:</label>
-		<input id = "xmax" type="text" placeholder="x-max" oninput="getmax()">
-
-
+		<input id = "xmax" type="text" placeholder="x-max" oninput="getmax()"onkeypress="isInNum(event)">
+		<p> </p>
+		<p> </p>
 
 		</div>
 
@@ -330,56 +319,60 @@
 	function getmin() {
 		xmax = Number(parseFloat(document.getElementById("xmax").value));
 		xmin = Number(parseFloat(document.getElementById("xmin").value));
-
 		domain = xmax - xmin;
-
 	}
-
 	function getmax() {
 		 xmax = Number(parseFloat(document.getElementById("xmax").value));
 		 xmin = Number(parseFloat(document.getElementById("xmin").value));
 		domain = xmax - xmin;
 	}
-
-
 	</script>
 
-		<div class="header">
+		<div class="a">
 
 		<h3>Unit and amount:</h3>
 
 		</div>
+		<div class="functContainer">
 
-		<div class="b">
+  <ul id="widthrectrad">
+  <li>
+	<input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width-rectangles" >
+	<label for="width">Width</label>
 
-		<label for="width">
-		<input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width-rectangles">Width</label>
+    <div class="check"></div>
+  </li>
 
-		<label for="rectangles">
-		<input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rectangles"> Rectangles</label><br>
+  <li>
+	<input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rectangles">
+	<label for="rectangles">Rectangles</label><br>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+</ul>
+</div>
 
 
-
-		</div>
 
 		<div id= "numRect" class="b">
 
-
+			<p> </p>
 			<label># of rectangles:</label>
-			<input type="text" placeholder="" required>
-			<p class = "smallgrey" >Width must be an integer of 2 or greater</p>
-
+			<input type="text" placeholder="" onkeypress="isInNum(event)">
+			<p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
+			<p> </p>
 
 
 		</div>
 
 		<div id= "widthNum" class="b">
 
-
+			<p> </p>
 			<label>Width:</label>
-			<input type="text" placeholder="" required>
+			<input type="text" placeholder="" onkeypress="isInNum(event)">
 			<p class = "smallgrey" id = "widthMessage"></p>
-
+			<p> </p>
 
 
 		</div>
@@ -387,23 +380,25 @@
 
 
 		<script>
+		function isInNum(evt){
 
+			var char = String.fromCharCode(evt.which);
 
-
+			if (!(/[0-9]/.test(char))){
+				evt.preventDefault();
+			}
+		}
 		function aprNumRect() {
 		  document.getElementById("numRect").style.display = "block";
 		  document.getElementById("widthNum").style.display = "none";
 		}
-
 		function aprWidthNum() {
 		  document.getElementById("widthNum").style.display = "block";
 		  document.getElementById("numRect").style.display = "none";
 		  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-
-
 		}
 		</script>
-		<div class="header">
+		<div class="a">
 
 		<h3>Sum type:</h3>
 
@@ -442,14 +437,14 @@
 </ul>
 </div>
 
+		<p> </p>
+		<p> </p>
 
-
-
-		<div class="header">
+		<div class="divbtn">
 		<button class="btn" style="color: rgb(20,5,57);">GRAPH IT!</button>
-
-
-
+		<p> </p>
+		<p> </p>
+		<p> </p>
 		</div>
 		</div>
 
