@@ -9,13 +9,11 @@ INCREASE = 0.0001 # do not change!
 
 theInput = []
 
-try:
-   f = open("input.txt", mode = 'r')
-   theInput = [line.rstrip('\n') for line in f]
+try: 
+   f = open("input.txt", mode = 'r') # opens input file
+   theInput = [line.rstrip('\n') for line in f] # cleans up line and puts into input list
 finally: 
    f.close() 
-
-#theInput = [1, 1, 0, 0, 0, -5, 5, False, 10, 0, 0.5]
 
 FUNCTION = int(theInput[0])
 
@@ -27,39 +25,45 @@ D = float(theInput[4])
 xMin = float(theInput[5]) 
 xMax = float(theInput[6]) 
 
-if theInput[7] == "True": # temporary solution!!!!
-   WIDTH = True
-else:
-   WIDTH = False
-
 NUM_RECT = int(theInput[8]) 
-   
-SUM_TYPE = int(theInput[9])
 
-#for i in range(0, len(theInput)):
- #       print(theInput[i])
-
-if WIDTH:
-   DELTA_X = theInput[10] 
-else:
+if theInput[7] == "0": 
+   DELTA_X = float(theInput[10]) 
+else: 
    DELTA_X = (xMax - xMin) / NUM_RECT 
+
+SUM_TYPE = int(theInput[9])
 
 def main(): 
    xList= np.arange(xMin, xMax, INCREASE) 
    yList = createYArray(xList, FUNCTION, A, B, C, D) 
                  
    if SUM_TYPE == 3: 
-      riemannTrap(yList, DELTA_X, xMin)
+      sum = riemannTrap(yList, DELTA_X, xMin)
    else:
-      riemann(yList, DELTA_X, xMin, SUM_TYPE) 
+      sum = riemann(yList, DELTA_X, xMin, SUM_TYPE) 
           
    plt.axhline(y = 0, color='k') # x axis
    plt.axvline(x = 0, color='k') # y axis 
    
    plt.plot(xList, yList, linewidth = 3)
    
+   # zooming out 
+   plt.plot(xMin - INCREASE, 0)
+   plt.plot(xMax + INCREASE, 0)
+   plt.plot(0, max(yList) + INCREASE)
+   plt.plot(0, min(yList) - INCREASE)
+   
    plt.grid(True)
+   # plt.savefig("graph.jpg")
    plt.show()
+   
+   try: 
+        file = open("output.txt", mode = 'w') # opens output file
+        file.write(str(sum))
+   finally: 
+        file.close() 
+   
         
 def createYArray(xList, type, A, B, C, D):
    # A = float(input("\nA? "))
@@ -129,17 +133,19 @@ def riemann(yList, deltaX, xMin, type):
       sum -= yList[0] * deltaX
       sum += yList[len(yList) - 1] * deltaX
       rightSum = sum
-      
-   if type == 0: # left
-      print("\nThe left endpoint sum is: " + str(round(leftSum, 3)))
-   elif type == 1: # right
-      print("\nThe right endpoint sum is: " + str(round(rightSum, 3)))
-   else: # Mid
-        #midpoint is average of left and right sums
-      print("\nThe midpoint sum is: " + str(round((rightSum + leftSum) / 2 , 3)))   
    
    plt.plot(riemannX, riemannY)
    
+   if type == 0: # left
+      return round(leftSum, 3)
+      # print("\nThe left endpoint sum is: " + str(round(leftSum, 3)))
+   elif type == 1: # right
+      return round(rightSum, 3)
+      # print("\nThe right endpoint sum is: " + str(round(rightSum, 3)))
+   else: # Mid
+      #midpoint is average of left and right sums
+      return round(((rightSum + leftSum) / 2), 3)
+      # print("\nThe midpoint sum is: " + str(round((rightSum + leftSum) / 2 , 3)))      
 
 def riemannTrap(yList, deltaX, xMin):
    delta =  int(deltaX / INCREASE)  
@@ -179,7 +185,8 @@ def riemannTrap(yList, deltaX, xMin):
    
    plt.plot(riemannX, riemannY)
 
-   print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
+   # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
+   return round(sum, 3)
          
 def test():
    print("\n1. Linear \n2. Quadratic \n3. Cubic \n4. Sine \n5. Cosine \n6. e^x \n7. Natural log")
@@ -206,7 +213,7 @@ def test():
       xMax= float(input("\nEnter a value for the second x-coordinate: "))
         
    xList= np.arange(xMin, xMax, INCREASE) 
-   yList = createYArray(xList, (func - 1), A, B, C, D)  # graphs function
+   yList = createYArray(xList, func, A, B, C, D)  # graphs function
    
    userInput = input("\nWidth enter 0, Rectangles enter 1: ")
    while(True):
