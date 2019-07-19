@@ -24,28 +24,38 @@ SUM_TYPE = 0
 
 def main(): 
         xList= np.arange(xMin, xMax, INCREASE) 
-        yList = createYArray(xList, FUNCTION) 
+        yList = createYArray(xList, FUNCTION, A, B, C, D) 
         
+        plt.plot(riemannX, riemannY)
+        plt.axhline(y = 0, color='k') # x axis
+        plt.axvline(x = 0, color='k') # y axis 
+   
+        plt.plot(xList, yList, linewidth = 3)
+   
+        plt.grid(True)
+        # plt.show()
+        return plt
+
         
-        
-def createYArray(xList, type):
-   A = float(input("\nA? "))
-   B = float(input("B? "))
-   if type != "LINEAR" and type != "E" and type != "":
-      C = float(input("C? "))
-      if type == "CUBIC" or type == "SINE" or type == "COSINE":
-         D = float(input("D? "))  
-   if type == "LINEAR": 
+def createYArray(xList, type, A, B, C, D):
+   # A = float(input("\nA? "))
+   # B = float(input("B? "))
+   #if type != "LINEAR" and type != "E" and type != "":
+      #C = float(input("C? "))
+      #if type == "CUBIC" or type == "SINE" or type == "COSINE":
+         #D = float(input("D? "))  
+         
+   if type == 0: # LINEAR 
         yList = A * xList + B 
-   elif type == "QUAD":
+   elif type == 1: # QUAD
         yList = A * xList * xList + B * xList + C
-   elif type == "CUBIC": 
+   elif type == 2: # CUBIC 
         yList = A * xList * xList * xList + B * xList * xList + C * xList + D
-   elif type == "SINE":
+   elif type == 3: # SINE
       yList = A * np.sin(B * xList + C) + D 
-   elif type == "COSINE": 
+   elif type == 4: # COSINE 
       yList = A * np.cos(B * xList + C) + D
-   elif type == "E":
+   elif type == 5: # E
       yList = A * math.e ** xList + B
    else: # natural log
       yList = A * np.log(xList) + B
@@ -91,13 +101,14 @@ def riemann(yList, deltaX, xMin, width, type):
    
    leftSum = sum
 
-   if type == "Right" or type == "Mid": 
+   if type == 1 or type == 2: # right or midpoint
       sum -= yList[0] * deltaX
       sum += yList[len(yList) - 1] * deltaX
       rightSum = sum
-   if type == "Left":
+      
+   if type == 0: # left
       print("\nThe left endpoint sum is: " + str(round(leftSum, 3)))
-   elif type == "Right": 
+   elif type == 1: # right
       print("\nThe right endpoint sum is: " + str(round(rightSum, 3)))
    else: # Mid
         #midpoint is average of left and right sums
