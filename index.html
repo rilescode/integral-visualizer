@@ -16,7 +16,7 @@
 				font:Verdana;
 				color: rgb(84, 90, 112);
 			}
-			.btn {
+			.submit {
 				background-color:rgb(207, 170, 70);
 				cursor:pointer;
 				font-size:20px;
@@ -26,12 +26,12 @@
 				transition: background 0.2s linear;
 				-webkit-transition: background 0.2s linear;
 			}
-			.btn:hover{
+			.submit:hover{
 				background-color: rgb(140, 61, 18);
 				transition: background 0.2s linear;
 				-webkit-transition: background 0.2s linear;
 			}
-			.btn:active {
+			.submit:active {
 				position:relative;
 				top:.5px;
 			}
@@ -194,7 +194,7 @@
 
 
   <li>
-	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear" type="radio" name="linear" required>
+	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear" type="radio" name="function-type" required>
 	<label for="Linear"> Linear: f(x) = Ax+B</label>
 
     <div class="check"></div>
@@ -202,21 +202,21 @@
   </li>
 
   <li>
-	<input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic" type="radio" name="quadratic"required>
+	<input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic" type="radio" name="function-type"required>
 	<label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup>+Bx+C</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-	<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic" type="radio" name="cubic"required>
+	<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic" type="radio" name="function-type"required>
 	<label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-  <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine" type="radio" name="sine"required>
+  <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine" type="radio" name="function-type"required>
   <label for="Sine"> Sine: f(x) = A sin(Bx+C)+D</label>
 
     <div class="check"><div class="inside"></div></div>
@@ -224,21 +224,21 @@
 <!-- MESS THINGS UP-->
   <li>
 
-	<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine" type="radio" name="cosine"required>
+	<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine" type="radio" name="function-type"required>
     <label for="Cosine"> Cosine: f(x) = A cos(Bx+C)+D</label>
 
     <div class="check"></div><div class="inside"></div>
   </li>
 
   <li>
-	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x" type="radio" name="e^x"required>
+	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x" type="radio" name="function-type"required>
     <label for="e^x"> e<sup>x</sup>: f(x) = A e<sup>x</sup>+B</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log" type="radio" name="naturallog"required>
+	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log" type="radio" name="function-type"required>
     <label for="Natural log"> Natural log: f(x) = A ln(x)+B</label>
 
     <div class="check"><div class="inside"></div></div>
@@ -364,14 +364,14 @@
 
   <ul id="widthrectrad">
   <li>
-	<input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width"required >
+	<input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width-rect"required >
 	<label for="width">Width</label>
 
     <div class="check"></div>
   </li>
 
   <li>
-	<input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="rectangles"required>
+	<input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rect"required>
 	<label for="rectangles">Rectangles</label><br>
 
     <div class="check"><div class="inside"></div></div>
@@ -386,7 +386,7 @@
 
 			<p> </p>
 			<label># of rectangles:</label>
-			<input type="number" placeholder="" onkeypress="isInNum(event)" onchange="aprWidthNum()"id="numrectbox" name="numrectbox">
+			<input type="number" placeholder="" onkeypress="isInNum(event)" onchange="aprWidthNum()"id="numrectbox" name="rct-wdth-amnt">
 			<p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
 			<p> </p>
 
@@ -397,7 +397,7 @@
 
 			<p> </p>
 			<label>Width:</label>
-			<input type="number" placeholder="" onkeypress="isInNum(event)"onchange="aprWidthNum()"id="widthbox" name="widthbox">
+			<input type="number" placeholder="" onkeypress="isInNum(event)"onchange="aprWidthNum()"id="widthbox" name="rct-wdth-amnt">
 			<p class = "smallgrey" id = "widthMessage"></p>
 			<p> </p>
 
@@ -447,28 +447,28 @@
 
   <ul>
   <li>
-	<input  style="cursor:pointer" id="Left" type="radio" name="left"required>
+	<input  style="cursor:pointer" id="Left" type="radio" name="sumtype"required>
 	<label for="Left">Left endpoint</label>
 
     <div class="check"></div>
   </li>
 
   <li>
-	<input  style="cursor:pointer" id="Right" type="radio" name="right"required>
+	<input  style="cursor:pointer" id="Right" type="radio" name="sumtype"required>
 	<label for="Right">Right endpoint</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-	<input  style="cursor:pointer" id="Mid" type="radio" name="mid"required>
+	<input  style="cursor:pointer" id="Mid" type="radio" name="sumtype"required>
 	<label for="Mid">Midpoint</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-  <input  style="cursor:pointer" id="Trap" type="radio" name="trap"required>
+  <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype"required>
   <label for="Trap">Trapezoidal</label>
 
     <div class="check"><div class="inside"></div></div>
@@ -481,7 +481,7 @@
 		<p> </p>
 
 		<div class="divbtn">
-		<button class="btn" style="color: rgb(20,5,57);">GRAPH IT!</button>
+		<button class="submit" style="color: rgb(20,5,57);">GRAPH IT!</button>
 		<p> </p>
 		<p> </p>
 		<p> </p>
