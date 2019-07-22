@@ -1,222 +1,214 @@
 <!DOCTYPE html>
 <HTML>
 
-	<head>
+<head>
 
 
-		<style>
-			body {
-				background-color:rgb(254, 252, 243);
-				font-family: verdana;
-				display:block;
-			}
+<style>
+body {
+background-color:rgb(254, 252, 243);
+font-family: verdana;
+display:block;
+}
+<!-- MESS THINGS UP-->
+label {
+font:Verdana;
+color: rgb(84, 90, 112);
+}
+.submit {
+background-color:rgb(207, 170, 70);
+cursor:pointer;
+font-size:20px;
+font-family: verdana;
+border: 2px solid rgb(140, 80, 50)
+border-radius: 3px;
+transition: background 0.2s linear;
+-webkit-transition: background 0.2s linear;
+}
+.submit:hover{
+background-color: rgb(140, 61, 18);
+transition: background 0.2s linear;
+-webkit-transition: background 0.2s linear;
+}
+.submit:active {
+position:relative;
+top:.5px;
+}
+div.leftside {
+background: rgb(222, 238, 233);
+display: block;
+position: relative;
+width: 400px;
+border: 3px solid rgb(20,5,57);
+max-height: 700px;
+overflow-y: scroll;
+overflow-x: hidden;
+}
+div.a {
+padding:5px 0px 5px 25px;
+margin: 5px 0px 4px 0px;
+position: relative;
+border-bottom: 1px solid  rgb(207,170,70);
+-webkit-box-shadow: 0 8px 6px -6px grey;
+-moz-box-shadow: 0 8px 6px -6px grey;
+box-shadow: 0 8px 6px -6px grey;
+}
+div.divbtn {
+position: relative;
+left: 25px;
+}
+div.b {
+position: relative;
+left: 50px;
+}
+h3 {
+font-size: 18px;
+color: rgb(140, 61, 18);
+margin: 0px;
+}
+.functContainer{
+ display: block;
+ position: relative;
+ margin: 1px auto;
+ height: auto;
+ width: 300px;
+ padding: 1px;
+}
+.functContainer ul{
+ list-style: none;
+ margin: 0px;
+ padding: 0px;
+ overflow: hidden;
+}
+ul li{
+ color: rgb(84, 90, 112);
+ display: block;
+ position: relative;
+ float: left;
+ width: 100%;
+ height: 50px;
+ margin: 0px auto;
+ border-bottom: 1px solid #333;
+}
+ul li input[type=radio]{
+ position: relative;
+ visibility: hidden;
+}
+ul li label{
+ display: block;
+ position: relative;
+ font-weight: 150;
+ padding: 14px 10px 0px 40px;
+ height: 35px;
+ z-index: 9;
+ cursor: pointer;
+ top:-20px;
+ -webkit-transition: all 0.25s linear;
+}
+ul li:hover label{
+color: rgb(207, 170, 70);
+}
+ul li .check{
+ display: block;
+ position: absolute;
+ border: 3px solid rgb(84, 90, 112);
+ border-radius: 100%;
+ height: 12px;
+ width: 12px;
+ top: 15px;
+ left: 10px;
+z-index: 5;
+transition: border .25s linear;
+-webkit-transition: border .25s linear;
+}
+ul li:hover .check {
+ border: 3px solid rgb(207, 170, 70);
+}
+ul li .check::before {
+ display: block;
+ position: absolute;
+ content: '';
+ border-radius: 100%;
+ height: 8px;
+ width: 8px;
+ top: 2px;
+ left: 1.7px;
+ margin: 0px;
+transition: background 0.2s linear;
+-webkit-transition: background 0.2s linear;
+}
+input[type=radio]:checked ~ .check {
+ border: 3px solid rgb(140, 61, 18);
+}
+input[type=radio]:checked ~ .check::before{
+ background: rgb(140, 61, 18);
+}
+input[type=radio]:checked ~ label{
+ color: rgb(140, 61, 18);
+}
+#var {
+display: none;
+}
+#varABC {
+display: none;
+}
+#numRect {
+display: none;
+}
+#widthNum {
+display: nonec	}
+p.smallgrey {
+font-family: verdana;
+color: rgb(84, 90, 112);
+font-size: 10px;
+}
+#widthrectrad {
+overflow: hidden;
+}
+</style>
+</head>
 
-			<!-- MESS THINGS UP-->
-			label {
-				font:Verdana;
-				color: rgb(84, 90, 112);
-			}
-			.btn {
-				background-color:rgb(207, 170, 70);
-				cursor:pointer;
-				font-size:20px;
-				font-family: verdana;
-				border: 2px solid rgb(140, 80, 50)
-				border-radius: 3px;
-				transition: background 0.2s linear;
-				-webkit-transition: background 0.2s linear;
-			}
-			.btn:hover{
-				background-color: rgb(140, 61, 18);
-				transition: background 0.2s linear;
-				-webkit-transition: background 0.2s linear;
-			}
-			.btn:active {
-				position:relative;
-				top:.5px;
-			}
-			div.leftside {
-				background: rgb(222, 238, 233);
-				display: block;
-				position: relative;
-				width: 400px;
-				border: 3px solid rgb(20,5,57);
-				max-height: 700px;
-				overflow-y: scroll;
-				overflow-x: hidden;
-			}
-			div.a {
-				padding:5px 0px 5px 25px;
-				margin: 5px 0px 4px 0px;
-				position: relative;
-				border-bottom: 1px solid  rgb(207,170,70);
-				-webkit-box-shadow: 0 8px 6px -6px grey;
-				-moz-box-shadow: 0 8px 6px -6px grey;
-				box-shadow: 0 8px 6px -6px grey;
-			}
+<HEADER>
+<TITLE>FakeDesmos.com</TITLE>
+</HEADER>
 
-			div.divbtn {
-			position: relative;
-				left: 25px;
+<form action = '.' method = 'POST'>
+<body><!-- MESS THINGS UP-->
 
-			}
+<div class="leftside">
+<div class="a">
+<h3>Select a skeleton function:</h3>
+</div>
 
-
-			div.b {
-				position: relative;
-				left: 50px;
-			}
-			h3 {
-				font-size: 18px;
-				color: rgb(140, 61, 18);
-				margin: 0px;
-
-
-			}
-			.functContainer{
-			  display: block;
-			  position: relative;
-			  margin: 1px auto;
-			  height: auto;
-			  width: 300px;
-			  padding: 1px;
-			}
-			.functContainer ul{
-			  list-style: none;
-			  margin: 0px;
-			  padding: 0px;
-			  overflow: hidden;
-			}
-			ul li{
-			  color: rgb(84, 90, 112);
-			  display: block;
-			  position: relative;
-			  float: left;
-			  width: 100%;
-			  height: 50px;
-			  margin: 0px auto;
-			  border-bottom: 1px solid #333;
-			}
-			ul li input[type=radio]{
-			  position: relative;
-			  visibility: hidden;
-			}
-			ul li label{
-			  display: block;
-			  position: relative;
-			  font-weight: 150;
-			  padding: 14px 10px 0px 40px;
-			  height: 35px;
-			  z-index: 9;
-			  cursor: pointer;
-			  top:-20px;
-			  -webkit-transition: all 0.25s linear;
-			}
-			ul li:hover label{
-				color: rgb(207, 170, 70);
-			}
-			ul li .check{
-			  display: block;
-			  position: absolute;
-			  border: 3px solid rgb(84, 90, 112);
-			  border-radius: 100%;
-			  height: 12px;
-			  width: 12px;
-			  top: 15px;
-			  left: 10px;
-				z-index: 5;
-				transition: border .25s linear;
-				-webkit-transition: border .25s linear;
-			}
-			ul li:hover .check {
-			  border: 3px solid rgb(207, 170, 70);
-			}
-			ul li .check::before {
-			  display: block;
-			  position: absolute;
-			  content: '';
-			  border-radius: 100%;
-			  height: 8px;
-			  width: 8px;
-			  top: 2px;
-			  left: 1.7px;
-			  margin: 0px;
-				transition: background 0.2s linear;
-				-webkit-transition: background 0.2s linear;
-			}
-			input[type=radio]:checked ~ .check {
-			  border: 3px solid rgb(140, 61, 18);
-			}
-			input[type=radio]:checked ~ .check::before{
-			  background: rgb(140, 61, 18);
-			}
-			input[type=radio]:checked ~ label{
-			  color: rgb(140, 61, 18);
-			}
-			#var {
-				display: none;
-			}
-			#varABC {
-				display: none;
-			}
-			#numRect {
-				display: none;
-			}
-			#widthNum {
-				display: none;
-			}
-			p.smallgrey {
-				font-family: verdana;
-				color: rgb(84, 90, 112);
-				font-size: 10px;
-			}
-
-			#widthrectrad {
-				overflow: hidden;
-			}
-		</style>
-	</head>
-
-	<HEADER>
-		<TITLE>FakeDesmos.com</TITLE>
-	</HEADER>
-
-	<body><!-- MESS THINGS UP-->
-
-		<div class="leftside">
-		<div class="a">
-			<h3>Select a skeleton function:</h3>
-		</div>
-
-		<div class="functContainer">
+<div class="functContainer">
 
   <ul>
 
 
   <li>
-	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear" type="radio" name="linear" required>
-	<label for="Linear"> Linear: f(x) = Ax+B</label>
+<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear" type="radio" name="linear" required value= "linear">
+<label for="Linear"> Linear: f(x) = Ax+B</label>
 
     <div class="check"></div>
-	<!-- MESS THINGS UP-->
+<!-- MESS THINGS UP-->
   </li>
 
   <li>
-	<input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic" type="radio" name="quadratic"required>
-	<label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup>+Bx+C</label>
+<input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic" type="radio" name="quadratic"required value= "quadratic">
+<label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup>+Bx+C</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-	<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic" type="radio" name="cubic"required>
-	<label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
+<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic" type="radio" name="cubic"required value= "cubic">
+<label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-  <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine" type="radio" name="sine"required>
+  <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine" type="radio" name="sine"required value= "sine">
   <label for="Sine"> Sine: f(x) = A sin(Bx+C)+D</label>
 
     <div class="check"><div class="inside"></div></div>
@@ -224,21 +216,21 @@
 <!-- MESS THINGS UP-->
   <li>
 
-	<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine" type="radio" name="cosine"required>
+<input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine" type="radio" name="cosine"required value= "cosine">
     <label for="Cosine"> Cosine: f(x) = A cos(Bx+C)+D</label>
 
     <div class="check"></div><div class="inside"></div>
   </li>
 
   <li>
-	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x" type="radio" name="e^x"required>
+<input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x" type="radio" name="e^x"required value= "ex">
     <label for="e^x"> e<sup>x</sup>: f(x) = A e<sup>x</sup>+B</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-	<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log" type="radio" name="naturallog"required>
+<input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log" type="radio" name="naturallog"required value= "naturallog">
     <label for="Natural log"> Natural log: f(x) = A ln(x)+B</label>
 
     <div class="check"><div class="inside"></div></div>
@@ -246,133 +238,129 @@
 </ul>
 </div>
 
-	<div class="a" id="var">
+<div class="a" id="var">
 
-	<h3>Variables</h3><!-- MESS THINGS UP-->
+<h3>Variables</h3><!-- MESS THINGS UP-->
 
-	</div>
+</div>
 
-	<div id="varABC" class="b">
-	<p> </p>
+<div id="varABC" class="b">
+<p> </p>
     <label id="ALbl">A:</label>
-		<input id="Abox" type="number" placeholder="eg "onkeypress="isInNum(event)" required>
-		<p> </p>
+<input id="Abox" type="number" placeholder="eg "onkeypress="isInNum(event)" required value= "1">
+<p> </p>
     <label id="BLbl">B:</label>
-    <input id="Bbox" type="number" placeholder="eg " onkeypress="isInNum(event)"required>
-	<p> </p>
+    <input id="Bbox" type="number" placeholder="eg " onkeypress="isInNum(event)"required value= "2">
+<p> </p>
     <label id="CLbl" >C:</label>
-    <input id="Cbox" type="number" placeholder="eg " onkeypress="isInNum(event)">
-	<p> </p>
-	<label id="DLbl" >D:</label>
-    <input id="Dbox" type="number" placeholder="eg " onkeypress="isInNum(event)">
-	</div>
-		<p> </p>
-		<p> </p>
-		<p> </p>
+    <input id="Cbox" type="number" placeholder="eg " onkeypress="isInNum(event)" value= "1">
+<p> </p>
+<label id="DLbl" >D:</label>
+    <input id="Dbox" type="number" placeholder="eg " onkeypress="isInNum(event)" value= "1">
+</div>
+<p> </p>
+<p> </p>
+<p> </p>
 
 
-	<script>
-
-	function ABRequired() {
-		document.getElementById("Cbox").required = false;
-		document.getElementById("Dbox").required = false;
-	}
-
-	function ABCRequired() {
-		document.getElementById("Cbox").required = true;
-		document.getElementById("Dbox").required = false;
-	}
-
-	function ABCDRequired() {
-		document.getElementById("Cbox").required = true;
-		document.getElementById("Dbox").required = true;
-	}
-
-	function aprVarTtlAB() {
-	  document.getElementById("var").style.display = "block";
-	  document.getElementById("varABC").style.display = "block";
-	  document.getElementById("CLbl").style.display = "none";
-	  document.getElementById("Cbox").style.display = "none";
-	  document.getElementById("DLbl").style.display = "none";
-	  document.getElementById("Dbox").style.display = "none";
-	  ABRequired();
-	}
-	function aprVarTtlABC() {
-	  document.getElementById("var").style.display = "block";
-	  document.getElementById("varABC").style.display = "block";
-	  document.getElementById("CLbl").style.display = "inline";
-	  document.getElementById("Cbox").style.display = "inline";
-	  document.getElementById("DLbl").style.display = "none";
-	  document.getElementById("Dbox").style.display = "none";
-	  ABCRequired();
-	}
-	function aprVarTtlABCD() {
-	  document.getElementById("var").style.display = "block";
-	  document.getElementById("varABC").style.display = "block";
-	  document.getElementById("CLbl").style.display = "inline";
-	  document.getElementById("Cbox").style.display = "inline";
-	  document.getElementById("DLbl").style.display = "inline";
-	  document.getElementById("Dbox").style.display = "inline";
-	  ABCDRequired();
-	}
-	</script>
+<script>
+function ABRequired() {
+document.getElementById("Cbox").required = false;
+document.getElementById("Dbox").required = false;
+}
+function ABCRequired() {
+document.getElementById("Cbox").required = true;
+document.getElementById("Dbox").required = false;
+}
+function ABCDRequired() {
+document.getElementById("Cbox").required = true;
+document.getElementById("Dbox").required = true;
+}
+function aprVarTtlAB() {
+ document.getElementById("var").style.display = "block";
+ document.getElementById("varABC").style.display = "block";
+ document.getElementById("CLbl").style.display = "none";
+ document.getElementById("Cbox").style.display = "none";
+ document.getElementById("DLbl").style.display = "none";
+ document.getElementById("Dbox").style.display = "none";
+ ABRequired();
+}
+function aprVarTtlABC() {
+ document.getElementById("var").style.display = "block";
+ document.getElementById("varABC").style.display = "block";
+ document.getElementById("CLbl").style.display = "inline";
+ document.getElementById("Cbox").style.display = "inline";
+ document.getElementById("DLbl").style.display = "none";
+ document.getElementById("Dbox").style.display = "none";
+ ABCRequired();
+}
+function aprVarTtlABCD() {
+ document.getElementById("var").style.display = "block";
+ document.getElementById("varABC").style.display = "block";
+ document.getElementById("CLbl").style.display = "inline";
+ document.getElementById("Cbox").style.display = "inline";
+ document.getElementById("DLbl").style.display = "inline";
+ document.getElementById("Dbox").style.display = "inline";
+ ABCDRequired();
+}
+</script>
 
 
 <div class="a">
 
-	<h3>Domain</h3>
+<h3>Domain</h3>
 
-	</div>
+</div>
 
-	<div class="b">
+<div class="b">
 <p> </p>
-		<label>x-min:</label>
-		<input id = "xmin" name = "xmin" type="number" placeholder="x-min" oninput="getmin()"onkeypress="isInNum(event)"required>
-		<p> </p>
+<label>x-min:</label>
+<input id = "xmin" name = "xminmax" type="number" placeholder="x-min" oninput="getmin()"onkeypress="isInNum(event)"required value= "0">
+<p> </p>
 
-		<label>x-max:</label>
-		<input id = "xmax" name = "xmin"type="number" placeholder="x-max" oninput="getmax()"onkeypress="isInNum(event)"required>
-		<p> </p>
-		<p> </p>
+<label>x-max:</label>
+<input id = "xmax" name = "xminmax"type="number" placeholder="x-max" oninput="getmax()"onkeypress="isInNum(event)"required value= "13">
+<p> </p>
+<p> </p>
 
-		</div>
+</div>
 
-	<script>
-	var domain = 0;
-	var xmax = 0;
-	var xmin = 0;
-	function getmin() {
-		xmax = Number(parseFloat(document.getElementById("xmax").value));
-		xmin = Number(parseFloat(document.getElementById("xmin").value));
-		domain = xmax - xmin;
-		document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-	}
-	function getmax() {
-		 xmax = Number(parseFloat(document.getElementById("xmax").value));
-		 xmin = Number(parseFloat(document.getElementById("xmin").value));
-		domain = xmax - xmin;
-		document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-	}
-	</script>
+<script>
+var domain = 0;
+var xmax = 0;
+var xmin = 0;
+function getmin() {
+xmax = Number(parseFloat(document.getElementById("xmax").value));
+xmin = Number(parseFloat(document.getElementById("xmin").value));
+domain = (xmax - xmin)/2;
+document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+}
+function getmax() {
+xmax = Number(parseFloat(document.getElementById("xmax").value));
+xmin = Number(parseFloat(document.getElementById("xmin").value));
+domain = (xmax - xmin)/2;
+document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+}
+</script>
 
-		<div class="a">
+<div class="a">
 
-		<h3>Unit and amount:</h3>
+<h3>Unit and amount:</h3>
 
-		</div>
-		<div class="functContainer">
+</div>
+<div class="functContainer">
 
   <ul id="widthrectrad">
   <li>
-	<input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width"required >
-	<label for="width">Width</label>
+<input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width"required  value= "0">
+<label for="width">Width</label>
 
     <div class="check"></div>
   </li>
 
   <li>
-	<input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="rectangles"required>
-	<label for="rectangles">Rectangles</label><br>
+<input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="rectangles"required  value= "0">
+<label for="rectangles">Rectangles</label><br>
 
     <div class="check"><div class="inside"></div></div>
   </li>
@@ -382,93 +370,93 @@
 
 
 
-		<div id= "numRect" class="b">
+<div id= "numRect" class="b">
 
-			<p> </p>
-			<label># of rectangles:</label>
-			<input type="number" placeholder="" onkeypress="isInNum(event)" onchange="aprWidthNum()"id="numrectbox" name="numrectbox">
-			<p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
-			<p> </p>
-
-
-		</div>
-
-		<div id= "widthNum" class="b">
-
-			<p> </p>
-			<label>Width:</label>
-			<input type="number" placeholder="" onkeypress="isInNum(event)"onchange="aprWidthNum()"id="widthbox" name="widthbox">
-			<p class = "smallgrey" id = "widthMessage"></p>
-			<p> </p>
+<p> </p>
+<label># of rectangles:</label>
+<input type="number" placeholder="" onkeypress="isInPNum(event)" onchange="aprWidthNum()"id="numrectbox" name="rctwdthbox"  value= "numrectbox">
+<p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
+<p> </p>
 
 
-		</div>
+</div>
+
+<div id= "widthNum" class="b">
+
+<p> </p>
+<label>Width:</label>
+<input type="number" placeholder="" onkeypress="isInPNum(event)"onchange="aprWidthNum()"id="widthbox" name="rctwdthbox" value= "widthbox">
+<p class = "smallgrey" id = "widthMessage"></p>
+<p> </p>
+
+
+</div>
 
 
 
-		<script>
+<script>
+function widthRequired() {
+document.getElementById("widthbox").required = true;
+document.getElementById("numrectbox").required = false;
+}
+function rectRequired() {
+document.getElementById("numrectbox").required = true;
+document.getElementById("widthbox").required = false;
+}
+function isInNum(evt){
+var char = String.fromCharCode(evt.which);
+if (!(/[0-9.-]/.test(char))){
+evt.preventDefault();
+}
+function isInPNum(evt){
+var char = String.fromCharCode(evt.which);
+if (!(/[0-9.]/.test(char))){
+evt.preventDefault();
+}
+}
+function aprNumRect() {
+rectRequired();
+document.getElementById("numRect").style.display = "block";
+document.getElementById("widthNum").style.display = "none";
+}
+function aprWidthNum() {
+widthRequired()
+document.getElementById("widthNum").style.display = "block";
+document.getElementById("numRect").style.display = "none";
+document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+}
+</script>
+<div class="a">
 
-		function widthRequired() {
-			document.getElementById("widthbox").required = true;
-			document.getElementById("numrectbox").required = false;
-		}
+<h3>Sum type:</h3>
 
-		function rectRequired() {
-			document.getElementById("numrectbox").required = true;
-			document.getElementById("widthbox").required = false;
-		}
-
-		function isInNum(evt){
-
-			var char = String.fromCharCode(evt.which);
-
-			if (!(/[0-9.]/.test(char))){
-				evt.preventDefault();
-			}
-		}
-		function aprNumRect() {
-			rectRequired();
-			document.getElementById("numRect").style.display = "block";
-			document.getElementById("widthNum").style.display = "none";
-		}
-		function aprWidthNum() {
-			widthRequired()
-			document.getElementById("widthNum").style.display = "block";
-			document.getElementById("numRect").style.display = "none";
-			document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-		}
-		</script>
-		<div class="a">
-
-		<h3>Sum type:</h3>
-
-		</div>
-		<div class="functContainer">
+</div>
+<div class="functContainer">
 
   <ul>
   <li>
-	<input  style="cursor:pointer" id="Left" type="radio" name="left"required>
-	<label for="Left">Left endpoint</label>
+<input  style="cursor:pointer" id="Left" type="radio" name="SumType"required value= "left">
+<label for="Left">Left endpoint</label>
 
     <div class="check"></div>
   </li>
 
   <li>
-	<input  style="cursor:pointer" id="Right" type="radio" name="right"required>
-	<label for="Right">Right endpoint</label>
+<input  style="cursor:pointer" id="Right" type="radio" name="SumType"required value= "right">
+<label for="Right">Right endpoint</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-	<input  style="cursor:pointer" id="Mid" type="radio" name="mid"required>
-	<label for="Mid">Midpoint</label>
+<input  style="cursor:pointer" id="Mid" type="radio" name="SumType"required value= "mid">
+<label for="Mid">Midpoint</label>
 
     <div class="check"><div class="inside"></div></div>
   </li>
 
   <li>
-  <input  style="cursor:pointer" id="Trap" type="radio" name="trap"required>
+  <input  style="cursor:pointer" id="Trap" type="radio" name="SumType"required value= "trap">
   <label for="Trap">Trapezoidal</label>
 
     <div class="check"><div class="inside"></div></div>
@@ -477,16 +465,17 @@
 </ul>
 </div>
 
-		<p> </p>
-		<p> </p>
+<p> </p>
+<p> </p>
 
-		<div class="divbtn">
-		<button class="btn" style="color: rgb(20,5,57);">GRAPH IT!</button>
-		<p> </p>
-		<p> </p>
-		<p> </p>
-		</div>
-		</div>
+<div class="divbtn">
+<input type="submit" style="color: rgb(20,5,57);"value="GRAPH IT!">GRAPH IT!</input>
+<p> </p>
+<p> </p>
+<p> </p>
+</div>
+</div>
 
-	</body>
+</body>
+</form>
 </HTML>

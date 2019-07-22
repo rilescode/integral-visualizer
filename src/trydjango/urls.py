@@ -16,15 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from pages.views import home_view, contact_view, integral_view
-from products.views import product_detail_view, product_create_view, product_test_view
+from products.views import product_create_view, product_test_view, integral_view, improved_view
 
 urlpatterns = [
-	path('', home_view, name='home'),
-    path('home/', home_view, name='home'),
-	path('contact/', contact_view, name='contact'),
-	path('integral/', integral_view, name = 'integral'),
-    path('product/', product_detail_view),
+	path('', integral_view, name='home'),
+    path('integral/', improved_view),
     path('create/', product_create_view),
     path('test/', product_test_view),
     path('admin/', admin.site.urls),

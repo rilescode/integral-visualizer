@@ -37,13 +37,6 @@ def product_create_view(request):
 	context = {}
 	return render(request, 'products/product_create.html', context)
 
-def product_detail_view(request):
-	obj = Product.objects.get(id = 1)
-	context = {
-		'object': obj,
-	}
-	return render(request, "product/detail.html", context)
-
 def product_test_view(request):
 	my_a = request.POST.get('a')
 	my_b = request.POST.get('b')
@@ -60,3 +53,16 @@ def product_test_view(request):
 
 	context = {}
 	return render(request, 'products/product_test.html', context)
+
+def integral_view(request):
+	return render(request, 'integral.html', {})
+
+def improved_view(request):
+	my_a = request.POST.get('a')
+	my_b = request.POST.get('b')
+	my_c = request.POST.get('c')
+	my_xmin = request.POST.get('xmin')
+	my_xmax = request.POST.get('xmax')
+	
+	
+	return render(request, 'products/improved.html', {})
