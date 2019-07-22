@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <HTML>
 
@@ -256,16 +257,16 @@ overflow: hidden;
 <div id="varABC" class="b">
 <p> </p>
     <label id="ALbl">A:</label>
-<input id="Abox" type="number" placeholder="eg "onkeypress="isInNum(event)" required value="1">
+<input id="Abox" type="number" name="a"placeholder="eg "onkeypress="isInNum(event)" required value="1">
 <p> </p>
     <label id="BLbl">B:</label>
-    <input id="Bbox" type="number" placeholder="eg " onkeypress="isInNum(event)"required value="1">
+    <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)"required value="1">
 <p> </p>
     <label id="CLbl" >C:</label>
-    <input id="Cbox" type="number" placeholder="eg " onkeypress="isInNum(event)"value="1">
+    <input id="Cbox" type="number" name="c" placeholder="eg " onkeypress="isInNum(event)"value="1">
 <p> </p>
 <label id="DLbl" >D:</label>
-    <input id="Dbox" type="number" placeholder="eg " onkeypress="isInNum(event)"value="1">
+    <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)"value="1">
 </div>
 <p> </p>
 <p> </p>
@@ -328,7 +329,7 @@ function aprVarTtlABCD() {
 <p> </p>
 
 <label>x-max:</label>
-<input id = "xmax" name = "xmin"type="number" placeholder="x-max" oninput="getmax()"onkeypress="isInNum(event)"required value="20">
+<input id = "xmax" name = "xmax"type="number" placeholder="x-max" oninput="getmax()"onkeypress="isInNum(event)"required value="20">
 <p> </p>
 <p> </p>
 
@@ -396,7 +397,7 @@ document.getElementById("widthMessage").innerHTML = "Width must be greater than 
 
 <p> </p>
 <label># of rectangles:</label>
-<input type="number" placeholder="" onkeypress="isInPosNum(event)" onchange="aprWidthNum()"id="numrectbox" name="rct-wdth-amnt" value="3">
+<input type="number" placeholder="" onkeypress="isInPosNum(event)" onchange="aprWidthNum()"id="numrectbox" name="rct-amnt" value="3">
 <p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
 <p> </p>
 
@@ -407,7 +408,7 @@ document.getElementById("widthMessage").innerHTML = "Width must be greater than 
 
 <p> </p>
 <label>Width:</label>
-<input type="number" placeholder="" onkeypress="isInPosNum(event)"onchange="aprWidthNum()"id="widthbox" name="rct-wdth-amnt" value="7">
+<input type="number" placeholder="" onkeypress="isInPosNum(event)"onchange="aprWidthNum()"id="widthbox" name="wdth-amnt" value="7">
 <p class = "smallgrey" id = "widthMessage"></p>
 <p> </p>
 
