@@ -1,9 +1,6 @@
 {%extends 'base.html' %}
 
 {% block contenct %}
-
-
-
 <!DOCTYPE html>
 <HTML>
 
@@ -171,6 +168,12 @@ font-size: 10px;
 #widthrectrad {
 overflow: hidden;
 }
+.graphImg {
+	position: fixed;
+	left:360px;
+	top: -80px;
+
+}
 </style>
 </head>
 
@@ -179,6 +182,11 @@ overflow: hidden;
 </HEADER>
 <form action = '.' method = 'POST'>{% csrf_token %}
 <body>
+
+<div class="graphImg">
+	<img src="https://raw.githubusercontent.com/vidisha-gupta
+	/integral-visualizer/master/graph.png" alt="Graph displayed here" width="1200px" height="880px">
+</div>
 
 <div class="leftside">
 <div class="a">
@@ -234,6 +242,7 @@ overflow: hidden;
 
   <li>
 <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log" type="radio" name="function-type"required value="6">
+
     <label for="Natural log"> Natural log: f(x) = A ln(x)+B</label>
 
     <div class="check"><div class="inside"></div></div>
@@ -250,7 +259,7 @@ overflow: hidden;
 <div id="varABC" class="b">
 <p> </p>
     <label id="ALbl">A:</label>
-<input id="Abox" type="number" name="a" placeholder="eg "onkeypress="isInNum(event)" required value="1">
+<input id="Abox" type="number" name="a"placeholder="eg "onkeypress="isInNum(event)" required value="1">
 <p> </p>
     <label id="BLbl">B:</label>
     <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)"required value="1">
@@ -336,13 +345,25 @@ function getmin() {
 xmax = Number(parseFloat(document.getElementById("xmax").value));
 xmin = Number(parseFloat(document.getElementById("xmin").value));
 domain = (xmax - xmin)/2;
+if (isNaN(domain)) {
+document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+  } else if (xmin >= xmaz){
+	document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+  } else {
 document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+}
 }
 function getmax() {
 xmax = Number(parseFloat(document.getElementById("xmax").value));
 xmin = Number(parseFloat(document.getElementById("xmin").value));
 domain = (xmax - xmin)/2;
+if (isNaN(domain)) {
+document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+  } else if (xmin >= xmax){
+	document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+  } else {
 document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+}
 }
 </script>
 
@@ -363,6 +384,7 @@ document.getElementById("widthMessage").innerHTML = "Width must be greater than 
 
   <li>
 <input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rect"required value="1">
+
 <label for="rectangles">Rectangles</label><br>
 
     <div class="check"><div class="inside"></div></div>
@@ -377,7 +399,7 @@ document.getElementById("widthMessage").innerHTML = "Width must be greater than 
 
 <p> </p>
 <label># of rectangles:</label>
-<input type="number" placeholder="" onkeypress="isInNum(event)" onchange="aprWidthNum()"id="numrectbox" name="rct-amnt" value="3">
+<input type="number" placeholder="" onkeypress="isInPosNum(event)" onchange="aprWidthNum()"id="numrectbox" name="rct-amnt" value="3">
 <p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
 <p> </p>
 
@@ -388,7 +410,7 @@ document.getElementById("widthMessage").innerHTML = "Width must be greater than 
 
 <p> </p>
 <label>Width:</label>
-<input type="number" placeholder="" onkeypress="isInNum(event)"onchange="aprWidthNum()"id="widthbox" name="wdth-amnt" value="7">
+<input type="number" placeholder="" onkeypress="isInPosNum(event)"onchange="aprWidthNum()"id="widthbox" name="wdth-amnt" value="7">
 <p class = "smallgrey" id = "widthMessage"></p>
 <p> </p>
 
@@ -410,7 +432,13 @@ function getmin() {
 xmax = Number(parseFloat(document.getElementById("xmax").value));
 xmin = Number(parseFloat(document.getElementById("xmin").value));
 domain = (xmax - xmin)/2;
+if (isNaN(domain)) {
+document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+  } else if (xmin >= xmax){
+	document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+  } else {
 document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+}
 }
 function testWdth(evt){
 isInNum(evt);
@@ -428,9 +456,15 @@ if (numwidth<=0){
 evt.preventDefault();
 }
 }
-function isInNum(evt){
+function isInPosNum(evt){
 var char = String.fromCharCode(evt.which);
 if (!(/[0-9.]/.test(char))){
+evt.preventDefault();
+}
+}
+function isInNum(evt){
+var char = String.fromCharCode(evt.which);
+if (!(/[0-9.-]/.test(char))){
 evt.preventDefault();
 }
 }
@@ -449,7 +483,13 @@ function aprWidthNum() {
 widthRequired()
 document.getElementById("widthNum").style.display = "block";
 document.getElementById("numRect").style.display = "none";
+if (isNaN(domain)) {
+document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+  } else if (xmin >= xmax){
+	document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+  } else {
 document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+}
 }
 </script>
 <div class="a">
@@ -483,6 +523,8 @@ document.getElementById("widthMessage").innerHTML = "Width must be greater than 
 
   <li>
   <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype"required value="3">
+
+
   <label for="Trap">Trapezoidal</label>
 
     <div class="check"><div class="inside"></div></div>
@@ -506,8 +548,5 @@ document.getElementById("widthMessage").innerHTML = "Width must be greater than 
 
 </form>
 </HTML>
-
-
-
 
 {% endblock %}
