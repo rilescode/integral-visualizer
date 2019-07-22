@@ -57,7 +57,7 @@ def main():
    plt.plot(0, min(yList) - INCREASE)
    
    plt.grid(True)
-   plt.savefig("graph.jpg")
+   plt.savefig("graph.png")
    plt.show()
    
    try: 
