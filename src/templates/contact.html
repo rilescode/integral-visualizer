@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block contenct %}
+
+<h1>This is our contact page</h1>
+<l1>Bang my line</l1>
+
+<p>
+{{my_text}}, {{my_number}}
+</p>
+
+<ul>
+{% for item in my_list %}
+	{% if item == 23 %}
+		<li>{{forloop.counter}}. {{ item|add:10 }}</li>
+	{% elif item == "freeze" %}
+		<li>{{forloop.counter}}, {{item}}inator</li>
+	{% else %}
+		<li>{{forloop.counter}}. {{ item }}</li>
+	{% endif %}
+{% endfor %}
+</ul>
+
+{% endblock %}
