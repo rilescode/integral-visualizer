@@ -38,7 +38,7 @@ SUM_TYPE = int(theInput[9])
 
 def main(): 
    xList= np.arange(xMin, xMax, INCREASE) 
-   yList = createYArray(xList, FUNCTION, A, B, C, D) 
+   yList = createYList(xList, FUNCTION, A, B, C, D) 
                  
    if SUM_TYPE == 3: 
       sum = riemannTrap(yList, DELTA_X, xMin)
@@ -64,10 +64,11 @@ def main():
         file = open("output.txt", mode = 'w') # opens output file
         file.write(str(sum))
    finally: 
-        file.close() 
-   
+        file.close()
         
-def createYArray(xList, type, A, B, C, D):
+   return sum 
+        
+def createYList(xList, type, A, B, C, D):
    # A = float(input("\nA? "))
    # B = float(input("B? "))
    #if type != "LINEAR" and type != "E" and type != "":
@@ -271,4 +272,4 @@ def test():
 # test()
 # to run test, adjustments are needed 
 
-main()
+print(main())
