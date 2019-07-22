@@ -4,6 +4,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+#from matplotlib.pyplot import figure
+#import mpld3
 
 INCREASE = 0.0001 # do not change! 
 
@@ -55,7 +57,7 @@ def main():
    plt.plot(0, min(yList) - INCREASE)
    
    plt.grid(True)
-   # plt.savefig("graph.jpg")
+   plt.savefig("graph.jpg")
    plt.show()
    
    try: 
@@ -101,7 +103,7 @@ def riemann(yList, deltaX, xMin, type):
    riemannX = []
    riemannY = [] 
  
-   for i in range(0, len(yList) / delta):      
+   for i in range(0, len(yList) // delta):      
       sum += yList[i * delta] * deltaX # sum calculation
        
       # rectangle graphing
@@ -116,7 +118,7 @@ def riemann(yList, deltaX, xMin, type):
          else: 
             val = yList[delta * (i + 1)]
       else: # Mid
-         val = yList[delta * i + delta / 2]  
+         val = yList[delta * i + delta // 2]  
       
       riemannX.append(i * deltaX + xMin)
       riemannY.append(val)
@@ -192,10 +194,9 @@ def test():
    print("\n1. Linear \n2. Quadratic \n3. Cubic \n4. Sine \n5. Cosine \n6. e^x \n7. Natural log")
    func = int(input("\nWhich function do you want to graph? "))
    while True:
-      if isInstance(func, int) and func != 7: 
+      if isinstance(func, int) and func != 7: 
          break
       elif func == 7:
-         function = "" # Natural log 
          xMin = float(input("\nEnter a value for the first x-coordinate: "))
          while xMin <= 0: 
             print("\nThe minimum x value must be greater than 0!")
