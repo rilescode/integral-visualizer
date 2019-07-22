@@ -7,36 +7,31 @@ import math
 #from matplotlib.pyplot import figure
 #import mpld3
 
-INCREASE = 0.0001 # do not change! 
+INCREASE = 0.0001 # do not change!
 
-theInput = []
 
-try: 
-   f = open("input.txt", mode = 'r') # opens input file
-   theInput = [line.rstrip('\n') for line in f] # cleans up line and puts into input list
-finally: 
-   f.close() 
 
-FUNCTION = int(theInput[0])
+def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wdth_amnt, sum_type): 
+    
+   FUNCTION = int(function_type)
 
-A = float(theInput[1]) 
-B = float(theInput[2]) 
-C = float(theInput[3]) 
-D = float(theInput[4])
+   A = float(a) 
+   B = float(b) 
+   C = float(c) 
+   D = float(d)
 
-xMin = float(theInput[5]) 
-xMax = float(theInput[6]) 
+   xMin = float(xmin) 
+   xMax = float(xmax) 
 
-NUM_RECT = int(theInput[8]) 
+   NUM_RECT = int(rct_amnt) 
 
-if theInput[7] == "0": 
-   DELTA_X = float(theInput[10]) 
-else: 
-   DELTA_X = (xMax - xMin) / NUM_RECT 
+   if width_rect == "0": 
+      DELTA_X = float(wdth_amnt) 
+   else: 
+      DELTA_X = (xMax - xMin) / NUM_RECT 
 
-SUM_TYPE = int(theInput[9])
+   SUM_TYPE = int(sum_type)
 
-def main(): 
    xList= np.arange(xMin, xMax, INCREASE) 
    yList = createYList(xList, FUNCTION, A, B, C, D) 
                  
@@ -272,4 +267,3 @@ def test():
 # test()
 # to run test, adjustments are needed 
 
-print(main())

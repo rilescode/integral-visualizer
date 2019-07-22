@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .forms import ProductForm
 from .models import Product
+import math
+from .riemann import calculateSum
 # Create your views here.
 
 def product_create_view(request):
@@ -58,11 +60,19 @@ def integral_view(request):
 	return render(request, 'integral.html', {})
 
 def improved_view(request):
-	#my_a = request.POST.get('a')
-	#my_b = request.POST.get('b')
-	#my_c = request.POST.get('c')
-	#my_xmin = request.POST.get('xmin')
-	#my_xmax = request.POST.get('xmax')
-	
+	if request.method == "POST":
+		function_type = request.POST.get('function-type')
+		a = request.POST.get('a')
+		b = request.POST.get('b')
+		c = request.POST.get('c')
+		d = request.POST.get('d')
+		xmin = request.POST.get('xmin')
+		xmax = request.POST.get('xmax')
+		width_rect = request.POST.get('width-rect')
+		rct_amnt = request.POST.get('rct-amnt')
+		wdth_amnt = request.POST.get('wdth-amnt')
+		sum_type = request.POST.get('sumtype')
+
+		print(calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wdth_amnt, sum_type))
 	
 	return render(request, 'products/improved.html', {})
