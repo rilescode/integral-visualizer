@@ -418,11 +418,44 @@
 			document.getElementById("widthbox").required = false;
 		}
 
+		function getmin() {
+			xmax = Number(parseFloat(document.getElementById("xmax").value));
+			xmin = Number(parseFloat(document.getElementById("xmin").value));
+			domain = (xmax - xmin)/2;
+			document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+		}
+
+		function testWdth(evt){
+			isInNum(evt);
+			var char = String.fromCharCode(evt.which);
+			var numwidth = Number(parseFloat(document.getElementById("widthbox").value));
+			if (numwidth<=0 || numwidth> domain){
+				evt.preventDefault();
+			}
+		}
+
+		function testRect(evt){
+			isInInt(evt);
+			var char = String.fromCharCode(evt.which);
+			var numwidth = Number(parseFloat(document.getElementById("numrectbox").value));
+			if (numwidth<=0){
+				evt.preventDefault();
+			}
+		}
+
 		function isInNum(evt){
 
 			var char = String.fromCharCode(evt.which);
 
 			if (!(/[0-9.]/.test(char))){
+				evt.preventDefault();
+			}
+		}
+		function isInInt(evt){
+
+			var char = String.fromCharCode(evt.which);
+
+			if (!(/[0-9]/.test(char))){
 				evt.preventDefault();
 			}
 		}
