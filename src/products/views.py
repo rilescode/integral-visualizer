@@ -58,11 +58,11 @@ def integral_view(request):
 	return render(request, 'integral.html', {})
 
 def improved_view(request):
-	my_a = request.POST.get('a')
-	my_b = request.POST.get('b')
-	my_c = request.POST.get('c')
-	my_xmin = request.POST.get('xmin')
-	my_xmax = request.POST.get('xmax')
+	#my_a = request.POST.get('a')
+	#my_b = request.POST.get('b')
+	#my_c = request.POST.get('c')
+	#my_xmin = request.POST.get('xmin')
+	#my_xmax = request.POST.get('xmax')
 	
 	
 	return render(request, 'products/improved.html', {})
