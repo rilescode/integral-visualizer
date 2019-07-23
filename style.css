@@ -45,7 +45,7 @@ div.all {
 	top: 0;
 	bottom: 0;
 	position: absolute;
-	background: linear-gradient(124deg, #E8FFC1, #D1FFC1, #C1FFD4, #C1FFEA, #C1FCFF, #C1F4FF);
+	background: linear-gradient(124deg, red, #D1FFC1, #C1FFD4, #C1FFEA, #C1FCFF, #C1F4FF);
 	background-size: 1800% 1800%;
 	-webkit-animation: rainbow 30s ease infinite;
 	-z-animation: rainbow 30s ease infinite;
