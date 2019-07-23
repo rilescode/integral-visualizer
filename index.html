@@ -121,6 +121,7 @@ ul li{
  width: 100%;
  height: 50px;
  margin: 0px auto;
+ backround-color: #FFFFFF;
  border-bottom: 1px solid #333;
 }
 ul li input[type=radio]{
@@ -136,6 +137,7 @@ ul li label{
  z-index: 9;
  cursor: pointer;
  top:-20px;
+ backround: rgb(255, 255, 255);
  -webkit-transition: all 0.25s linear;
 }
 ul li:hover label{
@@ -144,7 +146,6 @@ color: #FFFFFF;
 ul li .check{
  display: block;
  position: absolute;
-
  top: 15px;
  left: 10px;
 z-index: 5;
@@ -169,6 +170,7 @@ input[type=radio]:checked ~ .check::before{
 }
 input[type=radio]:checked ~ label{
  color: #010101;
+
 }
 #var {
 display: none;
