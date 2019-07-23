@@ -1,12 +1,11 @@
-{%extends 'base.html' %}
 
-{% block contenct %}
 <!DOCTYPE html>
 <HTML>
 
 <head>
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-<link href="style.css" rel="stylesheet">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 </head>
 
@@ -381,5 +380,3 @@ document.getElementById("widthMessage").innerHTML = "Width must be greater than 
 
 </form>
 </HTML>
-
-{% endblock %}
