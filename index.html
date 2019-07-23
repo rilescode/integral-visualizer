@@ -18,10 +18,11 @@
 	/integral-visualizer/master/graph.png" alt="Graph displayed here" width="1200px" height="880px">
 </div>
 <div class="all">
-<div class="leftside">
 <div class="c">
 <h1>Integral Visualizer</h1>
 </div>
+<div class="leftside">
+
 <div class="a">
 <h3>Select a skeleton function:</h3>
 </div>
@@ -304,7 +305,8 @@ evt.preventDefault();
 function isInInt(evt){
 var char = String.fromCharCode(evt.which);
 if (!(/[0-9]/.test(char))){
-evt.preventDefault();}
+evt.preventDefault();
+}
 }
 function aprNumRect() {
 rectRequired();
