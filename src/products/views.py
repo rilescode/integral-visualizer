@@ -3,6 +3,7 @@ from .forms import ProductForm
 from .models import Product
 import math
 from .riemann import calculateSum
+
 # Create your views here.
 
 def improved_view(request):
@@ -18,7 +19,8 @@ def improved_view(request):
 		rct_amnt = request.POST.get('rct-amnt')
 		wdth_amnt = request.POST.get('wdth-amnt')
 		sum_type = request.POST.get('sumtype')
-
+		
 		print(calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wdth_amnt, sum_type))
-	
+		#simp()
+		
 	return render(request, 'products/improved.html', {})

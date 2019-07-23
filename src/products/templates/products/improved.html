@@ -15,10 +15,7 @@
 <form action = '.' method = 'POST'>{% csrf_token %}
 <body>
 
-<div class="graphImg">
-	<img src="https://raw.githubusercontent.com/vidisha-gupta
-	/integral-visualizer/master/graph.png" alt="Graph displayed here" width="1200px" height="880px">
-</div>
+
 <div class="all">
 <div class="leftside">
 <div class="a">
@@ -361,6 +358,15 @@ document.getElementById("widthMessage").innerHTML = "Width must be greater than 
 
     <div class="check"><div class="inside"></div></div>
   </li>
+
+  <li>
+    <input  style="cursor:pointer" id="Simp" type="radio" name="sumtype"required value="4">
+  
+  
+    <label for="Simp">Simpson</label>
+  
+      <div class="check"><div class="inside"></div></div>
+    </li>
 
 </ul>
 </div>
