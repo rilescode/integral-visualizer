@@ -45,7 +45,7 @@ div.all {
 	top: 0;
 	bottom: 0;
 	position: absolute;
-	background: linear-gradient(124deg, red, #D1FFC1, #C1FFD4, #C1FFEA, #C1FCFF, #C1F4FF);
+	background: linear-gradient(124deg, #E8FFC1, #D1FFC1, #C1FFD4, #C1FFEA, #C1FCFF, #C1F4FF);
 	background-size: 1800% 1800%;
 	-webkit-animation: rainbow 30s ease infinite;
 	-z-animation: rainbow 30s ease infinite;
@@ -173,13 +173,14 @@ color: #FFFFFF;
 background-color: rgba(0, 0, 0, 0.1);
 }
 ul li .check{
- display: block;
- position: absolute;
- top: 15px;
- left: 10px;
-z-index: 5;
-transition: border .25s linear;
--webkit-transition: border .25s linear;
+	display: block;
+	position: absolute;
+	top: 15px;
+	left: 10px;
+	z-index: 5;
+
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear;
 }
 
 ul li .check::before {
@@ -199,6 +200,7 @@ input[type=radio]:checked ~ .check::before{
 }
 input[type=radio]:checked ~ label{
  color: #010101;
+ background-color: rgba(0, 0, 0, 0.1);
 
 }
 #var {
@@ -222,7 +224,9 @@ font-size: 10px;
 overflow: hidden;
 }
 div.graphImg {
+	background-color: white;
 	position: fixed;
+	text-align: center;
 	left: 25%;
 	top: 7.5%;
 	width:75%;
