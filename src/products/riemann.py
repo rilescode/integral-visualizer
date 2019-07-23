@@ -9,8 +9,6 @@ import math
 
 INCREASE = 0.0001 # do not change!
 
-
-
 def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wdth_amnt, sum_type): 
     
    FUNCTION = int(function_type)
@@ -150,7 +148,7 @@ def riemannTrap(yList, deltaX, xMin):
    
    #print("deltaX: " + str(deltaX))
    sum = 0
-      
+   
    riemannX = []
    riemannY = []   
 
@@ -186,83 +184,6 @@ def riemannTrap(yList, deltaX, xMin):
    # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
    return round(sum, 3)
          
-def test():
-   print("\n1. Linear \n2. Quadratic \n3. Cubic \n4. Sine \n5. Cosine \n6. e^x \n7. Natural log")
-   func = int(input("\nWhich function do you want to graph? "))
-   while True:
-      if isinstance(func, int) and func != 7: 
-         break
-      elif func == 7:
-         xMin = float(input("\nEnter a value for the first x-coordinate: "))
-         while xMin <= 0: 
-            print("\nThe minimum x value must be greater than 0!")
-            xMin = float(input("\nEnter a value for the first x-coordinate: "))
-      else:
-         print("\nMust enter an integer between 1 and 7!")
-         print("\n1. Linear \n2. Quadratic \n3. Cubic \n4. Sine \n5. Cosine \n6. e^x \n7. Natural log")
-         func = int(input("\nWhich function do you want to graph? "))
-   
-   if func != 7:             
-      xMin= float(input("Enter a value for the first x-coordinate: "))
-   xMax= float(input("Enter a value for the second x-coordinate: "))
-   while xMax <= xMin: 
-      print("\nError: maximum x value greater than or equal to minimum x value. Please enter a bigger value.")
-      xMax= float(input("\nEnter a value for the second x-coordinate: "))
-        
-   xList= np.arange(xMin, xMax, INCREASE) 
-   yList = createYArray(xList, func, A, B, C, D)  # graphs function
-   
-   userInput = input("\nWidth enter 0, Rectangles enter 1: ")
-   while(True):
-      if userInput == 0:
-         width = True
-         break
-      elif userInput == 1:
-         width = False
-         break
-      else:
-         print("Error: Answer must be 0 or 1")
-         userInput = input("Width enter 0, Rectangles enter 1: ")
-   
-   maxWidth = xMax - xMin
-   if width == True:
-      deltaX = float(input("Enter a value for the change in X: ")) 
-      while deltaX > maxWidth: 
-         print("\nChange in x is larger than the domain! Please enter a smaller value.")
-         deltaX = float(input("\nEnter a value for the change in X: ")) 
-   else:      
-      numRect = int(input("Enter the number of rectangles: ")) 
-      while numRect <= 1:
-         print("Number of rectangles must be greater than 1")
-         numRect = int(input("Enter the number of rectangles: "))      
-      deltaX = (xMax - xMin) / numRect
-      # print("\nDelta X: " + str(deltaX))
-   
-   type = int(input("\nWhich type of sum? \n1. Left \n2. Right \n3. Midpoint \n4. Trapezodial\n"))
-   while True:
-      if type == 1: 
-         riemann(yList, deltaX, xMin, "Left")
-         break
-      elif type == 2: 
-         riemann(yList, deltaX, xMin, "Right")
-         break
-      elif type == 3: 
-         riemann(yList, deltaX, xMin, "Mid")
-         break
-      elif type == 4:
-         riemannTrap(yList, deltaX, xMin)
-         break
-      else: 
-         print("\nEnter an integer between 1 and 4!")
-         type = int(input("\nWhich type of sum? \n1. Left \n2. Right \n3. Midpoint \n4. Trapezodial\n"))
-        
-   plt.axhline(y = 0, color='k') # x axis
-   plt.axvline(x = 0, color='k') # y axis 
-   
-   plt.plot(xList, yList, linewidth = 3)
-   
-   plt.grid(True)
-   plt.show()
 
 # test()
 # to run test, adjustments are needed 
