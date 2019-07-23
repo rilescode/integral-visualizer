@@ -97,6 +97,20 @@ div.b {
 position: relative;
 left: 50px;
 }
+div.c {
+padding:10px 0px 9px 25px;
+position: relative;
+border-bottom: 1px solid  #333;
+-webkit-box-shadow: 0 8px 6px -6px grey;
+-moz-box-shadow: 0 8px 6px -6px grey;
+box-shadow: 0 8px 6px -6px grey;
+background-color: rgba(255,255,255,0.75);
+}
+h1 {
+font-size: 30px;
+color: #010101;
+margin: 0px;
+}
 h3 {
 font-size: 22px;
 color: #010101;
