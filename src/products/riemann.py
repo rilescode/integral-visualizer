@@ -154,7 +154,7 @@ def riemannTrap(yList, deltaX, xMin):
    riemannX = []
    riemannY = []   
 
-   for i in range(0, len(yList) / delta - 1):
+   for i in range(0, len(yList) // delta - 1):
       # area trapezoid = 0.5 * (base1 + base2) * height
       sum += 0.5 * (yList[i * delta] + yList[(i + 1) * delta]) * deltaX # sum calcs
       #print("sum" + str(sum))   
