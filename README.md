@@ -13,4 +13,4 @@ How to use code after cloning the repository (windows):
 8. once django is installed, open the folder in your prefered text editor
 9. in your original terminal window, cd into where the project is located until you can find the file "manage.py"
 10. type in "python manage.py runserver" once you are in the same directory as the file "manage.py"
-11. coppy the url given in the terminal to your browser
+11. copy the url given in the terminal to your browser
