@@ -4,6 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+
 #from matplotlib.pyplot import figure
 #import mpld3
 
@@ -35,8 +36,10 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
                  
    if SUM_TYPE == 3: 
       sum = riemannTrap(yList, DELTA_X, xMin)
-   else:
+   elif SUM_TYPE < 3:
       sum = riemann(yList, DELTA_X, xMin, SUM_TYPE) 
+   else:
+      sum = 0
           
    plt.axhline(y = 0, color='k') # x axis
    plt.axvline(x = 0, color='k') # y axis 
@@ -183,8 +186,4 @@ def riemannTrap(yList, deltaX, xMin):
 
    # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
    return round(sum, 3)
-         
-
-# test()
-# to run test, adjustments are needed 
 
