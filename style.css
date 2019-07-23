@@ -21,6 +21,7 @@ color: rgb(84, 90, 112);
 	transition: box-shadow 300ms ease-in-out, color .2s ease-in-out;
 	-webkit-transition: background 0.2s linear;
 	padding: 10px 20px 10px 20px;
+	margin: 0px 0px 22px 0px;
 	text-align: center;
 }
 .submit:hover{
@@ -31,26 +32,25 @@ color: rgb(84, 90, 112);
 
 }
 
-
-
 .submit:active {
 position:relative;
 top:.5px;
 }
 div.all {
-  height: 100%;
-  width: 100%;
-  left:0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  background: linear-gradient(124deg, #E8FFC1, #D1FFC1, #C1FFD4, #C1FFEA, #C1FCFF, #C1F4FF);
-background-size: 1800% 1800%;
--webkit-animation: rainbow 30s ease infinite;
--z-animation: rainbow 30s ease infinite;
--o-animation: rainbow 30s ease infinite;
-  animation: rainbow 30s ease infinite;}
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	left:0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	background: linear-gradient(124deg, #E8FFC1, #D1FFC1, #C1FFD4, #C1FFEA, #C1FCFF, #C1F4FF);
+	background-size: 1800% 1800%;
+	-webkit-animation: rainbow 30s ease infinite;
+	-z-animation: rainbow 30s ease infinite;
+	-o-animation: rainbow 30s ease infinite;
+	animation: rainbow 30s ease infinite;}
 
 @-webkit-keyframes rainbow {
     0%{background-position:0% 82%}
@@ -75,10 +75,12 @@ background-size: 1800% 1800%;
 div.leftside {
 display: block;
 position: relative;
+margin: 0px;
 width: 25%;
-max-height: 100%;
+max-height: 97%;
 overflow-y: scroll;
 overflow-x: hidden;
+border: 1px solid blue;
 }
 div.a {
 padding:5px 0px 5px 25px;
@@ -100,9 +102,10 @@ position: relative;
 left: 50px;
 }
 div.c {
-	width: 24.5%;
+	width: 100%;
 	padding:10px 0px 9px 10px;
 	position: relative;
+	height: 5%;
 	border-bottom: 1px solid  #333;
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
@@ -110,6 +113,7 @@ div.c {
 	background-color: rgba(255,255,255,0.75);
 }
 h1 {
+	height: 100%;
 font-size: 30px;
 color: #010101;
 margin: 0px;
@@ -218,8 +222,10 @@ font-size: 10px;
 #widthrectrad {
 overflow: hidden;
 }
-.graphImg {
+div.graphImg {
 	position: fixed;
-	left:26%;
-	top:;
+	left: 25%;
+	top: 7.5%;
+	width:75%;
+	height:92.5%;
 }
