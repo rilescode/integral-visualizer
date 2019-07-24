@@ -33,13 +33,15 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    xList= np.arange(xMin, xMax, INCREASE) 
    yList = createYList(xList, FUNCTION, A, B, C, D) 
-                 
+
+
    if SUM_TYPE == 3: 
       sum = riemannTrap(yList, DELTA_X, xMin)
    elif SUM_TYPE < 3:
       sum = riemann(yList, DELTA_X, xMin, SUM_TYPE) 
    else:
       sum = 0
+      simp(yList, DELTA_X, xMin)
           
    plt.axhline(y = 0, color='k') # x axis
    plt.axvline(x = 0, color='k') # y axis 
@@ -54,7 +56,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    
    plt.grid(True)
    plt.savefig("graph.png")
-   #plt.show()
+
    
    try: 
         file = open("output.txt", mode = 'w') # opens output file
@@ -84,8 +86,10 @@ def createYList(xList, type, A, B, C, D):
       yList = A * np.cos(B * xList + C) + D
    elif type == 5: # E
       yList = A * math.e ** xList + B
-   else: # natural log
+   elif type == 6: # natural log
       yList = A * np.log(xList) + B
+   else:
+      yList = A*(xList-B)**2 + C
    
    return yList
    
@@ -187,4 +191,12 @@ def riemannTrap(yList, deltaX, xMin):
    # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
    return round(sum, 3)
 
+def simp(yList, deltaX, xMin):
+   delta =  int(deltaX / INCREASE)  
+   #f(0)=list(10000) 
+   sum = 0 
+   
+   riemannX = np.arange(xMin, xMin+deltaX, INCREASE) 
+   riemannY = createYList(riemannX, 7, 1, xMin+deltaX, 5, 0)
 
+   plt.plot(riemannX, riemannY, linewidth = 3)
