@@ -286,13 +286,7 @@
                   widthRequired()
                   document.getElementById("widthNum").style.display = "block";
                   document.getElementById("numRect").style.display = "none";
-                  if (isNaN(domain)) {
-                  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
-                    } else if (xmin >= xmax){
-                  	document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-                    } else {
-                  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-                  }
+                  getmin();
                   }
                </script>
                <div class="a">
