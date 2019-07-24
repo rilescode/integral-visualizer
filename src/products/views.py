@@ -24,3 +24,7 @@ def improved_view(request):
 		#simp()
 		
 	return render(request, 'products/improved.html', {})
+
+
+def image_view(request):
+	return render(request, 'products/image_view.html')

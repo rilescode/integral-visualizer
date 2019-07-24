@@ -54,7 +54,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    
    plt.grid(True)
    plt.savefig("graph.png")
-   plt.show()
+   #plt.show()
    
    try: 
         file = open("output.txt", mode = 'w') # opens output file
