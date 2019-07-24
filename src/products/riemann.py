@@ -20,7 +20,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    C = float(c)
    D = float(d)
 
-   xMin = float(xmin) 
+   xMin = float(xmin)
    xMax = float(xmax)
 
    NUM_RECT = int(rct_amnt)
