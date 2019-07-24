@@ -2,9 +2,7 @@
 <HTML>
    <head>
       @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-      {% load static %}
-
-      <link  rel="stylesheet" type = "text/css" href="{% static 'css/style.css' %}">
+      <link href="style.css" rel="stylesheet">
    </head>
    <HEADER>
       <TITLE>FakeDesmos.com</TITLE>
@@ -14,8 +12,7 @@
       <body>
          <div class="all">
             <div class="graphImg">
-               <img src="https://raw.githubusercontent.com/vidisha-gupta
-                  /integral-visualizer/master/graph.png" alt="Graph displayed here" width="80%" height="100%">
+               <img src="{% static 'img/graph.png' %}" alt="Graph displayed here" width="80%" height="100%">
             </div>
             <div class="c">
                <h1>Integral Visualizer</h1>
@@ -187,6 +184,7 @@
                   }
                   function aprignare() {
                    if (1> 10){
+
                    }
                   }
                </script>
