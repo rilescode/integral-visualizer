@@ -79,7 +79,6 @@ div.a {
 	background-color: rgba(255, 255, 255, 0.75);
   float: left
 }
-
 div.bios {
   margin-left: 10%;
   margin-top: 5%;
@@ -118,7 +117,6 @@ a:hover {
   text-decoration: none;
 }
 a.nav-links:hover {
-  color: grey;
   text-decoration: underline;
 }
 a:active {
