@@ -67,50 +67,65 @@ div.p {
   color: #010101;
   margin: 0px;
 }
-div.TITLE {
-  text-align: center
-
+div.a {
+	width: 100%;
+	padding: 10px 0px 9px 10px;
+	position: relative;
+	height: 5%;
+	border-bottom: 1px solid #333;
+	-webkit-box-shadow: 0 8px 6px -6px grey;
+	-moz-box-shadow: 0 8px 6px -6px grey;
+	box-shadow: 0 8px 6px -6px grey;
+	background-color: rgba(255, 255, 255, 0.75);
+  float: left
 }
-div.bios {
-  position: absolute;
-  width: 800px;
-  top: 30%;
-  height: 45%;
-  margin-left: 10%;
-  border: 5px solid yellow;
-  overflow: hidden;
-  float: left;
 
+div.bios {
+  margin-left: 10%;
+  margin-top: 5%;
+  width: 80%;
+  float: left;
+  border: 5px solid yellow;
 }
 div.p1 {
-  position: relative;
-  width: 200px;
+  float: left;
   border: 1px solid red;
-
 }
 div.p2 {
-  position: absolute;
-  width: 200px;
-  margin-left: 200px;
-  top: 0%;
+  float: left;
+  margin-left: 10%;
   border: 1px solid green;
-
 }
 div.p3 {
-  position: absolute;
-  width: 200px;
-  margin-left: 200px;
-  top: 0%;
+  float: left;
+  margin-left: 10%;
   border: 1px solid blue;
-
 }
 div.p4 {
-  position: absolute;
-  width: 200px;
-  margin-left: 200px;
-  top: 0%;
+  float: right;
   border: 1px solid purple;
 }
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+a.nav-links:hover {
+  color: grey;
+  text-decoration: underline;
+}
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
 #circle {
 border-radius:50%;
 width:200px;
