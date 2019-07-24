@@ -60,7 +60,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    plt.plot(0, min(yList) - INCREASE)
 
    plt.grid(True)
-   plt.savefig("graph.png")
+   plt.savefig("C:/Users/galbraithja/Documents/GitHub/integral-visualizer/src/products/static/img/graph.png")
 
 
    try:
