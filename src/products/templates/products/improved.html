@@ -3,22 +3,23 @@
    <head>
       @import url(http://fonts.googleapis.com/css?family=Open+Sans);
       {% load static %}
-
-      <link  rel="stylesheet" type = "text/css" href="{% static 'css/style.css' %}">
+      <link href="{% static 'css/style.css '%}" rel="stylesheet" type="text/css">
    </head>
    <HEADER>
       <TITLE>FakeDesmos.com</TITLE>
    </HEADER>
-   <form action = '/integral/image/' method = 'POST'>
+   <form action = '.' method = 'POST'>
       {% csrf_token %}
       <body>
          <div class="all">
             <div class="graphImg">
-               <img src="https://raw.githubusercontent.com/vidisha-gupta
-                  /integral-visualizer/master/graph.png" alt="Graph displayed here" width="80%" height="100%">
+               <img src="{%static 'img/graphTest4.png' %}" alt="Graph displayed here" width="80%" height="100%">
             </div>
             <div class="c">
                <h1>Integral Visualizer</h1>
+            </div>
+      <div class="area">
+               <h1>Area:</h1>
             </div>
             <div class="leftside">
                <div class="a">
@@ -28,13 +29,13 @@
                   <ul>
                      <li>
                         <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear"
-                        type="radio" name="function-type" required value="0">
+												type="radio" name="function-type" required value="0">
                         <label for="Linear"> Linear: f(x) = Ax+B</label>
                         <div class="check"></div>
                      </li>
                      <li>
                         <input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic"
-                        type="radio" name="function-type"required value="1">
+												type="radio" name="function-type"required value="1">
                         <label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup>+Bx+C</label>
                         <div class="check">
                            <div class="inside"></div>
@@ -42,7 +43,7 @@
                      </li>
                      <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic"
-                        type="radio" name="function-type"required value="2">
+												type="radio" name="function-type"required value="2">
                         <label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
                         <div class="check">
                            <div class="inside"></div>
@@ -50,7 +51,7 @@
                      </li>
                      <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine"
-                        type="radio" name="function-type"required value="3">
+												type="radio" name="function-type"required value="3">
                         <label for="Sine"> Sine: f(x) = A sin(Bx+C)+D</label>
                         <div class="check">
                            <div class="inside"></div>
@@ -58,14 +59,14 @@
                      </li>
                      <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine"
-                        type="radio" name="function-type"required value="4">
+												type="radio" name="function-type"required value="4">
                         <label for="Cosine"> Cosine: f(x) = A cos(Bx+C)+D</label>
                         <div class="check"></div>
                         <div class="inside"></div>
                      </li>
                      <li>
                         <input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x"
-                        type="radio" name="function-type"required value="5">
+												type="radio" name="function-type"required value="5">
                         <label for="e^x"> e<sup>x</sup>: f(x) = A e<sup>x</sup>+B</label>
                         <div class="check">
                            <div class="inside"></div>
@@ -73,7 +74,7 @@
                      </li>
                      <li>
                         <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log"
-                        type="radio" name="function-type"required value="6">
+												type="radio" name="function-type"required value="6">
                         <label for="Natural log"> Natural log: f(x) = A ln(x)+B</label>
                         <div class="check">
                            <div class="inside"></div>
@@ -168,7 +169,7 @@
                   if (isNaN(domain)) {
                   document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
                     } else if (xmin >= xmaz){
-                    document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                  	document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
                     } else {
                   document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
                   }
@@ -179,11 +180,11 @@
                   domain = (xmax - xmin)/2;
                   if (isNaN(domain)) {
                   document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
-                    } else if (xmin >= xmax){
-                    document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-                    } else {
-                    document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-                    }
+                  	} else if (xmin >= xmax){
+                  	document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                  	} else {
+                  	document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+                  	}
                   }
                   function aprignare() {
                    if (1> 10){
@@ -239,7 +240,7 @@
                   if (isNaN(domain)) {
                   document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
                     } else if (xmin >= xmax){
-                    document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                  	document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
                     } else {
                   document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
                   }
@@ -317,6 +318,13 @@
                      <li>
                         <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype"required value="3">
                         <label for="Trap">Trapezoidal</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                     li>
+                        <input  style="cursor:pointer" id="Simp" type="radio" name="sumtype"required value="4">
+                        <label for="Simp">Simpson</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
