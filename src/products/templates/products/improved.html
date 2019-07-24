@@ -1,383 +1,335 @@
-
 <!DOCTYPE html>
 <HTML>
+   <head>
+      @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+      {% load static %}
 
-<head>
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-
-</head>
-
-<HEADER>
-<TITLE>FakeDesmos.com</TITLE>
-</HEADER>
-<form action = '.' method = 'POST'>{% csrf_token %}
-  <body>
-  
-  
-  <div class="all">
-  
-  <div class="c">
-  <h1>Integral Visualizer</h1>
-  </div>
-  <div class="leftside">
-  
-  <div class="a">
-  <h3>Select a skeleton function:</h3>
-  </div>
-  
-  <div class="functContainer">
-  
-    <ul>
-  
-  
-    <li>
-  <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear" type="radio" name="function-type" required value="0">
-  <label for="Linear"> Linear: f(x) = Ax+B</label>
-  
-      <div class="check"></div>
-    </li>
-  
-    <li>
-  <input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic" type="radio" name="function-type"required value="1">
-  <label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup>+Bx+C</label>
-  
-      <div class="check"><div class="inside"></div></div>
-    </li>
-  
-    <li>
-  <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic" type="radio" name="function-type"required value="2">
-  <label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
-  
-      <div class="check"><div class="inside"></div></div>
-    </li>
-  
-    <li>
-    <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine" type="radio" name="function-type"required value="3">
-    <label for="Sine"> Sine: f(x) = A sin(Bx+C)+D</label>
-  
-      <div class="check"><div class="inside"></div></div>
-    </li>
-    <li>
-  
-  <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine" type="radio" name="function-type"required value="4">
-      <label for="Cosine"> Cosine: f(x) = A cos(Bx+C)+D</label>
-  
-      <div class="check"></div><div class="inside"></div>
-    </li>
-  
-    <li>
-  <input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x" type="radio" name="function-type"required value="5">
-      <label for="e^x"> e<sup>x</sup>: f(x) = A e<sup>x</sup>+B</label>
-  
-      <div class="check"><div class="inside"></div></div>
-    </li>
-  
-    <li>
-  <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log" type="radio" name="function-type"required value="6">
-  
-      <label for="Natural log"> Natural log: f(x) = A ln(x)+B</label>
-  
-      <div class="check"><div class="inside"></div></div>
-    </li>
-  </ul>
-  </div>
-  
-  <div class="a" id="var">
-  
-  <h3>Variables</h3>
-  
-  </div>
-  
-  <div id="varABC" class="b">
-  <p> </p>
-      <label id="ALbl">A:</label>
-  <input id="Abox" type="number" name="a"placeholder="eg "onkeypress="isInNum(event)" required value="1">
-  <p> </p>
-      <label id="BLbl">B:</label>
-      <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)"required value="1">
-  <p> </p>
-      <label id="CLbl" >C:</label>
-      <input id="Cbox" type="number" name="c" placeholder="eg " onkeypress="isInNum(event)"value="1">
-  <p> </p>
-  <label id="DLbl" >D:</label>
-      <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)"value="1">
-  </div>
-  <p> </p>
-  <p> </p>
-  <p> </p>
-  
-  
-  <script>
-  function ABRequired() {
-  document.getElementById("Cbox").required = false;
-  document.getElementById("Dbox").required = false;
-  }
-  function ABCRequired() {
-  document.getElementById("Cbox").required = true;
-  document.getElementById("Dbox").required = false;
-  }
-  function ABCDRequired() {
-  document.getElementById("Cbox").required = true;
-  document.getElementById("Dbox").required = true;
-  }
-  function aprVarTtlAB() {
-   document.getElementById("var").style.display = "block";
-   document.getElementById("varABC").style.display = "block";
-   document.getElementById("CLbl").style.display = "none";
-   document.getElementById("Cbox").style.display = "none";
-   document.getElementById("DLbl").style.display = "none";
-   document.getElementById("Dbox").style.display = "none";
-   ABRequired();
-  }
-  function aprVarTtlABC() {
-   document.getElementById("var").style.display = "block";
-   document.getElementById("varABC").style.display = "block";
-   document.getElementById("CLbl").style.display = "inline";
-   document.getElementById("Cbox").style.display = "inline";
-   document.getElementById("DLbl").style.display = "none";
-   document.getElementById("Dbox").style.display = "none";
-   ABCRequired();
-  }
-  function aprVarTtlABCD() {
-   document.getElementById("var").style.display = "block";
-   document.getElementById("varABC").style.display = "block";
-   document.getElementById("CLbl").style.display = "inline";
-   document.getElementById("Cbox").style.display = "inline";
-   document.getElementById("DLbl").style.display = "inline";
-   document.getElementById("Dbox").style.display = "inline";
-   ABCDRequired();
-  }
-  </script>
-  
-  
-  <div class="a">
-  
-  <h3>Domain</h3>
-  
-  </div>
-  
-  <div class="b">
-  <p> </p>
-  <label>x-min:</label>
-  <input id = "xmin" name = "xmin" type="number" placeholder="x-min" oninput="getmin()"onkeypress="isInNum(event)"required value="1">
-  <p> </p>
-  
-  <label>x-max:</label>
-  <input id = "xmax" name = "xmax"type="number" placeholder="x-max" oninput="getmax()"onkeypress="isInNum(event)"required value="20">
-  <p> </p>
-  <p> </p>
-  
-  </div>
-  
-  <script>
-  var domain = 0;
-  var xmax = 0;
-  var xmin = 0;
-  function getmin() {
-  xmax = Number(parseFloat(document.getElementById("xmax").value));
-  xmin = Number(parseFloat(document.getElementById("xmin").value));
-  domain = (xmax - xmin)/2;
-  if (isNaN(domain)) {
-  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
-    } else if (xmin >= xmaz){
-    document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-    } else {
-  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-  }
-  }
-  function getmax() {
-  xmax = Number(parseFloat(document.getElementById("xmax").value));
-  xmin = Number(parseFloat(document.getElementById("xmin").value));
-  domain = (xmax - xmin)/2;
-  if (isNaN(domain)) {
-  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
-    } else if (xmin >= xmax){
-    document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-    } else {
-  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-  }
-  }
-  </script>
-  
-  <div class="a">
-  
-  <h3>Unit and amount:</h3>
-  
-  </div>
-  <div class="functContainer">
-  
-    <ul id="widthrectrad">
-    <li>
-  <input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width-rect"required value="0" >
-  <label for="width">Width</label>
-  
-      <div class="check"></div>
-    </li>
-  
-    <li>
-  <input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rect"required value="1">
-  
-  <label for="rectangles">Rectangles</label><br>
-  
-      <div class="check"><div class="inside"></div></div>
-    </li>
-  
-  </ul>
-  </div>
-  
-  
-  
-  <div id= "numRect" class="b">
-  
-  <p> </p>
-  <label># of rectangles:</label>
-  <input type="number" placeholder="" onkeypress="isInPosNum(event)" onchange="aprWidthNum()"id="numrectbox" name="rct-amnt" value="3">
-  <p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
-  <p> </p>
-  
-  
-  </div>
-  
-  <div id= "widthNum" class="b">
-  
-  <p> </p>
-  <label>Width:</label>
-  <input type="number" placeholder="" onkeypress="isInPosNum(event)"onchange="aprWidthNum()"id="widthbox" name="wdth-amnt" value="7">
-  <p class = "smallgrey" id = "widthMessage"></p>
-  <p> </p>
-  
-  
-  </div>
-  
-  
-  
-  <script>
-  function widthRequired() {
-  document.getElementById("widthbox").required = true;
-  document.getElementById("numrectbox").required = false;
-  }
-  function rectRequired() {
-  document.getElementById("numrectbox").required = true;
-  document.getElementById("widthbox").required = false;
-  }
-  function getmin() {
-  xmax = Number(parseFloat(document.getElementById("xmax").value));
-  xmin = Number(parseFloat(document.getElementById("xmin").value));
-  domain = (xmax - xmin)/2;
-  if (isNaN(domain)) {
-  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
-    } else if (xmin >= xmax){
-    document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-    } else {
-  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-  }
-  }
-  function testWdth(evt){
-  isInNum(evt);
-  var char = String.fromCharCode(evt.which);
-  var numwidth = Number(parseFloat(document.getElementById("widthbox").value));
-  if (numwidth<=0 || numwidth> domain){
-  evt.preventDefault();
-  }
-  }
-  function testRect(evt){
-  isInInt(evt);
-  var char = String.fromCharCode(evt.which);
-  var numwidth = Number(parseFloat(document.getElementById("numrectbox").value));
-  if (numwidth<=0){
-  evt.preventDefault();
-  }
-  }
-  function isInPosNum(evt){
-  var char = String.fromCharCode(evt.which);
-  if (!(/[0-9.]/.test(char))){
-  evt.preventDefault();
-  }
-  }
-  function isInNum(evt){
-  var char = String.fromCharCode(evt.which);
-  if (!(/[0-9.-]/.test(char))){
-  evt.preventDefault();
-  }
-  }
-  function isInInt(evt){
-  var char = String.fromCharCode(evt.which);
-  if (!(/[0-9]/.test(char))){
-  evt.preventDefault();
-  }
-  }
-  function aprNumRect() {
-  rectRequired();
-  document.getElementById("numRect").style.display = "block";
-  document.getElementById("widthNum").style.display = "none";
-  }
-  function aprWidthNum() {
-  widthRequired()
-  document.getElementById("widthNum").style.display = "block";
-  document.getElementById("numRect").style.display = "none";
-  if (isNaN(domain)) {
-  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
-    } else if (xmin >= xmax){
-    document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-    } else {
-  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-  }
-  }
-  </script>
-  <div class="a">
-  
-  <h3>Sum type:</h3>
-  
-  </div>
-  <div class="functContainer">
-  
-    <ul>
-    <li>
-  <input  style="cursor:pointer" id="Left" type="radio" name="sumtype"required value="0">
-  <label for="Left">Left endpoint</label>
-  
-      <div class="check"></div>
-    </li>
-  
-    <li>
-  <input  style="cursor:pointer" id="Right" type="radio" name="sumtype"required value="1">
-  <label for="Right">Right endpoint</label>
-  
-      <div class="check"><div class="inside"></div></div>
-    </li>
-  
-    <li>
-  <input  style="cursor:pointer" id="Mid" type="radio" name="sumtype"required value="2">
-  <label for="Mid">Midpoint</label>
-  
-      <div class="check"><div class="inside"></div></div>
-    </li>
-  
-    <li>
-    <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype"required value="3">
-  
-  
-    <label for="Trap">Trapezoidal</label>
-  
-      <div class="check"><div class="inside"></div></div>
-    </li>
-    
-  
-  
-  </ul>
-  </div>
-  
-  <p> </p>
-  <p> </p>
-  
-  <div class="divbtn">
-  <input type= "submit" class="submit" value="GRAPH IT!"></input>
-  </div>
-  </div>
-  </div>
-  </body>
-  
-  </form>
+      <link  rel="stylesheet" type = "text/css" href="{% static 'css/style.css' %}">
+   </head>
+   <HEADER>
+      <TITLE>FakeDesmos.com</TITLE>
+   </HEADER>
+   <form action = '/integral/image/' method = 'POST'>
+      {% csrf_token %}
+      <body>
+         <div class="all">
+            <div class="graphImg">
+               <img src="https://raw.githubusercontent.com/vidisha-gupta
+                  /integral-visualizer/master/graph.png" alt="Graph displayed here" width="80%" height="100%">
+            </div>
+            <div class="c">
+               <h1>Integral Visualizer</h1>
+            </div>
+            <div class="leftside">
+               <div class="a">
+                  <h3>Select a skeleton function:</h3>
+               </div>
+               <div class="functContainer">
+                  <ul>
+                     <li>
+                        <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear"
+                        type="radio" name="function-type" required value="0">
+                        <label for="Linear"> Linear: f(x) = Ax+B</label>
+                        <div class="check"></div>
+                     </li>
+                     <li>
+                        <input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic"
+                        type="radio" name="function-type"required value="1">
+                        <label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup>+Bx+C</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                     <li>
+                        <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic"
+                        type="radio" name="function-type"required value="2">
+                        <label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                     <li>
+                        <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine"
+                        type="radio" name="function-type"required value="3">
+                        <label for="Sine"> Sine: f(x) = A sin(Bx+C)+D</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                     <li>
+                        <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine"
+                        type="radio" name="function-type"required value="4">
+                        <label for="Cosine"> Cosine: f(x) = A cos(Bx+C)+D</label>
+                        <div class="check"></div>
+                        <div class="inside"></div>
+                     </li>
+                     <li>
+                        <input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x"
+                        type="radio" name="function-type"required value="5">
+                        <label for="e^x"> e<sup>x</sup>: f(x) = A e<sup>x</sup>+B</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                     <li>
+                        <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log"
+                        type="radio" name="function-type"required value="6">
+                        <label for="Natural log"> Natural log: f(x) = A ln(x)+B</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+               <div class="a" id="var">
+                  <h3>Variables</h3>
+               </div>
+               <div id="varABC" class="b">
+                  <p> </p>
+                  <label id="ALbl">A:</label>
+                  <input id="Abox" type="number" name="a"placeholder="eg "onkeypress="isInNum(event)" required value="1">
+                  <p> </p>
+                  <label id="BLbl">B:</label>
+                  <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)"required value="1">
+                  <p> </p>
+                  <label id="CLbl" >C:</label>
+                  <input id="Cbox" type="number" name="c" placeholder="eg " onkeypress="isInNum(event)"value="1">
+                  <p> </p>
+                  <label id="DLbl" >D:</label>
+                  <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)"value="1">
+               </div>
+               <p> </p>
+               <p> </p>
+               <p> </p>
+               <script>
+                  function ABRequired() {
+                  document.getElementById("Cbox").required = false;
+                  document.getElementById("Dbox").required = false;
+                  }
+                  function ABCRequired() {
+                  document.getElementById("Cbox").required = true;
+                  document.getElementById("Dbox").required = false;
+                  }
+                  function ABCDRequired() {
+                  document.getElementById("Cbox").required = true;
+                  document.getElementById("Dbox").required = true;
+                  }
+                  function aprVarTtlAB() {
+                   document.getElementById("var").style.display = "block";
+                   document.getElementById("varABC").style.display = "block";
+                   document.getElementById("CLbl").style.display = "none";
+                   document.getElementById("Cbox").style.display = "none";
+                   document.getElementById("DLbl").style.display = "none";
+                   document.getElementById("Dbox").style.display = "none";
+                   ABRequired();
+                  }
+                  function aprVarTtlABC() {
+                   document.getElementById("var").style.display = "block";
+                   document.getElementById("varABC").style.display = "block";
+                   document.getElementById("CLbl").style.display = "inline";
+                   document.getElementById("Cbox").style.display = "inline";
+                   document.getElementById("DLbl").style.display = "none";
+                   document.getElementById("Dbox").style.display = "none";
+                   ABCRequired();
+                  }
+                  function aprVarTtlABCD() {
+                   document.getElementById("var").style.display = "block";
+                   document.getElementById("varABC").style.display = "block";
+                   document.getElementById("CLbl").style.display = "inline";
+                   document.getElementById("Cbox").style.display = "inline";
+                   document.getElementById("DLbl").style.display = "inline";
+                   document.getElementById("Dbox").style.display = "inline";
+                   ABCDRequired();
+                  }
+               </script>
+               <div class="a">
+                  <h3>Domain:</h3>
+               </div>
+               <div class="b">
+                  <p> </p>
+                  <label>x-min:</label>
+                  <input id = "xmin" name = "xmin" type="number" placeholder="x-min"
+                     oninput="getmin()"onkeypress="isInNum(event)"required value="-10">
+                  <p> </p>
+                  <label>x-max:</label>
+                  <input id = "xmax" name = "xmax"type="number" placeholder="x-max"
+                     oninput="getmax()"onkeypress="isInNum(event)"required value="10">
+                  <p> </p>
+                  <p> </p>
+               </div>
+               <script>
+                  var domain = 0;
+                  var xmax = 0;
+                  var xmin = 0;
+                  function getmin() {
+                  xmax = Number(parseFloat(document.getElementById("xmax").value));
+                  xmin = Number(parseFloat(document.getElementById("xmin").value));
+                  domain = (xmax - xmin)/2;
+                  if (isNaN(domain)) {
+                  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+                    } else if (xmin >= xmaz){
+                    document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                    } else {
+                  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+                  }
+                  }
+                  function getmax() {
+                  xmax = Number(parseFloat(document.getElementById("xmax").value));
+                  xmin = Number(parseFloat(document.getElementById("xmin").value));
+                  domain = (xmax - xmin)/2;
+                  if (isNaN(domain)) {
+                  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+                    } else if (xmin >= xmax){
+                    document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                    } else {
+                    document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+                    }
+                  }
+                  function aprignare() {
+                   if (1> 10){
+                   }
+                  }
+               </script>
+               <div class="a">
+                  <h3>Unit and amount:</h3>
+               </div>
+               <div class="functContainer">
+                  <ul id="widthrectrad">
+                     <li>
+                        <input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width-rect"required value="0" >
+                        <label for="width">Width</label>
+                        <div class="check"></div>
+                     </li>
+                     <li>
+                        <input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rect"required value="1">
+                        <label for="rectangles">Rectangles</label><br>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+               <div id= "numRect" class="b">
+                  <p> </p>
+                  <label># of rectangles:</label>
+                  <input type="number" placeholder="" onkeypress="isInPosNum(event)" id="numrectbox" name="rct-amnt" value="10">
+                  <p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
+                  <p> </p>
+               </div>
+               <div id= "widthNum" class="b">
+                  <p> </p>
+                  <label>Width:</label>
+                  <input type="number" placeholder="" onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
+                  <p class = "smallgrey" id = "widthMessage"></p>
+                  <p> </p>
+               </div>
+               <script>
+                  function widthRequired() {
+                  document.getElementById("widthbox").required = true;
+                  document.getElementById("numrectbox").required = false;
+                  }
+                  function rectRequired() {
+                  document.getElementById("numrectbox").required = true;
+                  document.getElementById("widthbox").required = false;
+                  }
+                  function getmin() {
+                  xmax = Number(parseFloat(document.getElementById("xmax").value));
+                  xmin = Number(parseFloat(document.getElementById("xmin").value));
+                  domain = (xmax - xmin)/2;
+                  if (isNaN(domain)) {
+                  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+                    } else if (xmin >= xmax){
+                    document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                    } else {
+                  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+                  }
+                  }
+                  function testWdth(evt){
+                  isInNum(evt);
+                  var char = String.fromCharCode(evt.which);
+                  var numwidth = Number(parseFloat(document.getElementById("widthbox").value));
+                  if (numwidth<=0 || numwidth> domain){
+                  evt.preventDefault();
+                  }
+                  }
+                  function testRect(evt){
+                  isInInt(evt);
+                  var char = String.fromCharCode(evt.which);
+                  var numwidth = Number(parseFloat(document.getElementById("numrectbox").value));
+                  if (numwidth<=0){
+                  evt.preventDefault();
+                  }
+                  }
+                  function isInPosNum(evt){
+                  var char = String.fromCharCode(evt.which);
+                  if (!(/[0-9.]/.test(char))){
+                  evt.preventDefault();
+                  }
+                  }
+                  function isInNum(evt){
+                  var char = String.fromCharCode(evt.which);
+                  if (!(/[0-9.-]/.test(char))){
+                  evt.preventDefault();
+                  }
+                  }
+                  function isInInt(evt){
+                  var char = String.fromCharCode(evt.which);
+                  if (!(/[0-9]/.test(char))){
+                  evt.preventDefault();
+                  }
+                  }
+                  function aprNumRect() {
+                  rectRequired();
+                  document.getElementById("numRect").style.display = "block";
+                  document.getElementById("widthNum").style.display = "none";
+                  }
+                  function aprWidthNum() {
+                  widthRequired()
+                  document.getElementById("widthNum").style.display = "block";
+                  document.getElementById("numRect").style.display = "none";
+                  getmin();
+                  }
+               </script>
+               <div class="a">
+                  <h3>Sum type:</h3>
+               </div>
+               <div class="functContainer">
+                  <ul>
+                     <li>
+                        <input  style="cursor:pointer" id="Left" type="radio" name="sumtype"required value="0">
+                        <label for="Left">Left endpoint</label>
+                        <div class="check"></div>
+                     </li>
+                     <li>
+                        <input  style="cursor:pointer" id="Right" type="radio" name="sumtype"required value="1">
+                        <label for="Right">Right endpoint</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                     <li>
+                        <input  style="cursor:pointer" id="Mid" type="radio" name="sumtype"required value="2">
+                        <label for="Mid">Midpoint</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                     <li>
+                        <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype"required value="3">
+                        <label for="Trap">Trapezoidal</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+               <p> </p>
+               <p> </p>
+               <div class="divbtn">
+                  <input type= "submit" class="submit" value="GRAPH IT!"></input>
+               </div>
+            </div>
+         </div>
+      </body>
+   </form>
 </HTML>
