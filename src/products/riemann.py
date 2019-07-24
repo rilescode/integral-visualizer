@@ -4,6 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import matplotlib as mpl
 
 #from matplotlib.pyplot import figure
 #import mpld3
@@ -31,9 +32,12 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    SUM_TYPE = int(sum_type)
 
-   xList= np.arange(xMin, xMax, INCREASE) 
-   yList = createYList(xList, FUNCTION, A, B, C, D) 
-
+   if SUM_TYPE < 4:
+      xList= np.arange(xMin, xMax, INCREASE) 
+      yList = createYList(xList, FUNCTION, A, B, C, D) 
+   else:
+      xList= np.arange(xMin, xMax+1, INCREASE) 
+      yList = createYList(xList, FUNCTION, A, B, C, D) 
 
    if SUM_TYPE == 3: 
       sum = riemannTrap(yList, DELTA_X, xMin)
@@ -41,7 +45,8 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
       sum = riemann(yList, DELTA_X, xMin, SUM_TYPE) 
    else:
       sum = 0
-      simp(yList, DELTA_X, xMin)
+      
+      simp(yList, DELTA_X, xMin, xMax)
           
    plt.axhline(y = 0, color='k') # x axis
    plt.axvline(x = 0, color='k') # y axis 
@@ -55,8 +60,9 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    plt.plot(0, min(yList) - INCREASE)
    
    plt.grid(True)
-   plt.savefig("graph.png")
-   
+   plt.savefig("tester.png")
+   plt.show()
+
    try: 
         file = open("output.txt", mode = 'w') # opens output file
         file.write(str(sum))
@@ -88,7 +94,7 @@ def createYList(xList, type, A, B, C, D):
    elif type == 6: # natural log
       yList = A * np.log(xList) + B
    else:
-      yList = A*(xList-B)**2 + C
+      yList = A*((xList-B)**2) + C # vertex form for parabola
    
    return yList
    
@@ -190,12 +196,37 @@ def riemannTrap(yList, deltaX, xMin):
    # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
    return round(sum, 3)
 
-def simp(yList, deltaX, xMin):
+def simp(yList, deltaX, xMin, xMax):
    delta =  int(deltaX / INCREASE)  
    #f(0)=list(10000) 
    sum = 0 
    
-   riemannX = np.arange(xMin, xMin+deltaX, INCREASE) 
-   riemannY = createYList(riemannX, 7, 1, xMin+deltaX, 5, 0)
+   rectNum = int((xMax - xMin) // deltaX)
+   
+   for i in range(1, rectNum+1):
 
-   plt.plot(riemannX, riemannY, linewidth = 3)
+      simpX = np.arange(xMin+deltaX*(i-1), xMin+deltaX*i, INCREASE)  
+
+      simpY = createYList(simpX, 7, 
+      (yList[int(10000*deltaX*(i-1))]-yList[int(10000*(deltaX*i))]) / (((deltaX*(i-1))-((deltaX*i)))**2), 
+      xMin+(deltaX*i), 
+      yList[int(10000*(deltaX*i))], 0)
+      
+      plt.plot(simpX, simpY)
+   
+   for i in range(0, len(yList) // delta):      
+      riemannX = []
+      riemannY = []
+      # rectangle graphing
+      riemannX.append(i * deltaX + xMin)
+      riemannY.append(0)
+      
+      val = yList[delta * i]
+      
+      riemannX.append(i * deltaX + xMin)
+      riemannY.append(val)
+      
+      plt.plot(riemannX, riemannY)
+   
+   # adds last point
+   
