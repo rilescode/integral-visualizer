@@ -2,20 +2,24 @@
 <HTML>
    <head>
       @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-      <link href="style.css" rel="stylesheet">
+      {% load static %}
+      <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
    </head>
    <HEADER>
       <TITLE>FakeDesmos.com</TITLE>
    </HEADER>
-   <form action = '/integral/image/' method = 'POST'>
+   <form action = '.' method = 'POST'>
       {% csrf_token %}
       <body>
          <div class="all">
             <div class="graphImg">
-               <img src="{% static 'img/graph.png' %}" alt="Graph displayed here" width="80%" height="100%">
+               <img src="{%static 'img/graphTest4.png' %}" alt="Graph displayed here" width="80%" height="100%">
             </div>
             <div class="c">
                <h1>Integral Visualizer</h1>
+            </div>
+      <div class="area">
+               <h1>Area:</h1>
             </div>
             <div class="leftside">
                <div class="a">
@@ -184,7 +188,6 @@
                   }
                   function aprignare() {
                    if (1> 10){
-
                    }
                   }
                </script>
@@ -315,6 +318,13 @@
                      <li>
                         <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype"required value="3">
                         <label for="Trap">Trapezoidal</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                     li>
+                        <input  style="cursor:pointer" id="Simp" type="radio" name="sumtype"required value="4">
+                        <label for="Simp">Simpson</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
