@@ -1,0 +1,133 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	display: block;
+}
+div.all {
+     overflow: hidden;
+     height: 100%;
+     width: 100%;
+     left:0;
+     right: 0;
+     top: 0;
+     bottom: 0;
+     position: absolute;
+     background: linear-gradient(124deg, #E8FFC1, #D1FFC1, #C1FFD4, #C1FFEA, #C1FCFF, #C1F4FF);
+     background-size: 1800% 1800%;
+     -webkit-animation: rainbow 20s ease infinite;
+     -z-animation: rainbow 20s ease infinite;
+     -o-animation: rainbow 20s ease infinite;
+     animation: rainbow 20s ease infinite;
+}
+@-webkit-keyframes rainbow {
+     0%{
+        background-position:0% 82%
+    }
+     50%{
+        background-position:100% 19%
+    }
+     100%{
+        background-position:0% 82%
+    }
+}
+@-moz-keyframes rainbow {
+     0%{
+        background-position:0% 82%
+    }
+     50%{
+        background-position:100% 19%
+    }
+     100%{
+        background-position:0% 82%
+    }
+}
+@-o-keyframes rainbow {
+     0%{
+        background-position:0% 82%
+    }
+     50%{
+        background-position:100% 19%
+    }
+     100%{
+        background-position:0% 82%
+    }
+}
+@keyframes rainbow {
+     0%{
+        background-position:0% 82%
+    }
+     50%{
+        background-position:100% 19%
+    }
+     100%{
+        background-position:0% 82%
+    }
+}
+div.p {
+  font-size: 20px;
+  color: #010101;
+  margin: 0px;
+}
+div.a {
+	width: 100%;
+	padding: 10px 0px 9px 10px;
+	position: relative;
+	height: 5%;
+	border-bottom: 1px solid #333;
+	-webkit-box-shadow: 0 8px 6px -6px grey;
+	-moz-box-shadow: 0 8px 6px -6px grey;
+	box-shadow: 0 8px 6px -6px grey;
+	background-color: rgba(255, 255, 255, 0.75);
+  float: left
+}
+div.bios {
+  margin-left: 10%;
+  margin-top: 5%;
+  width: 80%;
+  float: left;
+  border: 5px solid yellow;
+}
+div.p1 {
+  float: left;
+  border: 1px solid red;
+}
+div.p2 {
+  float: left;
+  margin-left: 10%;
+  border: 1px solid green;
+}
+div.p3 {
+  float: left;
+  margin-left: 10%;
+  border: 1px solid blue;
+}
+div.p4 {
+  float: right;
+  border: 1px solid purple;
+}
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+a.nav-links:hover {
+  text-decoration: underline;
+}
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+#circle {
+border-radius:50%;
+width:200px;
+height:200px;
+background-position: center center;
+background-size: cover;
+}

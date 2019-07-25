@@ -4,6 +4,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import matplotlib as mpl
+import os
 
 #from matplotlib.pyplot import figure
 #import mpld3
@@ -11,7 +13,7 @@ import math
 INCREASE = 0.0001 # do not change!
 
 def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wdth_amnt, sum_type):
-
+   plt.clf()
    FUNCTION = int(function_type)
 
    A = float(a)
@@ -31,9 +33,12 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    SUM_TYPE = int(sum_type)
 
-   xList= np.arange(xMin, xMax, INCREASE)
-   yList = createYList(xList, FUNCTION, A, B, C, D)
-
+   if SUM_TYPE < 4:
+      xList= np.arange(xMin, xMax, INCREASE)
+      yList = createYList(xList, FUNCTION, A, B, C, D)
+   else:
+      xList= np.arange(xMin, xMax+1, INCREASE)
+      yList = createYList(xList, FUNCTION, A, B, C, D)
 
    if SUM_TYPE == 3:
       sum = riemannTrap(yList, DELTA_X, xMin)
@@ -41,7 +46,8 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
       sum = riemann(yList, DELTA_X, xMin, SUM_TYPE)
    else:
       sum = 0
-      simp(yList, DELTA_X, xMin)
+
+
 
    plt.axhline(y = 0, color='k') # x axis
    plt.axvline(x = 0, color='k') # y axis
@@ -55,8 +61,10 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    plt.plot(0, min(yList) - INCREASE)
 
    plt.grid(True)
-   #save_results_to + 'C:\Users\CRELL\OneDrive\Documents\GitHub\integral-visualizer\src\static\img'
-   plt.savefig('C:/Users/CRELL/OneDrive/Documents/GitHub/integral-visualizer/src/products/static/img/graph.png')
+
+
+
+   plt.savefig("/Users/riley/Desktop/test_NWAPW/integral-visualizer/src/products/static/img/graphTest5.png")
 
 
 
@@ -91,7 +99,7 @@ def createYList(xList, type, A, B, C, D):
    elif type == 6: # natural log
       yList = A * np.log(xList) + B
    else:
-      yList = A*(xList-B)**2 + C
+      yList = A*((xList-B)**2) + C # vertex form for parabola
 
    return yList
 
@@ -193,12 +201,6 @@ def riemannTrap(yList, deltaX, xMin):
    # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
    return round(sum, 3)
 
-def simp(yList, deltaX, xMin):
-   delta =  int(deltaX / INCREASE)
-   #f(0)=list(10000)
-   sum = 0
 
-   riemannX = np.arange(xMin, xMin+deltaX, INCREASE)
-   riemannY = createYList(riemannX, 7, 1, xMin+deltaX, 5, 0)
 
-   plt.plot(riemannX, riemannY, linewidth = 3)
+   # adds last point
