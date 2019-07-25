@@ -8,6 +8,7 @@ import os
 # Create your views here.
 
 def improved_view(request):
+	other_sum = 0
 	if request.method == "POST":
 		function_type = request.POST.get('function-type')
 		a = request.POST.get('a')
@@ -26,14 +27,13 @@ def improved_view(request):
 		other_sum = calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wdth_amnt, sum_type)
 		#simp()
 
-		my_context = {
-			'my_sum' : other_sum
-		}
+	my_context = {
+		'my_sum' : other_sum
+	}
 
 	return render(request, 'products/improved.html', my_context)
 
-	return render(request, 'products/improved.html', {})
-	os.remove('C:/Users/CRELL/OneDrive/Documents/GitHub/integral-visualizer/src/products/static/img/graphtry.png')
+	
 
 def image_view(request):
 	return render(request, 'products/image_view.html')
