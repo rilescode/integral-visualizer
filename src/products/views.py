@@ -4,10 +4,12 @@ from .models import Product
 import math
 from .riemann import calculateSum
 import os
+from django.core.cache import cache
 
 # Create your views here.
 
 def improved_view(request):
+	cache.delete('integral/')
 	other_sum = 0
 	if request.method == "POST":
 		function_type = request.POST.get('function-type')
