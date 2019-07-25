@@ -88,16 +88,16 @@
                <div id="varABC" class="b">
                   <p> </p>
                   <label id="ALbl">A:</label>
-                  <input id="Abox" type="number" name="a"placeholder="eg "onkeypress="isInNum(event)" required value="1">
+                  <input id="Abox" type="number" step="0.001" name="a"placeholder="eg "onkeypress="isInNum(event)" required value="1">
                   <p> </p>
                   <label id="BLbl">B:</label>
-                  <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)"required value="1">
+                  <input id="Bbox" type="number" step="0.001" name="b" placeholder="eg " onkeypress="isInNum(event)"required value="1">
                   <p> </p>
                   <label id="CLbl" >C:</label>
-                  <input id="Cbox" type="number" name="c" placeholder="eg " onkeypress="isInNum(event)"value="1">
+                  <input id="Cbox" type="number" step="0.001" name="c" placeholder="eg " onkeypress="isInNum(event)"value="1">
                   <p> </p>
                   <label id="DLbl" >D:</label>
-                  <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)"value="1">
+                  <input id="Dbox" type="number" step="0.001" name="d" placeholder="eg " onkeypress="isInNum(event)"value="1">
                </div>
                <p> </p>
                <p> </p>
@@ -149,11 +149,11 @@
                <div class="b">
                   <p> </p>
                   <label>x-min:</label>
-                  <input id = "xmin" name = "xmin" type="number" placeholder="x-min"
+                  <input id = "xmin" name = "xmin" type="number" step="0.001" placeholder="x-min"
                      oninput="getmin()"onkeypress="isInNum(event)"required value="-10">
                   <p> </p>
                   <label>x-max:</label>
-                  <input id = "xmax" name = "xmax"type="number" placeholder="x-max"
+                  <input id = "xmax" name = "xmax"type="number" step="0.001" placeholder="x-max"
                      oninput="getmax()"onkeypress="isInNum(event)"required value="10">
                   <p> </p>
                   <p> </p>
@@ -213,14 +213,14 @@
                <div id= "numRect" class="b">
                   <p> </p>
                   <label># of rectangles:</label>
-                  <input type="number" placeholder="" onkeypress="isInPosNum(event)" id="numrectbox" name="rct-amnt" value="10">
+                  <input type="number" step="0.001" placeholder="" onkeypress="isInPosNum(event)" id="numrectbox" name="rct-amnt" value="10">
                   <p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
                   <p> </p>
                </div>
                <div id= "widthNum" class="b">
                   <p> </p>
                   <label>Width:</label>
-                  <input type="number" placeholder="" onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
+                  <input type="number" step="0.001" placeholder="" onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
                   <p class = "smallgrey" id = "widthMessage"></p>
                   <p> </p>
                </div>
