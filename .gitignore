@@ -1,0 +1,5 @@
+
+*.pyc
+src/products/__pycache__/views.cpython-37.pyc
+src/products/__pycache__/riemann.cpython-37.pyc
+src/output.txt
