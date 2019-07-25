@@ -3,7 +3,7 @@
    <head>
       @import url(http://fonts.googleapis.com/css?family=Open+Sans);
       {% load static %}
-      <link href="{% static 'css/style.css '%}" rel="stylesheet" type="text/css">
+      <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
    </head>
    <HEADER>
       <TITLE>FakeDesmos.com</TITLE>
@@ -19,7 +19,7 @@
                <h1>Integral Visualizer</h1>
             </div>
       <div class="area">
-               <h1>Area:</h1>
+               <h1>Area: {{ my_sum }}</h1>
             </div>
             <div class="leftside">
                <div class="a">
