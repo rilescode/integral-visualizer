@@ -271,7 +271,7 @@ def simp(yList, rectNum, xMin, xMax):
          riemannX.append(i * deltaXL + xMin)
          riemannY.append(val)
 
-         plt.plot(riemannX, riemannY, color='green')
+         plt.plot(riemannX, riemannY, color='red')
 
    return sum
    
