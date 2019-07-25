@@ -46,7 +46,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    elif SUM_TYPE < 3:
       sum = riemann(yList, NUM_RECT, xMin, xMax, SUM_TYPE)
    else:
-      sum = 0
+      sum = simp(yList, NUM_RECT, xMin, xMax)
 
 
 
@@ -65,7 +65,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    
    my_path = __file__ + "/src/products/static/img/graphTest5.png"
-   my_path = my_path.replace("/src/products/riemann.py", "")
+   my_path = my_path.replace("\\src\\products\\riemann.py", "")
 
    plt.savefig(my_path)
 
@@ -217,3 +217,61 @@ def riemannTrap(yList, deltaX, xMin):
 
 
    # adds last point
+
+def interpolate(xList, a, b, c, d, e, f):
+    #lagrange interpolation for n=3 making a polynomial of degree n-1
+    yList = b * ((xList-c)*(xList-e))/((a-c)*(a-e)) + d * ((xList-a)*(xList-e))/((c-a)*(c-e)) + f * ((xList-a)*(xList-c))/((e-a)*(e-c))
+    return yList
+
+def simp(yList, rectNum, xMin, xMax):
+    
+   #f(0)=list(10000)
+   sum = 0
+
+   halvedRect = rectNum//2
+
+   deltaX = float((xMax - xMin) / halvedRect)
+    
+   deltaXL = float((xMax - xMin) / rectNum)
+
+   delta =  int(deltaXL / INCREASE)
+
+   for i in range(1, halvedRect+1):
+      simpX = np.arange(xMin+deltaX*(i-1), xMin+deltaX*i, INCREASE)
+      factor = 10000
+
+        #left point
+      a=float(xMin+deltaX*(i-1))
+      b=float(yList[int(factor*deltaX*(i-1))])
+        
+        #mid point
+      c=float(xMin+deltaX*(i-1)+(deltaX)/2)
+      d=float(yList[int(factor*(deltaX*(i-1)+(deltaX)/2))])
+
+        #right point
+      e=float(xMin+deltaX*i)
+      f=float(yList[int(factor*deltaX*i)])
+    
+      simpY = interpolate(simpX, a, b, c, d, e, f)
+
+      plt.plot(simpX, simpY, color='red')
+        
+        #rule of 1/4/1
+      sum += deltaXL/3 * (b + 4*d + f)
+
+      for i in range(0, rectNum+1):
+         riemannX = []
+         riemannY = []
+      # rectangle graphing
+         riemannX.append(i * deltaXL + xMin)
+         riemannY.append(0)
+
+         val = yList[delta * i]
+
+         riemannX.append(i * deltaXL + xMin)
+         riemannY.append(val)
+
+         plt.plot(riemannX, riemannY, color='red')
+
+   return sum
+   

@@ -1,11 +1,11 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	display: block;
+	overflow-x: hidden;
 }
 div.all {
-     overflow: hidden;
-     height: 100%;
-     width: 100%;
+     height: 120%;
+		 overflow: scroll;
      left:0;
      right: 0;
      top: 0;
@@ -68,41 +68,54 @@ div.p {
   margin: 0px;
 }
 div.a {
-	width: 100%;
-	padding: 10px 0px 9px 10px;
+	padding: 1% 0% 2% 1%;
 	position: relative;
-	height: 5%;
+	height: auto;
 	border-bottom: 1px solid #333;
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
 	box-shadow: 0 8px 6px -6px grey;
 	background-color: rgba(255, 255, 255, 0.75);
-  float: left
+}
+div.intro {
+	position: relative;
+	margin-top: 5%;
+	padding: 1%;
+	text-align: center;
 }
 div.bios {
-  margin-left: 10%;
-  margin-top: 5%;
-  width: 80%;
+	position: absolute;
+	width: 99%;
+	padding: 1%, 0%, 0%, 0%;
   float: left;
-  border: 5px solid yellow;
+	background-color: rgba(0, 0, 0, 0.05);
 }
 div.p1 {
   float: left;
-  border: 1px solid red;
+	padding: 5%;
+	text-align: center;
+	border: 5px;
+
 }
 div.p2 {
   float: left;
-  margin-left: 10%;
-  border: 1px solid green;
+	padding: 5%;
+	text-align: center;
+	border: 5px;
+
 }
 div.p3 {
   float: left;
-  margin-left: 10%;
-  border: 1px solid blue;
+	padding: 5%;
+	text-align: center;
+	border: 5px;
+
 }
 div.p4 {
-  float: right;
-  border: 1px solid purple;
+	float: left;
+	padding: 5%;
+	text-align: center;
+
 }
 a:link {
   color: black;
@@ -117,13 +130,22 @@ a:hover {
   text-decoration: none;
 }
 a.nav-links:hover {
-  text-decoration: underline;
+  text-decoration: none;
+	transform: scale(1.1, 1.1);
+	-moz-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1);
+  -o-transform: scale(1.1, 1.1);
 }
 a:active {
   color: black;
   text-decoration: none;
 }
-
+.social-links {
+	font-style: italic;
+	font-size: 10px;
+	float: left;
+}
 #circle {
 border-radius:50%;
 width:200px;
