@@ -8,6 +8,27 @@ label {
 	color: rgb(84, 90, 112);
 }
 
+.field {
+  margin: 1px;
+  padding: 1px;
+}
+
+input:invalid {
+  background-color: #ffdddd;
+}
+
+form:invalid {
+  border: 4px solid #ffdddd;
+}
+
+input:valid {
+  background-color: #ffffff;
+}
+
+form:valid {
+  border: 5px solid #101010;
+}
+
 .submit {
 	background-color: transparent;
 	cursor: pointer;
@@ -156,7 +177,7 @@ div.area {
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
 	box-shadow: 0 8px 6px -6px grey;
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(255, 255, 255, 0.5);
 }
 
 h1 {
