@@ -63,9 +63,11 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    plt.grid(True)
 
+   
+   my_path = __file__ + "/src/products/static/img/graphTest5.png"
+   my_path = my_path.replace("/products/riemann.py/src", "")
 
-
-   plt.savefig("/Users/riley/Desktop/test_NWAPW/integral-visualizer/src/products/static/img/graphTest5.png")
+   plt.savefig(my_path)
 
 
 
