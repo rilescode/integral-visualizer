@@ -48,7 +48,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    else:
       sum = 0
 
-      
+
 
    plt.axhline(y = 0, color='k') # x axis
    plt.axvline(x = 0, color='k') # y axis
@@ -64,7 +64,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    plt.grid(True)
 
 
-   
+
    plt.savefig("/Users/riley/Desktop/test_NWAPW/integral-visualizer/src/products/static/img/graphTest5.png")
 
 

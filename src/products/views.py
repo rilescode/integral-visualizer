@@ -21,7 +21,7 @@ def improved_view(request):
 		wdth_amnt = request.POST.get('wdth-amnt')
 		sum_type = request.POST.get('sumtype')
 
-		
+
 		#os.remove("/Users/riley/Desktop/test_NWAPW/integral-visualizer/src/products/static/img/graphTest4.png")
 		other_sum = calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wdth_amnt, sum_type)
 		#simp()
@@ -29,9 +29,11 @@ def improved_view(request):
 		my_context = {
 			'my_sum' : other_sum
 		}
-		
+
 	return render(request, 'products/improved.html', my_context)
 
+	return render(request, 'products/improved.html', {})
+	os.remove('C:/Users/CRELL/OneDrive/Documents/GitHub/integral-visualizer/src/products/static/img/graphtry.png')
 
 def image_view(request):
 	return render(request, 'products/image_view.html')
