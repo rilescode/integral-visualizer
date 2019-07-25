@@ -38,7 +38,10 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
       xList= np.arange(xMin, xMax, INCREASE)
       yList = createYList(xList, FUNCTION, A, B, C, D)
    else:
-      xList= np.arange(xMin, xMax+1, INCREASE)
+      xSimp= np.arange(xMin, xMax+1, INCREASE)
+      ySimp = createYList(xSimp, FUNCTION, A, B, C, D)
+
+      xList= np.arange(xMin, xMax, INCREASE)
       yList = createYList(xList, FUNCTION, A, B, C, D)
 
    if SUM_TYPE == 3:
@@ -46,7 +49,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    elif SUM_TYPE < 3:
       sum = riemann(yList, NUM_RECT, xMin, xMax, SUM_TYPE)
    else:
-      sum = simp(yList, NUM_RECT, xMin, xMax)
+      sum = simp(ySimp, NUM_RECT, xMin, xMax)
 
 
 
