@@ -21,7 +21,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    C = float(c)
    D = float(d)
 
-   xMin = float(xmin) 
+   xMin = float(xmin)
    xMax = float(xmax)
 
    NUM_RECT = int(rct_amnt)
@@ -47,7 +47,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    else:
       sum = 0
 
-      simp(yList, DELTA_X, xMin, xMax)
+      
 
    plt.axhline(y = 0, color='k') # x axis
    plt.axvline(x = 0, color='k') # y axis
@@ -62,8 +62,10 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    plt.grid(True)
 
+
    
    plt.savefig("/Users/riley/Desktop/test_NWAPW/integral-visualizer/src/products/static/img/graphTest5.png")
+
 
 
    try:
@@ -199,36 +201,6 @@ def riemannTrap(yList, deltaX, xMin):
    # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
    return round(sum, 3)
 
-def simp(yList, deltaX, xMin, xMax):
-   delta =  int(deltaX / INCREASE)
-   #f(0)=list(10000)
-   sum = 0
 
-   rectNum = int((xMax - xMin) // deltaX)
-
-   for i in range(1, rectNum+1):
-
-      simpX = np.arange(xMin+deltaX*(i-1), xMin+deltaX*i, INCREASE)
-
-      simpY = createYList(simpX, 7,
-      (yList[int(10000*deltaX*(i-1))]-yList[int(10000*(deltaX*i))]) / (((deltaX*(i-1))-((deltaX*i)))**2),
-      xMin+(deltaX*i),
-      yList[int(10000*(deltaX*i))], 0)
-
-      plt.plot(simpX, simpY)
-
-   for i in range(0, len(yList) // delta):
-      riemannX = []
-      riemannY = []
-      # rectangle graphing
-      riemannX.append(i * deltaX + xMin)
-      riemannY.append(0)
-
-      val = yList[delta * i]
-
-      riemannX.append(i * deltaX + xMin)
-      riemannY.append(val)
-
-      plt.plot(riemannX, riemannY)
 
    # adds last point
