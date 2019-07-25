@@ -9,13 +9,13 @@
    <HEADER>
       <TITLE>FakeDesmos.com</TITLE>
    </HEADER>
-   <form action = '/integral/image/' method = 'POST'>
+   <form action = '.' method = 'POST'>
       {% csrf_token %}
       <body>
          <div class="all">
             <div class="graphImg">
-               <img src="https://raw.githubusercontent.com/vidisha-gupta
-                  /integral-visualizer/master/graph.png" alt="Graph displayed here" width="80%" height="100%">
+              {% load static %}
+               <img src="{% static 'img/graph.png' %}" alt="alt" width="80%" height="100%">
             </div>
             <div class="c">
                <h1>Integral Visualizer</h1>

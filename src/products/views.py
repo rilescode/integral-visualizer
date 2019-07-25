@@ -19,12 +19,12 @@ def improved_view(request):
 		rct_amnt = request.POST.get('rct-amnt')
 		wdth_amnt = request.POST.get('wdth-amnt')
 		sum_type = request.POST.get('sumtype')
-		
+
 		print(calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wdth_amnt, sum_type))
 		#simp()
-		
-	return render(request, 'products/improved.html', {})
 
+	return render(request, 'products/improved.html', {})
+	os.remove('C:/Users/CRELL/OneDrive/Documents/GitHub/integral-visualizer/src/products/static/img/graphtry.png')
 
 def image_view(request):
 	return render(request, 'products/image_view.html')
