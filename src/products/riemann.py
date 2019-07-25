@@ -65,7 +65,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    
    my_path = __file__ + "/src/products/static/img/graphTest5.png"
-   my_path = my_path.replace("\\src\\products\\riemann.py", "")
+   my_path = my_path.replace("/src/products/riemann.py", "")
 
    plt.savefig(my_path)
 
@@ -77,6 +77,8 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    finally:
         file.close()
 
+   if(sum == -0):
+      sum = 0.0
    return sum
 
 def createYList(xList, type, A, B, C, D):
