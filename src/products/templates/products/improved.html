@@ -13,7 +13,7 @@
       <body>
          <div class="all">
             <div class="graphImg">
-               <img src="{%static 'img/graphTest5.png' %}" alt="Graph displayed here" width="80%" height="100%">
+               <img src="{%static 'img/graphTest5.png'%}" alt="Graph displayed here" width="80%" height="100%">
             </div>
             <div class="c">
                <h1>Integral Visualizer</h1>
@@ -190,7 +190,54 @@
                    if (1> 10){
                    }
                   }
+                  function aprignare() {
+                   if (1> 10){
+                   }
+                  }
+                  function aprignare() {
+                   if (1> 10){
+                   }
+                  }
+                  function aprignare() {
+                   if (1> 10){
+                   }
+                  }
                </script>
+               <div class="a">
+                  <h3>Sum type:</h3>
+               </div>
+               <div class="functContainer">
+                  <ul>
+                     <li>
+                        <input  style="cursor:pointer" id="Left" type="radio" name="sumtype"required value="0">
+                        <label for="Left">Left endpoint</label>
+                        <div class="check"></div>
+                     </li>
+                     <li>
+                        <input  style="cursor:pointer" id="Right" type="radio" name="sumtype"required value="1">
+                        <label for="Right">Right endpoint</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                     <li>
+                        <input  style="cursor:pointer" id="Mid" type="radio" name="sumtype"required value="2">
+                        <label for="Mid">Midpoint</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                     <li>
+                        <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype"required value="3">
+                        <label for="Trap">Trapezoidal</label>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+
+                  </ul>
+               </div>
+               <p> </p>
                <div class="a">
                   <h3>Unit and amount:</h3>
                </div>
@@ -240,7 +287,7 @@
                   if (isNaN(domain)) {
                   document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
                     } else if (xmin >= xmax){
-                  	document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                   document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
                     } else {
                   document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
                   }
@@ -291,48 +338,6 @@
                   getmin();
                   }
                </script>
-               <div class="a">
-                  <h3>Sum type:</h3>
-               </div>
-               <div class="functContainer">
-                  <ul>
-                     <li>
-                        <input  style="cursor:pointer" id="Left" type="radio" name="sumtype"required value="0">
-                        <label for="Left">Left endpoint</label>
-                        <div class="check"></div>
-                     </li>
-                     <li>
-                        <input  style="cursor:pointer" id="Right" type="radio" name="sumtype"required value="1">
-                        <label for="Right">Right endpoint</label>
-                        <div class="check">
-                           <div class="inside"></div>
-                        </div>
-                     </li>
-                     <li>
-                        <input  style="cursor:pointer" id="Mid" type="radio" name="sumtype"required value="2">
-                        <label for="Mid">Midpoint</label>
-                        <div class="check">
-                           <div class="inside"></div>
-                        </div>
-                     </li>
-                     <li>
-                        <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype"required value="3">
-                        <label for="Trap">Trapezoidal</label>
-                        <div class="check">
-                           <div class="inside"></div>
-                        </div>
-                     </li>
-                     <li>
-                        <input  style="cursor:pointer" id="Simp" type="radio" name="sumtype"required value="4">
-                        <label for="Simp">Simpson</label>
-                        <div class="check">
-                           <div class="inside"></div>
-                        </div>
-                     </li>
-
-                  </ul>
-               </div>
-               <p> </p>
                <p> </p>
                <div class="divbtn">
                   <input type= "submit" class="submit" value="GRAPH IT!"></input>
