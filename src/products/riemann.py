@@ -44,7 +44,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    if SUM_TYPE == 3:
       sum = riemannTrap(yList, DELTA_X, xMin)
    elif SUM_TYPE < 3:
-      sum = riemann(yList, DELTA_X, xMin, SUM_TYPE)
+      sum = riemann(yList, NUM_RECT, xMin, xMax, SUM_TYPE)
    else:
       sum = 0
 
@@ -65,7 +65,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    
    my_path = __file__ + "/src/products/static/img/graphTest5.png"
-   my_path = my_path.replace("/products/riemann.py/src", "")
+   my_path = my_path.replace("\\src\\products\\riemann.py", "")
 
    plt.savefig(my_path)
 
@@ -106,9 +106,12 @@ def createYList(xList, type, A, B, C, D):
 
    return yList
 
-def riemann(yList, deltaX, xMin, type):
-   delta =  int(deltaX / INCREASE)
+def riemann(yList, rectNum, xMin, xMax, type):
+   deltaX = (xMax-xMin)/rectNum
 
+   delta =  int(deltaX / INCREASE)
+   factor = 10000
+   
    sum = 0
 
    leftSum = 0
@@ -149,6 +152,7 @@ def riemann(yList, deltaX, xMin, type):
       sum -= yList[0] * deltaX
       sum += yList[len(yList) - 1] * deltaX
       rightSum = sum
+   
 
    plt.plot(riemannX, riemannY)
 
@@ -160,7 +164,11 @@ def riemann(yList, deltaX, xMin, type):
       # print("\nThe right endpoint sum is: " + str(round(rightSum, 3)))
    else: # Mid
       #midpoint is average of left and right sums
-      return round(((rightSum + leftSum) / 2), 3)
+      midsum = 0
+      for i in range(0, rectNum):
+         midsum += yList[int(factor*(deltaX*i+deltaX/2))] * deltaX
+         sum = midsum
+      return round(sum, 3)
       # print("\nThe midpoint sum is: " + str(round((rightSum + leftSum) / 2 , 3)))
 
 def riemannTrap(yList, deltaX, xMin):
