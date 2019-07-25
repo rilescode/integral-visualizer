@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import matplotlib as mpl
+import os
 
 #from matplotlib.pyplot import figure
 #import mpld3
@@ -12,7 +13,7 @@ import matplotlib as mpl
 INCREASE = 0.0001 # do not change!
 
 def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wdth_amnt, sum_type):
-
+   plt.clf()
    FUNCTION = int(function_type)
 
    A = float(a)
@@ -61,8 +62,8 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    plt.grid(True)
 
-   #plt.deletefig("/Users/riley/Desktop/test_NWAPW/integral-visualizer/src/products/static/img/graphTest4.png")
-   plt.savefig("/Users/riley/Desktop/test_NWAPW/integral-visualizer/src/products/static/img/graphTest4.png")
+   
+   plt.savefig("/Users/riley/Desktop/test_NWAPW/integral-visualizer/src/products/static/img/graphTest5.png")
 
 
    try:
