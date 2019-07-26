@@ -9,7 +9,8 @@
 5. in that same terminal window, type in "mkvirtualenv py1"
 6. in that same terminal window, type in "workon py1"
 7. in that same terminal window, type in "pip install django"
-8. in a different terminal window, type in "pip install numpy"
+9. in a different terminal window, type in "workon py1"
+8. in that same terminal window, type in "pip install numpy"
 9. in that same terminal window, type in "pip install matplotlib"
 10. once django is installed, open the folder in your prefered text editor
 11. in your original terminal window, cd into where the project is located until you can find the file "manage.py"
