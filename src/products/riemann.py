@@ -1,5 +1,5 @@
 # Vidisha Gupta
-# 7/19/19
+# 7/26/19
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,8 +13,31 @@ import shutil
 
 INCREASE = 0.0001 # do not change!
 
-def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wdth_amnt, sum_type):
+def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdth_amnt, sum_type):
+    """
+    Calculates the riemann sum, creates the function, plots function and rectangles, and saves the plot
+
+    Args:
+        function_type (int): the function; eg: 0 = linear,  1 = quadratic, etc
+        a (float): the "A" constant
+        b (float): the "B" constant
+        c (float): the "D" constant
+        d (float): the "D" constant
+        xmin (float): the minimum x value
+        xmax (float): the maximum x value
+        wdth-rect (int): whether user picked rectangles or width. 0 = width, 1 = rectangles.
+        rct_amnt (int): the number of rectangles; selected by user if wdth_rect = 0
+        wdth_amnt (float): the width of the rectangles; selected by user if wdth_rect = 1
+        sum_type (int): the type of sum; eg: 0 = left endpoint, 1 = right endpoint, etc
+
+    Returns:
+        float: the riemann sum calculation
+
+    """
+
+   # Clears previous plot
    plt.clf()
+
    FUNCTION = int(function_type)
 
    A = float(a)
@@ -22,19 +45,19 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    C = float(c)
    D = float(d)
 
-
    xMin = float(xmin)
    xMax = float(xmax)
 
    NUM_RECT = int(rct_amnt)
 
-   if width_rect == "0":
+   if wdth_rect == "0":
       DELTA_X = float(wdth_amnt)
    else:
-      DELTA_X = (xMax - xMin) / NUM_RECT
+      DELTA_X = float( (xMax - xMin) / NUM_RECT )
 
    SUM_TYPE = int(sum_type)
 
+   # Creates the function
    if SUM_TYPE < 4:
       xList= np.arange(xMin, xMax, INCREASE)
       yList = createYList(xList, FUNCTION, A, B, C, D)
@@ -45,6 +68,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
       xList= np.arange(xMin, xMax, INCREASE)
       yList = createYList(xList, FUNCTION, A, B, C, D)
 
+   # Calculates sum
    if SUM_TYPE == 3:
       sum = riemannTrap(yList, DELTA_X, xMin)
    elif SUM_TYPE < 3:
@@ -52,14 +76,13 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    else:
       sum = simp(ySimp, NUM_RECT, xMin, xMax)
 
-
-
    plt.axhline(y = 0, color='k') # x axis
    plt.axvline(x = 0, color='k') # y axis
 
+   # Graphs function
    plt.plot(xList, yList, linewidth = 3)
 
-   # zooming out
+   # zooming out on graph
    plt.plot(xMin - INCREASE, 0)
    plt.plot(xMax + INCREASE, 0)
    plt.plot(0, max(yList) + INCREASE)
@@ -67,47 +90,48 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    plt.grid(True)
 
-
-   #root directory
+   # Root directory
    fileDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
    print(fileDir)
-   
-   #path where I want the file to be
+
+   # Path where I want the file to be
    epic_path = fileDir + "\products\static\img\graphTest3.png"
    print("epic path: %s" % epic_path)
 
-   #delete old file, and create new one in root directory
+   # Delete old file, and create new one in root directory
    os.remove(epic_path)
    open("graphTest3.png", "w+")
 
-   #path in root directory
+   # Path in root directory
    old_path = fileDir + "\graphTest3.png"
    print("old path: %s" %old_path)
 
-   #move file to correct directory
+   # Move file to correct directory
    os.rename(old_path, epic_path)
 
    plt.savefig(epic_path)
-   
 
-
-   try:
-        file = open("output.txt", mode = 'w') # opens output file
-        file.write(str(sum))
-   finally:
-        file.close()
-
+   # bug adjustment ("don't worry about it")
    if(sum == -0):
       sum = 0.0
+
    return sum
 
 def createYList(xList, type, A, B, C, D):
-   # A = float(input("\nA? "))
-   # B = float(input("B? "))
-   #if type != "LINEAR" and type != "E" and type != "":
-      #C = float(input("C? "))
-      #if type == "CUBIC" or type == "SINE" or type == "COSINE":
-         #D = float(input("D? "))
+    """
+    Generates y values for function.
+
+    Args:
+        variable (type): description
+        xList (List): the x values
+        type (int): function type; eg: 0 = linear, 1 = quadratic, etc
+        A (float): the "A" constant
+        B (float): the "B" constant
+        D (float): the "D" constant
+        D (float): the "D" constant
+    Returns:
+        List: the function
+    """
 
    if type == 0: # LINEAR
       yList = A * xList + B
@@ -129,11 +153,25 @@ def createYList(xList, type, A, B, C, D):
    return yList
 
 def riemann(yList, rectNum, xMin, xMax, type):
-   deltaX = (xMax-xMin)/rectNum
+   """
+   Graphs the riemann rectangles for left, right, and midpoint sums
+
+   Args:
+       yList (list): the function
+       rectNum (int): the number of rectangles
+       xMin (float): the minimum x value
+       xMax (float): the maximum x value
+        type (int): sum type; eg: 0 = left, 1 = right, etc
+
+   Returns:
+        Float: the sum, rounded to 3 decimal places
+   """
+
+   deltaX = (xMax-xMin) / rectNum
 
    delta =  int(deltaX / INCREASE)
    factor = 10000
-   
+
    sum = 0
 
    leftSum = 0
@@ -174,29 +212,35 @@ def riemann(yList, rectNum, xMin, xMax, type):
       sum -= yList[0] * deltaX
       sum += yList[len(yList) - 1] * deltaX
       rightSum = sum
-   
 
    plt.plot(riemannX, riemannY)
 
    if type == 0: # left
       return round(leftSum, 3)
-      # print("\nThe left endpoint sum is: " + str(round(leftSum, 3)))
    elif type == 1: # right
       return round(rightSum, 3)
-      # print("\nThe right endpoint sum is: " + str(round(rightSum, 3)))
    else: # Mid
-      #midpoint is average of left and right sums
       midsum = 0
       for i in range(0, rectNum):
-         midsum += yList[int(factor*(deltaX*i+deltaX/2))] * deltaX
+         midsum += yList[int(factor * (deltaX * i + deltaX / 2))] * deltaX
          sum = midsum
       return round(sum, 3)
-      # print("\nThe midpoint sum is: " + str(round((rightSum + leftSum) / 2 , 3)))
 
 def riemannTrap(yList, deltaX, xMin):
+   """
+   Graphs the trapezoids for trapezoidal rule
+
+   Args:
+       yList (List): the function
+       deltaX (float): the width of each trapezoid
+       xMin (float): the minimum x value
+
+   Returns:
+       Float: the sum, rounded to 3 decimal places
+   """
+
    delta =  int(deltaX / INCREASE)
 
-   #print("deltaX: " + str(deltaX))
    sum = 0
 
    riemannX = []
@@ -234,24 +278,49 @@ def riemannTrap(yList, deltaX, xMin):
    # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
    return round(sum, 3)
 
-
-
-   # adds last point
-
 def interpolate(xList, a, b, c, d, e, f):
-    #lagrange interpolation for n=3 making a polynomial of degree n-1
+    """
+    A short description.
+
+    Args:
+        xList (List): description
+        a (float): description
+        b (float): description
+        c (float): description
+        d (float): description
+        e (float): description
+        f (float): description
+
+    Returns:
+        List: the quadratic that goes through points (a, b),  (c, d) and (e, f)
+    """
+
+    # Lagrange interpolation for n=3 making a polynomial of degree n-1
     yList = b * ((xList-c)*(xList-e))/((a-c)*(a-e)) + d * ((xList-a)*(xList-e))/((c-a)*(c-e)) + f * ((xList-a)*(xList-c))/((e-a)*(e-c))
+
     return yList
 
 def simp(yList, rectNum, xMin, xMax):
-    
+   """
+   A short description.
+
+   Args:
+       yList (List): description
+       rectNum (int): the number of rectangles
+       xMin (float): the minimum x value
+       xMax (float): the maximum x value
+
+   Returns:
+       float: the sum, rounded to three decimal places
+   """
+
    #f(0)=list(10000)
    sum = 0
 
    halvedRect = rectNum//2
 
    deltaX = float((xMax - xMin) / halvedRect)
-    
+
    deltaXL = float((xMax - xMin) / rectNum)
 
    delta =  int(deltaXL / INCREASE)
@@ -263,7 +332,7 @@ def simp(yList, rectNum, xMin, xMax):
         #left point
       a=float(xMin+deltaX*(i-1))
       b=float(yList[int(factor*deltaX*(i-1))])
-        
+
         #mid point
       c=float(xMin+deltaX*(i-1)+(deltaX)/2)
       d=float(yList[int(factor*(deltaX*(i-1)+(deltaX)/2))])
@@ -271,11 +340,11 @@ def simp(yList, rectNum, xMin, xMax):
         #right point
       e=float(xMin+deltaX*i)
       f=float(yList[int(factor*deltaX*i)])
-    
+
       simpY = interpolate(simpX, a, b, c, d, e, f)
 
       plt.plot(simpX, simpY, color='red')
-        
+
         #rule of 1/4/1
       sum += deltaXL/3 * (b + 4*d + f)
 
@@ -294,5 +363,5 @@ def simp(yList, rectNum, xMin, xMax):
          plt.plot(riemannX, riemannY, color='red')
 
    sum = round(sum, 3)
+
    return sum
-   
