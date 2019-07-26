@@ -1,6 +1,6 @@
 # integral-visualizer
 
-How to run Integral Visualizer locally (Windows)
+# How to run Integral Visualizer locally (Windows)
 
 1. Download the zip file on from GitHub
 2. Unzip, and put the folder in the directory of your choosing
@@ -19,7 +19,7 @@ How to run Integral Visualizer locally (Windows)
 
 
 
-How to run Integral Visualizer locally (Mac OS)
+# How to run Integral Visualizer locally (Mac OS)
 
 1. Download the zip file on from GitHub
 2. Unzip, and put the folder in the directory of your choosing
