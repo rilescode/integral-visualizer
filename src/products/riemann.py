@@ -122,10 +122,6 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdt
 
    return sum
 
-def deleteContents(pfile):
-   pfile.seek(0)
-   pfile.truncate()
-
 def createYList(xList, type, A, B, C, D):
    """
    Generates y values for function.
