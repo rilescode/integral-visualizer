@@ -41,6 +41,8 @@
 14. python manage.py runserver
 15. Copy the given url into your browser
 
+To run server again after everything has been installed, follow steps 5, 8, 13-15
+
 
 NOTE:
 If you get the FileNotFoundError on Mac OS, follow these steps:
