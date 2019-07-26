@@ -9,6 +9,24 @@ from django.core.cache import cache
 # Create your views here.
 
 def improved_view(request):
+	# Root directory
+	fileDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+	print(fileDir)
+
+   	# Path where I want the file to be
+	epic_path = fileDir + "\products\static\img\graphTest3.png"
+	print("epic path: %s" % epic_path)
+
+   	# Delete old file, and create new one in root directory
+	os.remove(epic_path)
+	open("graphTest3.png", "w+")
+
+	# Path in root directory
+	old_path = fileDir + "\graphTest3.png"
+	print("old path: %s" %old_path)
+
+	# Move file to correct directory
+	os.rename(old_path, epic_path)
 	
 	other_sum = 0
 	if request.method == "POST":
