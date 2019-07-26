@@ -42,5 +42,5 @@ NOTE:
 If you get the FileNotFoundError on Mac OS, follow these steps:
 1. Open riemman.py in a text editor
 2. Go to where ‘epic_path’ is defined
-3. Change all of: this: '\' to this: '/'
+3. Change all of: this: '\\' to this: '/'
 4. Refresh website
