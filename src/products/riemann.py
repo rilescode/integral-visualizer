@@ -14,30 +14,51 @@ import shutil
 INCREASE = 0.0001 # do not change!
 
 def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdth_amnt, sum_type):
-    """
-    Calculates the riemann sum, creates the function, plots function and rectangles, and saves the plot
+   """
+   Calculates the riemann sum, creates the function, plots function and rectangles, and saves the plot
 
-    Args:
-        function_type (int): the function; eg: 0 = linear,  1 = quadratic, etc
-        a (float): the "A" constant
-        b (float): the "B" constant
-        c (float): the "D" constant
-        d (float): the "D" constant
-        xmin (float): the minimum x value
-        xmax (float): the maximum x value
-        wdth-rect (int): whether user picked rectangles or width. 0 = width, 1 = rectangles.
-        rct_amnt (int): the number of rectangles; selected by user if wdth_rect = 0
-        wdth_amnt (float): the width of the rectangles; selected by user if wdth_rect = 1
-        sum_type (int): the type of sum; eg: 0 = left endpoint, 1 = right endpoint, etc
+   Args:
+      function_type (int): the function; eg: 0 = linear,  1 = quadratic, etc
+      a (float): the "A" constant
+      b (float): the "B" constant
+      c (float): the "D" constant
+      d (float): the "D" constant
+      xmin (float): the minimum x value
+      xmax (float): the maximum x value
+      wdth-rect (int): whether user picked rectangles or width. 0 = width, 1 = rectangles.
+      rct_amnt (int): the number of rectangles; selected by user if wdth_rect = 0
+      wdth_amnt (float): the width of the rectangles; selected by user if wdth_rect = 1
+      sum_type (int): the type of sum; eg: 0 = left endpoint, 1 = right endpoint, etc
 
-    Returns:
-        float: the riemann sum calculation
+   Returns:
+      float: the riemann sum calculation
 
-    """
+   """
+   # Root directory
+   fileDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+   print(fileDir)
 
-   # Clears previous plot
+   # Path where I want the file to be
+   epic_path = fileDir + "\products\static\img\graphTest3.png"
+   print("epic path: %s" % epic_path)
+
+   # Delete old file, and create new one in root directory
+   os.remove(epic_path)
+   open("graphTest3.png", "w+")
+
+   # Path in root directory
+   old_path = fileDir + "\graphTest3.png"
+   print("old path: %s" %old_path)
+
+   # Move file to correct directory
+   os.rename(old_path, epic_path)
+   
    plt.clf()
-
+   
+   plt.savefig(epic_path)
+   # Clears previous plot
+   #plt.clf()
+   
    FUNCTION = int(function_type)
 
    A = float(a)
@@ -90,24 +111,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdt
 
    plt.grid(True)
 
-   # Root directory
-   fileDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-   print(fileDir)
-
-   # Path where I want the file to be
-   epic_path = fileDir + "\products\static\img\graphTest3.png"
-   print("epic path: %s" % epic_path)
-
-   # Delete old file, and create new one in root directory
-   os.remove(epic_path)
-   open("graphTest3.png", "w+")
-
-   # Path in root directory
-   old_path = fileDir + "\graphTest3.png"
-   print("old path: %s" %old_path)
-
-   # Move file to correct directory
-   os.rename(old_path, epic_path)
+   
 
    plt.savefig(epic_path)
 
@@ -117,21 +121,25 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdt
 
    return sum
 
-def createYList(xList, type, A, B, C, D):
-    """
-    Generates y values for function.
+def deleteContents(pfile):
+   pfile.seek(0)
+   pfile.truncate()
 
-    Args:
-        variable (type): description
-        xList (List): the x values
-        type (int): function type; eg: 0 = linear, 1 = quadratic, etc
-        A (float): the "A" constant
-        B (float): the "B" constant
-        D (float): the "D" constant
-        D (float): the "D" constant
-    Returns:
-        List: the function
-    """
+def createYList(xList, type, A, B, C, D):
+   """
+   Generates y values for function.
+
+   Args:
+      variable (type): description
+      xList (List): the x values
+      type (int): function type; eg: 0 = linear, 1 = quadratic, etc
+      A (float): the "A" constant
+      B (float): the "B" constant
+      D (float): the "D" constant
+      D (float): the "D" constant
+   Returns:
+      List: the function
+   """
 
    if type == 0: # LINEAR
       yList = A * xList + B
@@ -157,14 +165,14 @@ def riemann(yList, rectNum, xMin, xMax, type):
    Graphs the riemann rectangles for left, right, and midpoint sums
 
    Args:
-       yList (list): the function
-       rectNum (int): the number of rectangles
-       xMin (float): the minimum x value
-       xMax (float): the maximum x value
-        type (int): sum type; eg: 0 = left, 1 = right, etc
+      yList (list): the function
+      rectNum (int): the number of rectangles
+      xMin (float): the minimum x value
+      xMax (float): the maximum x value
+      type (int): sum type; eg: 0 = left, 1 = right, etc
 
    Returns:
-        Float: the sum, rounded to 3 decimal places
+      Float: the sum, rounded to 3 decimal places
    """
 
    deltaX = (xMax-xMin) / rectNum
@@ -231,12 +239,12 @@ def riemannTrap(yList, deltaX, xMin):
    Graphs the trapezoids for trapezoidal rule
 
    Args:
-       yList (List): the function
-       deltaX (float): the width of each trapezoid
-       xMin (float): the minimum x value
+      yList (List): the function
+      deltaX (float): the width of each trapezoid
+      xMin (float): the minimum x value
 
    Returns:
-       Float: the sum, rounded to 3 decimal places
+      Float: the sum, rounded to 3 decimal places
    """
 
    delta =  int(deltaX / INCREASE)
@@ -279,39 +287,39 @@ def riemannTrap(yList, deltaX, xMin):
    return round(sum, 3)
 
 def interpolate(xList, a, b, c, d, e, f):
-    """
-    A short description.
+   """
+   A short description.
 
-    Args:
-        xList (List): description
-        a (float): description
-        b (float): description
-        c (float): description
-        d (float): description
-        e (float): description
-        f (float): description
+   Args:
+      xList (List): description
+      a (float): description
+      b (float): description
+      c (float): description
+      d (float): description
+      e (float): description
+      f (float): description
 
-    Returns:
-        List: the quadratic that goes through points (a, b),  (c, d) and (e, f)
-    """
+   Returns:
+      List: the quadratic that goes through points (a, b),  (c, d) and (e, f)
+   """
 
-    # Lagrange interpolation for n=3 making a polynomial of degree n-1
-    yList = b * ((xList-c)*(xList-e))/((a-c)*(a-e)) + d * ((xList-a)*(xList-e))/((c-a)*(c-e)) + f * ((xList-a)*(xList-c))/((e-a)*(e-c))
+   # Lagrange interpolation for n=3 making a polynomial of degree n-1
+   yList = b * ((xList-c)*(xList-e))/((a-c)*(a-e)) + d * ((xList-a)*(xList-e))/((c-a)*(c-e)) + f * ((xList-a)*(xList-c))/((e-a)*(e-c))
 
-    return yList
+   return yList
 
 def simp(yList, rectNum, xMin, xMax):
    """
    A short description.
 
    Args:
-       yList (List): description
-       rectNum (int): the number of rectangles
-       xMin (float): the minimum x value
-       xMax (float): the maximum x value
+      yList (List): description
+      rectNum (int): the number of rectangles
+      xMin (float): the minimum x value
+      xMax (float): the maximum x value
 
    Returns:
-       float: the sum, rounded to three decimal places
+      float: the sum, rounded to three decimal places
    """
 
    #f(0)=list(10000)
