@@ -69,7 +69,7 @@ div.navigation {
 /* Titles of inputs. Eg: Domain: */
 div.a {
 	position: relative;
-	padding: 1%;
+	padding: 3.5%;
 	border-bottom: 1px solid #333;
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
