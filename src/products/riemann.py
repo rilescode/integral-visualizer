@@ -1,5 +1,5 @@
 # Vidisha Gupta, main script
-# Mark Gross, simpson's rule 
+# Mark Gross, simpson's rule
 # 7/26/19
 
 import numpy as np
@@ -50,13 +50,13 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdt
 
    # Move file to correct directory
    os.rename(old_path, epic_path)
-   
+
    plt.clf()
-   
+
    plt.savefig(epic_path)
    # Clears previous plot
    #plt.clf()
-   
+
    FUNCTION = int(function_type)
 
    A = float(a)
@@ -109,7 +109,24 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdt
 
    plt.grid(True)
 
-   
+   # Root directory
+   fileDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+   print(fileDir)
+
+   # Path where I want the file to be
+   epic_path = fileDir + "/products/static/img/graphTest3.png"
+   print("epic path: %s" % epic_path)
+
+   # Delete old file, and create new one in root directory
+   os.remove(epic_path)
+   open("graphTest3.png", "w+")
+
+   # Path in root directory
+   old_path = fileDir + "\graphTest3.png"
+   print("old path: %s" %old_path)
+
+   # Move file to correct directory
+   os.rename(old_path, epic_path)
 
    plt.savefig(epic_path)
 
