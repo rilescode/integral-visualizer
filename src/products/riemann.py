@@ -279,5 +279,6 @@ def simp(yList, rectNum, xMin, xMax):
 
          plt.plot(riemannX, riemannY, color='red')
 
+   sum = round(sum, 3)
    return sum
    
