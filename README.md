@@ -15,10 +15,10 @@
 9. in that same terminal window, type in "pip install matplotlib"
 
 # Running the code
-10. in a terminal window, type in "workon py1"
-11. cd into where the project is located until you can find the file "manage.py"
-12. type in "python manage.py runserver" once you are in the same directory as the file "manage.py"
-13. copy the url given in the terminal to your browser
+1. in a terminal window, type in "workon py1"
+12. cd into where the project is located until you can find the file "manage.py"
+13. type in "python manage.py runserver" once you are in the same directory as the file "manage.py"
+14. copy the url given in the terminal to your browser
 
 
 
