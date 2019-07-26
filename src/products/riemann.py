@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import matplotlib as mpl
-import os
+from os import path
 
 #from matplotlib.pyplot import figure
 #import mpld3
@@ -38,7 +38,10 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
       xList= np.arange(xMin, xMax, INCREASE)
       yList = createYList(xList, FUNCTION, A, B, C, D)
    else:
-      xList= np.arange(xMin, xMax+1, INCREASE)
+      xSimp= np.arange(xMin, xMax+1, INCREASE)
+      ySimp = createYList(xSimp, FUNCTION, A, B, C, D)
+
+      xList= np.arange(xMin, xMax, INCREASE)
       yList = createYList(xList, FUNCTION, A, B, C, D)
 
    if SUM_TYPE == 3:
@@ -46,7 +49,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    elif SUM_TYPE < 3:
       sum = riemann(yList, NUM_RECT, xMin, xMax, SUM_TYPE)
    else:
-      sum = simp(yList, NUM_RECT, xMin, xMax)
+      sum = simp(ySimp, NUM_RECT, xMin, xMax)
 
 
 
@@ -63,12 +66,15 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
 
    plt.grid(True)
 
+
+   fileDir = path.dirname(path.realpath(__file__))
+   print(fileDir)
+
+   epic_path = fileDir + "\static\img\graphTest3.png"
+   print("epic path: %s" % epic_path)
+
+   plt.savefig(epic_path)
    
-   my_path = __file__ + "/src/products/static/img/graphTest5.png"
-   my_path = my_path.replace("\\src\\products\\riemann.py", "")
-
-   plt.savefig(my_path)
-
 
 
    try:
@@ -273,5 +279,6 @@ def simp(yList, rectNum, xMin, xMax):
 
          plt.plot(riemannX, riemannY, color='red')
 
+   sum = round(sum, 3)
    return sum
    
