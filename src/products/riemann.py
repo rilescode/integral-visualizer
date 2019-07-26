@@ -5,7 +5,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import matplotlib as mpl
-from os import path
+import os
+import shutil
 
 #from matplotlib.pyplot import figure
 #import mpld3
@@ -67,11 +68,24 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, width_rect, rct_amnt, wd
    plt.grid(True)
 
 
-   fileDir = path.dirname(path.realpath(__file__))
+   #root directory
+   fileDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
    print(fileDir)
-
-   epic_path = fileDir + "\static\img\graphTest3.png"
+   
+   #path where I want the file to be
+   epic_path = fileDir + "\products\static\img\graphTest3.png"
    print("epic path: %s" % epic_path)
+
+   #delete old file, and create new one in root directory
+   os.remove(epic_path)
+   open("graphTest3.png", "w+")
+
+   #path in root directory
+   old_path = fileDir + "\graphTest3.png"
+   print("old path: %s" %old_path)
+
+   #move file to correct directory
+   os.rename(old_path, epic_path)
 
    plt.savefig(epic_path)
    
