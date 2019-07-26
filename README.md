@@ -10,7 +10,7 @@
 5. in that same terminal window, type in "mkvirtualenv py1"
 6. in that same terminal window, type in "workon py1"
 7. in that same terminal window, type in "pip install django"
-9. in a different terminal window, type in "workon py1"
+9. in a DIFFERENT terminal window, type in "workon py1"
 8. in that same terminal window, type in "pip install numpy"
 9. in that same terminal window, type in "pip install matplotlib"
 
