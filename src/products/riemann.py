@@ -1,5 +1,5 @@
 # Vidisha Gupta, main script
-# Mark Gross, simpson's rule 
+# Mark Gross, simpson's rule
 # 7/26/19
 
 import numpy as np
@@ -96,7 +96,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdt
    print(fileDir)
 
    # Path where I want the file to be
-   epic_path = fileDir + "\products\static\img\graphTest3.png"
+   epic_path = fileDir + "/products/static/img/graphTest3.png"
    print("epic path: %s" % epic_path)
 
    # Delete old file, and create new one in root directory
