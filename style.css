@@ -9,38 +9,10 @@ label {
 	color: rgb(84, 90, 112);
 }
 
-.submit {
-	background-color: transparent;
-	cursor: pointer;
-	font-size: 20px;
-	font-family: 'Open Sans', sans-serif;
-	border: 1px solid #333;
-	box-sizing: border-box;
-	appearance: none;
-	border-radius: 0.2em;
-	color: #333;
-	line-height: 1;
-	transition: box-shadow 300ms ease-in-out, color .2s ease-in-out;
-	-webkit-transition: 0.2s linear;
-	padding: 10px 20px 10px 20px;
-	margin: 0px 0px 22px 0px;
-	text-align: center;
-}
-
-.submit:hover {
-	box-shadow: 0 0 40px 40px #101010 inset;
-	color: #fff;
-	outline: 0;
-}
-
-.submit:active {
-	position: relative;
-	top: .5px;
-}
-
+/* Styles whole page */
 div.all {
 	overflow: scroll;
-	height: 120%;
+	height: 150%;
 	left: 0;
 	right: 0;
 	top: 0;
@@ -54,63 +26,36 @@ div.all {
   animation: rainbow 20s ease infinite;
 }
 
-@-webkit-keyframes rainbow {
-	0% {
-		background-position: 0% 82%
-	}
-	50% {
-		background-position: 100% 19%
-	}
-	100% {
-		background-position: 0% 82%
-	}
+/* Second version for index.html */
+div.all2 {
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	background: linear-gradient(124deg, #E8FFC1, #D1FFC1, #C1FFD4, #C1FFEA, #C1FCFF, #C1F4FF);
+	background-size: 1800% 1800%;
+	-webkit-animation: rainbow 20s ease infinite;
+	-z-animation: rainbow 20s ease infinite;
+	-o-animation: rainbow 20s ease infinite;
+	animation: rainbow 20s ease infinite;
 }
 
-@-moz-keyframes rainbow {
-	0% {
-		background-position: 0% 82%
-	}
-	50% {
-		background-position: 100% 19%
-	}
-	100% {
-		background-position: 0% 82%
-	}
-}
-
-@-o-keyframes rainbow {
-	0% {
-		background-position: 0% 82%
-	}
-	50% {
-		background-position: 100% 19%
-	}
-	100% {
-		background-position: 0% 82%
-	}
-}
-
-@keyframes rainbow {
-	0% {
-		background-position: 0% 82%
-	}
-	50% {
-		background-position: 100% 19%
-	}
-	100% {
-		background-position: 0% 82%
-	}
-}
-
+/* Inputs section on home page */
 div.leftside {
 	display: block;
 	position: relative;
+	float: left;
 	width: 25%;
-	height: auto;
-	overflow-x: hidden;
+	height: 100%;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
+/* Navigation bar */
 div.navigation {
 	padding: 1% 0% 2% 1%;
 	position: relative;
@@ -122,52 +67,43 @@ div.navigation {
 	background-color: rgba(255, 255, 255, 0.75);
 }
 
+/* Titles of inputs. Eg: Domain: */
 div.a {
-	padding: 1%;
 	position: relative;
+	padding: 1%;
 	border-bottom: 1px solid #333;
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
 	box-shadow: 0 8px 6px -6px grey;
 }
 
+/* Graph it button */
 div.divbtn {
 	position: relative;
 	text-align: center;
-	margin: 30px 0px 40px 0px;
+	padding: 10%;
+	padding-bottom: 27%;
 }
 
 div.b {
 	position: relative;
-	left: 50px;
+	padding: 5%;
 }
 
-div.c {
-	width: 100%;
-	padding: 10px 0px 9px 10px;
-	position: relative;
-	height: 5%;
-	border-bottom: 1px solid #333;
-	-webkit-box-shadow: 0 8px 6px -6px grey;
-	-moz-box-shadow: 0 8px 6px -6px grey;
-	box-shadow: 0 8px 6px -6px grey;
-	background-color: rgba(255, 255, 255, 0.75);
-}
+/* Area calculation */ 
 div.area {
-	width: 75%;
-	padding: 10px 0px 9px 20px;
 	position: relative;
-	left:25%;
-	height: 5%;
+	padding: 0.5%;
+	padding-left: 3%;
+	margin-left: 25%;
+	text-align: left;
 	border-bottom: 1px solid #333;
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
 	box-shadow: 0 8px 6px -6px grey;
-	background-color: rgba(255, 255, 255, 0.75);
 }
 
 h1 {
-	height: 100%;
 	font-size: 30px;
 	color: #010101;
 	margin: 0px;
@@ -177,14 +113,15 @@ h3 {
 	font-size: 22px;
 	color: #010101;
 	margin: 0px;
+	margin-left: 1%;
 }
 
 .functContainer {
 	display: block;
 	position: relative;
-	margin: 1px auto;
 	height: auto;
-	width: 300px;
+	width: auto;
+	overflow: hidden;
 	padding: 1px;
 }
 
@@ -284,14 +221,14 @@ input[type=radio]:checked~label {
 	display: none;
 }
 
+#widthrectrad {
+	overflow: hidden;
+}
+
 p.smallgrey {
 	font-family: 'Open Sans', sans-serif;
 	color: rgb(84, 90, 112);
 	font-size: 10px;
-}
-
-#widthrectrad {
-	overflow: hidden;
 }
 
 div.graphImg {
@@ -299,7 +236,7 @@ div.graphImg {
 	position: fixed;
 	text-align: center;
 	left: 25%;
-	top: 15%;
+	top: 17%;
 	width: 75%;
 	height: 85%;
 }
@@ -317,6 +254,7 @@ div.intro {
 	text-align: center;
 }
 
+/* Row of people */
 div.bios {
 	position: absolute;
 	width: 99%;
@@ -325,6 +263,7 @@ div.bios {
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* Person 1, 2, 3 */
 div.p1 {
   float: left;
 	padding: 5%;
@@ -332,41 +271,31 @@ div.p1 {
 	border: 5px;
 }
 
-div.p2 {
-  float: left;
-	padding: 5%;
-	text-align: center;
-	border: 5px;
-}
-
-div.p3 {
-  float: left;
-	padding: 5%;
-	text-align: center;
-	border: 5px;
-}
-
+/* Person 4 */
 div.p4 {
 	float: left;
 	padding: 5%;
 	text-align: center;
 }
 
+/* Link styling */
 a:link {
   color: black;
   text-decoration: none;
 }
-
 a:visited {
   color: black;
   text-decoration: none;
 }
-
 a:hover {
   color: black;
   text-decoration: none;
 }
-
+a:active {
+  color: black;
+  text-decoration: none;
+}
+/* Formats navigation bar links and makes them bigger when hover */
 a.nav-links:hover {
   text-decoration: none;
 	transform: scale(1.1, 1.1);
@@ -376,21 +305,96 @@ a.nav-links:hover {
   -o-transform: scale(1.1, 1.1);
 }
 
-a:active {
-  color: black;
-  text-decoration: none;
-}
-
+/* Styling links to GitHub and email on about page */
 .social-links {
 	font-style: italic;
 	font-size: 10px;
 	float: left;
 }
 
+/* Circular profile photos */
 #circle {
 	border-radius:50%;
 	width:200px;
 	height:200px;
 	background-position: center center;
 	background-size: cover;
+}
+
+/* Button stuff */
+.submit {
+	background-color: transparent;
+	cursor: pointer;
+	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	border: 1px solid #333;
+	box-sizing: border-box;
+	appearance: none;
+	border-radius: 0.2em;
+	color: #333;
+	line-height: 1;
+	transition: box-shadow 300ms ease-in-out, color .2s ease-in-out;
+	-webkit-transition: 0.2s linear;
+	text-align: center;
+	padding: 5%;
+}
+
+.submit:hover {
+	box-shadow: 0 0 40px 40px #101010 inset;
+	color: #fff;
+	outline: 0;
+}
+
+.submit:active {
+	position: relative;
+	top: .5px;
+}
+
+/* Rainbow background stuff */
+@-webkit-keyframes rainbow {
+	0% {
+		background-position: 0% 82%
+	}
+	50% {
+		background-position: 100% 19%
+	}
+	100% {
+		background-position: 0% 82%
+	}
+}
+
+@-moz-keyframes rainbow {
+	0% {
+		background-position: 0% 82%
+	}
+	50% {
+		background-position: 100% 19%
+	}
+	100% {
+		background-position: 0% 82%
+	}
+}
+
+@-o-keyframes rainbow {
+	0% {
+		background-position: 0% 82%
+	}
+	50% {
+		background-position: 100% 19%
+	}
+	100% {
+		background-position: 0% 82%
+	}
+}
+
+@keyframes rainbow {
+	0% {
+		background-position: 0% 82%
+	}
+	50% {
+		background-position: 100% 19%
+	}
+	100% {
+		background-position: 0% 82%
+	}
 }

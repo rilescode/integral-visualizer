@@ -11,7 +11,7 @@
    <form action = '.' method = 'POST'>
       {% csrf_token %}
       <body>
-         <div class="all">
+         <div class="all2">
             <div class="graphImg">
                <img src="{%static 'img/graphTest5.png' %}" alt="Graph displayed here" width="70%" height="100%">
             </div>
@@ -21,12 +21,9 @@
                <h2><a href="./about.html" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">About</a></h2>
                <h2><a href="./index.html" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">Home</a></h2>
             </div>
-            <div class="area">
-               <h1>Area:</h1>
-            </div>
             <div class="leftside">
                <div class="a">
-                  <h3>Select a skeleton function:</h3>
+                  <h3 style="margin-top: 5%;">Select a skeleton function:</h3>
                </div>
                <div class="functContainer">
                   <ul>
@@ -38,7 +35,7 @@
                      </li>
                      <li>
                         <input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic"
-                           type="radio" name="function-type"required value="1">
+                           type="radio" name="function-type" required value="1">
                         <label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup>+Bx+C</label>
                         <div class="check">
                            <div class="inside"></div>
@@ -46,7 +43,7 @@
                      </li>
                      <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic"
-                           type="radio" name="function-type"required value="2">
+                           type="radio" name="function-type" required value="2">
                         <label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
                         <div class="check">
                            <div class="inside"></div>
@@ -54,31 +51,31 @@
                      </li>
                      <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine"
-                           type="radio" name="function-type"required value="3">
-                        <label for="Sine"> Sine: f(x) = A sin(Bx+C)+D</label>
+                           type="radio" name="function-type" required value="3">
+                        <label for="Sine"> Sine: f(x) = Asin(Bx+C)+D</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
                      </li>
                      <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine"
-                           type="radio" name="function-type"required value="4">
-                        <label for="Cosine"> Cosine: f(x) = A cos(Bx+C)+D</label>
+                           type="radio" name="function-type" required value="4">
+                        <label for="Cosine"> Cosine: f(x) = Acos(Bx+C)+D</label>
                         <div class="check"></div>
                         <div class="inside"></div>
                      </li>
                      <li>
                         <input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x"
-                           type="radio" name="function-type"required value="5">
-                        <label for="e^x"> e<sup>x</sup>: f(x) = A e<sup>x</sup>+B</label>
+                           type="radio" name="function-type" required value="5">
+                        <label for="e^x"> e<sup>x</sup>: f(x) = Ae<sup>x</sup>+B</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
                      </li>
                      <li>
                         <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log"
-                           type="radio" name="function-type"required value="6">
-                        <label for="Natural log"> Natural log: f(x) = A ln(x)+B</label>
+                           type="radio" name="function-type" required value="6">
+                        <label for="Natural log"> Natural log: f(x) = Aln(x)+B</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -86,64 +83,64 @@
                   </ul>
                </div>
                <div class="a" id="var">
-                  <h3>Variables</h3>
+                  <h3>Constants</h3>
                </div>
                <div id="varABC" class="b">
                   <p> </p>
                   <label id="ALbl">A:</label>
-                  <input id="Abox" type="number" name="a"placeholder="eg "onkeypress="isInNum(event)" required value="1">
+                  <input id="Abox" type="number" name="a" placeholder="eg " onkeypress="isInNum(event)" required value="1">
                   <p> </p>
                   <label id="BLbl">B:</label>
-                  <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)"required value="1">
+                  <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)" required value="1">
                   <p> </p>
                   <label id="CLbl" >C:</label>
-                  <input id="Cbox" type="number" name="c" placeholder="eg " onkeypress="isInNum(event)"value="1">
+                  <input id="Cbox" type="number" name="c" placeholder="eg " onkeypress="isInNum(event)" value="1">
                   <p> </p>
                   <label id="DLbl" >D:</label>
-                  <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)"value="1">
+                  <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)" value="1">
                </div>
                <p> </p>
                <p> </p>
                <p> </p>
                <script>
                   function ABRequired() {
-                  document.getElementById("Cbox").required = false;
-                  document.getElementById("Dbox").required = false;
+                    document.getElementById("Cbox").required = false;
+                    document.getElementById("Dbox").required = false;
                   }
                   function ABCRequired() {
-                  document.getElementById("Cbox").required = true;
-                  document.getElementById("Dbox").required = false;
+                    document.getElementById("Cbox").required = true;
+                    document.getElementById("Dbox").required = false;
                   }
                   function ABCDRequired() {
-                  document.getElementById("Cbox").required = true;
-                  document.getElementById("Dbox").required = true;
+                    document.getElementById("Cbox").required = true;
+                    document.getElementById("Dbox").required = true;
                   }
                   function aprVarTtlAB() {
-                   document.getElementById("var").style.display = "block";
-                   document.getElementById("varABC").style.display = "block";
-                   document.getElementById("CLbl").style.display = "none";
-                   document.getElementById("Cbox").style.display = "none";
-                   document.getElementById("DLbl").style.display = "none";
-                   document.getElementById("Dbox").style.display = "none";
-                   ABRequired();
+                    document.getElementById("var").style.display = "block";
+                    document.getElementById("varABC").style.display = "block";
+                    document.getElementById("CLbl").style.display = "none";
+                    document.getElementById("Cbox").style.display = "none";
+                    document.getElementById("DLbl").style.display = "none";
+                    document.getElementById("Dbox").style.display = "none";
+                    ABRequired();
                   }
                   function aprVarTtlABC() {
-                   document.getElementById("var").style.display = "block";
-                   document.getElementById("varABC").style.display = "block";
-                   document.getElementById("CLbl").style.display = "inline";
-                   document.getElementById("Cbox").style.display = "inline";
-                   document.getElementById("DLbl").style.display = "none";
-                   document.getElementById("Dbox").style.display = "none";
-                   ABCRequired();
+                    document.getElementById("var").style.display = "block";
+                    document.getElementById("varABC").style.display = "block";
+                    document.getElementById("CLbl").style.display = "inline";
+                    document.getElementById("Cbox").style.display = "inline";
+                    document.getElementById("DLbl").style.display = "none";
+                    document.getElementById("Dbox").style.display = "none";
+                    ABCRequired();
                   }
                   function aprVarTtlABCD() {
-                   document.getElementById("var").style.display = "block";
-                   document.getElementById("varABC").style.display = "block";
-                   document.getElementById("CLbl").style.display = "inline";
-                   document.getElementById("Cbox").style.display = "inline";
-                   document.getElementById("DLbl").style.display = "inline";
-                   document.getElementById("Dbox").style.display = "inline";
-                   ABCDRequired();
+                    document.getElementById("var").style.display = "block";
+                    document.getElementById("varABC").style.display = "block";
+                    document.getElementById("CLbl").style.display = "inline";
+                    document.getElementById("Cbox").style.display = "inline";
+                    document.getElementById("DLbl").style.display = "inline";
+                    document.getElementById("Dbox").style.display = "inline";
+                    ABCDRequired();
                   }
                </script>
                <div class="a">
@@ -153,11 +150,11 @@
                   <p> </p>
                   <label>x-min:</label>
                   <input id = "xmin" name = "xmin" type="number" placeholder="x-min"
-                     oninput="getmin()"onkeypress="isInNum(event)"required value="-10">
+                     oninput="getmin()" onkeypress="isInNum(event)" required value="-10">
                   <p> </p>
                   <label>x-max:</label>
-                  <input id = "xmax" name = "xmax"type="number" placeholder="x-max"
-                     oninput="getmax()"onkeypress="isInNum(event)"required value="10">
+                  <input id = "xmax" name = "xmax" type="number" placeholder="x-max"
+                     oninput="getmax()" onkeypress="isInNum(event)" required value="10">
                   <p> </p>
                   <p> </p>
                </div>
@@ -192,23 +189,19 @@
                   function minGreaterMax() {
                    if (1> 10){
                      border="2px solid red";
-
                    }
                   }
                   function hasAlpha() {
                    if (1> 10){
                      border="2px solid red";
-
                    }
                   }
                   function hasNeg() {
                    if (1> 10){
                      border="2px solid red";
-
                    }
                    function hasNegInt() {
                     if (1> 10){
-
                     }
                </script>
                <div class="a">
@@ -311,32 +304,33 @@
                   getmin();
                   }
                </script>
+               <p></p>
                <div class="a">
                   <h3>Sum type:</h3>
                </div>
                <div class="functContainer">
                   <ul>
                      <li>
-                        <input  style="cursor:pointer" id="Left" type="radio" name="sumtype"required value="0">
+                        <input  style="cursor:pointer" id="Left" type="radio" name="sumtype" required value="0">
                         <label for="Left">Left endpoint</label>
                         <div class="check"></div>
                      </li>
                      <li>
-                        <input  style="cursor:pointer" id="Right" type="radio" name="sumtype"required value="1">
+                        <input  style="cursor:pointer" id="Right" type="radio" name="sumtype" required value="1">
                         <label for="Right">Right endpoint</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
                      </li>
                      <li>
-                        <input  style="cursor:pointer" id="Mid" type="radio" name="sumtype"required value="2">
+                        <input  style="cursor:pointer" id="Mid" type="radio" name="sumtype" required value="2">
                         <label for="Mid">Midpoint</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
                      </li>
                      <li>
-                        <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype"required value="3">
+                        <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype" required value="3">
                         <label for="Trap">Trapezoidal</label>
                         <div class="check">
                            <div class="inside"></div>
@@ -344,11 +338,12 @@
                      </li>
                   </ul>
                </div>
-               <p> </p>
-               <p> </p>
                <div class="divbtn">
                   <input type= "submit" class="submit" value="GRAPH IT!"></input>
                </div>
+            </div>
+            <div class="area">
+               <h1>Area:</h1>
             </div>
          </div>
       </body>
