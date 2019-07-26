@@ -1,4 +1,5 @@
-# Vidisha Gupta
+# Vidisha Gupta, main script
+# Mark Gross, simpson's rule 
 # 7/26/19
 
 import numpy as np
