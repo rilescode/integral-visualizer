@@ -9,6 +9,7 @@ from django.core.cache import cache
 # Create your views here.
 
 def improved_view(request):
+	other_sum = 0
 	# Root directory
 	fileDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 	print(fileDir)
@@ -28,8 +29,9 @@ def improved_view(request):
 	# Move file to correct directory
 	os.rename(old_path, epic_path)
 	
-	other_sum = 0
+	
 	if request.method == "POST":
+		
 		function_type = request.POST.get('function-type')
 		a = request.POST.get('a')
 		b = request.POST.get('b')
