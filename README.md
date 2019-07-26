@@ -1,5 +1,4 @@
 # integral-visualizer
-NWAPW 2019!
 
 How to use code after cloning the repository (windows):
 
