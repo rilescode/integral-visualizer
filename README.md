@@ -2,6 +2,7 @@
 
 # How to run Integral Visualizer locally (Windows)
 
+# Intstallation
 1. Download the zip file on from GitHub
 2. Unzip, and put the folder in the directory of your choosing
 3. Install the latest version of python, including pip
@@ -12,8 +13,10 @@
 9. in a different terminal window, type in "workon py1"
 8. in that same terminal window, type in "pip install numpy"
 9. in that same terminal window, type in "pip install matplotlib"
-10. once django is installed, open the folder in your prefered text editor
-11. in your original terminal window, cd into where the project is located until you can find the file "manage.py"
+
+# Running the code
+10. in a terminal window, type in "workon py1"
+11. cd into where the project is located until you can find the file "manage.py"
 12. type in "python manage.py runserver" once you are in the same directory as the file "manage.py"
 13. copy the url given in the terminal to your browser
 
