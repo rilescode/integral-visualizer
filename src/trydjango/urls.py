@@ -20,7 +20,6 @@ from products.views import improved_view, image_view
 
 urlpatterns = [
 	path('', improved_view, name='home'),
-    path('integral/', improved_view),
     path('integral/image', image_view),
     path('admin/', admin.site.urls),
 

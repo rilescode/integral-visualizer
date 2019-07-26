@@ -9,9 +9,6 @@ import matplotlib as mpl
 import os
 import shutil
 
-#from matplotlib.pyplot import figure
-#import mpld3
-
 INCREASE = 0.0001 # do not change!
 
 def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdth_amnt, sum_type):
@@ -285,16 +282,16 @@ def riemannTrap(yList, deltaX, xMin):
 
 def interpolate(xList, a, b, c, d, e, f):
    """
-   A short description.
+   Creates a quadratic lagranage polynomial going through 3 points
 
    Args:
-      xList (List): description
-      a (float): description
-      b (float): description
-      c (float): description
-      d (float): description
-      e (float): description
-      f (float): description
+      xList (List): x value array
+      a (float): x_1
+      b (float): y_1
+      c (float): x_2
+      d (float): y_2
+      e (float): x_3
+      f (float): y_3
 
    Returns:
       List: the quadratic that goes through points (a, b),  (c, d) and (e, f)
@@ -307,10 +304,10 @@ def interpolate(xList, a, b, c, d, e, f):
 
 def simp(yList, rectNum, xMin, xMax):
    """
-   A short description.
+   Simpsons rule approximation.
 
    Args:
-      yList (List): description
+      yList (List): y value array
       rectNum (int): the number of rectangles
       xMin (float): the minimum x value
       xMax (float): the maximum x value
