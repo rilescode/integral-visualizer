@@ -287,7 +287,7 @@ def riemannTrap(yList, deltaX, xMin):
 
    plt.plot(riemannX, riemannY)
 
-   # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
+   # print("/nThe trapezoidal sum is: " + str(round(sum, 3)))
    return round(sum, 3)
 
 def interpolate(xList, a, b, c, d, e, f):
