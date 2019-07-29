@@ -66,14 +66,22 @@ div.a {
 }
 
 /* Graph it button */
-div.divbtn {
+.divbtn {
 	position: relative;
 	padding: 10%;
 	padding-bottom: 27%;
 	text-align: center;
 }
 
-div.b {
+/* Clear graph button */
+.divbtnA {
+	position: relative;
+	float: right;
+	text-align: center;
+	width: 10%;
+}
+
+.b {
 	position: relative;
 	margin: 0px 0px 0px 10%;
 }
@@ -91,6 +99,10 @@ div.area {
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
 	box-shadow: 0 8px 6px -6px grey;
+}
+
+.areaWord {
+	float: left;
 }
 
 h1 {
@@ -240,16 +252,13 @@ div.p {
 
 div.intro {
 	position: relative;
-	margin-top: 5%;
-	width: 98%;
 	padding: 1%;
 	text-align: center;
-	border: 1px solid;
 }
 
 /* Row of people */
 div.bios {
-	position: relative;
+	position: absolute;
 	background-color: rgba(0, 0, 0, 0.05);
 	border: 1px solid;
 }
@@ -336,16 +345,18 @@ a.nav-links:hover {
 	text-align: center;
 	padding: 5%;
 }
-
 .submit:hover {
 	box-shadow: 0 0 40px 40px black inset;
 	color: #fff;
 	outline: 0;
 }
-
 .submit:active {
 	position: relative;
 	top: .5px;
+}
+
+.content {
+	padding: 2%;
 }
 
 /* Rainbow background stuff */
