@@ -62,7 +62,7 @@ def improved_view(request):
 		'my_sum' : other_sum
 	}
 
-	return render(request, 'products/improved.html', my_context)
+	return render(request, 'products/index.html', my_context)
 
 def about_view(request):
 	return render(request, 'products/about.html', {})
