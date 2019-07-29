@@ -1,6 +1,9 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	display: block;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
 }
 
 label {
@@ -39,6 +42,11 @@ div.leftside {
 
 /* Navigation bar */
 div.navigation {
+	overflow: hidden;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	padding: 1% 0% 2% 1%;
 	position: relative;
 	border-bottom: 1px solid #333;
@@ -63,6 +71,7 @@ div.divbtn {
 	position: relative;
 	padding: 10%;
 	padding-bottom: 27%;
+	text-align: center;
 }
 
 div.b {
@@ -72,47 +81,28 @@ div.b {
 
 /* Area calculation */
 div.area {
-	width: 75%;
 	position: relative;
-	left:25%;
-
-	height: 7.5%;
+	overflow: hidden;
+	padding: 0.5%;
+	padding-left: 3%;
+	margin-left: 25%;
+	text-align: left;
+	display: block;
 	border-bottom: 1px solid #333;
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
 	box-shadow: 0 8px 6px -6px grey;
-	background-color: rgba(255, 255, 255, 0.5);
-	border: 1px solid green;
-}
-div.areaWord {
-	padding: 10px 10px 9px 20px;
-	border: 1px solid blue;
-	position: relative;
-	float: left;
-	height: 80%;
-	width: 70%;
-
-}
-div.divbtnA {
-	position: relative;
-	text-align: center;
-	top: 0px;
-	float: right;
-	margin: -5% 15px 0px 0px;
-
-	width: auto;
-	height: auto;
 }
 
 h1 {
 	font-size: 30px;
-	color: #010101;
+	color: black;
 	margin: 0px;
 }
 
 h3 {
 	font-size: 22px;
-	color: #010101;
+	color: black;
 	margin: 0px;
 	margin-left: 1%;
 }
@@ -198,11 +188,11 @@ ul li .check::before {
 }
 
 input[type=radio]:checked~.check::before {
-	background: #010101;
+	background: black;
 }
 
 input[type=radio]:checked~label {
-	color: #010101;
+	color: black;
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -236,6 +226,7 @@ div.graphImg {
 	background-color: white;
 	position: fixed;
 	text-align: center;
+	overflow: hidden;
 	left: 25%;
 	top: 17%;
 	width: 75%;
@@ -244,7 +235,7 @@ div.graphImg {
 
 div.p {
   font-size: 20px;
-  color: #010101;
+  color: black;
   margin: 0px;
 }
 
@@ -283,6 +274,7 @@ div.p4 {
 	text-align: center;
 	width: 15%;
 	border: 3px solid;
+
 }
 
 /* Link styling */
@@ -304,7 +296,7 @@ a:active {
 }
 /* Formats navigation bar links and makes them bigger when hover */
 a.nav-links:hover {
-  text-decoration: none;
+  text-decoration: underline;
 	transform: scale(1.1, 1.1);
 	-moz-transform: scale(1.1, 1.1);
   -ms-transform: scale(1.1, 1.1);
@@ -347,7 +339,7 @@ a.nav-links:hover {
 }
 
 .submit:hover {
-	box-shadow: 0 0 40px 40px #101010 inset;
+	box-shadow: 0 0 40px 40px black inset;
 	color: #fff;
 	outline: 0;
 }
