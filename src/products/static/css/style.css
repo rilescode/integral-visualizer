@@ -75,9 +75,8 @@ div.area {
 	width: 75%;
 	position: relative;
 	left:25%;
-	display: inline-block;
+	display: block;
 	height: 7.5%;
-
 	border-bottom: 1px solid #333;
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
