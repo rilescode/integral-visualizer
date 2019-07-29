@@ -162,6 +162,10 @@
                   var domain = 0;
                   var xmax = 0;
                   var xmin = 0;
+                  if (xmax > 100000) {
+                    document.getElementById("domainMessage").innerHTML = "Please enter a smaller xMax";
+                  }
+
                   function getmin() {
                   xmax = Number(parseFloat(document.getElementById("xmax").value));
                   xmin = Number(parseFloat(document.getElementById("xmin").value));
