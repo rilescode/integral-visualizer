@@ -1,7 +1,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	display: block;
-	overflow: hidden; 
+	overflow: hidden;
 }
 
 label {
@@ -79,6 +79,7 @@ div.area {
 	padding-left: 3%;
 	margin-left: 25%;
 	text-align: left;
+	display: block; 
 	border-bottom: 1px solid #333;
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
