@@ -42,7 +42,6 @@ div.leftside {
 
 /* Navigation bar */
 div.navigation {
-	overflow: hidden;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -296,7 +295,7 @@ a:active {
 }
 /* Formats navigation bar links and makes them bigger when hover */
 a.nav-links:hover {
-  text-decoration: underline;
+  text-decoration: none;
 	transform: scale(1.1, 1.1);
 	-moz-transform: scale(1.1, 1.1);
   -ms-transform: scale(1.1, 1.1);
