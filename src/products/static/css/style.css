@@ -88,7 +88,7 @@ div.areaWord {
 	padding: 10px 10px 9px 20px;
 	border: 1px solid blue;
 	position: relative;
-
+	float: center;
 	height: 80%;
 	width: 70%;
 
