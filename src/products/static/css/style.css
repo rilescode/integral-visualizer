@@ -85,7 +85,7 @@ div.area {
 	border: 1px solid green;
 }
 div.areaWord {
-	/*padding: 10px 10px 9px 20px;*/
+	padding: 10px 10px 9px 20px;
 	border: 1px solid blue;
 	position: relative;
 
