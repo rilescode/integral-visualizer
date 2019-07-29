@@ -75,7 +75,7 @@ div.area {
 	width: 75%;
 	position: relative;
 	left:25%;
-	display: block;
+
 	height: 7.5%;
 	border-bottom: 1px solid #333;
 	-webkit-box-shadow: 0 8px 6px -6px grey;
@@ -88,7 +88,7 @@ div.areaWord {
 	padding: 10px 10px 9px 20px;
 	border: 1px solid blue;
 	position: relative;
-	
+	float: center;
 	height: 80%;
 	width: 70%;
 
