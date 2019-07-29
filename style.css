@@ -1,7 +1,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	display: block;
-	overflow: hidden; 
+	overflow: hidden;
 }
 
 label {
@@ -74,15 +74,34 @@ div.b {
 
 /* Area calculation */
 div.area {
+	width: 75%;
 	position: relative;
-	padding: 0.5%;
-	padding-left: 3%;
-	margin-left: 25%;
-	text-align: left;
+	left:25%;
+	display: inline-block;
+	height: 7.5%;
+
 	border-bottom: 1px solid #333;
 	-webkit-box-shadow: 0 8px 6px -6px grey;
 	-moz-box-shadow: 0 8px 6px -6px grey;
 	box-shadow: 0 8px 6px -6px grey;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+div.areaWord {
+	padding: 10px 10px 9px 20px;
+	position: relative;
+	height: 80%;
+	width: 70%;
+
+}
+div.divbtnA {
+	position: relative;
+	text-align: center;
+	top: 0px;
+	float: right;
+	margin: -5% 15px 0px 0px;
+
+	width: auto;
+	height: auto;
 }
 
 h1 {
