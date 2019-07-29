@@ -63,6 +63,7 @@ div.divbtn {
 	position: relative;
 	padding: 10%;
 	padding-bottom: 27%;
+	text-align: center;
 }
 
 div.b {
@@ -85,13 +86,13 @@ div.area {
 
 h1 {
 	font-size: 30px;
-	color: #010101;
+	color: black;
 	margin: 0px;
 }
 
 h3 {
 	font-size: 22px;
-	color: #010101;
+	color: black;
 	margin: 0px;
 	margin-left: 1%;
 }
@@ -177,11 +178,11 @@ ul li .check::before {
 }
 
 input[type=radio]:checked~.check::before {
-	background: #010101;
+	background: black;
 }
 
 input[type=radio]:checked~label {
-	color: #010101;
+	color: black;
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -223,7 +224,7 @@ div.graphImg {
 
 div.p {
   font-size: 20px;
-  color: #010101;
+  color: black;
   margin: 0px;
 }
 
@@ -327,7 +328,7 @@ a.nav-links:hover {
 }
 
 .submit:hover {
-	box-shadow: 0 0 40px 40px #101010 inset;
+	box-shadow: 0 0 40px 40px black inset;
 	color: #fff;
 	outline: 0;
 }

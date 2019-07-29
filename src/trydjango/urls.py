@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from products.views import improved_view, image_view
+from products.views import improved_view, image_view, learnmore_view, about_view
 
 urlpatterns = [
-	path('', improved_view, name='home'),
+	path('index.html/', improved_view, name='home'),
+    path('about.html/', about_view),
+    path('learnmore.html/', learnmore_view),
     path('integral/image', image_view),
     path('admin/', admin.site.urls),
-
-    
 ]
