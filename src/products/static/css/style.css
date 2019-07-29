@@ -295,7 +295,7 @@ a:active {
 }
 /* Formats navigation bar links and makes them bigger when hover */
 a.nav-links:hover {
-  text-decoration: none;
+  text-decoration: underline;
 	transform: scale(1.1, 1.1);
 	-moz-transform: scale(1.1, 1.1);
   -ms-transform: scale(1.1, 1.1);
