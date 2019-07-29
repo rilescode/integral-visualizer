@@ -64,7 +64,11 @@ def improved_view(request):
 
 	return render(request, 'products/improved.html', my_context)
 
-	
+def about_view(request):
+	return render(request, 'products/about.html', {})
+
+def learnmore_view(request):
+	return render(request, 'products/learnmore.html', {})
 
 def image_view(request):
 	return render(request, 'products/image_view.html')
