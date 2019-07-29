@@ -77,11 +77,13 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdt
    xMin = float(xmin)
    xMax = float(xmax)
 
-   NUM_RECT = int(rct_amnt)
+   
 
    if wdth_rect == "0":
       DELTA_X = float(wdth_amnt)
+      NUM_RECT = int((xMax - xMin) / DELTA_X)
    else:
+      NUM_RECT = int(rct_amnt)
       DELTA_X = float( (xMax - xMin) / NUM_RECT )
 
    SUM_TYPE = int(sum_type)
