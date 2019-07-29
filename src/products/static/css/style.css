@@ -82,9 +82,11 @@ div.area {
 	-moz-box-shadow: 0 8px 6px -6px grey;
 	box-shadow: 0 8px 6px -6px grey;
 	background-color: rgba(255, 255, 255, 0.5);
+	border: 1px solid green;
 }
 div.areaWord {
-	/*padding: 10px 10px 9px 20px;*/
+	padding: 10px 10px 9px 20px;
+	border: 1px solid blue;
 	position: relative;
 	height: 80%;
 	width: 70%;
