@@ -15,7 +15,7 @@
             <div class="graphImg">
                <img src="{%static 'img/graphTest3.png' %}" alt=":(" onerror=this.src="{%static 'img/graphTemplate.png' %}" width="70%" height="100%">
             </div>
-            
+
             <div class="navigation">
                <h1><a href="/" style="float:left;">Integral Visualizer</a></h1>
                <h2><a href="/learnmore.html" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">Learn More</a></h2>
@@ -351,7 +351,12 @@
                </div>
             </div>
             <div class="area">
-               <h1>Area: {{ my_sum }} </h1>
+      				<div class="areaWord">
+      					<h1>Area: {{ my_sum }} </h1>
+      				</div>
+      				<div class="divbtnA">
+                  <input type= "button" class="submit" value="Clear graph"></input>
+      				</div>
             </div>
          </div>
       </body>

@@ -82,6 +82,7 @@
                      </li>
                   </ul>
                </div>
+               <p></p>
                <div class="a" id="var">
                   <h3>Constants</h3>
                </div>
@@ -162,29 +163,36 @@
                   var domain = 0;
                   var xmax = 0;
                   var xmin = 0;
-                  function getmin() {
-                  xmax = Number(parseFloat(document.getElementById("xmax").value));
-                  xmin = Number(parseFloat(document.getElementById("xmin").value));
-                  domain = (xmax - xmin)/2;
-                  if (isNaN(domain)) {
-                  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
-                    } else if (xmin >= xmaz){
-                   document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-                    } else {
-                  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+                  if (xmax > 100000) {
+                    document.getElementById("xmax").innerHTML = "Please enter a smaller xMax";
                   }
+                  function getmin() {
+                    xmax = Number(parseFloat(document.getElementById("xmax").value));
+                    xmin = Number(parseFloat(document.getElementById("xmin").value));
+                    domain = (xmax - xmin)/2;
+                    if (isNaN(domain)) {
+                      document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+                    }
+                    else if (xmin >= xmax){
+                      document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                    }
+                    else {
+                      document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+                    }
                   }
                   function getmax() {
-                  xmax = Number(parseFloat(document.getElementById("xmax").value));
-                  xmin = Number(parseFloat(document.getElementById("xmin").value));
-                  domain = (xmax - xmin)/2;
-                  if (isNaN(domain)) {
-                  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
-                   } else if (xmin >= xmax){
-                   document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-                   } else {
-                   document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-                   }
+                    xmax = Number(parseFloat(document.getElementById("xmax").value));
+                    xmin = Number(parseFloat(document.getElementById("xmin").value));
+                    domain = (xmax - xmin)/2;
+                    if (isNaN(domain)) {
+                      document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+                    }
+                    else if (xmin >= xmax){
+                      document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                    }
+                    else {
+                      document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+                    }
                   }
                   function minGreaterMax() {
                    if (1> 10){
@@ -200,111 +208,10 @@
                    if (1> 10){
                      border="2px solid red";
                    }
-                   function hasNegInt() {
+                  function hasNegInt() {
                     if (1> 10){
-                    }
-               </script>
-               <div class="a">
-                  <h3>Unit and amount:</h3>
-               </div>
-               <div class="functContainer">
-                  <ul id="widthrectrad">
-                     <li>
-                        <input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width-rect"required value="0" >
-                        <label for="width">Width</label>
-                        <div class="check"></div>
-                     </li>
-                     <li>
-                        <input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rect"required value="1">
-                        <label for="rectangles">Rectangles</label><br>
-                        <div class="check">
-                           <div class="inside"></div>
-                        </div>
-                     </li>
-                  </ul>
-               </div>
-               <div id= "numRect" class="b">
-                  <p> </p>
-                  <label># of rectangles:</label>
-                  <input type="number" placeholder="" onkeypress="isInPosNum(event)" id="numrectbox" name="rct-amnt" value="10">
-                  <p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
-                  <p> </p>
-               </div>
-               <div id= "widthNum" class="b">
-                  <p> </p>
-                  <label>Width:</label>
-                  <input type="number" placeholder="" onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
-                  <p class = "smallgrey" id = "widthMessage"></p>
-                  <p> </p>
-               </div>
-               <script>
-                  function widthRequired() {
-                  document.getElementById("widthbox").required = true;
-                  document.getElementById("numrectbox").required = false;
-                  }
-                  function rectRequired() {
-                  document.getElementById("numrectbox").required = true;
-                  document.getElementById("widthbox").required = false;
-                  }
-                  function getmin() {
-                  xmax = Number(parseFloat(document.getElementById("xmax").value));
-                  xmin = Number(parseFloat(document.getElementById("xmin").value));
-                  domain = (xmax - xmin)/2;
-                  if (isNaN(domain)) {
-                  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
-                    } else if (xmin >= xmax){
-                   document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-                    } else {
-                  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-                  }
-                  }
-                  function testWdth(evt){
-                  isInNum(evt);
-                  var char = String.fromCharCode(evt.which);
-                  var numwidth = Number(parseFloat(document.getElementById("widthbox").value));
-                  if (numwidth<=0 || numwidth> domain){
-                  evt.preventDefault();
-                  }
-                  }
-                  function testRect(evt){
-                  isInInt(evt);
-                  var char = String.fromCharCode(evt.which);
-                  var numwidth = Number(parseFloat(document.getElementById("numrectbox").value));
-                  if (numwidth<=0){
-                  evt.preventDefault();
-                  }
-                  }
-                  function isInPosNum(evt){
-                  var char = String.fromCharCode(evt.which);
-                  if (!(/[0-9.]/.test(char))){
-                  evt.preventDefault();
-                  }
-                  }
-                  function isInNum(evt){
-                  var char = String.fromCharCode(evt.which);
-                  if (!(/[0-9.-]/.test(char))){
-                  evt.preventDefault();
-                  }
-                  }
-                  function isInInt(evt){
-                  var char = String.fromCharCode(evt.which);
-                  if (!(/[0-9]/.test(char))){
-                  evt.preventDefault();
-                  }
-                  }
-                  function aprNumRect() {
-                  rectRequired();
-                  document.getElementById("numRect").style.display = "block";
-                  document.getElementById("widthNum").style.display = "none";
-                  }
-                  function aprWidthNum() {
-                  widthRequired()
-                  document.getElementById("widthNum").style.display = "block";
-                  document.getElementById("numRect").style.display = "none";
-                  getmin();
                   }
                </script>
-               <p></p>
                <div class="a">
                   <h3>Sum type:</h3>
                </div>
@@ -345,12 +252,121 @@
                      </li>
                   </ul>
                </div>
+               <p></p>
+               <div class="a">
+                  <h3>Unit and amount:</h3>
+               </div>
+               <div class="functContainer">
+                  <ul id="widthrectrad">
+                     <li>
+                        <input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width-rect"required value="0" >
+                        <label for="width">Width</label>
+                        <div class="check"></div>
+                     </li>
+                     <li>
+                        <input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rect"required value="1">
+                        <label for="rectangles">Rectangles</label><br>
+                        <div class="check">
+                           <div class="inside"></div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+               <div id= "numRect" class="b">
+                  <p> </p>
+                  <label># of rectangles:</label>
+                  <input type="number" placeholder="" onkeypress="isInPosNum(event)" id="numrectbox" name="rct-amnt" value="10">
+                  <p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
+                  <p> </p>
+               </div>
+               <div id= "widthNum" class="b">
+                  <p> </p>
+                  <label>Width:</label>
+                  <input type="number" placeholder="" onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
+                  <p class = "smallgrey" id = "widthMessage"></p>
+                  <p> </p>
+               </div>
+               <script>
+                  function widthRequired() {
+                    document.getElementById("widthbox").required = true;
+                    document.getElementById("numrectbox").required = false;
+                  }
+                  function rectRequired() {
+                    document.getElementById("numrectbox").required = true;
+                    document.getElementById("widthbox").required = false;
+                  }
+                  function getmin() {
+                    xmax = Number(parseFloat(document.getElementById("xmax").value));
+                    xmin = Number(parseFloat(document.getElementById("xmin").value));
+                    domain = (xmax - xmin)/2;
+                    if (isNaN(domain)) {
+                      document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+                    }
+                    else if (xmin >= xmax){
+                      document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                    }
+                    else {
+                      document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+                    }
+                  }
+                  function testWdth(evt){
+                    isInNum(evt);
+                    var char = String.fromCharCode(evt.which);
+                    var numwidth = Number(parseFloat(document.getElementById("widthbox").value));
+                    if (numwidth<=0 || numwidth> domain){
+                      evt.preventDefault();
+                    }
+                  }
+                  function testRect(evt){
+                    isInInt(evt);
+                    var char = String.fromCharCode(evt.which);
+                    var numwidth = Number(parseFloat(document.getElementById("numrectbox").value));
+                    if (numwidth<=0){
+                      evt.preventDefault();
+                    }
+                  }
+                  function isInPosNum(evt){
+                    var char = String.fromCharCode(evt.which);
+                    if (!(/[0-9.]/.test(char))){
+                      evt.preventDefault();
+                    }
+                  }
+                  function isInNum(evt){
+                    var char = String.fromCharCode(evt.which);
+                    if (!(/[0-9.-]/.test(char))){
+                      evt.preventDefault();
+                    }
+                  }
+                  function isInInt(evt){
+                    var char = String.fromCharCode(evt.which);
+                    if (!(/[0-9]/.test(char))){
+                      evt.preventDefault();
+                    }
+                  }
+                  function aprNumRect() {
+                    rectRequired();
+                    document.getElementById("numRect").style.display = "block";
+                    document.getElementById("widthNum").style.display = "none";
+                  }
+                  function aprWidthNum() {
+                    widthRequired()
+                    document.getElementById("widthNum").style.display = "block";
+                    document.getElementById("numRect").style.display = "none";
+                    getmin();
+                  }
+               </script>
+               <p></p>
                <div class="divbtn">
                   <input type= "submit" class="submit" value="GRAPH IT!"></input>
                </div>
             </div>
             <div class="area">
-               <h1>Area:</h1>
+				<div class="areaWord">
+					<h1>Area:</h1>
+				</div>
+				<div class="divbtnA">
+                  <input type= "button" class="submit" value="Clear graph"></input>
+				</div>
             </div>
          </div>
       </body>
