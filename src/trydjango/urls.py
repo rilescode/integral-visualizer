@@ -19,7 +19,7 @@ from django.urls import path
 from products.views import improved_view, image_view, learnmore_view, about_view
 
 urlpatterns = [
-	path('index.html/', improved_view, name='home'),
+	path('', improved_view),
     path('about.html/', about_view),
     path('learnmore.html/', learnmore_view),
     path('integral/image', image_view),
