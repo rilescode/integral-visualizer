@@ -84,7 +84,7 @@ div.area {
 	background-color: rgba(255, 255, 255, 0.5);
 }
 div.areaWord {
-	padding: 10px 10px 9px 20px;
+	/*padding: 10px 10px 9px 20px;*/
 	position: relative;
 	height: 80%;
 	width: 70%;
