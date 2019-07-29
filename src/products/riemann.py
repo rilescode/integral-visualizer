@@ -8,6 +8,7 @@ import math
 import matplotlib as mpl
 import os
 import shutil
+import platform
 
 INCREASE = 0.0001 # do not change!
 
@@ -32,12 +33,21 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdt
       float: the riemann sum calculation
 
    """
+
+   #gets the system the person is running to see bkslash or fwdslash
+   my_platform = str(platform.system())
+   if my_platform == "Darwin" or my_platform == "Linux":
+      slash = "/"
+   else:
+      slash = "\\"
+   
+
    # Root directory
    fileDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
    print(fileDir)
 
    # Path where I want the file to be
-   epic_path = fileDir + "\products\static\img\graphTest3.png"
+   epic_path = fileDir + slash + "products" + slash + "static" + slash + "img" + slash + "graphTest3.png"
    print("epic path: %s" % epic_path)
 
    # Delete old file, and create new one in root directory
@@ -45,7 +55,7 @@ def calculateSum(function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdt
    open("graphTest3.png", "w+")
 
    # Path in root directory
-   old_path = fileDir + "\graphTest3.png"
+   old_path = fileDir + slash + "graphTest3.png"
    print("old path: %s" %old_path)
 
    # Move file to correct directory
@@ -277,7 +287,7 @@ def riemannTrap(yList, deltaX, xMin):
 
    plt.plot(riemannX, riemannY)
 
-   # print("\nThe trapezoidal sum is: " + str(round(sum, 3)))
+   # print("/nThe trapezoidal sum is: " + str(round(sum, 3)))
    return round(sum, 3)
 
 def interpolate(xList, a, b, c, d, e, f):
