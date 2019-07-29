@@ -6,9 +6,11 @@ from .riemann import calculateSum
 import os
 from django.core.cache import cache
 import platform
+from django.views.decorators.cache import never_cache
 
 # Create your views here.
 
+@never_cache
 def improved_view(request):
 	other_sum = 0
 
@@ -64,9 +66,11 @@ def improved_view(request):
 
 	return render(request, 'products/index.html', my_context)
 
+@never_cache
 def about_view(request):
 	return render(request, 'products/about.html', {})
 
+@never_cache
 def learnmore_view(request):
 	return render(request, 'products/learnmore.html', {})
 
