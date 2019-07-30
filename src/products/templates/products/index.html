@@ -148,11 +148,11 @@
                   <p> </p>
                   <label>x-min:</label>
                   <input id = "xmin" name = "xmin" type="number" placeholder="x-min"
-                     oninput="getmin()" onkeypress="isInNum(event)" required value="-10">
+                     oninput="getMinMax()" onkeypress="isInNum(event)" required value="-10">
                   <p> </p>
                   <label>x-max:</label>
                   <input id = "xmax" name = "xmax" type="number" placeholder="x-max"
-                     oninput="getmax()" onkeypress="isInNum(event)" required value="10">
+                     oninput="getMinMax()" onkeypress="isInNum(event)" required value="10">
                   <p class = "smallgrey" id = "domainMessage"></p>
                   <p> </p>
                   <p> </p>
@@ -161,34 +161,22 @@
                   var domain = 0;
                   var xmax = 0;
                   var xmin = 0;
-                  function getmin() {
+                  function getMinMax() {
                     xmax = Number(parseFloat(document.getElementById("xmax").value));
                     xmin = Number(parseFloat(document.getElementById("xmin").value));
                     domain = (xmax - xmin)/2;
                     if (isNaN(domain)) {
                       document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
                       document.getElementById("domainMessage").innerHTML = "Please fill in x-min and x-max";
-                    } else if (xmin >= xmaz){
+                    } else if (xmin >= xmax){
                      document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-                     document.getElementById("domainMessage").innerHTML = "Please fill in x-min and x-max";
+                     document.getElementById("domainMessage").innerHTML = "x-max must be greater than x-min";
                     } else {
+					document.getElementById("domainMessage").innerHTML = "";
                     document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
                     }
                   }
-                  function getmax() {
-                  xmax = Number(parseFloat(document.getElementById("xmax").value));
-                  xmin = Number(parseFloat(document.getElementById("xmin").value));
-                  domain = (xmax - xmin)/2;
-                  if (isNaN(domain)) {
-                    document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
-                    document.getElementById("domainMessage").innerHTML = "Please fill in x-min and x-max";
-                  } else if (xmin >= xmaz){
-                   document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-                   document.getElementById("domainMessage").innerHTML = "Please fill in x-min and x-max";
-                  } else {
-                  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-                  }
-                  }
+
                   function minGreaterMax() {
                    if (1> 10){
                      border="2px solid red";
@@ -249,17 +237,20 @@
                   document.getElementById("numrectbox").required = true;
                   document.getElementById("widthbox").required = false;
                   }
-                  function getmin() {
-                  xmax = Number(parseFloat(document.getElementById("xmax").value));
-                  xmin = Number(parseFloat(document.getElementById("xmin").value));
-                  domain = (xmax - xmin)/2;
-                  if (isNaN(domain)) {
-                  document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+                  function getMinMax() {
+                    xmax = Number(parseFloat(document.getElementById("xmax").value));
+                    xmin = Number(parseFloat(document.getElementById("xmin").value));
+                    domain = (xmax - xmin)/2;
+                    if (isNaN(domain)) {
+                      document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
+                      document.getElementById("domainMessage").innerHTML = "Please fill in x-min and x-max";
                     } else if (xmin >= xmax){
-                   document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                     document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                     document.getElementById("domainMessage").innerHTML = "x-max must be greater than x-min";
                     } else {
-                  document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
-                  }
+					document.getElementById("domainMessage").innerHTML = "";
+                    document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+                    }
                   }
                   function testWdth(evt){
                   isInNum(evt);
@@ -304,7 +295,7 @@
                   widthRequired()
                   document.getElementById("widthNum").style.display = "block";
                   document.getElementById("numRect").style.display = "none";
-                  getmin();
+                  getMinMax();
                   }
                </script>
                <p></p>
