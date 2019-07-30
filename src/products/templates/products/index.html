@@ -169,11 +169,11 @@
                       document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
                       document.getElementById("domainMessage").innerHTML = "Please fill in x-min and x-max";
                     } else if (xmin >= xmax){
-                     document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-                     document.getElementById("domainMessage").innerHTML = "x-max must be greater than x-min";
+                      document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                      document.getElementById("domainMessage").innerHTML = "x-max must be greater than x-min";
                     } else {
-					document.getElementById("domainMessage").innerHTML = "";
-                    document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+					            document.getElementById("domainMessage").innerHTML = "";
+                      document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
                     }
                   }
 
@@ -191,43 +191,13 @@
                    if (1> 10){
                      border="2px solid red";
                    }
+                 }
                    function hasNegInt() {
                     if (1> 10){
                     }
+                  }
                </script>
-               <div class="a">
-                  <h3>Unit and amount:</h3>
-               </div>
-               <div class="functContainer">
-                  <ul id="widthrectrad">
-                     <li>
-                        <input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width-rect"required value="0" >
-                        <label for="width">Width</label>
-                        <div class="check"></div>
-                     </li>
-                     <li>
-                        <input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rect"required value="1">
-                        <label for="rectangles">Rectangles</label><br>
-                        <div class="check">
-                           <div class="inside"></div>
-                        </div>
-                     </li>
-                  </ul>
-               </div>
-               <div id= "numRect" class="b">
-                  <p> </p>
-                  <label># of rectangles:</label>
-                  <input type="number" placeholder="" onkeypress="isInPosNum(event)" id="numrectbox" name="rct-amnt" value="10">
-                  <p class = "smallgrey" ># of rectangles must be an integer of 2 or greater</p>
-                  <p> </p>
-               </div>
-               <div id= "widthNum" class="b">
-                  <p> </p>
-                  <label>Width:</label>
-                  <input type="number" placeholder="" onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
-                  <p class = "smallgrey" id = "widthMessage"></p>
-                  <p> </p>
-               </div>
+
                <script>
                   function widthRequired() {
                   document.getElementById("widthbox").required = true;
@@ -247,8 +217,14 @@
                     } else if (xmin >= xmax){
                      document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
                      document.getElementById("domainMessage").innerHTML = "x-max must be greater than x-min";
+                   } else if (xmax > 5000){
+                     document.getElementById("widthMessage").innerHTML = "x-max must be less than 5000";
+                     document.getElementById("domainMessage").innerHTML = "x-max must be less than 5000";
+                   } else if (xmin < -5000){
+                     document.getElementById("widthMessage").innerHTML = "x-min must be greater than -5000";
+                     document.getElementById("domainMessage").innerHTML = "x-min must be greater than -5000";
                     } else {
-					document.getElementById("domainMessage").innerHTML = "";
+					          document.getElementById("domainMessage").innerHTML = "";
                     document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
                     }
                   }
@@ -286,17 +262,7 @@
                   evt.preventDefault();
                   }
                   }
-                  function aprNumRect() {
-                  rectRequired();
-                  document.getElementById("numRect").style.display = "block";
-                  document.getElementById("widthNum").style.display = "none";
-                  }
-                  function aprWidthNum() {
-                  widthRequired()
-                  document.getElementById("widthNum").style.display = "block";
-                  document.getElementById("numRect").style.display = "none";
-                  getMinMax();
-                  }
+
                </script>
                <p></p>
                <div class="a">
@@ -305,33 +271,33 @@
                <div class="functContainer">
                   <ul>
                      <li>
-                        <input  style="cursor:pointer" id="Left" type="radio" name="sumtype" required value="0">
+                        <input  style="cursor:pointer" onchange="OtherAllOpt()" id="Left" type="radio" name="sumtype" required value="0">
                         <label for="Left">Left endpoint</label>
                         <div class="check"></div>
                      </li>
                      <li>
-                        <input  style="cursor:pointer" id="Right" type="radio" name="sumtype" required value="1">
+                        <input  style="cursor:pointer" onchange="OtherAllOpt()" id="Right" type="radio" name="sumtype" required value="1">
                         <label for="Right">Right endpoint</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
                      </li>
                      <li>
-                        <input  style="cursor:pointer" id="Mid" type="radio" name="sumtype" required value="2">
+                        <input  style="cursor:pointer" onchange="OtherAllOpt()" id="Mid" type="radio" name="sumtype" required value="2">
                         <label for="Mid">Midpoint</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
                      </li>
                      <li>
-                        <input  style="cursor:pointer" id="Trap" type="radio" name="sumtype" required value="3">
+                        <input  style="cursor:pointer" onchange="OtherAllOpt()" id="Trap" type="radio" name="sumtype" required value="3">
                         <label for="Trap">Trapezoidal</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
                      </li>
                      <li>
-                        <input  style="cursor:pointer" id="Simp" type="radio" name="sumtype" required value="4">
+                        <input  style="cursor:pointer" onchange="SimRectOnly()" id="Simp" type="radio" name="sumtype" required value="4">
                         <label for="Simp">Simpson</label>
                         <div class="check">
                            <div class="inside"></div>
@@ -339,6 +305,68 @@
                      </li>
                   </ul>
                </div>
+               <script>
+                 function aprNumRect() {
+                   rectRequired();
+                   document.getElementById("numRect").style.display = "block";
+                   document.getElementById("widthNum").style.display = "none";
+                   document.getElementById("rectMessage").innerHTML = "# of rectangles must be an integer between 2 and 1000";
+                 }
+                 function aprWidthNum() {
+                   widthRequired()
+                   document.getElementById("widthNum").style.display = "block";
+                   document.getElementById("numRect").style.display = "none";
+                   getMinMax();
+                 }
+                  function SimRectOnly() {
+                    document.getElementById("widthRect").style.display = "block";
+                    document.getElementById("rectOpt").style.display = "block";
+                    document.getElementById("widthOpt").style.display = "none";
+                    aprNumRect();
+                    document.getElementById("rectMessage").innerHTML = "# of rectangles must be an even integer between 2 and 1000";
+                  }
+                  function OtherAllOpt() {
+                    document.getElementById("widthRect").style.display = "block";
+                    document.getElementById("rectOpt").style.display = "block";
+                    document.getElementById("widthOpt").style.display = "block";
+                  }
+               </script>
+               <div id="widthRect">
+                 <div class="a">
+                    <h3>Unit and amount:</h3>
+                 </div>
+                 <div class="functContainer" >
+                    <ul id="widthrectrad">
+                       <li id="widthOpt">
+                          <input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width-rect"required value="0" >
+                          <label for="width">Width</label>
+                          <div class="check"></div>
+                       </li>
+                       <li id="rectOpt">
+                          <input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rect"required value="1">
+                          <label for="rectangles">Rectangles</label><br>
+                          <div class="check">
+                             <div class="inside"></div>
+                          </div>
+                       </li>
+                    </ul>
+                 </div>
+               </div>
+               <div id= "numRect" class="b">
+                  <p> </p>
+                  <label># of rectangles:</label>
+                  <input type="number" placeholder="" onkeypress="isInPosNum(event)" id="numrectbox" name="rct-amnt" value="10">
+                  <p class = "smallgrey" id = "rectMessage"></p>
+                  <p> </p>
+               </div>
+               <div id= "widthNum" class="b">
+                  <p> </p>
+                  <label>Width:</label>
+                  <input type="number" placeholder="" onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
+                  <p class = "smallgrey" id = "widthMessage"></p>
+                  <p> </p>
+               </div>
+
                <div class="divbtn">
                   <input type= "submit" class="submit" value="GRAPH IT!"></input>
                </div>
