@@ -42,3 +42,12 @@
 15. Copy the given url into your browser
 
 To run server again after everything has been installed, follow steps 5, 8, 13-15
+
+heroku stuff for mark:
+
+python manage.py collectstatic
+
+git status
+git add --all
+git commit -m ""
+git push heroku master
