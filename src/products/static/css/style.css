@@ -144,7 +144,7 @@ h3 {
 }
 
 .functContainer li.hover {
-	background-color: rgba();
+	background-color: black;
 }
 
 .functContainer li.selected {
@@ -176,8 +176,8 @@ ul li label {
 }
 
 ul li:hover label {
-	color: #FFFFFF;
-	background-color: rgba(0, 0, 0, 0.1);
+	color: black;
+	background-color: black;
 }
 
 ul li.check {
