@@ -51,3 +51,5 @@ git status
 git add --all
 git commit -m ""
 git push heroku master
+
+https://integral-visualizer.herokuapp.com/
