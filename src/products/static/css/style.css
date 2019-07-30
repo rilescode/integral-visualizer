@@ -152,15 +152,10 @@ h3 {
 }
 
 ul li {
-	color: #FFFFFF;
-	display: block;
 	position: relative;
-	float: left;
 	width: 100%;
 	height: 50px;
-	margin: 0px auto;
-	border-bottom: 2px solid rgb(0, 0, 0, 0.5);
-;
+	border-bottom: 3px solid;
 }
 
 ul li input[type=radio] {
