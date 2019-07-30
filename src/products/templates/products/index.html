@@ -33,7 +33,7 @@
                         <label for="Linear"> <strong>Linear:</strong> f(x) = Ax+B</label>
                         <div class="check"></div>
                      </li>
-                     <li class "norm">
+                     <li>
                         <input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic"
                            type="radio" name="function-type" required value="1">
                         <label for="Quadratic"> <strong>Quadratic:</strong> f(x) = Ax<sup>2</sup>+Bx+C</label>
@@ -41,7 +41,7 @@
                            <div class="inside"></div>
                         </div>
                      </li>
-                     <li class "norm">
+                     <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic"
                            type="radio" name="function-type" required value="2">
                         <label for="Cubic"> <strong>Cubic:</strong> f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
@@ -49,7 +49,7 @@
                            <div class="inside"></div>
                         </div>
                      </li>
-                     <li class "norm">
+                     <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine"
                            type="radio" name="function-type" required value="3">
                         <label for="Sine"> <strong>Sine: </strong> f(x) = Asin(Bx+C)+D</label>
@@ -57,14 +57,14 @@
                            <div class="inside"></div>
                         </div>
                      </li>
-                     <li class "norm">
+                     <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine"
                            type="radio" name="function-type" required value="4">
                         <label for="Cosine"> <strong>Cosine: </strong> f(x) = Acos(Bx+C)+D</label>
                         <div class="check"></div>
                         <div class="inside"></div>
                      </li>
-                     <li class "norm">
+                     <li>
                         <input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x"
                            type="radio" name="function-type" required value="5">
                         <label for="e^x"> <strong>e<sup>x</sup>:</strong> f(x) = Ae<sup>x</sup>+B</label>
@@ -73,9 +73,9 @@
                         </div>
                      </li>
                      <li>
-                        <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log"
+                        <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural Log"
                            type="radio" name="function-type" required value="6">
-                        <label for="Natural log"><strong>Natural Log:</strong> f(x) = Aln(x)+B</label>
+                        <label for="Natural log"> <strong>Natural Log:</strong> f(x) = Aln(x)+B</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -205,7 +205,7 @@
       				    </div>
                </div>
                <div class="graphImg">
-                  <img src="{%static 'img/graphTest3.png' %}" alt=":(" onerror=this.src="{%static 'img/graphTemplate.png' %}"
+                  <img src="{% static 'img/graphTest3.png' %}" alt=":(" onerror=this.src="{%static 'img/graphTemplate.png' %}"
                   width="70%" height="100%">
                </div>
             </div>
