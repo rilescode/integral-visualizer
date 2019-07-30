@@ -12,7 +12,7 @@ label {
 }
 
 /* Styles whole page */
-div.all {
+.all {
 	overflow-x: hidden;
 	overflow-y: scroll;
 	height: 100%;
@@ -50,7 +50,6 @@ div.all {
 	position: relative;
   float: right;
 	text-align: left;
-
 }
 
 /* Navigation bar */
@@ -195,7 +194,7 @@ ul li:hover label {
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
-ul li .check {
+ul li.check {
 	display: block;
 	position: absolute;
 	top: 15px;
@@ -205,7 +204,7 @@ ul li .check {
 	-webkit-transition: border .25s linear;
 }
 
-ul li .check::before {
+ul li.check::before {
 	display: block;
 	position: absolute;
 	content: '';
@@ -215,6 +214,7 @@ ul li .check::before {
 	margin: 0px;
 	transition: 0.2s linear;
 	-webkit-transition: 0.2s linear;
+	border: 3px solid;
 }
 
 input[type=radio]:checked~.check::before {
@@ -260,7 +260,7 @@ p.smallgrey {
 	overflow: hidden;
 }
 
-div.p {
+.p {
   font-size: 20px;
   color: black;
   margin: 0px;
@@ -274,7 +274,7 @@ div.p {
 }
 
 /* Person 1, 2, 3, 4 */
-div.p1 {
+.p1 {
 	display: inline-block;
 	position: relative;
 	padding: 1%;
@@ -300,6 +300,7 @@ a:active {
   color: black;
   text-decoration: none;
 }
+
 /* Formats navigation bar links and makes them bigger when hover */
 a.nav-links:hover {
   text-decoration: none;
@@ -353,10 +354,25 @@ a.nav-links:hover {
 	top: .5px;
 }
 
-/* About page styling */
+/* About and instructions page styling */
 .content {
 	text-align: center;
 	padding: 2%;
+}
+
+.instructions {
+	text-align: left;
+	padding: 2%;
+}
+
+ol li {
+	font-size: 20px;
+	padding: 1%;
+}
+
+ol span {
+	margin-left: 1%;
+	color: grey;
 }
 
 /* Rainbow background stuff */
