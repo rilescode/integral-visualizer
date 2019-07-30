@@ -74,5 +74,9 @@ def about_view(request):
 def learnmore_view(request):
 	return render(request, 'products/learnmore.html', {})
 
+@never_cache
+def instructions_view(request):
+	return render(request, 'products/instructions.html', {})
+
 def image_view(request):
 	return render(request, 'products/image_view.html')
