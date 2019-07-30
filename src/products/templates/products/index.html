@@ -185,22 +185,24 @@
                <div id= "numRect" class="b">
                   <p> </p>
                   <label># of rectangles:</label>
-                  <input type="number" placeholder="" onkeypress="isInPosNum(event)" id="numrectbox" name="rct-amnt" value="10">
+                  <input type="number" onkeypress= "isInPosNum(evt);" oninput="rectBoxInpt(event)" id="numrectbox" name="rct-amnt" value="10">
                   <p class = "smallgrey" id = "rectMessage"></p>
                   <p> </p>
                </div>
                <div id= "widthNum" class="b">
                   <p> </p>
                   <label>Width:</label>
-                  <input type="number" placeholder="" onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
+                  <input type="number"  onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
                   <p class = "smallgrey" id = "widthMessage"></p>
                   <p> </p>
                </div>
+               <p class = "smallgrey" id = "testingMes"></p>
 
                <div class="divbtn">
                   <input type= "submit" class="submit" value="GRAPH IT!"></input>
                </div>
             </div>
+
             <div class="rightside">
                 <div class="area">
       			       <div class="areaWord">
