@@ -89,7 +89,7 @@ input:invalid {
 
 .b {
 	position: relative;
-	padding: 5%;
+	padding-left: 10%;
 }
 
 /* Area calculation */
@@ -144,7 +144,7 @@ h3 {
 }
 
 .functContainer li.hover {
-	background-color: rgba();
+	background-color: black;
 }
 
 .functContainer li.selected {
@@ -155,7 +155,7 @@ ul li {
 	position: relative;
 	width: 100%;
 	height: 50px;
-	border-bottom: 3px solid;
+	border-bottom: 10px solid transparent;
 }
 
 ul li input[type=radio] {
@@ -176,8 +176,8 @@ ul li label {
 }
 
 ul li:hover label {
-	color: #FFFFFF;
-	background-color: rgba(0, 0, 0, 0.1);
+	color: black;
+	background-color: black;
 }
 
 ul li.check {
