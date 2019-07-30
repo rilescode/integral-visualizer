@@ -7,9 +7,9 @@
       <link href="{% static 'favicon.ico'" rel="shortcut icon" type="image/x-icon">
       <script src="{% static 'js/script.js'%}"> </script>
    </head>
-   <header>
+   <HEADER>
      <title>Home</title>
-   </header>
+   </HEADER>
    <form action = '.' method = 'POST'>
       {% csrf_token %}
       <body>
@@ -73,7 +73,7 @@
                         </div>
                      </li>
                      <li>
-                        <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural log"
+                        <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural Log"
                            type="radio" name="function-type" required value="6">
                         <label for="Natural log" style="background: rgb(255, 255, 255, 0.75);"><strong>Natural Log:</strong> f(x) = Aln(x)+B</label>
                         <div class="check">
@@ -88,31 +88,40 @@
                <div id="varABC" class="b">
                   <p> </p>
                   <label id="ALbl">A:</label>
-                  <input id="Abox" type="number" name="a" placeholder="eg " onkeypress="isInNum(event)" required max="10000" min="-10000" value="1">
+                  <input id="Abox" type="number" name="a" placeholder="eg " onkeypress="isInNum(event)" required value="1">
                   <p> </p>
                   <label id="BLbl">B:</label>
-                  <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)" required max="10000" min="-10000" value="1">
+                  <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)" required value="1">
                   <p> </p>
                   <label id="CLbl" >C:</label>
-                  <input id="Cbox" type="number" name="c" placeholder="eg " onkeypress="isInNum(event)" max="10000" min="-10000" value="1">
+                  <input id="Cbox" type="number" name="c" placeholder="eg " onkeypress="isInNum(event)" value="1">
                   <p> </p>
                   <label id="DLbl" >D:</label>
-                  <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)" max="10000" min="-10000"  value="1">
+                  <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)" value="1">
                </div>
-               <br>
+               <p> </p>
+               <p> </p>
+               <p> </p>
+
                <div class="a">
                   <h3>Domain:</h3>
                </div>
                <div class="b">
+                  <p> </p>
                   <label>x-min:</label>
-                  <input id = "xmin" name = "xmin" type="number" placeholder="x-min" max="5000" min="-5000"
+                  <input id = "xmin" name = "xmin" type="number" placeholder="x-min"
                      oninput="getMinMax()" onkeypress="isInNum(event)" required value="-10">
                   <p> </p>
                   <label>x-max:</label>
-                  <input id = "xmax" name = "xmax" type="number" placeholder="x-max" max="5000" min="-5000"
+                  <input id = "xmax" name = "xmax" type="number" placeholder="x-max"
                      oninput="getMinMax()" onkeypress="isInNum(event)" required value="10">
                   <p class = "smallgrey" id = "domainMessage"></p>
+                  <p> </p>
+                  <p> </p>
                </div>
+
+
+               <p></p>
                <div class="a">
                   <h3>Sum type:</h3>
                </div>
@@ -153,7 +162,6 @@
                      </li>
                   </ul>
                </div>
-               <br>
                <div id="widthRect">
                  <div class="a">
                     <h3>Unit and amount:</h3>
@@ -185,7 +193,7 @@
                <div id= "widthNum" class="b">
                   <p> </p>
                   <label>Width:</label>
-                  <input type="number"  onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1" min=".001">
+                  <input type="number"  onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
                   <p class = "smallgrey" id = "widthMessage"></p>
                   <p> </p>
                </div>
@@ -203,8 +211,7 @@
       				    </div>
                </div>
                <div class="graphImg">
-                  <img src="{%static 'img/graphTest3.png' %}" alt=":(" onerror=this.src="{%static 'img/graphTemplate.png' %}"
-                  width="70%" height="100%">
+                  <img src="{%static 'img/graphTest3.png' %}" alt=":(" onerror=this.src="{%static 'img/graphTemplate.png' %}" width="70%" height="100%">
                </div>
             </div>
          </div>
