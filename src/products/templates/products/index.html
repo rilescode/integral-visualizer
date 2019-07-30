@@ -340,12 +340,17 @@
                     aprNumRect();
                     if (sim == true) {
                       document.getElementById("rectMessage").innerHTML = "# of rectangles must be an even integer between 2 and 1000";
+                      checkOddEv();
                     } else if (sim == false) {
                       document.getElementById("rectMessage").innerHTML = "# of rectangles must be an integer between 2 and 1000";
                     } else {
                       document.getElementById("rectMessage").innerHTML = "error";
                     }
                     document.getElementById("rectangles").checked = true;
+                  }
+                  function checkOddEv() {
+                    rectNum = Number(parseFloat(document.getElementById("rectangles").value));
+
                   }
                   function OtherAllOpt() {
                     sim = false;
