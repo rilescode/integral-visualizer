@@ -13,7 +13,8 @@ label {
 
 /* Styles whole page */
 div.all {
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	height: 100%;
 	width: 100%;
 	left: 0;
@@ -260,15 +261,9 @@ div.p {
   margin: 0px;
 }
 
-div.intro {
-	position: relative;
-	padding: 1%;
-	text-align: center;
-}
-
 /* Row of people */
-div.bios {
-	margin-top: 5%;
+.bios {
+	margin-top: 4%;
 	display: flex; /* horizontally spaced and aligned */
 	justify-content: space-around;
 }
@@ -416,6 +411,7 @@ a.nav-links:hover {
   animation:
     typing 10s steps(100, end),
     blinking-cursor .5s step-end infinite;
+	margin-top: 1%;
 }
 /* The typing effect */
 @keyframes typing {
