@@ -225,6 +225,12 @@ function checkOddEv() {
     }
 
 }
+function setXmnZero() {
+  document.getElementById("xmin").min = .001;
+}
+function setXmnNorm() {
+  document.getElementById("xmin").min = -5000;
+}
 
 function OtherAllOpt() {
     sim = false;
