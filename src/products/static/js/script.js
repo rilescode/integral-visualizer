@@ -2,7 +2,7 @@ var domain = 0;
 var xmax = 0;
 var xmin = 0;
 var sim = false;
-var remainder = 0;
+var remainder;
 
 function ABRequired() {
     document.getElementById("Cbox").required == false;
@@ -211,11 +211,13 @@ function ifSimStltrue () {
 function checkOddEv() {
     rectNum = Number(parseFloat(document.getElementById("numrectbox").value));
     remainder = Number(rectNum % 2);
-    document.getElementById("testingMes").innerHTML = "remainder "+ remainder +", rect num "+ rectNum+ ", sim " +sim + ", valid "+valid;
+
     if (remainder == 0) {
+
       document.getElementById("numrectbox").setCustomValidity("");
 
     } else if (remainder != 0){
+
       document.getElementById("numrectbox").setCustomValidity("Invalid field.");
 
     } else {
