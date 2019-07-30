@@ -313,9 +313,14 @@ a.nav-links:hover {
 
 /* Styling links to GitHub and email on about page */
 .social-links {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding-bottom: 2%; 
+	text-align: center;
 	font-style: italic;
 	font-size: 10px;
-	float: left;
 }
 
 /* Circular profile photos */
@@ -361,13 +366,13 @@ a.nav-links:hover {
 }
 
 .instructions {
-	text-align: left;
+	text-align: center;
 	padding: 2%;
 }
 
 ol li {
 	font-size: 20px;
-	margin-left: 1%; 
+	margin-left: 1%;
 	padding: 1%;
 }
 
@@ -379,6 +384,7 @@ ol span {
 ol {
 	padding: 2.5%;
 	background-color: rgba(0, 0, 0, 0.1);
+	text-align: left;
 }
 
 /* Rainbow background stuff */
