@@ -88,27 +88,28 @@
                <div id="varABC" class="b">
                   <p> </p>
                   <label id="ALbl">A:</label>
-                  <input id="Abox" type="number" name="a" placeholder="eg " onkeypress="isInNum(event)" required value="1">
+                  <input id="Abox" type="number" name="a" placeholder="eg " onkeypress="isInNum(event)" required max="10000" min="-10000" value="1">
                   <p> </p>
                   <label id="BLbl">B:</label>
-                  <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)" required value="1">
+                  <input id="Bbox" type="number" name="b" placeholder="eg " onkeypress="isInNum(event)" required max="10000" min="-10000" value="1">
                   <p> </p>
                   <label id="CLbl" >C:</label>
-                  <input id="Cbox" type="number" name="c" placeholder="eg " onkeypress="isInNum(event)" value="1">
+                  <input id="Cbox" type="number" name="c" placeholder="eg " onkeypress="isInNum(event)" max="10000" min="-10000" value="1">
                   <p> </p>
                   <label id="DLbl" >D:</label>
-                  <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)" value="1">
+                  <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)" max="10000" min="-10000"  value="1">
                </div>
+               <br>
                <div class="a">
                   <h3>Domain:</h3>
                </div>
                <div class="b">
                   <label>x-min:</label>
-                  <input id = "xmin" name = "xmin" type="number" placeholder="x-min"
+                  <input id = "xmin" name = "xmin" type="number" placeholder="x-min" max="5000" min="-5000"
                      oninput="getMinMax()" onkeypress="isInNum(event)" required value="-10">
                   <p> </p>
                   <label>x-max:</label>
-                  <input id = "xmax" name = "xmax" type="number" placeholder="x-max"
+                  <input id = "xmax" name = "xmax" type="number" placeholder="x-max" max="5000" min="-5000"
                      oninput="getMinMax()" onkeypress="isInNum(event)" required value="10">
                   <p class = "smallgrey" id = "domainMessage"></p>
                </div>
@@ -152,6 +153,7 @@
                      </li>
                   </ul>
                </div>
+               <br>
                <div id="widthRect">
                  <div class="a">
                     <h3>Unit and amount:</h3>
@@ -176,27 +178,23 @@
                <div id= "numRect" class="b">
                   <p> </p>
                   <label># of rectangles:</label>
-                  <input type="number" onkeypress= "isInPosNum(evt);" oninput="rectBoxInpt(event)" id="numrectbox" name="rct-amnt" value="10">
+                  <input type="number" onkeypress= "isInPosNum(evt)" oninput="rectBoxInpt()" id="numrectbox" name="rct-amnt" value="10" max="1000" min="2">
                   <p class = "smallgrey" id = "rectMessage"></p>
                   <p> </p>
                </div>
                <div id= "widthNum" class="b">
                   <p> </p>
                   <label>Width:</label>
-                  <input type="number"  onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1">
+                  <input type="number"  onkeypress="isInPosNum(event)"id="widthbox" name="wdth-amnt" value="1" min=".001">
                   <p class = "smallgrey" id = "widthMessage"></p>
                   <p> </p>
                </div>
-<<<<<<< HEAD
-=======
-               <p class = "smallgrey" id = "testingMes"></p>
 
->>>>>>> 8103357c5f777292363dbd93ea3947377a211363
+
                <div class="divbtn">
                   <input type= "submit" class="submit" value="GRAPH IT!"></input>
                </div>
             </div>
-
             <div class="rightside">
                 <div class="area">
       			       <div class="areaWord">
@@ -207,7 +205,7 @@
       				    </div>
                </div>
                <div class="graphImg">
-                  <img src="{%static 'img/graphTest3.png' %}" alt=":(" onerror=this.src="{%static 'img/graphTemplate.png' %}"
+                  <img src="{% static 'img/graphTest3.png' %}" alt=":(" onerror=this.src="{%static 'img/graphTemplate.png' %}"
                   width="70%" height="100%">
                </div>
             </div>
