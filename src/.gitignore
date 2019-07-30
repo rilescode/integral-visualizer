@@ -1,20 +1,7 @@
+trydjango/settings/local.py
+db.sqlite3
 
-*.pyc
-src/products/__pycache__/views.cpython-37.pyc
-src/products/__pycache__/riemann.cpython-37.pyc
-src/output.txt
-src/output.txt
-src/output.txt
-src/output.txt
-src/products/__pycache__/views.cpython-37.pyc
-src/products/__pycache__/riemann.cpython-37.pyc
-src/products/__pycache__/models.cpython-37.pyc
-src/products/__pycache__/forms.cpython-37.pyc
-src/products/__pycache__/admin.cpython-37.pyc
-src/trydjango/__pycache__/settings.cpython-37.pyc
-src/trydjango/__pycache__/urls.cpython-37.pyc
-src/trydjango/__pycache__/wsgi.cpython-37.pyc
-src/products/static/img/graphTest3.png
+.py[cod]
 
 .DS_Store
 bin/
