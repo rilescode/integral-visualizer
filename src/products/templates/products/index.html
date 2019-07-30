@@ -102,16 +102,16 @@
                <p> </p>
                <script>
                   function ABRequired() {
-                    document.getElementById("Cbox").required = false;
-                    document.getElementById("Dbox").required = false;
+                    document.getElementById("Cbox").required == false;
+                    document.getElementById("Dbox").required == false;
                   }
                   function ABCRequired() {
-                    document.getElementById("Cbox").required = true;
-                    document.getElementById("Dbox").required = false;
+                    document.getElementById("Cbox").required == true;
+                    document.getElementById("Dbox").required == false;
                   }
                   function ABCDRequired() {
-                    document.getElementById("Cbox").required = true;
-                    document.getElementById("Dbox").required = true;
+                    document.getElementById("Cbox").required == true;
+                    document.getElementById("Dbox").required == true;
                   }
                   function aprVarTtlAB() {
                     document.getElementById("var").style.display = "block";
@@ -169,11 +169,17 @@
                       document.getElementById("widthMessage").innerHTML = "Please fill in x-min and x-max";
                       document.getElementById("domainMessage").innerHTML = "Please fill in x-min and x-max";
                     } else if (xmin >= xmax){
-                      document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
-                      document.getElementById("domainMessage").innerHTML = "x-max must be greater than x-min";
+                     document.getElementById("widthMessage").innerHTML = "x-max must be greater than x-min";
+                     document.getElementById("domainMessage").innerHTML = "x-max must be greater than x-min";
+                   } else if (xmax > 5000){
+                     document.getElementById("widthMessage").innerHTML = "x-max must be less than 5000";
+                     document.getElementById("domainMessage").innerHTML = "x-max must be less than 5000";
+                   } else if (xmin < -5000){
+                     document.getElementById("widthMessage").innerHTML = "x-min must be greater than -5000";
+                     document.getElementById("domainMessage").innerHTML = "x-min must be greater than -5000";
                     } else {
-					            document.getElementById("domainMessage").innerHTML = "";
-                      document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+					          document.getElementById("domainMessage").innerHTML = "";
+                    document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
                     }
                   }
 
@@ -199,6 +205,7 @@
                </script>
 
                <script>
+                  var sim = false;
                   function widthRequired() {
                   document.getElementById("widthbox").required = true;
                   document.getElementById("numrectbox").required = false;
@@ -306,29 +313,52 @@
                   </ul>
                </div>
                <script>
+
                  function aprNumRect() {
                    rectRequired();
                    document.getElementById("numRect").style.display = "block";
                    document.getElementById("widthNum").style.display = "none";
-                   document.getElementById("rectMessage").innerHTML = "# of rectangles must be an integer between 2 and 1000";
+                   if (sim == true) {
+                     document.getElementById("rectMessage").innerHTML = "# of rectangles must be an even integer between 2 and 1000";
+                   } else if (sim == false) {
+                     document.getElementById("rectMessage").innerHTML = "# of rectangles must be an integer between 2 and 1000";
+                   } else {
+                     document.getElementById("rectMessage").innerHTML = "error";
+                   }
                  }
                  function aprWidthNum() {
-                   widthRequired()
+                   widthRequired();
                    document.getElementById("widthNum").style.display = "block";
                    document.getElementById("numRect").style.display = "none";
                    getMinMax();
                  }
                   function SimRectOnly() {
+                    sim = true;
                     document.getElementById("widthRect").style.display = "block";
                     document.getElementById("rectOpt").style.display = "block";
                     document.getElementById("widthOpt").style.display = "none";
                     aprNumRect();
-                    document.getElementById("rectMessage").innerHTML = "# of rectangles must be an even integer between 2 and 1000";
+                    if (sim == true) {
+                      document.getElementById("rectMessage").innerHTML = "# of rectangles must be an even integer between 2 and 1000";
+                    } else if (sim == false) {
+                      document.getElementById("rectMessage").innerHTML = "# of rectangles must be an integer between 2 and 1000";
+                    } else {
+                      document.getElementById("rectMessage").innerHTML = "error";
+                    }
+                    document.getElementById("rectangles").checked = true;
                   }
                   function OtherAllOpt() {
+                    sim = false;
                     document.getElementById("widthRect").style.display = "block";
                     document.getElementById("rectOpt").style.display = "block";
                     document.getElementById("widthOpt").style.display = "block";
+                    if (sim == true) {
+                      document.getElementById("rectMessage").innerHTML = "# of rectangles must be an even integer between 2 and 1000";
+                    } else if (sim == false) {
+                      document.getElementById("rectMessage").innerHTML = "# of rectangles must be an integer between 2 and 1000";
+                    } else {
+                      document.getElementById("rectMessage").innerHTML = "error";
+                    }
                   }
                </script>
                <div id="widthRect">
