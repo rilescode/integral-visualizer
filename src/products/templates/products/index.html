@@ -7,9 +7,9 @@
       <link href="{% static 'favicon.ico'" rel="shortcut icon" type="image/x-icon">
       <script src="{% static 'js/script.js'%}"> </script>
    </head>
-   <HEADER>
+   <header>
      <title>Home</title>
-   </HEADER>
+   </header>
    <form action = '.' method = 'POST'>
       {% csrf_token %}
       <body>
@@ -30,13 +30,13 @@
                      <li>
                         <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Linear"
                            type="radio" name="function-type" required value="0">
-                        <label for="Linear"> Linear: f(x) = Ax+B</label>
+                        <label for="Linear"> <strong>Linear:</strong> f(x) = Ax+B</label>
                         <div class="check"></div>
                      </li>
                      <li>
                         <input onchange="aprVarTtlABC()" style="cursor:pointer" id="Quadratic"
                            type="radio" name="function-type" required value="1">
-                        <label for="Quadratic"> Quadratic: f(x) = Ax<sup>2</sup>+Bx+C</label>
+                        <label for="Quadratic"> <strong>Quadratic:</strong> f(x) = Ax<sup>2</sup>+Bx+C</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -44,7 +44,7 @@
                      <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cubic"
                            type="radio" name="function-type" required value="2">
-                        <label for="Cubic"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
+                        <label for="Cubic"> <strong>Cubic:</strong> f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -52,7 +52,7 @@
                      <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Sine"
                            type="radio" name="function-type" required value="3">
-                        <label for="Sine"> Sine: f(x) = Asin(Bx+C)+D</label>
+                        <label for="Sine"> <strong>Sine: </strong> f(x) = Asin(Bx+C)+D</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -60,14 +60,14 @@
                      <li>
                         <input onchange="aprVarTtlABCD()" style="cursor:pointer" id="Cosine"
                            type="radio" name="function-type" required value="4">
-                        <label for="Cosine"> Cosine: f(x) = Acos(Bx+C)+D</label>
+                        <label for="Cosine"> <strong>Cosine: </strong> f(x) = Acos(Bx+C)+D</label>
                         <div class="check"></div>
                         <div class="inside"></div>
                      </li>
                      <li>
                         <input onchange="aprVarTtlAB()" style="cursor:pointer" id="e^x"
                            type="radio" name="function-type" required value="5">
-                        <label for="e^x"> e<sup>x</sup>: f(x) = Ae<sup>x</sup>+B</label>
+                        <label for="e^x"> <strong>e<sup>x</sup>:</strong> f(x) = Ae<sup>x</sup>+B</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -75,7 +75,7 @@
                      <li>
                         <input onchange="aprVarTtlAB()" style="cursor:pointer" id="Natural Log"
                            type="radio" name="function-type" required value="6">
-                        <label for="Natural log"> Natural log: f(x) = Aln(x)+B</label>
+                        <label for="Natural log"> <strong>Natural Log:</strong> f(x) = Aln(x)+B</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -99,15 +99,10 @@
                   <label id="DLbl" >D:</label>
                   <input id="Dbox" type="number" name="d" placeholder="eg " onkeypress="isInNum(event)" value="1">
                </div>
-               <p> </p>
-               <p> </p>
-               <p> </p>
-
                <div class="a">
                   <h3>Domain:</h3>
                </div>
                <div class="b">
-                  <p> </p>
                   <label>x-min:</label>
                   <input id = "xmin" name = "xmin" type="number" placeholder="x-min"
                      oninput="getMinMax()" onkeypress="isInNum(event)" required value="-10">
@@ -116,12 +111,7 @@
                   <input id = "xmax" name = "xmax" type="number" placeholder="x-max"
                      oninput="getMinMax()" onkeypress="isInNum(event)" required value="10">
                   <p class = "smallgrey" id = "domainMessage"></p>
-                  <p> </p>
-                  <p> </p>
                </div>
-
-
-               <p></p>
                <div class="a">
                   <h3>Sum type:</h3>
                </div>
@@ -197,7 +187,6 @@
                   <p class = "smallgrey" id = "widthMessage"></p>
                   <p> </p>
                </div>
-
                <div class="divbtn">
                   <input type= "submit" class="submit" value="GRAPH IT!"></input>
                </div>
@@ -212,7 +201,8 @@
       				    </div>
                </div>
                <div class="graphImg">
-                  <img src="{%static 'img/graphTest3.png' %}" alt=":(" onerror=this.src="{%static 'img/graphTemplate.png' %}" width="70%" height="100%">
+                  <img src="{%static 'img/graphTest3.png' %}" alt=":(" onerror=this.src="{%static 'img/graphTemplate.png' %}"
+                  width="70%" height="100%">
                </div>
             </div>
          </div>
