@@ -10,7 +10,9 @@ label {
 	font: Verdana;
 	color: rgb(84, 90, 112);
 }
-
+input:invalid {
+  border: 2px solid red;
+}
 /* Styles whole page */
 .all {
 	overflow-x: hidden;
