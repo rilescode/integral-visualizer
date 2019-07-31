@@ -46,6 +46,7 @@ To run server again after everything has been installed, follow steps 5, 8, 13-1
 heroku stuff for mark:
 
 python manage.py collectstatic
+heroku git:remote -a integral-visualizer
 
 git status
 git add --all
