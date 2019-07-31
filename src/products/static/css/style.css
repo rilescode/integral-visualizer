@@ -125,7 +125,7 @@ h3 {
 	margin: 0px;
 	margin-left: 1%;
 }
-
+/*code for readios influenced by https://codepen.io/AngelaVelasquez/pen/Eypnq*/
 .functContainer {
 	display: block;
 	position: relative;
@@ -151,6 +151,9 @@ h3 {
 	background-color: rgba();
 }
 
+.funcList {
+	background: rgb(255, 255, 255, 0.75);
+}
 ul li {
 	position: relative;
 	width: 100%;
@@ -176,8 +179,7 @@ ul li label {
 }
 
 ul li:hover label {
-	color: black;
-	background-color: black;
+	background-color: rgb(0, 0, 0, 0.1);
 }
 
 ul li.check {
@@ -193,11 +195,6 @@ ul li.check {
 ul li.check::before {
 	display: block;
 	position: absolute;
-	content: '';
-	border-radius: 100%;
-	top: 2px;
-	left: 1.7px;
-	margin: 0px;
 	transition: 0.2s linear;
 	-webkit-transition: 0.2s linear;
 	border: 3px solid;
@@ -209,6 +206,7 @@ input[type=radio]:checked~.check::before {
 
 input[type=radio]:checked~label {
 	color: black;
+	font-weight: bold;
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -347,11 +345,15 @@ a.nav-links:hover {
 
 /* About and instructions page styling */
 .content {
+	position: relative;
 	text-align: center;
+	height: 100%;
 	padding: 2%;
 }
 
 .instructions {
+	margin: 0 auto; /* Centers the instructions */
+	width: 80%;
 	text-align: center;
 	padding: 2%;
 }
@@ -363,12 +365,12 @@ ol li {
 }
 
 ol span {
-	margin-left: 1%;
+	margin-left: 2%;
 	color: grey;
 }
 
 ol {
-	padding: 2.5%;
+	padding: 5%;
 	background-color: rgba(0, 0, 0, 0.1);
 	text-align: left;
 }
