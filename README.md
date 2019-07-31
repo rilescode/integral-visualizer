@@ -53,4 +53,6 @@ git add --all
 git commit -m ""
 git push heroku master
 
+intall whitenoise, pyscog2, gunicorn
+
 https://integral-visualizer.herokuapp.com/
