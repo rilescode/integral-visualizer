@@ -126,6 +126,7 @@ function getMinMax() {
     } else {
         document.getElementById("domainMessage").innerHTML = "";
         document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+        document.getElementById("widthbox").max = domain;
     }
 }
 
@@ -179,7 +180,13 @@ function getMinMax() {
         document.getElementById("domainMessage").innerHTML = "x-min must be greater than -5000";
     } else {
         document.getElementById("domainMessage").innerHTML = "";
+        if (domain <= 1000){
         document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+        document.getElementById("widthbox").max = domain;
+      } else {
+        document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than 1000";
+        document.getElementById("widthbox").max = 1000;
+      }
     }
 }
 
@@ -221,8 +228,8 @@ function isInInt(evt) {
         evt.preventDefault();
     }
 }
-function rectBoxInpt() {
-    ifSimStltrue ();
+function rectBoxInpt(evt) {
+    isInPosNum (evt);
 }
 function aprNumRect() {
     rectRequired();
@@ -249,40 +256,16 @@ function SimRectOnly() {
 }
 function ifSimtrue () {
   if (sim == true) {
-      document.getElementById("rectMessage").innerHTML = "# of rectangles must be an even integer between 2 and 1000";
-      checkOddEv();
+      document.getElementById("numrectbox").max = 20;
+      document.getElementById("rectMessage").innerHTML = "# of rectangles must be an integer between 2 and 20";
   } else if (sim == false) {
+      document.getElementById("numrectbox").max = 1000;
       document.getElementById("rectMessage").innerHTML = "# of rectangles must be an integer between 2 and 1000";
   } else {
       document.getElementById("rectMessage").innerHTML = "error";
   }
 }
-function ifSimStltrue () {
-  if (sim == true) {
-      checkOddEv();
-  } else if (sim == false) {
-  } else {
-      document.getElementById("rectMessage").innerHTML = "error";
-  }
-}
 
-function checkOddEv() {
-    rectNum = Number(parseFloat(document.getElementById("numrectbox").value));
-    remainder = Number(rectNum % 2);
-
-    if (remainder == 0) {
-
-      document.getElementById("numrectbox").setCustomValidity("");
-
-    } else if (remainder != 0){
-
-      document.getElementById("numrectbox").setCustomValidity("Invalid field.");
-
-    } else {
-      document.getElementById("numrectbox").setCustomValidity("Invalid field.");
-    }
-
-}
 function setXEx() {
   document.getElementById("xmin").min = -100;
   document.getElementById("xmax").max = 100;
