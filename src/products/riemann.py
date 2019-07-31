@@ -227,7 +227,7 @@ def riemann(yList, rectNum, xMin, xMax, type):
       sum += yList[len(yList) - 1] * deltaX
       rightSum = sum
 
-   plt.plot(riemannX, riemannY)
+   plt.plot(riemannX, riemannY, linewidth=1)
 
    if type == 0: # left
       return round(leftSum, 3)
