@@ -14,10 +14,12 @@ label {
 input:invalid {
   border: 2px solid red;
 }
+
 /* Styles whole page,
 rainbow transition code from https://codepen.io/nohoid/pen/kIfto*/
 
 /* Styles whole page */
+
 .all {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -129,6 +131,7 @@ h3 {
 	margin: 0px;
 	margin-left: 1%;
 }
+
 /* Code for radios inspired by https://codepen.io/AngelaVelasquez/pen/Eypnq */
 .functContainer {
 	display: block;
