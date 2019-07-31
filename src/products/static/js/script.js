@@ -9,13 +9,15 @@ aprVarTtlAB();
 setXmnNorm();
 document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 0;
+setDomNorm();
 }
 function quadClc (){
 aprVarTtlABC();
 setXmnNorm
 document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 0;
-document.getElementById("Cbox").value = 0;
+document.getElementById("Cbox").value = 0
+setDomNorm();
 }
 function cubicClc (){
 aprVarTtlABCD();
@@ -24,6 +26,7 @@ document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 0;
 document.getElementById("Cbox").value = 0;
 document.getElementById("Dbox").value = 0;
+setDomNorm();
 }
 function sinClc (){
 aprVarTtlABCD();
@@ -32,6 +35,7 @@ document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 1;
 document.getElementById("Cbox").value = 0;
 document.getElementById("Dbox").value = 0;
+setDomNorm();
 }
 function cosClc (){
 aprVarTtlABCD();
@@ -40,6 +44,7 @@ document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 1;
 document.getElementById("Cbox").value = 0;
 document.getElementById("Dbox").value = 0;
+setDomNorm();
 }
 function exClc (){
 aprVarTtlAB();
@@ -51,9 +56,11 @@ document.getElementById("xmax").value = 5;
 }
 function natlgClc (){
 aprVarTtlAB();
-setXmnZero()
+setXmnZero();
 document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 0;
+document.getElementById("xmin").value = .1;
+document.getElementById("xmax").value = 5;
 }
 function ABRequired() {
     document.getElementById("Cbox").required = false;
@@ -288,6 +295,10 @@ function setXmnNorm() {
   document.getElementById("xmin").min = -5000;
   document.getElementById("xmax").max = 5000;
 }
+function setDomNorm() {
+  document.getElementById("xmin").value = -10;
+  document.getElementById("xmax").value = 10;
+}
 
 function OtherAllOpt() {
     sim = false;
@@ -295,4 +306,23 @@ function OtherAllOpt() {
     document.getElementById("rectOpt").style.display = "block";
     document.getElementById("widthOpt").style.display = "block";
     ifSimtrue();
+}
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
 }
