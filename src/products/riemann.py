@@ -331,15 +331,13 @@ def simp(yList, rectNum, xMin, xMax):
    #f(0)=list(10000)
    sum = 0
 
-   halvedRect = rectNum//2
-
    deltaX = float((xMax - xMin) / rectNum)
 
    deltaXL = float((xMax - xMin) / rectNum)
 
    delta =  int(deltaXL / INCREASE)
 
-   for i in range(1, halvedRect+1):
+   for i in range(1, rectNum+1):
       simpX = np.arange(xMin+deltaX*(i-1), xMin+deltaX*i, INCREASE)
       factor = 10000
 
