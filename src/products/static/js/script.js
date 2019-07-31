@@ -8,14 +8,14 @@ function linearClc (){
 aprVarTtlAB();
 setXmnNorm();
 document.getElementById("Abox").value = 1;
-document.getElementById("Abox").value = 0;
+document.getElementById("Bbox").value = 0;
 }
 function quadClc (){
 aprVarTtlABC();
 setXmnNorm
 document.getElementById("Abox").value = 1;
-document.getElementById("Abox").value = 0;
-document.getElementById("Abox").value = 0;
+document.getElementById("Bbox").value = 0;
+document.getElementById("Cbox").value = 0;
 }
 function cubicClc (){
 aprVarTtlABCD();
