@@ -13,6 +13,8 @@
 9. in a DIFFERENT terminal window, type in "workon py1"
 8. in that same terminal window, type in "pip install numpy"
 9. in that same terminal window, type in "pip install matplotlib"
+10. in that same terminal window, type in "pip install gunicorn dj-database-url"
+11. in that same terminal window, type in "pip install whitenoise"
 
 # Running the code
 1. in a terminal window, type in "workon py1"
