@@ -13,7 +13,6 @@ label {
 input:invalid {
   border: 2px solid red;
 }
-
 /* Styles whole page */
 .all {
 	overflow-x: hidden;
@@ -88,7 +87,6 @@ input:invalid {
 	width: 10%;
 }
 
-/* Number entry boxes. Ex: x-min: */
 .b {
 	position: relative;
 	padding-left: 10%;
@@ -208,6 +206,7 @@ input[type=radio]:checked~.check::before {
 
 input[type=radio]:checked~label {
 	color: black;
+	font-weight: bold;
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
