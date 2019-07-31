@@ -10,6 +10,7 @@ label {
 	font: Verdana;
 	color: rgb(84, 90, 112);
 }
+
 input:invalid {
   border: 2px solid red;
 }
