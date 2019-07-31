@@ -14,13 +14,10 @@ label {
 input:invalid {
   border: 2px solid red;
 }
-<<<<<<< HEAD
 /* Styles whole page,
 rainbow transition code from https://codepen.io/nohoid/pen/kIfto*/
-=======
 
 /* Styles whole page */
->>>>>>> 45a7807012e0e38cba6b04b70fc3f8d8666ec65f
 .all {
 	overflow-x: hidden;
 	overflow-y: scroll;
