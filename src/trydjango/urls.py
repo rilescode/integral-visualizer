@@ -20,9 +20,9 @@ from products.views import improved_view, image_view, learnmore_view, about_view
 
 urlpatterns = [
 	path('', improved_view),
-    path('about.html/', about_view),
-    path('learnmore.html/', learnmore_view),
-    path('instructions.html/', instructions_view),
+    path('about/', about_view),
+    path('learnmore/', learnmore_view),
+    path('instructions/', instructions_view),
     path('integral/image', image_view),
     path('admin/', admin.site.urls),
 ]
