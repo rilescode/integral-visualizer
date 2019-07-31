@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     @import url(http://fonts.googleapis.com/css?family=Open+Sans);
     {% load static %}
@@ -19,5 +20,21 @@
       <div class="bios">
         <strong><h1>Page under construction. Sorry!</h1></strong>
       </div>
+      <div class="definitions">
+          <strong>Integral:</strong> The area under a curve.
+          <br>
+          <strong>Riemann Sum:</strong> A way of approximating the area under a curve by using rectangles of a set width. As the width gets smaller (or number of rectangles are increased) the area approaches the actual integral.
+          <br>
+          <strong>Left Endpoint Sum:</strong> A Riemann sum where the rectangles touch the function at the top left corner of the rectangle.
+          <br>
+          <strong>Right Endpoint Sum:</strong> A Riemann sum where the rectangles touch the function at the top right corner of the rectangle.
+          <br>
+          <strong>Midpoint Sum:</strong> A Riemann sum where the rectangles touch the function at the middle of the rectangle. Generally more accurate than left and right methods.
+          <br>
+          <strong>Trapezoidal Approximation:</strong> An approximation method which uses trapezoids instead of rectangles. Also equal to the average of the left and right Riemann sums.
+          <br>
+          <strong>Simpson's Rule:</strong> An approximation method which uses parabola topped rectangles instead of normal flat topped rectangles. The parabolas are graphed using an interpolation of three points (left bound, midpoint, and right bound).
+      </div>
+    </div>
   </body>
 </html>
