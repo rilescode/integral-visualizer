@@ -28,13 +28,13 @@
                <div class="functContainer">
                   <ul>
                      <li>
-                        <input onchange="aprVarTtlAB(), setXmnNorm()" style="cursor:pointer" id="Linear"
+                        <input onchange="linearClc()" style="cursor:pointer" id="Linear"
                            type="radio" name="function-type" required value="0">
                         <label for="Linear" class="funcList"> Linear: f(x) = Ax+B</label>
                         <div class="check"></div>
                      </li>
                      <li>
-                        <input onchange="aprVarTtlABC(), setXmnNorm()" style="cursor:pointer" id="Quadratic"
+                        <input onchange="quadClc()" style="cursor:pointer" id="Quadratic"
                            type="radio" name="function-type" required value="1">
                         <label for="Quadratic" class="funcList"> Quadratic: f(x) = Ax<sup>2</sup>+Bx+C</label>
                         <div class="check">
@@ -42,7 +42,7 @@
                         </div>
                      </li>
                      <li>
-                        <input onchange="aprVarTtlABCD(), setXmnNorm()" style="cursor:pointer" id="Cubic"
+                        <input onchange="cubicClc)" style="cursor:pointer" id="Cubic"
                            type="radio" name="function-type" required value="2">
                         <label for="Cubic" class="funcList"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
                         <div class="check">
@@ -50,7 +50,7 @@
                         </div>
                      </li>
                      <li>
-                        <input onchange="aprVarTtlABCD(), setXmnNorm()" style="cursor:pointer" id="Sine"
+                        <input onchange="sinClc()" style="cursor:pointer" id="Sine"
                            type="radio" name="function-type" required value="3">
                         <label for="Sine" class="funcList"> Sine:  f(x) = Asin(Bx+C)+D</label>
                         <div class="check">
@@ -58,14 +58,14 @@
                         </div>
                      </li>
                      <li>
-                        <input onchange="aprVarTtlABCD(), setXmnNorm()" style="cursor:pointer" id="Cosine"
+                        <input onchange="cosClc()" style="cursor:pointer" id="Cosine"
                            type="radio" name="function-type" required value="4">
                         <label for="Cosine" class="funcList"> Cosine:  f(x) = Acos(Bx+C)+D</label>
                         <div class="check"></div>
                         <div class="inside"></div>
                      </li>
                      <li>
-                        <input onchange="aprVarTtlAB(), setXmnNorm()" style="cursor:pointer" id="e^x"
+                        <input onchange="exClc()" style="cursor:pointer" id="e^x"
                            type="radio" name="function-type" required value="5">
                         <label for="e^x" class="funcList"> e<sup>x</sup>: f(x) = Ae<sup>x</sup>+B</label>
                         <div class="check">
@@ -73,7 +73,7 @@
                         </div>
                      </li>
                      <li>
-                        <input onchange="aprVarTtlAB(), setXmnZero()" style="cursor:pointer" id="Natural log"
+                        <input onchange="natlgClc()" style="cursor:pointer" id="Natural log"
                            type="radio" name="function-type" required value="6">
                         <label for="Natural log" class="funcList">Natural Log: f(x) = Aln(x)+B</label>
                         <div class="check">
