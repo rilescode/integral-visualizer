@@ -353,7 +353,7 @@ a.nav-links:hover {
 
 .instructions {
 	margin: 0 auto; /* Centers the instructions */
-	width: 50%;
+	width: 80%;
 	text-align: center;
 	padding: 2%;
 }
@@ -365,12 +365,12 @@ ol li {
 }
 
 ol span {
-	margin-left: 1%;
+	margin-left: 2%;
 	color: grey;
 }
 
 ol {
-	padding: 2.5%;
+	padding: 5%;
 	background-color: rgba(0, 0, 0, 0.1);
 	text-align: left;
 }
