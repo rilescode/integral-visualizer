@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from products.views import improved_view, image_view, learnmore_view, about_view, instructions_view
+from products.views import improved_view, image_view, learnmore_view, about_view, instructions_view, egg_view
 
 urlpatterns = [
 	path('', improved_view),
     path('about/', about_view),
     path('learnmore/', learnmore_view),
     path('instructions/', instructions_view),
+    path('egg/', egg_view),
     path('integral/image', image_view),
     path('admin/', admin.site.urls),
 ]

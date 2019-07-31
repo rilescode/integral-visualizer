@@ -39,10 +39,10 @@ def improved_view(request):
 
 	# Move file to correct directory
 	os.rename(old_path, epic_path)
-	
-	
+
+
 	if request.method == "POST":
-		
+
 		function_type = request.POST.get('function-type')
 		a = request.POST.get('a')
 		b = request.POST.get('b')
@@ -77,6 +77,10 @@ def learnmore_view(request):
 @never_cache
 def instructions_view(request):
 	return render(request, 'products/instructions.html', {})
+
+@never_cache
+def egg_view(request):
+	return render(request, 'products/egg.html', {})
 
 def image_view(request):
 	return render(request, 'products/image_view.html')
