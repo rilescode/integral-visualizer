@@ -126,6 +126,7 @@ function getMinMax() {
     } else {
         document.getElementById("domainMessage").innerHTML = "";
         document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+        document.getElementById("widthbox").max = domain;
     }
 }
 
@@ -180,6 +181,7 @@ function getMinMax() {
     } else {
         document.getElementById("domainMessage").innerHTML = "";
         document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
+        document.getElementById("widthbox").max = domain;
     }
 }
 
