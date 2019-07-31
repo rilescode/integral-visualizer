@@ -4,19 +4,68 @@ var xmin = 0;
 var sim = false;
 var remainder;
 
+function linearClc (){
+aprVarTtlAB();
+setXmnNorm();
+document.getElementById("Abox").value = 1;
+document.getElementById("Abox").value = 0;
+}
+function quadClc (){
+aprVarTtlABC();
+setXmnNorm
+document.getElementById("Abox").value = 1;
+document.getElementById("Abox").value = 0;
+document.getElementById("Abox").value = 0;
+}
+function cubicClc (){
+aprVarTtlABCD();
+setXmnNorm();
+document.getElementById("Abox").value = 1;
+document.getElementById("Bbox").value = 0;
+document.getElementById("Cbox").value = 0;
+document.getElementById("Dbox").value = 0;
+}
+function sinClc (){
+aprVarTtlABCD();
+setXmnNorm();
+document.getElementById("Abox").value = 1;
+document.getElementById("Bbox").value = 1;
+document.getElementById("Cbox").value = 0;
+document.getElementById("Dbox").value = 0;
+}
+function cosClc (){
+aprVarTtlABCD();
+setXmnNorm();
+document.getElementById("Abox").value = 1;
+document.getElementById("Bbox").value = 1;
+document.getElementById("Cbox").value = 0;
+document.getElementById("Dbox").value = 0;
+}
+function exClc (){
+aprVarTtlAB();
+setXmnNorm();
+document.getElementById("Abox").value = 1;
+document.getElementById("Bbox").value = 0;
+}
+function natlgClc (){
+aprVarTtlAB();
+setXmnZero()
+document.getElementById("Abox").value = 1;
+document.getElementById("Bbox").value = 0;
+}
 function ABRequired() {
-    document.getElementById("Cbox").required == false;
-    document.getElementById("Dbox").required == false;
+    document.getElementById("Cbox").required = false;
+    document.getElementById("Dbox").required = false;
 }
 
 function ABCRequired() {
-    document.getElementById("Cbox").required == true;
-    document.getElementById("Dbox").required == false;
+    document.getElementById("Cbox").required = true;
+    document.getElementById("Dbox").required = false;
 }
 
 function ABCDRequired() {
-    document.getElementById("Cbox").required == true;
-    document.getElementById("Dbox").required == true;
+    document.getElementById("Cbox").required = true;
+    document.getElementById("Dbox").required = true;
 }
 
 function aprVarTtlAB() {
@@ -224,6 +273,12 @@ function checkOddEv() {
       document.getElementById("numrectbox").setCustomValidity("Invalid field.");
     }
 
+}
+function setXmnZero() {
+  document.getElementById("xmin").min = .001;
+}
+function setXmnNorm() {
+  document.getElementById("xmin").min = -5000;
 }
 
 function OtherAllOpt() {
