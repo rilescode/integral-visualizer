@@ -15,8 +15,7 @@ input:invalid {
   border: 2px solid red;
 }
 
-/* Styles whole page,
-rainbow transition code from https://codepen.io/nohoid/pen/kIfto */
+/* Styles whole page. Rainbow transition code from https://codepen.io/nohoid/pen/kIfto */
 .all {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -90,6 +89,7 @@ rainbow transition code from https://codepen.io/nohoid/pen/kIfto */
 	width: 10%;
 }
 
+/* Number boxes. Ex: x-min */
 .b {
 	position: relative;
 	padding-left: 10%;
