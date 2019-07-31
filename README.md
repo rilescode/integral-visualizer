@@ -2,6 +2,11 @@
 
 # How to run Integral Visualizer locally (Windows)
 
+# Required intallations:
+heroku
+python
+git
+
 # Intstallation
 1. Download the zip file on from GitHub
 2. Unzip, and put the folder in the directory of your choosing
@@ -15,15 +20,14 @@
 9. in that same terminal window, type in "pip install matplotlib"
 10. in that same terminal window, type in "pip install gunicorn dj-database-url"
 11. in that same terminal window, type in "pip install whitenoise"
+12. under the source directory, type in "git init"
+13. type in "git remote"
 
-# Running the code
+# Running the code in django locally
 1. in a terminal window, type in "workon py1"
-12. cd into where the project is located until you can find the file "manage.py"
-13. type in "python manage.py runserver" once you are in the same directory as the file "manage.py"
-14. copy the url given in the terminal to your browser
-
-
-
+2. cd into where the project is located until you can find the file "manage.py"
+3. type in "python manage.py runserver" once you are in the same directory as the file "manage.py"
+4. copy the url given in the terminal to your browser
 
 # How to run Integral Visualizer locally (Mac OS)
 

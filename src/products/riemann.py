@@ -227,7 +227,7 @@ def riemann(yList, rectNum, xMin, xMax, type):
       sum += yList[len(yList) - 1] * deltaX
       rightSum = sum
 
-   plt.plot(riemannX, riemannY)
+   plt.plot(riemannX, riemannY, linewidth=1)
 
    if type == 0: # left
       return round(leftSum, 3)
@@ -331,15 +331,13 @@ def simp(yList, rectNum, xMin, xMax):
    #f(0)=list(10000)
    sum = 0
 
-   halvedRect = rectNum//2
-
-   deltaX = float((xMax - xMin) / halvedRect)
+   deltaX = float((xMax - xMin) / rectNum)
 
    deltaXL = float((xMax - xMin) / rectNum)
 
    delta =  int(deltaXL / INCREASE)
 
-   for i in range(1, halvedRect+1):
+   for i in range(1, rectNum+1):
       simpX = np.arange(xMin+deltaX*(i-1), xMin+deltaX*i, INCREASE)
       factor = 10000
 

@@ -10,12 +10,11 @@ label {
 	font: Verdana;
 	color: rgb(84, 90, 112);
 }
-
 input:invalid {
   border: 2px solid red;
 }
-/* Styles whole page*/
-/*rainbow transition code from https://codepen.io/nohoid/pen/kIfto*/
+
+/* Styles whole page. Rainbow transition code from https://codepen.io/nohoid/pen/kIfto */
 .all {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -89,6 +88,7 @@ input:invalid {
 	width: 10%;
 }
 
+/* Number boxes. Ex: x-min */
 .b {
 	position: relative;
 	padding-left: 10%;
@@ -127,7 +127,8 @@ h3 {
 	margin: 0px;
 	margin-left: 1%;
 }
-/*code for readios influenced by https://codepen.io/AngelaVelasquez/pen/Eypnq*/
+
+/* Code for radios inspired by https://codepen.io/AngelaVelasquez/pen/Eypnq */
 .functContainer {
 	display: block;
 	position: relative;
@@ -374,20 +375,6 @@ ol {
 	padding: 5%;
 	background-color: rgba(0, 0, 0, 0.1);
 	text-align: left;
-}
-
-.egg {
-	padding: 5%;
-	text-align: center;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-}
-
-/* Learn More page styling */
-.definitions {
-	position: relative;
-	text-align: left;
-	width: 80%;
-	padding: 5%;
 }
 
 /* Rainbow background stuff */
