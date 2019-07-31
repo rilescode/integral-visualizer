@@ -1,2 +1,1 @@
 web: gunicorn trydjango.wsgi
-python manage.py collectstatic --noinput
