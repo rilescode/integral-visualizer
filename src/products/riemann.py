@@ -333,7 +333,7 @@ def simp(yList, rectNum, xMin, xMax):
 
    halvedRect = rectNum//2
 
-   deltaX = float((xMax - xMin) / halvedRect)
+   deltaX = float((xMax - xMin) / rectNum)
 
    deltaXL = float((xMax - xMin) / rectNum)
 
