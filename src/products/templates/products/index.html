@@ -3,8 +3,8 @@
    <head>
       @import url(http://fonts.googleapis.com/css?family=Open+Sans);
       {% load static %}
-      <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
-      <link href="{% static 'favicon.ico'" rel="shortcut icon" type="image/x-icon">
+         <link href="{% static 'favicon.ico'" rel="shortcut icon" type="image/x-icon">
+         <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
       <script src="{% static 'js/script.js'%}"> </script>
    </head>
    <header>
@@ -42,7 +42,7 @@
                         </div>
                      </li>
                      <li>
-                        <input onchange="cubicClc)" style="cursor:pointer" id="Cubic"
+                        <input onchange="cubicClc()" style="cursor:pointer" id="Cubic"
                            type="radio" name="function-type" required value="2">
                         <label for="Cubic" class="funcList"> Cubic: f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
                         <div class="check">

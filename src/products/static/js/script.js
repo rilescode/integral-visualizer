@@ -46,6 +46,8 @@ aprVarTtlAB();
 setXmnNorm();
 document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 0;
+document.getElementById("xmin").value = 0;
+document.getElementById("xmax").value = 5;
 }
 function natlgClc (){
 aprVarTtlAB();
