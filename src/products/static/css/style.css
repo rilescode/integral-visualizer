@@ -151,6 +151,9 @@ h3 {
 	background-color: rgba();
 }
 
+.funcList {
+	background: rgb(255, 255, 255, 0.75);
+}
 ul li {
 	position: relative;
 	width: 100%;
@@ -176,8 +179,7 @@ ul li label {
 }
 
 ul li:hover label {
-	color: black;
-	background-color: black;
+	background-color: rgb(0, 0, 0, 0.1);
 }
 
 ul li.check {
@@ -193,11 +195,6 @@ ul li.check {
 ul li.check::before {
 	display: block;
 	position: absolute;
-	content: '';
-	border-radius: 100%;
-	top: 2px;
-	left: 1.7px;
-	margin: 0px;
 	transition: 0.2s linear;
 	-webkit-transition: 0.2s linear;
 	border: 3px solid;
@@ -209,6 +206,7 @@ input[type=radio]:checked~.check::before {
 
 input[type=radio]:checked~label {
 	color: black;
+	font-weight: bold; 
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
