@@ -13,8 +13,17 @@ label {
 input:invalid {
   border: 2px solid red;
 }
+<<<<<<< HEAD
 /* Styles whole page*/
 /*rainbow transition code from https://codepen.io/nohoid/pen/kIfto*/
+=======
+
+/* Styles whole page,
+rainbow transition code from https://codepen.io/nohoid/pen/kIfto*/
+
+/* Styles whole page */
+
+>>>>>>> b9e5a421707f825df19ba0c96bd11ba50bea609c
 .all {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -126,7 +135,12 @@ h3 {
 	margin: 0px;
 	margin-left: 1%;
 }
+<<<<<<< HEAD
 /*code for readios influenced by https://codepen.io/AngelaVelasquez/pen/Eypnq*/
+=======
+
+/* Code for radios inspired by https://codepen.io/AngelaVelasquez/pen/Eypnq */
+>>>>>>> b9e5a421707f825df19ba0c96bd11ba50bea609c
 .functContainer {
 	display: block;
 	position: relative;
