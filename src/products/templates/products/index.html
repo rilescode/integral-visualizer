@@ -30,13 +30,13 @@
                      <li>
                         <input onchange="aprVarTtlAB(), setXmnNorm()" style="cursor:pointer" id="Linear"
                            type="radio" name="function-type" required value="0">
-                        <label for="Linear" style="background: rgb(255, 255, 255, 0.75);"> <strong>Linear:</strong> f(x) = Ax+B</label>
+                        <label for="Linear" class="funcList"> <strong>Linear:</strong> f(x) = Ax+B</label>
                         <div class="check"></div>
                      </li>
                      <li>
                         <input onchange="aprVarTtlABC(), setXmnNorm()" style="cursor:pointer" id="Quadratic"
                            type="radio" name="function-type" required value="1">
-                        <label for="Quadratic" style="background: rgb(255, 255, 255, 0.75);"> <strong>Quadratic:</strong> f(x) = Ax<sup>2</sup>+Bx+C</label>
+                        <label for="Quadratic" class="funcList"> <strong>Quadratic:</strong> f(x) = Ax<sup>2</sup>+Bx+C</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -44,7 +44,7 @@
                      <li>
                         <input onchange="aprVarTtlABCD(), setXmnNorm()" style="cursor:pointer" id="Cubic"
                            type="radio" name="function-type" required value="2">
-                        <label for="Cubic" style="background: rgb(255, 255, 255, 0.75);"> <strong>Cubic:</strong> f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
+                        <label for="Cubic" class="funcList"> <strong>Cubic:</strong> f(x) = Ax<sup>3</sup>+Bx<sup>2</sup>+Cx+D</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -52,7 +52,7 @@
                      <li>
                         <input onchange="aprVarTtlABCD(), setXmnNorm()" style="cursor:pointer" id="Sine"
                            type="radio" name="function-type" required value="3">
-                        <label for="Sine" style="background: rgb(255, 255, 255, 0.75);"> <strong>Sine: </strong> f(x) = Asin(Bx+C)+D</label>
+                        <label for="Sine" class="funcList"> <strong>Sine: </strong> f(x) = Asin(Bx+C)+D</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -60,14 +60,14 @@
                      <li>
                         <input onchange="aprVarTtlABCD(), setXmnNorm()" style="cursor:pointer" id="Cosine"
                            type="radio" name="function-type" required value="4">
-                        <label for="Cosine" style="background: rgb(255, 255, 255, 0.75);"> <strong>Cosine: </strong> f(x) = Acos(Bx+C)+D</label>
+                        <label for="Cosine" class="funcList"> <strong>Cosine: </strong> f(x) = Acos(Bx+C)+D</label>
                         <div class="check"></div>
                         <div class="inside"></div>
                      </li>
                      <li>
                         <input onchange="aprVarTtlAB(), setXmnNorm()" style="cursor:pointer" id="e^x"
                            type="radio" name="function-type" required value="5">
-                        <label for="e^x" style="background: rgb(255, 255, 255, 0.75);"> <strong>e<sup>x</sup>:</strong> f(x) = Ae<sup>x</sup>+B</label>
+                        <label for="e^x" class="funcList"> <strong>e<sup>x</sup>:</strong> f(x) = Ae<sup>x</sup>+B</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -75,7 +75,7 @@
                      <li>
                         <input onchange="aprVarTtlAB(), setXmnZero()" style="cursor:pointer" id="Natural log"
                            type="radio" name="function-type" required value="6">
-                        <label for="Natural log" style="background: rgb(255, 255, 255, 0.75);"><strong>Natural Log:</strong> f(x) = Aln(x)+B</label>
+                        <label for="Natural log" class="funcList"><strong>Natural Log:</strong> f(x) = Aln(x)+B</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -120,33 +120,33 @@
                   <ul>
                      <li>
                         <input style="cursor:pointer" onchange="OtherAllOpt()" id="Left" type="radio" name="sumtype" required value="0">
-                        <label for="Left" style="background: rgb(255, 255, 255, 0.75);">Left endpoint</label>
+                        <label for="Left" class="funcList">Left endpoint</label>
                         <div class="check"></div>
                      </li>
                      <li>
                         <input style="cursor:pointer" onchange="OtherAllOpt()" id="Right" type="radio" name="sumtype" required value="1">
-                        <label for="Right" style="background: rgb(255, 255, 255, 0.75);">Right endpoint</label>
+                        <label for="Right" class="funcList">Right endpoint</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
                      </li>
                      <li>
                         <input style="cursor:pointer" onchange="OtherAllOpt()" id="Mid" type="radio" name="sumtype" required value="2">
-                        <label for="Mid" style="background: rgb(255, 255, 255, 0.75);">Midpoint</label>
+                        <label for="Mid" class="funcList">Midpoint</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
                      </li>
                      <li>
                         <input style="cursor:pointer" onchange="OtherAllOpt()" id="Trap" type="radio" name="sumtype" required value="3">
-                        <label for="Trap" style="background: rgb(255, 255, 255, 0.75);">Trapezoidal</label>
+                        <label for="Trap" class="funcList">Trapezoidal</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
                      </li>
                      <li>
                         <input style="cursor:pointer" onchange="SimRectOnly()" id="Simp" type="radio" name="sumtype" required value="4">
-                        <label for="Simp" style="background: rgb(255, 255, 255, 0.75);">Simpson</label>
+                        <label for="Simp" class="funcList">Simpson</label>
                         <div class="check">
                            <div class="inside"></div>
                         </div>
@@ -162,12 +162,12 @@
                     <ul id="widthrectrad">
                        <li id="widthOpt">
                           <input onchange="aprWidthNum()" style="cursor:pointer" id="width" type="radio" name="width-rect"required value="0" >
-                          <label for="width" style="background: rgb(255, 255, 255, 0.75);">Width</label>
+                          <label for="width" class="funcList">Width</label>
                           <div class="check"></div>
                        </li>
                        <li id="rectOpt">
                           <input onchange="aprNumRect()" style="cursor:pointer" id="rectangles" type="radio" name="width-rect"required value="1">
-                          <label for="rectangles" style="background: rgb(255, 255, 255, 0.75);">Rectangles</label><br>
+                          <label for="rectangles" class="funcList">Rectangles</label><br>
                           <div class="check">
                              <div class="inside"></div>
                           </div>
