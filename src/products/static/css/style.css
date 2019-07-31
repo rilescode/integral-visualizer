@@ -376,6 +376,12 @@ ol {
 	text-align: left;
 }
 
+.egg {
+	padding: 5%; 
+	text-align: center;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
 /* Rainbow background stuff */
 @-webkit-keyframes rainbow {
 	0% {

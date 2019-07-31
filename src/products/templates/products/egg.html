@@ -3,15 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>egg</title>
-    @import url(http://fonts.googleapis.com/css?family=Open+Sans);
     {% load static %}
     <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="all">
-      <h1>Dedicated to Riley, our lost member.</h1>
-      <img src="{%static 'img/egg.jpg' %}" alt="an egg">
-      <h4>July 15 2019 - July 26 2019</h4>
+      <div class="egg">
+        <h1 style="font-family: "Comic Sans MS", "Comic Sans", cursive;">Dedicated to Riley, who ditched us.</h1>
+        <br>
+        <img src="{%static 'img/egg.jpg' %}" alt="an egg" style="width:300px">
+        <h4>July 15 2019 - July 26 2019</h4>
+      </div>
     </div>
   </body>
 </html>
