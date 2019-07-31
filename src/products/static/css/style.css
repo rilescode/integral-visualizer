@@ -10,9 +10,11 @@ label {
 	font: Verdana;
 	color: rgb(84, 90, 112);
 }
+
 input:invalid {
   border: 2px solid red;
 }
+
 /* Styles whole page */
 .all {
 	overflow-x: hidden;
@@ -125,7 +127,7 @@ h3 {
 	margin: 0px;
 	margin-left: 1%;
 }
-/*code for readios influenced by https://codepen.io/AngelaVelasquez/pen/Eypnq*/
+/* Code for radios inspired by https://codepen.io/AngelaVelasquez/pen/Eypnq */
 .functContainer {
 	display: block;
 	position: relative;
@@ -154,6 +156,7 @@ h3 {
 .funcList {
 	background: rgb(255, 255, 255, 0.75);
 }
+
 ul li {
 	position: relative;
 	width: 100%;
