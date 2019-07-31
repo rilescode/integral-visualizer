@@ -344,7 +344,7 @@ a.nav-links:hover {
 	top: .5px;
 }
 
-/* About and instructions page styling */
+/* About, instructions, and learn more page styling */
 .content {
 	position: relative;
 	text-align: center;
@@ -382,17 +382,15 @@ ol {
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
-/* Learn More page styling */
-.definitions {
-	position: relative;
+.container {
+	margin: 5%;
+	padding: 1%;
+	border: 5px solid;
 	text-align: left;
-	width: 80%;
-	padding: 5%;
 }
 
-.container {
-	width: 300px;
-	border: 5px solid; 
+summary {
+	font-weight: bold;
 }
 
 /* Rainbow background stuff */
