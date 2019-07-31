@@ -43,7 +43,7 @@ document.getElementById("Dbox").value = 0;
 }
 function exClc (){
 aprVarTtlAB();
-setXmnNorm();
+setXEx();
 document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 0;
 document.getElementById("xmin").value = 0;
@@ -276,11 +276,17 @@ function checkOddEv() {
     }
 
 }
+function setXEx() {
+  document.getElementById("xmin").min = -100;
+  document.getElementById("xmax").max = 100;
+}
 function setXmnZero() {
   document.getElementById("xmin").min = .001;
+  document.getElementById("xmax").max = 5000;
 }
 function setXmnNorm() {
   document.getElementById("xmin").min = -5000;
+  document.getElementById("xmax").max = 5000;
 }
 
 function OtherAllOpt() {

@@ -10,10 +10,17 @@ label {
 	font: Verdana;
 	color: rgb(84, 90, 112);
 }
+
 input:invalid {
   border: 2px solid red;
 }
+<<<<<<< HEAD
+/* Styles whole page,
+rainbow transition code from https://codepen.io/nohoid/pen/kIfto*/
+=======
+
 /* Styles whole page */
+>>>>>>> 45a7807012e0e38cba6b04b70fc3f8d8666ec65f
 .all {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -125,7 +132,7 @@ h3 {
 	margin: 0px;
 	margin-left: 1%;
 }
-/*code for readios influenced by https://codepen.io/AngelaVelasquez/pen/Eypnq*/
+/* Code for radios inspired by https://codepen.io/AngelaVelasquez/pen/Eypnq */
 .functContainer {
 	display: block;
 	position: relative;
@@ -154,6 +161,7 @@ h3 {
 .funcList {
 	background: rgb(255, 255, 255, 0.75);
 }
+
 ul li {
 	position: relative;
 	width: 100%;
@@ -206,7 +214,6 @@ input[type=radio]:checked~.check::before {
 
 input[type=radio]:checked~label {
 	color: black;
-	font-weight: bold;
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
