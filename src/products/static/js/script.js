@@ -180,8 +180,13 @@ function getMinMax() {
         document.getElementById("domainMessage").innerHTML = "x-min must be greater than -5000";
     } else {
         document.getElementById("domainMessage").innerHTML = "";
+        if (domain <= 1000){
         document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than " + domain;
         document.getElementById("widthbox").max = domain;
+      } else {
+        document.getElementById("widthMessage").innerHTML = "Width must be greater than 0 and less than 1000";
+        document.getElementById("widthbox").max = 1000;
+      }
     }
 }
 
