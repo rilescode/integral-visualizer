@@ -46,8 +46,13 @@ To run server again after everything has been installed, follow steps 5, 8, 13-1
 heroku stuff for mark:
 
 python manage.py collectstatic
+heroku git:remote -a integral-visualizer
 
 git status
 git add --all
 git commit -m ""
 git push heroku master
+
+intall whitenoise, pyscog2, gunicorn
+
+https://integral-visualizer.herokuapp.com/
