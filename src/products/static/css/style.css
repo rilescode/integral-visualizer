@@ -16,11 +16,7 @@ input:invalid {
 }
 <<<<<<< HEAD
 /* Styles whole page,
-rainbow transition code from https://codepen.io/nohoid/pen/kIfto*/
-=======
-
-/* Styles whole page */
->>>>>>> 45a7807012e0e38cba6b04b70fc3f8d8666ec65f
+rainbow transition code from https://codepen.io/nohoid/pen/kIfto */
 .all {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -132,6 +128,7 @@ h3 {
 	margin: 0px;
 	margin-left: 1%;
 }
+
 /* Code for radios inspired by https://codepen.io/AngelaVelasquez/pen/Eypnq */
 .functContainer {
 	display: block;
