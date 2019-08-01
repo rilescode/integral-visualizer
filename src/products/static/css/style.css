@@ -14,8 +14,8 @@ label {
 input:invalid {
   border: 2px solid red;
 }
-/* Styles whole page*/
-/*rainbow transition code from https://codepen.io/nohoid/pen/kIfto*/
+
+/* Styles whole page. Rainbow transition code from https://codepen.io/nohoid/pen/kIfto */
 .all {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -127,7 +127,8 @@ h3 {
 	margin: 0px;
 	margin-left: 1%;
 }
-/*code for readios influenced by https://codepen.io/AngelaVelasquez/pen/Eypnq*/
+
+/* Code for radios inspired by https://codepen.io/AngelaVelasquez/pen/Eypnq */
 .functContainer {
 	display: block;
 	position: relative;
@@ -376,21 +377,37 @@ ol {
 	text-align: left;
 }
 
+/* Easter egg page styling */
 .egg {
 	padding: 5%;
 	text-align: center;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
+/* Accordion styling */
 .container {
-	margin: 5%;
+	margin: auto 5%;
 	padding: 1%;
-	border: 5px solid;
 	text-align: left;
 }
 
+/* Accordion styling */
 summary {
+	font-size: 20px;
 	font-weight: bold;
+	outline: none;
+}
+
+/* Accordion styling */
+p.def {
+	width: 50%;
+}
+
+/* Accordion styling */
+.def {
+	padding: 1%;
+	background: rgb(255, 255, 255, 0.75);]
+	width: 50%;
 }
 
 /* Rainbow background stuff */
