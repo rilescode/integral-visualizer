@@ -4,12 +4,19 @@ var xmin = 0;
 var sim = false;
 var remainder;
 
+var skelFunct = false;
+var smType = false;
+var uniAmnt = false;
+
+
+
 function linearClc (){
 aprVarTtlAB();
 setXmnNorm();
 document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 0;
 setDomNorm();
+skelFunct = true;
 }
 function quadClc (){
 aprVarTtlABC();
@@ -18,6 +25,7 @@ document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 0;
 document.getElementById("Cbox").value = 0
 setDomNorm();
+skelFunct = true;
 }
 function cubicClc (){
 aprVarTtlABCD();
@@ -27,6 +35,7 @@ document.getElementById("Bbox").value = 0;
 document.getElementById("Cbox").value = 0;
 document.getElementById("Dbox").value = 0;
 setDomNorm();
+skelFunct = true;
 }
 function sinClc (){
 aprVarTtlABCD();
@@ -36,6 +45,7 @@ document.getElementById("Bbox").value = 1;
 document.getElementById("Cbox").value = 0;
 document.getElementById("Dbox").value = 0;
 setDomNorm();
+skelFunct = true;
 }
 function cosClc (){
 aprVarTtlABCD();
@@ -45,6 +55,7 @@ document.getElementById("Bbox").value = 1;
 document.getElementById("Cbox").value = 0;
 document.getElementById("Dbox").value = 0;
 setDomNorm();
+skelFunct = true;
 }
 function exClc (){
 aprVarTtlAB();
@@ -53,6 +64,7 @@ document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 0;
 document.getElementById("xmin").value = 0;
 document.getElementById("xmax").value = 5;
+skelFunct = true;
 }
 function natlgClc (){
 aprVarTtlAB();
@@ -61,6 +73,7 @@ document.getElementById("Abox").value = 1;
 document.getElementById("Bbox").value = 0;
 document.getElementById("xmin").value = .1;
 document.getElementById("xmax").value = 5;
+skelFunct = true;
 }
 function ABRequired() {
     document.getElementById("Cbox").required = false;
@@ -155,6 +168,7 @@ function hasNegInt() {
 function widthRequired() {
     document.getElementById("widthbox").required = true;
     document.getElementById("numrectbox").required = false;
+
 }
 
 function rectRequired() {
@@ -236,6 +250,7 @@ function aprNumRect() {
     document.getElementById("numRect").style.display = "block";
     document.getElementById("widthNum").style.display = "none";
     ifSimtrue ();
+    uniAmnt = true;
 }
 
 function aprWidthNum() {
@@ -243,6 +258,7 @@ function aprWidthNum() {
     document.getElementById("widthNum").style.display = "block";
     document.getElementById("numRect").style.display = "none";
     getMinMax();
+    uniAmnt = true;
 }
 
 function SimRectOnly() {
@@ -253,6 +269,7 @@ function SimRectOnly() {
     aprNumRect();
     ifSimtrue ();
     document.getElementById("rectangles").checked = true;
+    smType = true;
 }
 function ifSimtrue () {
   if (sim == true) {
@@ -289,6 +306,7 @@ function OtherAllOpt() {
     document.getElementById("rectOpt").style.display = "block";
     document.getElementById("widthOpt").style.display = "block";
     ifSimtrue();
+    smType = true;
 }
 
 var acc = document.getElementsByClassName("accordion");
@@ -308,4 +326,40 @@ for (i = 0; i < acc.length; i++) {
       panel.style.display = "block";
     }
   });
+}
+
+function skelFunctFilled() {
+    if (skelFunct == false){
+      document.getElementById("skelFunctHead").style.color = 'red';
+      document.getElementById("submitMessage").innerHTML = "Please make sure all fields are filled in";
+    }else if (skelFunct == true){
+      document.getElementById("skelFunctHead").style.color = 'black';
+    }else {
+
+    }
+}
+function SumTypFilled() {
+  if (smType == false){
+    document.getElementById("sumTypeHead").style.color = 'red';
+    document.getElementById("submitMessage").innerHTML = "Please make sure all fields are filled in";
+  }else if (smType == true){
+    document.getElementById("sumTypeHead").style.color = 'black';
+  }else {
+
+  }
+}
+function UnitFilled() {
+  if (uniAmnt == false){
+    document.getElementById("uniAmntHead").style.color = 'red';
+    document.getElementById("submitMessage").innerHTML = "Please make sure all fields are filled in";
+  }else if (uniAmnt == true){
+    document.getElementById("uniAmntHead").style.color = 'black';
+  }else {
+
+  }
+}
+function checkRequired (){
+  UnitFilled();
+  SumTypFilled();
+  skelFunctFilled();
 }
