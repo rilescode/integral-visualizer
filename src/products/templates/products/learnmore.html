@@ -1,52 +1,101 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-    {% load static %}
-    <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
-    <title>Learn More</title>
-  </head>
-  <body>
-    <div class="all">
-      <div class="navigation">
-         <h1><a href="/" style="float:left;">Integral Visualizer</a></h1>
-         <h2><a href="/learnmore" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">Learn More</a></h2>
-         <h2><a href="/about" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">About</a></h2>
-         <h2><a href="/instructions" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">Instructions</a></h2>
-         <h2><a href="/" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">Home</a></h2>
-      </div>
-      <div class="bios">
-        <strong><h1>Page under construction. Sorry!</h1></strong>
-        <div class="container">
-  	       <details class="Def">
-  		         <summary>Click to <span class="open">open</span><span class="close"> close</span></summary>
-  		         <p>If your browser supports this element, it should allow you to expand and collapse these details.</p>
-  	       </details>
-  	       <details class="Def">
-  		         <summary>Click to <span class="open">open</span><span class="close">close</span></summary>		<p>If your browser supports this element, it should allow you to expand and collapse these details.</p>
-  	       </details>
-  	       <details class="Def">
-  		         <summary>Click to <span class="open">open</span><span class="close">close</span></summary>		<p>If your browser supports this element, it should allow you to expand and collapse these details.</p>
-  	       </details>
-         </div>
-      </div>
-      <div class="definitions">
-          <strong>Integral:</strong> The area under a curve.
-          <br>
-          <strong>Riemann Sum:</strong> A way of approximating the area under a curve by using rectangles of a set width. As the width gets smaller (or number of rectangles are increased) the area approaches the actual integral.
-          <br>
-          <strong>Left Endpoint Sum:</strong> A Riemann sum where the rectangles touch the function at the top left corner of the rectangle.
-          <br>
-          <strong>Right Endpoint Sum:</strong> A Riemann sum where the rectangles touch the function at the top right corner of the rectangle.
-          <br>
-          <strong>Midpoint Sum:</strong> A Riemann sum where the rectangles touch the function at the middle of the rectangle. Generally more accurate than left and right methods.
-          <br>
-          <strong>Trapezoidal Approximation:</strong> An approximation method which uses trapezoids instead of rectangles. Also equal to the average of the left and right Riemann sums.
-          <br>
-          <strong>Simpson's Rule:</strong> An approximation method which uses parabola topped rectangles instead of normal flat topped rectangles. The parabolas are graphed using an interpolation of three points (left bound, midpoint, and right bound).
-      </div>
-    </div>
-  </body>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+        {% load static %}
+        <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
+        <title>Learn More</title>
+    </head>
+    <body>
+        <div class="all">
+            <div class="navigation">
+                <h1><a href="/" style="float:left;">Integral Visualizer</a></h1>
+                <h2><a href="/learnmore" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">Learn More</a></h2>
+                <h2><a href="/about" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">About</a></h2>
+                <h2><a href="/instructions" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">Instructions</a></h2>
+                <h2><a href="/" style="margin: -1.25% 2% 0% 0%; float:right;" class="nav-links">Home</a></h2>
+            </div>
+            <div class="content">
+                <div class="typewriter">
+                    <h1>Definitions...</h1>
+                </div>
+                <br>
+                <div class="container">
+                    <details class="def">
+                        <summary>Integral</summary>
+                        <p>The area under a curve.</p>
+                        <img src="{%static 'img/integral.png' %}" alt="Browser error: image not loading" style="width: 50%;">
+                    </details>
+                    <br>
+                    <details class="def">
+                        <summary>Riemann Sum</summary>
+                        <p>A way of approximating the area under a curve by using rectangles of a set width.
+                            As the width gets smaller (or number of rectangles are increased) the area approaches
+                            the actual integral.
+                        </p>
+                        <img src="{%static 'img/demo1.png' %}" alt="Browser error: image not loading" style="width: 30%;">
+                        <img src="{%static 'img/demo2.png' %}" alt="Browser error: image not loading" style="width: 32%;">
+                        <img src="{%static 'img/demo3.png' %}" alt="Browser error: image not loading" style="width: 30%;">
+                    </details>
+                    <br>
+                    <details class="def">
+                        <summary>Left Endpoint Sum</summary>
+                        <p>A Riemann sum where the rectangles touch the function at the top left corner of the rectangle.</p>
+                        <img src="{%static 'img/left.png' %}" alt="Browser error: image not loading" style="width: 50%;">
+                    </details>
+                    <br>
+                    <details class="def">
+                        <summary>Right Endpoint Sum</summary>
+                        <p>A Riemann sum where the rectangles touch the function at the top right corner of the rectangle.</p>
+                        <img src="{%static 'img/right.png' %}" alt="Browser error: image not loading" style="width: 50%;">
+                    </details>
+                    <br>
+                    <details class="def">
+                        <summary>Midpoint Sum</summary>
+                        <p>A Riemann sum where the rectangles touch the function at the middle of the rectangle.
+                            Generally more accurate than left and right methods.
+                        </p>
+                        <img src="{%static 'img/midpoint.png' %}" alt="Browser error: image not loading" style="width: 50%;">
+                    </details>
+                    <br>
+                    <details class="def">
+                        <summary>Trapezoidal Approximation</summary>
+                        <p>An approximation method which uses trapezoids instead of rectangles.
+                            Also equal to the average of the left and right Riemann sums.
+                        </p>
+                        <img src="{%static 'img/trapezoidal.png' %}" alt="Browser error: image not loading" style="width: 50%;">
+                    </details>
+                    <br>
+                    <details class="def">
+                        <summary>Simpson's Rule</summary>
+                        <p>An approximation method which uses parabola topped rectangles instead of normal flat topped rectangles.
+                            The parabolas are graphed using an interpolation of three points (left bound, midpoint, and right bound).
+                        </p>
+                    </details>
+                </div>
+                <br>
+                <div class="typewriter">
+                    <h1>More resources!</h1>
+                </div>
+                <br>
+                <ul>
+                  <li>Integral Resources
+                    <ul>
+                      <li><a href="http://tutorial.math.lamar.edu/Classes/CalcI/IntegralsIntro.aspx">Paul's Notes</a></li>
+                      <li><a href="https://en.wikipedia.org/wiki/Integral">Wikipedia</a></li>
+                    </ul>
+                  </li>
+                  <li>Riemann Sum Resources
+                    <ul>
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </body>
 </html>
