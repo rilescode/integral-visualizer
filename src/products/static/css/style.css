@@ -157,7 +157,8 @@ h3 {
 .funcList {
 	background: rgb(255, 255, 255, 0.75);
 }
-ul li {
+
+ul li.functContainer{
 	position: relative;
 	width: 100%;
 	height: 50px;
