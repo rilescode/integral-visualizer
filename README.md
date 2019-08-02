@@ -1,5 +1,8 @@
 # integral-visualizer
 
+# You can run this locally or check out the live website: http://integral-visualizer.herokuapp.com/
+
+
 # How to run Integral Visualizer locally (Windows)
 
 # Required intallations:
@@ -23,7 +26,7 @@ git
 12. under the source directory, type in "git init"
 13. type in "git remote"
 
-# Running the code in django locally
+# Running the code in Django locally
 1. in a terminal window, type in "workon py1"
 2. cd into where the project is located until you can find the file "manage.py"
 3. type in "python manage.py runserver" once you are in the same directory as the file "manage.py"
@@ -61,4 +64,3 @@ git push heroku master
 
 intall whitenoise, pyscog2, gunicorn
 
-https://integral-visualizer.herokuapp.com/
