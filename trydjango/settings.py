@@ -127,10 +127,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 # Static files configuration for Vercel
-STATIC_ROOT = "static/"
+# Static files configuration for Vercel
+STATIC_URL = "/static/"
 
-# Always use the same configuration for both development and production
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# Use different STATIC_ROOT for development vs production
+if DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+else:
+    # For production (Vercel) - use /tmp for write permissions
+    STATIC_ROOT = "/tmp/staticfiles"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "products", "static"),
 ]
