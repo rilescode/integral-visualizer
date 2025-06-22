@@ -378,13 +378,6 @@ ol {
 	text-align: left;
 }
 
-/* Easter egg page styling */
-.egg {
-	padding: 5%;
-	text-align: center;
-	font-family: cursive, sans-serif;
-}
-
 /* Accordion styling */
 .container {
 	margin: auto 5%;

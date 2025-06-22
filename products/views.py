@@ -64,10 +64,5 @@ def instructions_view(request):
     return render(request, "products/instructions.html", {})
 
 
-@never_cache
-def egg_view(request):
-    return render(request, "products/egg.html", {})
-
-
 def image_view(request):
     return render(request, "products/image_view.html")

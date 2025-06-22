@@ -25,7 +25,6 @@ from products.views import (
     learnmore_view,
     about_view,
     instructions_view,
-    egg_view,
 )
 
 urlpatterns = [
@@ -33,7 +32,6 @@ urlpatterns = [
     path("about/", about_view),
     path("learnmore/", learnmore_view),
     path("instructions/", instructions_view),
-    path("egg/", egg_view),
     path("integral/image", image_view),
     path("admin/", admin.site.urls),
 ]

@@ -128,5 +128,3 @@ python manage.py collectstatic
 # Create superuser account
 python manage.py createsuperuser
 ```
-
-# FAKE
