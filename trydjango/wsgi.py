@@ -17,4 +17,3 @@ application = get_wsgi_application()
 
 # For Vercel deployment - expose as both 'app' and 'handler'
 app = application
-handler = application
