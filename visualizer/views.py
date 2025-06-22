@@ -4,7 +4,7 @@ from .riemann import calculateSum
 import os
 from django.core.cache import cache
 import platform
-from django.views.decorators.cache import never_cache
+from django.views.decorators.cache import cache_page
 
 # Create your views here.
 
