@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import platform
 from dotenv import load_dotenv
+import dj_database_url
 
 my_platform = str(platform.system())
 if my_platform == "Darwin" or my_platform == "Linux":
@@ -43,7 +44,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 
-ALLOWED_HOSTS = ['integral-visualizer.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', ".vercel.app"]
 
 
 # Application definition
