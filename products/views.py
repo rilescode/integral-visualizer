@@ -14,42 +14,7 @@ from django.views.decorators.cache import never_cache
 @never_cache
 def improved_view(request):
     other_sum = 0
-
-    # gets the system the person is running to see bkslash or fwdslash
-    my_platform = str(platform.system())
-    if my_platform == "Darwin" or my_platform == "Linux":
-        slash = "/"
-    else:
-        slash = "\\"
-
-    # Root directory
-    fileDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-    print(fileDir)
-
-    # Path where I want the file to be
-    epic_path = (
-        fileDir
-        + slash
-        + "products"
-        + slash
-        + "static"
-        + slash
-        + "img"
-        + slash
-        + "graphTest3.png"
-    )
-    print("epic path: %s" % epic_path)
-
-    # Delete old file, and create new one in root directory
-    os.remove(epic_path)
-    open("graphTest3.png", "w+")
-
-    # Path in root directory
-    old_path = fileDir + slash + "graphTest3.png"
-    print("old path: %s" % old_path)
-
-    # Move file to correct directory
-    os.rename(old_path, epic_path)
+    graph_url = None
 
     if request.method == "POST":
 
@@ -65,7 +30,7 @@ def improved_view(request):
         wdth_amnt = request.POST.get("wdth-amnt")
         sum_type = request.POST.get("sumtype")
 
-        other_sum = calculateSum(
+        other_sum, graph_url = calculateSum(
             function_type,
             a,
             b,
@@ -79,7 +44,7 @@ def improved_view(request):
             sum_type,
         )
 
-    my_context = {"my_sum": other_sum}
+    my_context = {"my_sum": other_sum, "graph_url": graph_url}
 
     return render(request, "products/index.html", my_context)
 

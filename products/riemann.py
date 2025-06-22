@@ -12,6 +12,9 @@ import math
 import os
 import shutil
 import platform
+import io
+import uuid
+from vercel_blob import put
 
 INCREASE = 0.0001  # do not change!
 
@@ -20,13 +23,13 @@ def calculateSum(
     function_type, a, b, c, d, xmin, xmax, wdth_rect, rct_amnt, wdth_amnt, sum_type
 ):
     """
-    Calculates the riemann sum, creates the function, plots function and rectangles, and saves the plot
+    Calculates the riemann sum, creates the function, plots function and rectangles, and saves the plot to Vercel Blob
 
     Args:
        function_type (int): the function; eg: 0 = linear,  1 = quadratic, etc
        a (float): the "A" constant
        b (float): the "B" constant
-       c (float): the "D" constant
+       c (float): the "C" constant
        d (float): the "D" constant
        xmin (float): the minimum x value
        xmax (float): the maximum x value
@@ -36,59 +39,21 @@ def calculateSum(
        sum_type (int): the type of sum; eg: 0 = left endpoint, 1 = right endpoint, etc
 
     Returns:
-       float: the riemann sum calculation
-
+       tuple: (riemann_sum_calculation, graph_url)
     """
 
-    # gets the system the person is running to see bkslash or fwdslash
-    my_platform = str(platform.system())
-    if my_platform == "Darwin" or my_platform == "Linux":
-        slash = "/"
-    else:
-        slash = "\\"
+    plt.clf()  # Clears previous plot
 
-    # Root directory
-    fileDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-    print(fileDir)
-
-    # Path where I want the file to be
-    epic_path = (
-        fileDir
-        + slash
-        + "products"
-        + slash
-        + "static"
-        + slash
-        + "img"
-        + slash
-        + "graphTest3.png"
-    )
-    print("epic path: %s" % epic_path)
-
-    # Delete old file, and create new one in root directory
-    os.remove(epic_path)
-    open("graphTest3.png", "w+")
-
-    # Path in root directory
-    old_path = fileDir + slash + "graphTest3.png"
-    print("old path: %s" % old_path)
-
-    # Move file to correct directory
-    os.rename(old_path, epic_path)
-
-    plt.clf()
-
-    plt.savefig(epic_path)
-    # Clears previous plot
-    # plt.clf()
+    # CREATE THE FIGURE FIRST, BEFORE CALCULATIONS
+    plt.figure(figsize=(10, 8))  # Set figure size
+    plt.axhline(y=0, color="k")  # x axis
+    plt.axvline(x=0, color="k")  # y axis
 
     FUNCTION = int(function_type)
-
     A = float(a)
     B = float(b)
     C = float(c)
     D = float(d)
-
     xMin = float(xmin)
     xMax = float(xmax)
 
@@ -108,23 +73,19 @@ def calculateSum(
     else:
         xSimp = np.arange(xMin, xMax + 1, INCREASE)
         ySimp = createYList(xSimp, FUNCTION, A, B, C, D)
-
         xList = np.arange(xMin, xMax, INCREASE)
         yList = createYList(xList, FUNCTION, A, B, C, D)
 
-    # Calculates sum
-    if SUM_TYPE == 3:
-        sum = riemannTrap(yList, DELTA_X, xMin)
-    elif SUM_TYPE < 3:
-        sum = riemann(yList, NUM_RECT, xMin, xMax, SUM_TYPE)
-    else:
-        sum = simp(ySimp, NUM_RECT, xMin, xMax)
-
-    plt.axhline(y=0, color="k")  # x axis
-    plt.axvline(x=0, color="k")  # y axis
-
-    # Graphs function
+    # Plot the function FIRST
     plt.plot(xList, yList, linewidth=3)
+
+    # calculate sum (which will add rectangles to the existing plot)
+    if SUM_TYPE == 3:
+        sum_result = riemannTrap(yList, DELTA_X, xMin)
+    elif SUM_TYPE < 3:
+        sum_result = riemann(yList, NUM_RECT, xMin, xMax, SUM_TYPE)
+    else:
+        sum_result = simp(ySimp, NUM_RECT, xMin, xMax)
 
     # zooming out on graph
     plt.plot(xMin - INCREASE, 0)
@@ -134,13 +95,39 @@ def calculateSum(
 
     plt.grid(True)
 
-    plt.savefig(epic_path)
+    # Save to buffer
+    buffer = io.BytesIO()
+    plt.savefig(buffer, format="png", dpi=300, bbox_inches="tight")
+    buffer.seek(0)
+
+    # Generate unique filename using UUID
+    filename = f"riemann_graph_{uuid.uuid4().hex}.png"
+
+    try:
+        blob = put(
+            filename,
+            buffer.getvalue(),
+            {
+                "access": "public",
+                "contentType": "image/png",
+                "addRandomSuffix": "False",  # prevents random suffixes
+                "cacheControlMaxAge": "3600",  # Cache for 1 hour
+            },
+        )
+        graph_url = blob.get("url")
+        print(f"Graph uploaded successfully: {graph_url}")
+    except Exception as e:
+        print(f"Error uploading graph: {e}")
+        graph_url = None
+    finally:
+        plt.clf()  # Clear the plot
+        buffer.close()
 
     # bug adjustment ("don't worry about it")
-    if sum == -0:
-        sum = 0.0
+    if sum_result == -0:
+        sum_result = 0.0
 
-    return sum
+    return sum_result, graph_url
 
 
 def createYList(xList, type, A, B, C, D):
