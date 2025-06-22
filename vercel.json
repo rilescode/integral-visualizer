@@ -22,10 +22,5 @@
   ],
   "env": {
     "DJANGO_SETTINGS_MODULE": "trydjango.settings"
-  },
-  "functions": {
-    "trydjango/wsgi.py": {
-      "includeFiles": "**"
-    }
   }
 }
