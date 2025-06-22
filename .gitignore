@@ -133,4 +133,4 @@ trydjango/settings/local.py
 graphTest3.png
 products/static/img/graphTest3.png
 
-staticfiles/
+static/
