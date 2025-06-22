@@ -130,3 +130,5 @@ Thumbs.db
 # Project specific
 output.txt
 trydjango/settings/local.py
+db.sqlite3
+src/products/static/img/graphTest3.png
