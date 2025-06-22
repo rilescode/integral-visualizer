@@ -9,7 +9,7 @@ from django.views.decorators.cache import never_cache
 # Create your views here.
 
 
-@never_cache
+@cache_page(60)  # Cache for 1 minute
 def improved_view(request):
     other_sum = 0
     graph_url = None
@@ -47,17 +47,17 @@ def improved_view(request):
     return render(request, "index.html", my_context)
 
 
-@never_cache
+@cache_page(60 * 15)  # Cache for 15 minutes
 def about_view(request):
     return render(request, "about.html", {})
 
 
-@never_cache
+@cache_page(60 * 15)  # Cache for 15 minutes
 def learnmore_view(request):
     return render(request, "learnmore.html", {})
 
 
-@never_cache
+@cache_page(60 * 15)  # Cache for 15 minutes
 def instructions_view(request):
     return render(request, "instructions.html", {})
 
