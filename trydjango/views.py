@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from .forms import ProductForm
-from .models import Product
 import math
 from .riemann import calculateSum
 import os
@@ -46,23 +44,23 @@ def improved_view(request):
 
     my_context = {"my_sum": other_sum, "graph_url": graph_url}
 
-    return render(request, "products/index.html", my_context)
+    return render(request, "index.html", my_context)
 
 
 @never_cache
 def about_view(request):
-    return render(request, "products/about.html", {})
+    return render(request, "about.html", {})
 
 
 @never_cache
 def learnmore_view(request):
-    return render(request, "products/learnmore.html", {})
+    return render(request, "learnmore.html", {})
 
 
 @never_cache
 def instructions_view(request):
-    return render(request, "products/instructions.html", {})
+    return render(request, "instructions.html", {})
 
 
 def image_view(request):
-    return render(request, "products/image_view.html")
+    return render(request, "image_view.html")
