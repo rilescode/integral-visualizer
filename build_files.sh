@@ -7,5 +7,4 @@ echo "Building the project..."
 pip3 install -r requirements.txt
 
 # Collect static files
-cd src
 python3 -m django collectstatic --noinput --clear --settings=trydjango.settings

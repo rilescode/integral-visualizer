@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/trydjango/wsgi.py",
+      "src": "trydjango/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.11.4" }
     },
@@ -21,15 +21,10 @@
     },
     {
       "src": "/(.*)",
-      "dest": "src/trydjango/wsgi.py"
+      "dest": "trydjango/wsgi.py"
     }
   ],
   "env": {
     "DJANGO_SETTINGS_MODULE": "trydjango.settings"
-  },
-  "functions": {
-    "src/trydjango/wsgi.py": {
-      "includeFiles": "{src/**,products/**,templates/**,*.py}"
-    }
   }
 }
