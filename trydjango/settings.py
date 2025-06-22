@@ -132,13 +132,13 @@ STATIC_URL = "/static/"
 
 # Use different STATIC_ROOT for development vs production
 if DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "products", "static"),
+    ]
+    STATIC_ROOT = None
 else:
-    # For production (Vercel) - use /tmp for write permissions
-    STATIC_ROOT = "/tmp/staticfiles"
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "products", "static"),
-]
+    STATICFILES_DIRS = []
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # WhiteNoise configuration
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
