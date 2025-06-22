@@ -1,66 +1,130 @@
-# integral-visualizer
+# Integral Visualizer
 
-# You can run this locally or check out the live website: http://integral-visualizer.herokuapp.com/
+A Django web application for visualizing mathematical integrals.
 
+## Live Demo
 
-# How to run Integral Visualizer locally (Windows)
+### Website: https://integral-visualizer.vercel.app/
 
-# Required intallations:
-heroku
-python
-git
+## Prerequisites
 
-# Intstallation
-1. Download the zip file on from GitHub
-2. Unzip, and put the folder in the directory of your choosing
-3. Install the latest version of python, including pip
-4. open terminal and type in "pip install virtualenvwrapper-win"
-5. in that same terminal window, type in "mkvirtualenv py1"
-6. in that same terminal window, type in "workon py1"
-7. in that same terminal window, type in "pip install django"
-9. in a DIFFERENT terminal window, type in "workon py1"
-8. in that same terminal window, type in "pip install numpy"
-9. in that same terminal window, type in "pip install matplotlib"
-10. in that same terminal window, type in "pip install gunicorn dj-database-url"
-11. in that same terminal window, type in "pip install whitenoise"
-12. under the source directory, type in "git init"
-13. type in "git remote"
+- Python 3.8+
+- Git
+- pip (Python package manager)
 
-# Running the code in Django locally
-1. in a terminal window, type in "workon py1"
-2. cd into where the project is located until you can find the file "manage.py"
-3. type in "python manage.py runserver" once you are in the same directory as the file "manage.py"
-4. copy the url given in the terminal to your browser
+## Local Development Setup
 
-# How to run Integral Visualizer locally (Mac OS)
+### Windows Installation
 
-1. Download the zip file on from GitHub
-2. Unzip, and put the folder in the directory of your choosing
-3. Install the latest version of python, including pip
-4. In terminal do the following commands (steps 5-14) :
-5. cd “folder directory where code is located”
-6. pip install virtualenv
-7. virtualenv -p python3 .
-8. source bin/activate
-9. pip install django
-10. pip install numpy
-11. pip install matplotlib
-12. pip install Pillow
-13. cd src
-14. python manage.py runserver
-15. Copy the given url into your browser
+1. **Download and Setup**
 
-To run server again after everything has been installed, follow steps 5, 8, 13-15
+   ```bash
+   # Clone or download the repository
+   git clone <repository-url>
+   cd integral-visualizer
+   ```
 
-heroku stuff for mark:
+2. **Create Virtual Environment**
 
+   ```bash
+   # Install virtualenv wrapper
+   pip install virtualenvwrapper-win
+
+   # Create virtual environment
+   mkvirtualenv integral-visualizer
+
+   # Activate environment
+   workon integral-visualizer
+   ```
+
+3. **Install Dependencies**
+
+   ```bash
+   # Install all dependencies from requirements.txt
+   pip install -r requirements.txt
+   ```
+
+4. **Run Development Server**
+
+   ```bash
+   # Navigate to project directory (where manage.py is located)
+   cd src  # or wherever manage.py is located
+
+   # Run migrations
+   python manage.py migrate
+
+   # Collect static files
+   python manage.py collectstatic --noinput --clear
+
+   # Start development server
+   python manage.py runserver
+   ```
+
+5. **Access Application**
+   - Open your browser and go to `http://127.0.0.1:8000/`
+
+### macOS/Linux Installation
+
+1. **Download and Setup**
+
+   ```bash
+   # Clone or download the repository
+   git clone <repository-url>
+   cd integral-visualizer
+   ```
+
+2. **Create Virtual Environment**
+
+   ```bash
+   # Create virtual environment
+   python3 -m venv venv
+
+   # Activate virtual environment
+   source venv/bin/activate
+   ```
+
+3. **Install Dependencies**
+
+   ```bash
+   # Install all dependencies from requirements.txt
+   pip install -r requirements.txt
+   ```
+
+4. **Run Development Server**
+
+   ```bash
+   # Run migrations
+   python manage.py migrate
+
+   # Collect static files
+   python manage.py collectstatic --noinput --clear
+
+   # Start development server
+   python manage.py runserver
+   ```
+
+5. **Access Application**
+   - Open your browser and go to `http://127.0.0.1:8000/`
+
+## Development Commands
+
+```bash
+# Activate virtual environment
+workon integral-visualizer  # Windows
+source venv/bin/activate    # macOS/Linux
+
+# Run development server
+python manage.py runserver
+
+# Run migrations
+python manage.py migrate
+
+# Make migrations (after model changes)
+python manage.py makemigrations
+
+# Collect static files
 python manage.py collectstatic
-heroku git:remote -a integral-visualizer
 
-git status
-git add --all
-git commit -m ""
-git push heroku master
-
-intall whitenoise, pyscog2, gunicorn
-
+# Create superuser account
+python manage.py createsuperuser
+```
