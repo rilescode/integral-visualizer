@@ -3,14 +3,14 @@
   "outputDirectory": "static/",
   "buildCommand": "python3 -m django collectstatic --noinput --clear --settings=trydjango.settings",
   "functions": {
-    "trydjango/wsgi.py": {
+    "api/wsgi.py": {
       "maxDuration": 15
     }
   },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "trydjango/wsgi.py"
+      "dest": "api/wsgi.py"
     }
   ],
   "env": {
