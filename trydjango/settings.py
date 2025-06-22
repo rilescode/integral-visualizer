@@ -128,20 +128,23 @@ USE_TZ = True
 
 # Static files configuration for Vercel
 # Static files configuration for Vercel
-STATIC_URL = "/static/"
+# Static files (CSS, JavaScript, images)
 
-# Use different STATIC_ROOT for development vs production
+STATIC_URL = "/static/"
 if DEBUG:
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, "products", "static"),
-    ]
-    STATIC_ROOT = None
-else:
-    STATICFILES_DIRS = []
-    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    STATIC_URL = "/dev_static/"  # Development URL for static files
+
+# Add your local static file directories here
+STATICFILES_DIRS = [
+    BASE_DIR
+    / "dev_static",  # This allows Django to look for static files in the 'dev_static' directory
+]
+
+# Directory where static files will be stored after running collectstatic
+STATIC_ROOT = BASE_DIR / "static"
 
 # WhiteNoise configuration
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Ensure static files directory exists
-os.makedirs(STATIC_ROOT, exist_ok=True)
+# os.makedirs(STATIC_ROOT, exist_ok=True)
