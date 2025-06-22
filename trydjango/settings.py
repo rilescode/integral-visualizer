@@ -133,13 +133,13 @@ STATIC_URL = "/static/"
 if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, "src", "products", "static"),
+        os.path.join(BASE_DIR, "products", "static"),
     ]
 else:
     # For production (Vercel)
     STATIC_ROOT = "/tmp/staticfiles"  # Use /tmp for serverless
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, "src", "products", "static"),
+        os.path.join(BASE_DIR, "products", "static"),
     ]
 
 # WhiteNoise configuration
