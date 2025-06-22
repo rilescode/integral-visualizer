@@ -130,17 +130,17 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 # For development
-if DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, "products", "static"),
-    ]
-else:
-    # For production (Vercel)
-    STATIC_ROOT = "/tmp/staticfiles"  # Use /tmp for serverless
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, "products", "static"),
-    ]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "products", "static"),
+]
+# if DEBUG:
+# else:
+#     # For production (Vercel)
+#     STATIC_ROOT = "/tmp/staticfiles"  # Use /tmp for serverless
+#     STATICFILES_DIRS = [
+#         os.path.join(BASE_DIR, "products", "static"),
+#     ]
 
 # WhiteNoise configuration
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
