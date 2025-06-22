@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <HTML lang="en" dir="ltr">
     <head>
-        @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-        {% load static %}
-        <link href="{% static 'img\icons\android-icon-144x144.png' %}" rel="shortcut icon" type="image/png">
-        <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
-        <script src="{% static 'js/script.js'%}"></script>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="{% static 'img/icons/android-icon-144x144.png' %}" rel="shortcut icon" type="image/png">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/script.js' %}"></script>
+    <title>Home</title>
     </head>
-    <header>
-        <title>Home</title>
-    </header>
     <form action = '.' method = 'POST'>
         {% csrf_token %}
         <body>
