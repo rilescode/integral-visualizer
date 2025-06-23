@@ -20,7 +20,7 @@ A Django web application for visualizing mathematical integrals.
 
    ```bash
    # Clone or download the repository
-   git clone <repository-url>
+   git clone https://github.com/rilescode/integral-visualizer.git
    cd integral-visualizer
    ```
 
@@ -69,7 +69,7 @@ A Django web application for visualizing mathematical integrals.
 
    ```bash
    # Clone or download the repository
-   git clone <repository-url>
+   git clone https://github.com/rilescode/integral-visualizer.git
    cd integral-visualizer
    ```
 
